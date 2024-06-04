@@ -35,7 +35,7 @@ informative:
 
 --- abstract
 
-TODO Abstract
+Lightweight location tracking tags are in wide use to allow users to locate items. These tags function as a component of a crowdsourced tracking network in which devices belonging to other network users (e.g., phones) report which tags they see and their location, thus allowing the owner of the tag to determine where their tag was most recently seen. While there are many legitimate uses of these tags, they are also susceptible to misuse for the purpose of stalking and abuse. A protocol that allows others to detect unwanted location trackers must be incorporate an understanding of the unwanted tracking landscape today. This document provides a threat analysis for this purpose.
 
 
 --- middle
