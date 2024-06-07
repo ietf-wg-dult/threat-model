@@ -80,9 +80,18 @@ Table of Contents
 
    1.  Introduction
    2.  Conventions and Definitions
-   3.  Security Considerations
-   4.  IANA Considerations
-   5.  Normative References
+   3.  Unwanted Tracking Technical Overview
+     3.1.  How someone can be tracked using a Bluetooth device
+     3.2.  Existing protections against unwanted tracking
+   4.  Security Considerations
+     4.1.  Taxonomy of unwanted tracking
+       4.1.1.  Example Scenarios
+       4.1.2.  Bluetooth vs. other technologiesz
+     4.2.  What is in scope
+     4.3.  What is out of scope
+   5.  Design requirements for preventing unwanted location tracking
+   6.  IANA Considerations
+   7.  Normative References
    Acknowledgments
    Author's Address
 
@@ -98,15 +107,35 @@ Table of Contents
    BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
    capitals, as shown here.
 
-3.  Security Considerations
+3.  Unwanted Tracking Technical Overview
+
+   TODO Overview
+
+3.1.  How someone can be tracked using a Bluetooth device
+
+3.2.  Existing protections against unwanted tracking
+
+4.  Security Considerations
 
    TODO Security
 
-4.  IANA Considerations
+4.1.  Taxonomy of unwanted tracking
+
+4.1.1.  Example Scenarios
+
+4.1.2.  Bluetooth vs. other technologiesz
+
+4.2.  What is in scope
+
+4.3.  What is out of scope
+
+5.  Design requirements for preventing unwanted location tracking
+
+6.  IANA Considerations
 
    This document has no IANA actions.
 
-5.  Normative References
+7.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
