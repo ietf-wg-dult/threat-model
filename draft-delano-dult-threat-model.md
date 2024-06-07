@@ -49,16 +49,33 @@ TODO Introduction
 
 {::boilerplate bcp14-tagged}
 
+# Unwanted Tracking Technical Overview
+
+TODO Overview
+
+## How someone can be tracked using a Bluetooth device
+
+## Existing protections against unwanted tracking
 
 # Security Considerations
 
 TODO Security
 
+## Taxonomy of unwanted tracking
+
+### Example Scenarios
+
+### Bluetooth vs. other technologiesz
+
+## What is in scope
+
+## What is out of scope
+
+# Design requirements for preventing unwanted location tracking
 
 # IANA Considerations
 
 This document has no IANA actions.
-
 
 --- back
 
