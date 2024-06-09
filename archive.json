@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-06-06T00:13:09.248886+00:00",
+  "timestamp": "2024-06-09T00:15:18.016395+00:00",
   "repo": "maggiedelano/draft-delano-dult-threat-model",
   "labels": [
     {
@@ -50,5 +50,48 @@
     }
   ],
   "issues": [],
-  "pulls": []
+  "pulls": [
+    {
+      "number": 1,
+      "id": "PR_kwDOMB0Qas5x0yXG",
+      "title": "Draft of abstract",
+      "url": "https://github.com/maggiedelano/draft-delano-dult-threat-model/pull/1",
+      "state": "MERGED",
+      "author": "exploretechsafety",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Draft of abstract",
+      "createdAt": "2024-06-07T18:11:28Z",
+      "updatedAt": "2024-06-07T18:14:19Z",
+      "baseRepository": "maggiedelano/draft-delano-dult-threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "8cebe7571334bbb179cdb906f5520b83d1efcb92",
+      "headRepository": "exploretechsafety/draft-delano-dult-threat-model",
+      "headRefName": "main",
+      "headRefOid": "7009d6a75d1ea0304ecb68108c28ad2c4c0c7888",
+      "closedAt": "2024-06-07T18:14:19Z",
+      "mergedAt": "2024-06-07T18:14:19Z",
+      "mergedBy": "maggiedelano",
+      "mergeCommit": {
+        "oid": "dfc13c4cc7c4ed92ec9897c13860cacd8addd2f3"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOMB0Qas59ea6Q",
+          "commit": {
+            "abbreviatedOid": "7009d6a"
+          },
+          "author": "maggiedelano",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-06-07T18:14:12Z",
+          "updatedAt": "2024-06-07T18:14:12Z",
+          "comments": []
+        }
+      ]
+    }
+  ]
 }
