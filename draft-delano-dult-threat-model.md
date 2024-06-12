@@ -44,15 +44,15 @@ Lightweight location tracking tags are in wide use to allow users to locate item
 
 Location tracking tags are widely-used devices that allow users to locate items. These tags function as a component of a crowdsourced tracking network in which devices belonging to other network users (e.g., phones) report on the location of tags they have seen. At a high level, this works as follows: 
 
--	Tags ("accessories") broadcast an advertisement payload containing accessory-specific information. The payload also indicates whether the accessory is separated from its owner and thus potentially lost.
--	Devices belonging to other users ("non-owner devices") observe those payloads and if the payload is in a separated mode, reports its location to some central service.
--	The owner queries the central service for the location of their accessory.
+  - Tags ("accessories") broadcast an advertisement payload containing accessory-specific information. The payload also indicates whether the accessory is separated from its owner and thus potentially lost.
+  - Devices belonging to other users ("non-owner devices") observe those payloads and if the payload is in a separated mode, reports its location to some central service.
+  - The owner queries the central service for the location of their accessory.
 
 A naive implementation of this design exposes both a tag’s user and anyone who might be targeted for location tracking by a tag’s user, to considerable privacy risk. In particular: 
 
--	If accessories simply have a fixed identifier that is reported back to the tracking network, then the central server is able to track any accessory without the user's assistance, which is clearly undesirable.
--	Any attacker who can guess a tag ID can query the central server for its location.
--	An attacker can surreptitiously plant an accessory on a target and thus track them by tracking their "own" accessory.
+  - If accessories simply have a fixed identifier that is reported back to the tracking network, then the central server is able to track any accessory without the user's assistance, which is clearly undesirable.
+  - Any attacker who can guess a tag ID can query the central server for its location.
+  - An attacker can surreptitiously plant an accessory on a target and thus track them by tracking their "own" accessory.
 
 In order to minimize these privacy risks, it is necessary to analyze and be able to model different privacy threats. This document uses a flexible framework to provide analysis and modeling of different threat actors, as well as models of potential victims based on their threat context. It defines how these attacker and victim persona models can be combined into threat models. It is intended to work in concert with the requirements defined in [I-D.detecting-unwanted-location-trackers](https://ekr.github.io/draft-fossaceca-dult-finding/draft-fossaceca-dult-finding.html#I-D.detecting-unwanted-location-trackers), which facilitate detection of unwanted tracking tags.
 
@@ -80,36 +80,36 @@ To create a taxonomy of threat actors, we can borrow from Dev et al’s Models o
 
 The characteristics of threat actors may be described as follows. This is not intended to be a full and definitive taxonomy, but an example of how existing persona modeling concepts can be applied and modified.
 
--	Expertise level
- - Expert: The attacker works in or is actively studying computer science, networking, computer applications, IT, or another technical field.
- - Non-expert: The attacker does not work or study in, or is a novice in, a technical field.
--	Proximity to victim
- - High: Lives with victim or has easy physical access to victim and/or victim’s possessions.
- - Medium: Has some physical access to the person and possessions of someone who lives with victim, such as when the attacker and victim are co-parenting a child.
- - Low: Does not live with or have physical access to victim and/or victim’s possessions.
--	Access to resources
- - High: The attacker has access to resources that may amplify the impact of other characteristics. These could include, but are not limited to, funds (or control over “shared” funds), persons assisting them in stalking behavior, or employment that provides privileged access to technology or individuals’ personal information.
- - Low: The attacker has access to few or no such resources.
+  - Expertise level
+    - Expert: The attacker works in or is actively studying computer science, networking, computer applications, IT, or another technical field.
+    - Non-expert: The attacker does not work or study in, or is a novice in, a technical field.
+  - Proximity to victim
+    - High: Lives with victim or has easy physical access to victim and/or victim’s possessions.
+    - Medium: Has some physical access to the person and possessions of someone who lives with victim, such as when the attacker and victim are co-parenting a child.
+    - Low: Does not live with or have physical access to victim and/or victim’s possessions.
+  - Access to resources
+    - High: The attacker has access to resources that may amplify the impact of other characteristics. These could include, but are not limited to, funds (or control over “shared” funds), persons assisting them in stalking behavior, or employment that provides privileged access to technology or individuals’ personal information.
+    - Low: The attacker has access to few or no such resources.
 
 In addition, the victim also has characteristics which influence the threat analysis. As with attacker characteristics, these are not intended as a definitive taxonomy.
 
-- Expertise level
- - Expert: The victim works in or is actively studying computer science, networking, computer applications, IT, or another technical field.
- - Non-expert: The victim does not work or study in, or is a novice in, a technical field.
-- Access to resources
- - High: The victim is generally able to safely access practical and relevant resources. These might include funds to pay a car mechanic or private investigator, law enforcement or legal assistance, or other resources.
- - Low: The victim is generally unable to safely access practical and relevant resources. These might include money to pay a car mechanic or private investigator, law enforcement or legal assistance, or other resources.
-- Access to technological safeguards
- - Normal: The victim is able to safely use, and has access to, technological safeguards such as active scanning apps.
- - Impaired: The victim is able to safely use, and has access to, technological safeguards such as active scanning apps, but is unable to use their full capacity. 
- - Low: The victim is not able to use technological safeguards such as active scanning apps, due to reasons of safety or access.
+  - Expertise level
+    - Expert: The victim works in or is actively studying computer science, networking, computer applications, IT, or another technical field.
+    - Non-expert: The victim does not work or study in, or is a novice in, a technical field.
+  - Access to resources
+    - High: The victim is generally able to safely access practical and relevant resources. These might include funds to pay a car mechanic or private investigator, law enforcement or legal assistance, or other resources.
+    - Low: The victim is generally unable to safely access practical and relevant resources. These might include money to pay a car mechanic or private investigator, law enforcement or legal assistance, or other resources.
+  - Access to technological safeguards
+    - Normal: The victim is able to safely use, and has access to, technological safeguards such as active scanning apps.
+    - Impaired: The victim is able to safely use, and has access to, technological safeguards such as active scanning apps, but is unable to use their full capacity. 
+    - Low: The victim is not able to use technological safeguards such as active scanning apps, due to reasons of safety or access.
 
 It is also appropriate to define who is using the tracking tags and incorporate this into a model. This is because if protocols overly deprioritize the privacy of tracking tags’ users, an attacker could use a victim’s own tag to track them. This is primarily a hypothetical given current designs which rotate public device identifiers every 15 minutes, but could become a reality if the possibility of an attacker using a victim’s own tag against them is not considered in protocol standards. Beck et al describe a possible technological solution to the problem of user privacy vs privacy of other potential victims [Beck2023](https://eprint.iacr.org/2023/1332.pdf).
 
-- Tracking tag usage
- - Attacker only: The attacker controls one or more tracking tags, but the victim does not.
- - Victim only: The victim controls one or more tracking tags, but the attacker does not.
- - Attacker and victim: Both the attacker and victim control one or more tracking tags.
+  - Tracking tag usage
+    - Attacker only: The attacker controls one or more tracking tags, but the victim does not.
+    - Victim only: The victim controls one or more tracking tags, but the attacker does not.
+    - Attacker and victim: Both the attacker and victim control one or more tracking tags.
 
 ### Example scenarios with analyses
 
@@ -207,10 +207,10 @@ The scope of this threat analysis includes any easily-concealable accessory that
 
 There are many types of technology that can be used for location tracking. In many cases, the threat analysis would be similar, as the contexts in which potential attackers and victims exist and use the technology are similar. However, it would be infeasible to attempt to describe a threat analysis for each possible technology in this document. We have therefore limited its scope to location-tracking accessories that are small enough to be easily concealed, and able to broadcast their locations to other devices. The following are out of scope for this document:
 
-•	App-based technologies such as parental monitoring apps. 
-•	Other Internet of Things (IoT) devices.
-•	Connected cars.
-•	User accounts for cloud services or social media.
+  - App-based technologies such as parental monitoring apps. 
+  - Other Internet of Things (IoT) devices.
+  - Connected cars.
+  - User accounts for cloud services or social media.
 
 # Design requirements for preventing unwanted location tracking
 
