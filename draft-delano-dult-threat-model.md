@@ -54,7 +54,7 @@ A naive implementation of this design exposes both a tag’s user and anyone who
 -	Any attacker who can guess a tag ID can query the central server for its location.
 -	An attacker can surreptitiously plant an accessory on a target and thus track them by tracking their "own" accessory.
 
-In order to minimize these privacy risks, it is necessary to analyze and be able to model different privacy threats. This document uses a flexible framework to provide analysis and modeling of different threat actors, as well as models of potential victims based on their threat context. It defines how these attacker and victim persona models can be combined into threat models. It is intended to work in concert with the requirements defined in [[I-D.detecting-unwanted-location-trackers]([url](https://ekr.github.io/draft-fossaceca-dult-finding/draft-fossaceca-dult-finding.html#I-D.detecting-unwanted-location-trackers))], which facilitate detection of unwanted tracking tags.
+In order to minimize these privacy risks, it is necessary to analyze and be able to model different privacy threats. This document uses a flexible framework to provide analysis and modeling of different threat actors, as well as models of potential victims based on their threat context. It defines how these attacker and victim persona models can be combined into threat models. It is intended to work in concert with the requirements defined in [I-D.detecting-unwanted-location-trackers](https://ekr.github.io/draft-fossaceca-dult-finding/draft-fossaceca-dult-finding.html#I-D.detecting-unwanted-location-trackers), which facilitate detection of unwanted tracking tags.
 
 
 
@@ -72,11 +72,11 @@ TODO Overview
 
 # Security Considerations
 
-Incorporation of this threat analysis into the DULT protocol does not introduce any security risks not already inherent in the underlying Bluetooth tracking tag protocols. Existing attempts to prevent unwanted tracking by the owner of a tag have been criticized as potentially making it easier to engage in unwanted tracking of the owner of a tag. However, Beck et al [[Beck2023]([url](https://eprint.iacr.org/2023/1332.pdf))] have demonstrated a technological solution that employs secret sharing and error correction coding.
+Incorporation of this threat analysis into the DULT protocol does not introduce any security risks not already inherent in the underlying Bluetooth tracking tag protocols. Existing attempts to prevent unwanted tracking by the owner of a tag have been criticized as potentially making it easier to engage in unwanted tracking of the owner of a tag. However, Beck et al [Beck2023](https://eprint.iacr.org/2023/1332.pdf) have demonstrated a technological solution that employs secret sharing and error correction coding.
 
 ## Taxonomy of unwanted tracking
 
-To create a taxonomy of threat actors, we can borrow from Dev et al’s Models of Applied Privacy (MAP) framework [[Dev2023]([url](https://dl.acm.org/doi/fullHtml/10.1145/3544548.3581484))]. This framework is intended for organizations and includes organizational threats and taxonomies of potential privacy harms. Therefore, it cannot be applied wholesale. However, its flexibility, general approach to personas, and other elements, are applicable or can be modified to fit the DULT context.
+To create a taxonomy of threat actors, we can borrow from Dev et al’s Models of Applied Privacy (MAP) framework [Dev2023](https://dl.acm.org/doi/fullHtml/10.1145/3544548.3581484). This framework is intended for organizations and includes organizational threats and taxonomies of potential privacy harms. Therefore, it cannot be applied wholesale. However, its flexibility, general approach to personas, and other elements, are applicable or can be modified to fit the DULT context.
 
 The characteristics of threat actors may be described as follows. This is not intended to be a full and definitive taxonomy, but an example of how existing persona modeling concepts can be applied and modified.
 
@@ -104,7 +104,7 @@ In addition, the victim also has characteristics which influence the threat anal
  - Impaired: The victim is able to safely use, and has access to, technological safeguards such as active scanning apps, but is unable to use their full capacity. 
  - Low: The victim is not able to use technological safeguards such as active scanning apps, due to reasons of safety or access.
 
-It is also appropriate to define who is using the tracking tags and incorporate this into a model. This is because if protocols overly deprioritize the privacy of tracking tags’ users, an attacker could use a victim’s own tag to track them. This is primarily a hypothetical given current designs which rotate public device identifiers every 15 minutes, but could become a reality if the possibility of an attacker using a victim’s own tag against them is not considered in protocol standards. Beck et al describe a possible technological solution to the problem of user privacy vs privacy of other potential victims [[Beck2023]([url](https://eprint.iacr.org/2023/1332.pdf))].
+It is also appropriate to define who is using the tracking tags and incorporate this into a model. This is because if protocols overly deprioritize the privacy of tracking tags’ users, an attacker could use a victim’s own tag to track them. This is primarily a hypothetical given current designs which rotate public device identifiers every 15 minutes, but could become a reality if the possibility of an attacker using a victim’s own tag against them is not considered in protocol standards. Beck et al describe a possible technological solution to the problem of user privacy vs privacy of other potential victims [Beck2023](https://eprint.iacr.org/2023/1332.pdf).
 
 - Tracking tag usage
  - Attacker only: The attacker controls one or more tracking tags, but the victim does not.
@@ -113,7 +113,7 @@ It is also appropriate to define who is using the tracking tags and incorporate 
 
 ### Example scenarios with analyses
 
-The following scenarios are composite cases based upon reports from the field. They are intended to illustrate different angles of the problem. They are not only technological, but meant to provide realistic insights into the constraints of people being targeted through these tags. There is no identifying information for any real person contained within them. In accordance with research on how designers understand personas [[Mat2012]([url](https://dl.acm.org/doi/10.1145/2207676.2208573))], the characters are given non-human names without attributes such as gender or race.
+The following scenarios are composite cases based upon reports from the field. They are intended to illustrate different angles of the problem. They are not only technological, but meant to provide realistic insights into the constraints of people being targeted through these tags. There is no identifying information for any real person contained within them. In accordance with research on how designers understand personas [Mat2012](https://dl.acm.org/doi/10.1145/2207676.2208573), the characters are given non-human names without attributes such as gender or race.
 The analysis of each scenario provides an example usage of the modeling framework described above. It includes a tracking tag usage element for illustrative purposes. However, as discussed previously, this element becomes more or less relevant depending on protocol evolution.
 Note that once a given attacker persona has been modeled, it could be recombined with a different victim persona, or vice versa, to model a different scenario. For example, a non-expert victim persona could be combined with both non-expert and expert attacker personas.
 
@@ -151,7 +151,7 @@ Strawberry and Elderberry live together. Neither has any specialized technologic
 
 ##### Analysis
 
-Here, the attacker and the victim are still cohabiting, and the attacker is monitoring the victim’s independent activities. This would allow the attacker to know if, for instance, the victim went to a police station or a domestic violence agency. The victim has reason to think that they are being tracked, but they cannot find the device. This can happen if the sound emitted by the device is insufficiently loud, and is particularly a risk in a car, where seat cushions or other typical features of a car may provide sound insulation for a hidden tag. The victim could benefit from having a mechanism to increase the volume of the sound emitted by the tag. Another notable feature of this scenario is that because of the cohabitation, the tag will spend most of the time in “near-owner state” as defined by the proposed industry consortium specification [[I-D.detecting-unwanted-location-trackers-01]([url](https://datatracker.ietf.org/doc/draft-detecting-unwanted-location-trackers/))]. In near-owner state it would not provide alerts under that specification.
+Here, the attacker and the victim are still cohabiting, and the attacker is monitoring the victim’s independent activities. This would allow the attacker to know if, for instance, the victim went to a police station or a domestic violence agency. The victim has reason to think that they are being tracked, but they cannot find the device. This can happen if the sound emitted by the device is insufficiently loud, and is particularly a risk in a car, where seat cushions or other typical features of a car may provide sound insulation for a hidden tag. The victim could benefit from having a mechanism to increase the volume of the sound emitted by the tag. Another notable feature of this scenario is that because of the cohabitation, the tag will spend most of the time in “near-owner state” as defined by the proposed industry consortium specification [I-D.detecting-unwanted-location-trackers-01](https://datatracker.ietf.org/doc/draft-detecting-unwanted-location-trackers/). In near-owner state it would not provide alerts under that specification.
 
 | Attacker Profile | Elderberry |
 | ------------- | ------------- |
@@ -194,10 +194,6 @@ This is a case involving a high-skill attacker, with a large skill difference be
 |Other Characteristics | Lemon and Lime |
 | ------------- | ------------- |
 | Accessory Usage  | Attacker Only  |
-Attacker Profile: Lemon
-Expertise Level	Expert
-Proximity to Victim	High
-Access to Resources	High
 
 ### Bluetooth vs. other technologies
 
