@@ -16,17 +16,17 @@
 <meta content="draft-delano-dult-threat-model-latest" name="ietf.draft">
 <!-- Generator version information:
   xml2rfc 3.21.0
-    Python 3.11.9
+    Python 3.12.3
     ConfigArgParse 1.7
     google-i18n-address 3.1.0
     intervaltree 3.1.0
-    Jinja2 3.1.2
-    lxml 4.9.3
-    platformdirs 4.2.1
+    Jinja2 3.1.4
+    lxml 4.9.4
+    platformdirs 4.2.2
     pycountry 22.3.5
     PyYAML 6.0.1
     requests 2.31.0
-    setuptools 68.2.2
+    setuptools 69.5.1
     six 1.16.0
     wcwidth 0.2.13
 -->
@@ -1031,7 +1031,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Delano</td>
-<td class="center">Expires 9 December 2024</td>
+<td class="center">Expires 15 December 2024</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1044,12 +1044,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-delano-dult-threat-model-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2024-06-07" class="published">7 June 2024</time>
+<time datetime="2024-06-13" class="published">13 June 2024</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2024-12-09">9 December 2024</time></dd>
+<dd class="expires"><time datetime="2024-12-15">15 December 2024</time></dd>
 <dt class="label-authors">Author:</dt>
 <dd class="authors">
 <div class="author">
@@ -1099,7 +1099,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 9 December 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 15 December 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1152,10 +1152,10 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-taxonomy-of-unwanted-tracki" class="internal xref">Taxonomy of unwanted tracking</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.1">
-                    <p id="section-toc.1-1.4.2.1.2.1.1"><a href="#section-4.1.1" class="auto internal xref">4.1.1</a>.  <a href="#name-example-scenarios" class="internal xref">Example Scenarios</a></p>
+                    <p id="section-toc.1-1.4.2.1.2.1.1"><a href="#section-4.1.1" class="auto internal xref">4.1.1</a>.  <a href="#name-example-scenarios-with-anal" class="internal xref">Example scenarios with analyses</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.2">
-                    <p id="section-toc.1-1.4.2.1.2.2.1"><a href="#section-4.1.2" class="auto internal xref">4.1.2</a>.  <a href="#name-bluetooth-vs-other-technolo" class="internal xref">Bluetooth vs. other technologiesz</a></p>
+                    <p id="section-toc.1-1.4.2.1.2.2.1"><a href="#section-4.1.2" class="auto internal xref">4.1.2</a>.  <a href="#name-bluetooth-vs-other-technolo" class="internal xref">Bluetooth vs. other technologies</a></p>
 </li>
                 </ul>
 </li>
@@ -1191,7 +1191,31 @@ svg :is([fill="white"], [fill^="#fff"]) {
       <h2 id="name-introduction">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-1-1">TODO Introduction<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-1">Location tracking tags are widely-used devices that allow users to locate items. These tags function as a component of a crowdsourced tracking network in which devices belonging to other network users (e.g., phones) report on the location of tags they have seen. At a high level, this works as follows:<a href="#section-1-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-1-2.1">
+          <p id="section-1-2.1.1">Tags ("accessories") broadcast an advertisement payload containing accessory-specific information. The payload also indicates whether the accessory is separated from its owner and thus potentially lost.<a href="#section-1-2.1.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-1-2.2">
+          <p id="section-1-2.2.1">Devices belonging to other users ("non-owner devices") observe those payloads and if the payload is in a separated mode, reports its location to some central service.<a href="#section-1-2.2.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-1-2.3">
+          <p id="section-1-2.3.1">The owner queries the central service for the location of their accessory.<a href="#section-1-2.3.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<p id="section-1-3">A naive implementation of this design exposes both a tag’s user and anyone who might be targeted for location tracking by a tag’s user, to considerable privacy risk. In particular:<a href="#section-1-3" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-1-4.1">
+          <p id="section-1-4.1.1">If accessories simply have a fixed identifier that is reported back to the tracking network, then the central server is able to track any accessory without the user's assistance, which is clearly undesirable.<a href="#section-1-4.1.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-1-4.2">
+          <p id="section-1-4.2.1">Any attacker who can guess a tag ID can query the central server for its location.<a href="#section-1-4.2.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-1-4.3">
+          <p id="section-1-4.3.1">An attacker can surreptitiously plant an accessory on a target and thus track them by tracking their "own" accessory.<a href="#section-1-4.3.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<p id="section-1-5">In order to minimize these privacy risks, it is necessary to analyze and be able to model different privacy threats. This document uses a flexible framework to provide analysis and modeling of different threat actors, as well as models of potential victims based on their threat context. It defines how these attacker and victim persona models can be combined into threat models. It is intended to work in concert with the requirements defined in <a href="https://ekr.github.io/draft-fossaceca-dult-finding/draft-fossaceca-dult-finding.html#I-D.detecting-unwanted-location-trackers">I-D.detecting-unwanted-location-trackers</a>, which facilitate detection of unwanted tracking tags.<a href="#section-1-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="conventions-and-definitions">
@@ -1232,24 +1256,376 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
       <h2 id="name-security-considerations">
 <a href="#section-4" class="section-number selfRef">4. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<p id="section-4-1">TODO Security<a href="#section-4-1" class="pilcrow">¶</a></p>
+<p id="section-4-1">Incorporation of this threat analysis into the DULT protocol does not introduce any security risks not already inherent in the underlying Bluetooth tracking tag protocols. Existing attempts to prevent unwanted tracking by the owner of a tag have been criticized as potentially making it easier to engage in unwanted tracking of the owner of a tag. However, Beck et al <a href="https://eprint.iacr.org/2023/1332.pdf">Beck2023</a> have demonstrated a technological solution that employs secret sharing and error correction coding.<a href="#section-4-1" class="pilcrow">¶</a></p>
 <div id="taxonomy-of-unwanted-tracking">
 <section id="section-4.1">
         <h3 id="name-taxonomy-of-unwanted-tracki">
 <a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-taxonomy-of-unwanted-tracki" class="section-name selfRef">Taxonomy of unwanted tracking</a>
         </h3>
-<div id="example-scenarios">
+<p id="section-4.1-1">To create a taxonomy of threat actors, we can borrow from Dev et al’s Models of Applied Privacy (MAP) framework <a href="https://dl.acm.org/doi/fullHtml/10.1145/3544548.3581484">Dev2023</a>. This framework is intended for organizations and includes organizational threats and taxonomies of potential privacy harms. Therefore, it cannot be applied wholesale. However, its flexibility, general approach to personas, and other elements, are applicable or can be modified to fit the DULT context.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
+<p id="section-4.1-2">The characteristics of threat actors may be described as follows. This is not intended to be a full and definitive taxonomy, but an example of how existing persona modeling concepts can be applied and modified.<a href="#section-4.1-2" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-4.1-3.1">
+            <p id="section-4.1-3.1.1">Expertise level<a href="#section-4.1-3.1.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-4.1-3.1.2.1">
+                <p id="section-4.1-3.1.2.1.1">Expert: The attacker works in or is actively studying computer science, networking, computer applications, IT, or another technical field.<a href="#section-4.1-3.1.2.1.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-4.1-3.1.2.2">
+                <p id="section-4.1-3.1.2.2.1">Non-expert: The attacker does not work or study in, or is a novice in, a technical field.<a href="#section-4.1-3.1.2.2.1" class="pilcrow">¶</a></p>
+</li>
+            </ul>
+</li>
+          <li class="normal" id="section-4.1-3.2">
+            <p id="section-4.1-3.2.1">Proximity to victim<a href="#section-4.1-3.2.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-4.1-3.2.2.1">
+                <p id="section-4.1-3.2.2.1.1">High: Lives with victim or has easy physical access to victim and/or victim’s possessions.<a href="#section-4.1-3.2.2.1.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-4.1-3.2.2.2">
+                <p id="section-4.1-3.2.2.2.1">Medium: Has some physical access to the person and possessions of someone who lives with victim, such as when the attacker and victim are co-parenting a child.<a href="#section-4.1-3.2.2.2.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-4.1-3.2.2.3">
+                <p id="section-4.1-3.2.2.3.1">Low: Does not live with or have physical access to victim and/or victim’s possessions.<a href="#section-4.1-3.2.2.3.1" class="pilcrow">¶</a></p>
+</li>
+            </ul>
+</li>
+          <li class="normal" id="section-4.1-3.3">
+            <p id="section-4.1-3.3.1">Access to resources<a href="#section-4.1-3.3.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-4.1-3.3.2.1">
+                <p id="section-4.1-3.3.2.1.1">High: The attacker has access to resources that may amplify the impact of other characteristics. These could include, but are not limited to, funds (or control over “shared” funds), persons assisting them in stalking behavior, or employment that provides privileged access to technology or individuals’ personal information.<a href="#section-4.1-3.3.2.1.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-4.1-3.3.2.2">
+                <p id="section-4.1-3.3.2.2.1">Low: The attacker has access to few or no such resources.<a href="#section-4.1-3.3.2.2.1" class="pilcrow">¶</a></p>
+</li>
+            </ul>
+</li>
+        </ul>
+<p id="section-4.1-4">In addition, the victim also has characteristics which influence the threat analysis. As with attacker characteristics, these are not intended as a definitive taxonomy.<a href="#section-4.1-4" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-4.1-5.1">
+            <p id="section-4.1-5.1.1">Expertise level<a href="#section-4.1-5.1.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-4.1-5.1.2.1">
+                <p id="section-4.1-5.1.2.1.1">Expert: The victim works in or is actively studying computer science, networking, computer applications, IT, or another technical field.<a href="#section-4.1-5.1.2.1.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-4.1-5.1.2.2">
+                <p id="section-4.1-5.1.2.2.1">Non-expert: The victim does not work or study in, or is a novice in, a technical field.<a href="#section-4.1-5.1.2.2.1" class="pilcrow">¶</a></p>
+</li>
+            </ul>
+</li>
+          <li class="normal" id="section-4.1-5.2">
+            <p id="section-4.1-5.2.1">Access to resources<a href="#section-4.1-5.2.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-4.1-5.2.2.1">
+                <p id="section-4.1-5.2.2.1.1">High: The victim is generally able to safely access practical and relevant resources. These might include funds to pay a car mechanic or private investigator, law enforcement or legal assistance, or other resources.<a href="#section-4.1-5.2.2.1.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-4.1-5.2.2.2">
+                <p id="section-4.1-5.2.2.2.1">Low: The victim is generally unable to safely access practical and relevant resources. These might include money to pay a car mechanic or private investigator, law enforcement or legal assistance, or other resources.<a href="#section-4.1-5.2.2.2.1" class="pilcrow">¶</a></p>
+</li>
+            </ul>
+</li>
+          <li class="normal" id="section-4.1-5.3">
+            <p id="section-4.1-5.3.1">Access to technological safeguards<a href="#section-4.1-5.3.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-4.1-5.3.2.1">
+                <p id="section-4.1-5.3.2.1.1">Normal: The victim is able to safely use, and has access to, technological safeguards such as active scanning apps.<a href="#section-4.1-5.3.2.1.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-4.1-5.3.2.2">
+                <p id="section-4.1-5.3.2.2.1">Impaired: The victim is able to safely use, and has access to, technological safeguards such as active scanning apps, but is unable to use their full capacity.<a href="#section-4.1-5.3.2.2.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-4.1-5.3.2.3">
+                <p id="section-4.1-5.3.2.3.1">Low: The victim is not able to use technological safeguards such as active scanning apps, due to reasons of safety or access.<a href="#section-4.1-5.3.2.3.1" class="pilcrow">¶</a></p>
+</li>
+            </ul>
+</li>
+        </ul>
+<p id="section-4.1-6">It is also appropriate to define who is using the tracking tags and incorporate this into a model. This is because if protocols overly deprioritize the privacy of tracking tags’ users, an attacker could use a victim’s own tag to track them. This is primarily a hypothetical given current designs which rotate public device identifiers every 15 minutes, but could become a reality if the possibility of an attacker using a victim’s own tag against them is not considered in protocol standards. Beck et al describe a possible technological solution to the problem of user privacy vs privacy of other potential victims <a href="https://eprint.iacr.org/2023/1332.pdf">Beck2023</a>.<a href="#section-4.1-6" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-4.1-7.1">
+            <p id="section-4.1-7.1.1">Tracking tag usage<a href="#section-4.1-7.1.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-4.1-7.1.2.1">
+                <p id="section-4.1-7.1.2.1.1">Attacker only: The attacker controls one or more tracking tags, but the victim does not.<a href="#section-4.1-7.1.2.1.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-4.1-7.1.2.2">
+                <p id="section-4.1-7.1.2.2.1">Victim only: The victim controls one or more tracking tags, but the attacker does not.<a href="#section-4.1-7.1.2.2.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-4.1-7.1.2.3">
+                <p id="section-4.1-7.1.2.3.1">Attacker and victim: Both the attacker and victim control one or more tracking tags.<a href="#section-4.1-7.1.2.3.1" class="pilcrow">¶</a></p>
+</li>
+            </ul>
+</li>
+        </ul>
+<div id="example-scenarios-with-analyses">
 <section id="section-4.1.1">
-          <h4 id="name-example-scenarios">
-<a href="#section-4.1.1" class="section-number selfRef">4.1.1. </a><a href="#name-example-scenarios" class="section-name selfRef">Example Scenarios</a>
-        </h4>
+          <h4 id="name-example-scenarios-with-anal">
+<a href="#section-4.1.1" class="section-number selfRef">4.1.1. </a><a href="#name-example-scenarios-with-anal" class="section-name selfRef">Example scenarios with analyses</a>
+          </h4>
+<p id="section-4.1.1-1">The following scenarios are composite cases based upon reports from the field. They are intended to illustrate different angles of the problem. They are not only technological, but meant to provide realistic insights into the constraints of people being targeted through these tags. There is no identifying information for any real person contained within them. In accordance with research on how designers understand personas <a href="https://dl.acm.org/doi/10.1145/2207676.2208573">Mat2012</a>, the characters are given non-human names without attributes such as gender or race.
+The analysis of each scenario provides an example usage of the modeling framework described above. It includes a tracking tag usage element for illustrative purposes. However, as discussed previously, this element becomes more or less relevant depending on protocol evolution.
+Note that once a given attacker persona has been modeled, it could be recombined with a different victim persona, or vice versa, to model a different scenario. For example, a non-expert victim persona could be combined with both non-expert and expert attacker personas.<a href="#section-4.1.1-1" class="pilcrow">¶</a></p>
+<div id="scenario-1">
+<section id="section-4.1.1.1">
+            <h5 id="name-scenario-1">
+<a href="#section-4.1.1.1" class="section-number selfRef">4.1.1.1. </a><a href="#name-scenario-1" class="section-name selfRef">Scenario 1</a>
+            </h5>
+<div id="narrative">
+<section id="section-4.1.1.1.1">
+              <h6 id="name-narrative">
+<a href="#section-4.1.1.1.1" class="section-number selfRef">4.1.1.1.1. </a><a href="#name-narrative" class="section-name selfRef">Narrative</a>
+              </h6>
+<p id="section-4.1.1.1.1-1">Mango and Avocado have two young children. Mango, Avocado, and the children all use smartphones, but have no specialized technical knowledge. Mango left because Avocado was abusive. They were homeless for a month, and the children have been living with Avocado. They now have an apartment two towns away. They do not want Avocado to know where it is, but they do want to see the children. They and Avocado meet at a public playground. They get there early so that Avocado will not see which bus route they arrived on and keep playing with the children on the playground until after Avocado leaves, so that Avocado will not see which bus route they get on. Two days later, Avocado shows up at Mango’s door, pounding on the door and shouting.<a href="#section-4.1.1.1.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="bluetooth-vs-other-technologiesz">
+<div id="analysis">
+<section id="section-4.1.1.1.2">
+              <h6 id="name-analysis">
+<a href="#section-4.1.1.1.2" class="section-number selfRef">4.1.1.1.2. </a><a href="#name-analysis" class="section-name selfRef">Analysis</a>
+              </h6>
+<p id="section-4.1.1.1.2-1">In this case, the attacker has planted a tag on a child. Co-parenting after separation is common in cases of intimate partner violence where the former partners have a child together. Child visits can be an opportunity to introduce technology for purposes of stalking the victim.<a href="#section-4.1.1.1.2-1" class="pilcrow">¶</a></p>
+<table class="center" id="table-1">
+                <caption><a href="#table-1" class="selfRef">Table 1</a></caption>
+<thead>
+                  <tr>
+                    <th class="text-left" rowspan="1" colspan="1">Attacker Profile</th>
+                    <th class="text-left" rowspan="1" colspan="1">Avocado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="text-left" rowspan="1" colspan="1">Expertise Level</td>
+                    <td class="text-left" rowspan="1" colspan="1">Non-Expert</td>
+                  </tr>
+                  <tr>
+                    <td class="text-left" rowspan="1" colspan="1">Proximity to Victim</td>
+                    <td class="text-left" rowspan="1" colspan="1">Medium</td>
+                  </tr>
+                  <tr>
+                    <td class="text-left" rowspan="1" colspan="1">Access to Resources</td>
+                    <td class="text-left" rowspan="1" colspan="1">Unknown, but can be presumed higher than Mango’s due to Mango’s recent homelessness</td>
+                  </tr>
+                </tbody>
+              </table>
+<table class="center" id="table-2">
+                <caption><a href="#table-2" class="selfRef">Table 2</a></caption>
+<thead>
+                  <tr>
+                    <th class="text-left" rowspan="1" colspan="1">Victim Profile</th>
+                    <th class="text-left" rowspan="1" colspan="1">Mango</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="text-left" rowspan="1" colspan="1">Expertise Level</td>
+                    <td class="text-left" rowspan="1" colspan="1">Non-Expert</td>
+                  </tr>
+                  <tr>
+                    <td class="text-left" rowspan="1" colspan="1">Access to Resources</td>
+                    <td class="text-left" rowspan="1" colspan="1">Low</td>
+                  </tr>
+                  <tr>
+                    <td class="text-left" rowspan="1" colspan="1">Access to Technological Safeguards</td>
+                    <td class="text-left" rowspan="1" colspan="1">Normal</td>
+                  </tr>
+                </tbody>
+              </table>
+<table class="center" id="table-3">
+                <caption><a href="#table-3" class="selfRef">Table 3</a></caption>
+<thead>
+                  <tr>
+                    <th class="text-left" rowspan="1" colspan="1">Other Characteristics</th>
+                    <th class="text-left" rowspan="1" colspan="1">Avocado and Mango</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="text-left" rowspan="1" colspan="1">Accessory Usage</td>
+                    <td class="text-left" rowspan="1" colspan="1">Attacker Only</td>
+                  </tr>
+                </tbody>
+              </table>
+</section>
+</div>
+</section>
+</div>
+<div id="scenario-2">
+<section id="section-4.1.1.2">
+            <h5 id="name-scenario-2">
+<a href="#section-4.1.1.2" class="section-number selfRef">4.1.1.2. </a><a href="#name-scenario-2" class="section-name selfRef">Scenario 2</a>
+            </h5>
+<div id="narrative-1">
+<section id="section-4.1.1.2.1">
+              <h6 id="name-narrative-2">
+<a href="#section-4.1.1.2.1" class="section-number selfRef">4.1.1.2.1. </a><a href="#name-narrative-2" class="section-name selfRef">Narrative</a>
+              </h6>
+<p id="section-4.1.1.2.1-1">Strawberry and Elderberry live together. Neither has any specialized technological knowledge. Strawberry has noticed that Elderberry has become excessively jealous – every time they go to visit a friend by themselves, Elderberry accuses them of infidelity. To their alarm, over the last week, on multiple occasions, Elderberry has somehow known which friend they visited at any given time and has started to harass the friends. Strawberry eventually gets a notification that a tracker is traveling with them, and thinks it may be in their car, but they cannot find it. They live in a car-dependent area and cannot visit friends without the car, and Elderberry controls all of the “family” money, so their cannot take the car to the mechanic without Elderberry knowing.<a href="#section-4.1.1.2.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="analysis-1">
+<section id="section-4.1.1.2.2">
+              <h6 id="name-analysis-2">
+<a href="#section-4.1.1.2.2" class="section-number selfRef">4.1.1.2.2. </a><a href="#name-analysis-2" class="section-name selfRef">Analysis</a>
+              </h6>
+<p id="section-4.1.1.2.2-1">Here, the attacker and the victim are still cohabiting, and the attacker is monitoring the victim’s independent activities. This would allow the attacker to know if, for instance, the victim went to a police station or a domestic violence agency. The victim has reason to think that they are being tracked, but they cannot find the device. This can happen if the sound emitted by the device is insufficiently loud, and is particularly a risk in a car, where seat cushions or other typical features of a car may provide sound insulation for a hidden tag. The victim could benefit from having a mechanism to increase the volume of the sound emitted by the tag. Another notable feature of this scenario is that because of the cohabitation, the tag will spend most of the time in “near-owner state” as defined by the proposed industry consortium specification <a href="https://datatracker.ietf.org/doc/draft-detecting-unwanted-location-trackers/">I-D.detecting-unwanted-location-trackers-01</a>. In near-owner state it would not provide alerts under that specification.<a href="#section-4.1.1.2.2-1" class="pilcrow">¶</a></p>
+<table class="center" id="table-4">
+                <caption><a href="#table-4" class="selfRef">Table 4</a></caption>
+<thead>
+                  <tr>
+                    <th class="text-left" rowspan="1" colspan="1">Attacker Profile</th>
+                    <th class="text-left" rowspan="1" colspan="1">Elderberry</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="text-left" rowspan="1" colspan="1">Expertise Level</td>
+                    <td class="text-left" rowspan="1" colspan="1">Non-Expert</td>
+                  </tr>
+                  <tr>
+                    <td class="text-left" rowspan="1" colspan="1">Proximity to Victim</td>
+                    <td class="text-left" rowspan="1" colspan="1">High</td>
+                  </tr>
+                  <tr>
+                    <td class="text-left" rowspan="1" colspan="1">Access to Resources</td>
+                    <td class="text-left" rowspan="1" colspan="1">High</td>
+                  </tr>
+                </tbody>
+              </table>
+<table class="center" id="table-5">
+                <caption><a href="#table-5" class="selfRef">Table 5</a></caption>
+<thead>
+                  <tr>
+                    <th class="text-left" rowspan="1" colspan="1">Victim Profile</th>
+                    <th class="text-left" rowspan="1" colspan="1">Strawberry</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="text-left" rowspan="1" colspan="1">Expertise Level</td>
+                    <td class="text-left" rowspan="1" colspan="1">Non-Expert</td>
+                  </tr>
+                  <tr>
+                    <td class="text-left" rowspan="1" colspan="1">Access to Resources</td>
+                    <td class="text-left" rowspan="1" colspan="1">Low</td>
+                  </tr>
+                  <tr>
+                    <td class="text-left" rowspan="1" colspan="1">Access to Technological Safeguards</td>
+                    <td class="text-left" rowspan="1" colspan="1">Impaired (cannot hear alert sound)</td>
+                  </tr>
+                </tbody>
+              </table>
+<table class="center" id="table-6">
+                <caption><a href="#table-6" class="selfRef">Table 6</a></caption>
+<thead>
+                  <tr>
+                    <th class="text-left" rowspan="1" colspan="1">Other Characteristics</th>
+                    <th class="text-left" rowspan="1" colspan="1">Elderberry and Strawberry</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="text-left" rowspan="1" colspan="1">Accessory Usage</td>
+                    <td class="text-left" rowspan="1" colspan="1">Attacker Only</td>
+                  </tr>
+                </tbody>
+              </table>
+</section>
+</div>
+</section>
+</div>
+<div id="scenario-3">
+<section id="section-4.1.1.3">
+            <h5 id="name-scenario-3">
+<a href="#section-4.1.1.3" class="section-number selfRef">4.1.1.3. </a><a href="#name-scenario-3" class="section-name selfRef">Scenario 3</a>
+            </h5>
+<div id="narrative-2">
+<section id="section-4.1.1.3.1">
+              <h6 id="name-narrative-3">
+<a href="#section-4.1.1.3.1" class="section-number selfRef">4.1.1.3.1. </a><a href="#name-narrative-3" class="section-name selfRef">Narrative</a>
+              </h6>
+<p id="section-4.1.1.3.1-1">Lime and Lemon have been dating for two years. Lemon works for a tech company and often emphasizes how much more they know about technology than Lime, who works at a restaurant. Lemon insists on having access to Lime’s computer and Android phone so that they can “make sure they are working well and that there are no dangerous apps.” Lemon hits Lime when angry and has threatened to out Lime as gay to their conservative parents and report them to Immigration &amp; Customs Enforcement if Lime “talks back.” Lime met with an advocate at a local domestic violence program to talk about going to their shelter once a bed was available. The advocate did some safety planning with Lime, and mentioned that there is an app for Android that can scan for location trackers, but Lime did not feel safe installing this app because Lemon would see it. The next time Lime went to see the advocate, they chose a time when he knew Lemon had to be at work until late to make sure that Lemon did not follow them, but when Lemon got home from work they knew where Lime had been.<a href="#section-4.1.1.3.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="analysis-2">
+<section id="section-4.1.1.3.2">
+              <h6 id="name-analysis-3">
+<a href="#section-4.1.1.3.2" class="section-number selfRef">4.1.1.3.2. </a><a href="#name-analysis-3" class="section-name selfRef">Analysis</a>
+              </h6>
+<p id="section-4.1.1.3.2-1">This is a case involving a high-skill attacker, with a large skill difference between attacker and victim. This situation often arises in regions with a high concentration of technology industry workers. It also may be more common in ethnic-cultural communities with high representation in the technology industry. In this case the victim is also subject to a very high level of control from the attacker due to their imbalances in technological skills and societal status, and is heavily constrained in their options as a result. It is unsafe for the victim to engage in active scanning, or to receive alerts on their phone. The victim might benefit from being able to log into an account on another phone or a computer and view logs of any recent alerts collected through passive scanning.<a href="#section-4.1.1.3.2-1" class="pilcrow">¶</a></p>
+<table class="center" id="table-7">
+                <caption><a href="#table-7" class="selfRef">Table 7</a></caption>
+<thead>
+                  <tr>
+                    <th class="text-left" rowspan="1" colspan="1">Attacker Profile</th>
+                    <th class="text-left" rowspan="1" colspan="1">Lemon</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="text-left" rowspan="1" colspan="1">Expertise Level</td>
+                    <td class="text-left" rowspan="1" colspan="1">Expert</td>
+                  </tr>
+                  <tr>
+                    <td class="text-left" rowspan="1" colspan="1">Proximity to Victim</td>
+                    <td class="text-left" rowspan="1" colspan="1">High</td>
+                  </tr>
+                  <tr>
+                    <td class="text-left" rowspan="1" colspan="1">Access to Resources</td>
+                    <td class="text-left" rowspan="1" colspan="1">High</td>
+                  </tr>
+                </tbody>
+              </table>
+<table class="center" id="table-8">
+                <caption><a href="#table-8" class="selfRef">Table 8</a></caption>
+<thead>
+                  <tr>
+                    <th class="text-left" rowspan="1" colspan="1">Victim Profile</th>
+                    <th class="text-left" rowspan="1" colspan="1">Lime</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="text-left" rowspan="1" colspan="1">Expertise Level</td>
+                    <td class="text-left" rowspan="1" colspan="1">Non-Expert</td>
+                  </tr>
+                  <tr>
+                    <td class="text-left" rowspan="1" colspan="1">Access to Resources</td>
+                    <td class="text-left" rowspan="1" colspan="1">Low</td>
+                  </tr>
+                  <tr>
+                    <td class="text-left" rowspan="1" colspan="1">Access to Technological Safeguards</td>
+                    <td class="text-left" rowspan="1" colspan="1">Low</td>
+                  </tr>
+                </tbody>
+              </table>
+<table class="center" id="table-9">
+                <caption><a href="#table-9" class="selfRef">Table 9</a></caption>
+<thead>
+                  <tr>
+                    <th class="text-left" rowspan="1" colspan="1">Other Characteristics</th>
+                    <th class="text-left" rowspan="1" colspan="1">Lemon and Lime</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="text-left" rowspan="1" colspan="1">Accessory Usage</td>
+                    <td class="text-left" rowspan="1" colspan="1">Attacker Only</td>
+                  </tr>
+                </tbody>
+              </table>
+</section>
+</div>
+</section>
+</div>
+</section>
+</div>
+<div id="bluetooth-vs-other-technologies">
 <section id="section-4.1.2">
           <h4 id="name-bluetooth-vs-other-technolo">
-<a href="#section-4.1.2" class="section-number selfRef">4.1.2. </a><a href="#name-bluetooth-vs-other-technolo" class="section-name selfRef">Bluetooth vs. other technologiesz</a>
-        </h4>
+<a href="#section-4.1.2" class="section-number selfRef">4.1.2. </a><a href="#name-bluetooth-vs-other-technolo" class="section-name selfRef">Bluetooth vs. other technologies</a>
+          </h4>
+<p id="section-4.1.2-1">The above taxonomy and threat analysis focus on location tracking tags. They are protocol-independent; if a tag were designed using a technology other than Bluetooth, they would still apply. The key attributes are the functionalities and physical properties of the accessory from the user’s perspective. The accessory must be small enough to be easily concealed, and able to broadcast its location to other consumer devices.<a href="#section-4.1.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1258,14 +1634,30 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
 <section id="section-4.2">
         <h3 id="name-what-is-in-scope">
 <a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-what-is-in-scope" class="section-name selfRef">What is in scope</a>
-      </h3>
+        </h3>
+<p id="section-4.2-1">The scope of this threat analysis includes any easily-concealable accessory that is able to broadcast its location to other consumer devices.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="what-is-out-of-scope">
 <section id="section-4.3">
         <h3 id="name-what-is-out-of-scope">
 <a href="#section-4.3" class="section-number selfRef">4.3. </a><a href="#name-what-is-out-of-scope" class="section-name selfRef">What is out of scope</a>
-      </h3>
+        </h3>
+<p id="section-4.3-1">There are many types of technology that can be used for location tracking. In many cases, the threat analysis would be similar, as the contexts in which potential attackers and victims exist and use the technology are similar. However, it would be infeasible to attempt to describe a threat analysis for each possible technology in this document. We have therefore limited its scope to location-tracking accessories that are small enough to be easily concealed, and able to broadcast their locations to other devices. The following are out of scope for this document:<a href="#section-4.3-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-4.3-2.1">
+            <p id="section-4.3-2.1.1">App-based technologies such as parental monitoring apps.<a href="#section-4.3-2.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-4.3-2.2">
+            <p id="section-4.3-2.2.1">Other Internet of Things (IoT) devices.<a href="#section-4.3-2.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-4.3-2.3">
+            <p id="section-4.3-2.3.1">Connected cars.<a href="#section-4.3-2.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-4.3-2.4">
+            <p id="section-4.3-2.4.1">User accounts for cloud services or social media.<a href="#section-4.3-2.4.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
 </section>
 </div>
 </section>
