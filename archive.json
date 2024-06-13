@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-06-11T00:13:10.329395+00:00",
+  "timestamp": "2024-06-13T00:13:32.579073+00:00",
   "repo": "maggiedelano/draft-delano-dult-threat-model",
   "labels": [
     {
@@ -92,6 +92,32 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 2,
+      "id": "PR_kwDOMB0Qas5yRdrl",
+      "title": "Introduction and Security/Taxonomy section",
+      "url": "https://github.com/maggiedelano/draft-delano-dult-threat-model/pull/2",
+      "state": "OPEN",
+      "author": "exploretechsafety",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Filled in drafted content for an introduction section and a security/taxonomy section. Second commit was fixing minor formatting errors from my first commit.",
+      "createdAt": "2024-06-12T18:19:46Z",
+      "updatedAt": "2024-06-12T21:33:28Z",
+      "baseRepository": "maggiedelano/draft-delano-dult-threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "7e76d93ca7e04ecd56301b3d91995c9f77eeccf9",
+      "headRepository": "exploretechsafety/draft-delano-dult-threat-model",
+      "headRefName": "main",
+      "headRefOid": "81793c3991cea9a26bd3a5f30bf54f23c705cde7",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
