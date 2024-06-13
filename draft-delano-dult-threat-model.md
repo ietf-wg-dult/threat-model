@@ -42,13 +42,13 @@ Lightweight location tracking tags are in wide use to allow users to locate item
 
 # Introduction
 
-Location tracking tags are widely-used devices that allow users to locate items. These tags function as a component of a crowdsourced tracking network in which devices belonging to other network users (e.g., phones) report on the location of tags they have seen. At a high level, this works as follows: 
+Location tracking tags are widely-used devices that allow users to locate items. These tags function as a component of a crowdsourced tracking network in which devices belonging to other network users (e.g., phones) report on the location of tags they have seen. At a high level, this works as follows:
 
   - Tags ("accessories") broadcast an advertisement payload containing accessory-specific information. The payload also indicates whether the accessory is separated from its owner and thus potentially lost.
   - Devices belonging to other users ("non-owner devices") observe those payloads and if the payload is in a separated mode, reports its location to some central service.
   - The owner queries the central service for the location of their accessory.
 
-A naive implementation of this design exposes both a tag’s user and anyone who might be targeted for location tracking by a tag’s user, to considerable privacy risk. In particular: 
+A naive implementation of this design exposes both a tag’s user and anyone who might be targeted for location tracking by a tag’s user, to considerable privacy risk. In particular:
 
   - If accessories simply have a fixed identifier that is reported back to the tracking network, then the central server is able to track any accessory without the user's assistance, which is clearly undesirable.
   - Any attacker who can guess a tag ID can query the central server for its location.
@@ -101,7 +101,7 @@ In addition, the victim also has characteristics which influence the threat anal
     - Low: The victim is generally unable to safely access practical and relevant resources. These might include money to pay a car mechanic or private investigator, law enforcement or legal assistance, or other resources.
   - Access to technological safeguards
     - Normal: The victim is able to safely use, and has access to, technological safeguards such as active scanning apps.
-    - Impaired: The victim is able to safely use, and has access to, technological safeguards such as active scanning apps, but is unable to use their full capacity. 
+    - Impaired: The victim is able to safely use, and has access to, technological safeguards such as active scanning apps, but is unable to use their full capacity.
     - Low: The victim is not able to use technological safeguards such as active scanning apps, due to reasons of safety or access.
 
 It is also appropriate to define who is using the tracking tags and incorporate this into a model. This is because if protocols overly deprioritize the privacy of tracking tags’ users, an attacker could use a victim’s own tag to track them. This is primarily a hypothetical given current designs which rotate public device identifiers every 15 minutes, but could become a reality if the possibility of an attacker using a victim’s own tag against them is not considered in protocol standards. Beck et al describe a possible technological solution to the problem of user privacy vs privacy of other potential victims [Beck2023](https://eprint.iacr.org/2023/1332.pdf).
@@ -207,7 +207,7 @@ The scope of this threat analysis includes any easily-concealable accessory that
 
 There are many types of technology that can be used for location tracking. In many cases, the threat analysis would be similar, as the contexts in which potential attackers and victims exist and use the technology are similar. However, it would be infeasible to attempt to describe a threat analysis for each possible technology in this document. We have therefore limited its scope to location-tracking accessories that are small enough to be easily concealed, and able to broadcast their locations to other devices. The following are out of scope for this document:
 
-  - App-based technologies such as parental monitoring apps. 
+  - App-based technologies such as parental monitoring apps.
   - Other Internet of Things (IoT) devices.
   - Connected cars.
   - User accounts for cloud services or social media.
