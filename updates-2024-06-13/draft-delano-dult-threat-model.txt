@@ -556,6 +556,10 @@ Table of Contents
    *  Avoid privacy compromises for the tag owner when protecting
       against unwanted location tracking
 
+   TODO Do we want to be more specific here?  For example, discussing
+   example scenarios or test cases to evaluate outside of those included
+   in Section 3?
+
 5.  IANA Considerations
 
    This document has no IANA actions.
