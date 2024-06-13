@@ -25,8 +25,13 @@ venue:
 author:
  -
     fullname: "Maggie Delano"
-    organization: Your Organization Here
-    email: "maggie.delano@gmail.com"
+    organization: Swarthmore College
+    email: "mdelano1@swarthmore.edu"
+
+ -
+    fullname: "Jessie Lowell"
+    organization: National Network to End Domestic Violence
+    email: jlowell@nnedv.org
 
 normative:
 
@@ -35,8 +40,7 @@ informative:
 
 --- abstract
 
-Lightweight location tracking tags are in wide use to allow users to locate items. These tags function as a component of a crowdsourced tracking network in which devices belonging to other network users (e.g., phones) report which tags they see and their location, thus allowing the owner of the tag to determine where their tag was most recently seen. While there are many legitimate uses of these tags, they are also susceptible to misuse for the purpose of stalking and abuse. A protocol that allows others to detect unwanted location trackers must be incorporate an understanding of the unwanted tracking landscape today. This document provides a threat analysis for this purpose.
-
+Lightweight location tracking tags are in wide use to allow users to locate items. These tags function as a component of a crowdsourced tracking network in which devices belonging to other network users (e.g., phones) report which tags they see and their location, thus allowing the owner of the tag to determine where their tag was most recently seen. While there are many legitimate uses of these tags, they are also susceptible to misuse for the purpose of stalking and abuse. A protocol that allows others to detect unwanted location trackers must incorporate an understanding of the unwanted tracking landscape today. This document provides a threat analysis for this purpose, will define what is in and out of scope for the unwanted location tracking protocols, and will provide some design considerations for implementation of protocols to detect unwanted location tracking.
 
 --- middle
 
@@ -54,29 +58,25 @@ A naive implementation of this design exposes both a tag’s user and anyone who
   - Any attacker who can guess a tag ID can query the central server for its location.
   - An attacker can surreptitiously plant an accessory on a target and thus track them by tracking their "own" accessory.
 
-In order to minimize these privacy risks, it is necessary to analyze and be able to model different privacy threats. This document uses a flexible framework to provide analysis and modeling of different threat actors, as well as models of potential victims based on their threat context. It defines how these attacker and victim persona models can be combined into threat models. It is intended to work in concert with the requirements defined in [I-D.detecting-unwanted-location-trackers](https://ekr.github.io/draft-fossaceca-dult-finding/draft-fossaceca-dult-finding.html#I-D.detecting-unwanted-location-trackers), which facilitate detection of unwanted tracking tags.
-
-
+In order to minimize these privacy risks, it is necessary to analyze and be able to model different privacy threats. This document uses a flexible framework to provide analysis and modeling of different threat actors, as well as models of potential victims based on their threat context. It defines how these attacker and victim persona models can be combined into threat models. It is intended to work in concert with the requirements defined in {{!I-D.detecting-unwanted-location-trackers}}, which facilitate detection of unwanted tracking tags.
 
 # Conventions and Definitions
 
+## Conventions
 {::boilerplate bcp14-tagged}
 
-# Unwanted Tracking Technical Overview
+## Definitions
 
-TODO Overview
-
-## How someone can be tracked using a Bluetooth device
-
-## Existing protections against unwanted tracking
+- **active scanning**: a search for location trackers manually initiated by a user
+- **passive scanning**: a search for location trackers running in the background, often accompanied by notifications for the user
 
 # Security Considerations
 
-Incorporation of this threat analysis into the DULT protocol does not introduce any security risks not already inherent in the underlying Bluetooth tracking tag protocols. Existing attempts to prevent unwanted tracking by the owner of a tag have been criticized as potentially making it easier to engage in unwanted tracking of the owner of a tag. However, Beck et al [Beck2023](https://eprint.iacr.org/2023/1332.pdf) have demonstrated a technological solution that employs secret sharing and error correction coding.
+Incorporation of this threat analysis into the DULT protocol does not introduce any security risks not already inherent in the underlying Bluetooth tracking tag protocols. Existing attempts to prevent unwanted tracking by the owner of a tag have been criticized as potentially making it easier to engage in unwanted tracking of the owner of a tag. However, Beck et al. have [demonstrated](https://eprint.iacr.org/2023/1332.pdf) a technological solution that employs secret sharing and error correction coding.
 
 ## Taxonomy of unwanted tracking
 
-To create a taxonomy of threat actors, we can borrow from Dev et al’s Models of Applied Privacy (MAP) framework [Dev2023](https://dl.acm.org/doi/fullHtml/10.1145/3544548.3581484). This framework is intended for organizations and includes organizational threats and taxonomies of potential privacy harms. Therefore, it cannot be applied wholesale. However, its flexibility, general approach to personas, and other elements, are applicable or can be modified to fit the DULT context.
+To create a taxonomy of threat actors, we can borrow from Dev et al.’s [Models of Applied Privacy (MAP) framework](https://dl.acm.org/doi/fullHtml/10.1145/3544548.3581484). This framework is intended for organizations and includes organizational threats and taxonomies of potential privacy harms. Therefore, it cannot be applied wholesale. However, its flexibility, general approach to personas, and other elements, are applicable or can be modified to fit the DULT context.
 
 The characteristics of threat actors may be described as follows. This is not intended to be a full and definitive taxonomy, but an example of how existing persona modeling concepts can be applied and modified.
 
@@ -104,7 +104,7 @@ In addition, the victim also has characteristics which influence the threat anal
     - Impaired: The victim is able to safely use, and has access to, technological safeguards such as active scanning apps, but is unable to use their full capacity.
     - Low: The victim is not able to use technological safeguards such as active scanning apps, due to reasons of safety or access.
 
-It is also appropriate to define who is using the tracking tags and incorporate this into a model. This is because if protocols overly deprioritize the privacy of tracking tags’ users, an attacker could use a victim’s own tag to track them. This is primarily a hypothetical given current designs which rotate public device identifiers every 15 minutes, but could become a reality if the possibility of an attacker using a victim’s own tag against them is not considered in protocol standards. Beck et al describe a possible technological solution to the problem of user privacy vs privacy of other potential victims [Beck2023](https://eprint.iacr.org/2023/1332.pdf).
+It is also appropriate to define who is using the tracking tags and incorporate this into a model. This is because if protocols overly deprioritize the privacy of tracking tags’ users, an attacker could use a victim’s own tag to track them. Beck et al. describe a [possible technological solution](https://eprint.iacr.org/2023/1332.pdf) to the problem of user privacy vs privacy of other potential victims.
 
   - Tracking tag usage
     - Attacker only: The attacker controls one or more tracking tags, but the victim does not.
@@ -113,7 +113,7 @@ It is also appropriate to define who is using the tracking tags and incorporate 
 
 ### Example scenarios with analyses
 
-The following scenarios are composite cases based upon reports from the field. They are intended to illustrate different angles of the problem. They are not only technological, but meant to provide realistic insights into the constraints of people being targeted through these tags. There is no identifying information for any real person contained within them. In accordance with research on how designers understand personas [Mat2012](https://dl.acm.org/doi/10.1145/2207676.2208573), the characters are given non-human names without attributes such as gender or race.
+The following scenarios are composite cases based upon reports from the field. They are intended to illustrate different angles of the problem. They are not only technological, but meant to provide realistic insights into the constraints of people being targeted through these tags. There is no identifying information for any real person contained within them. In accordance with research on [how designers understand personas](https://dl.acm.org/doi/10.1145/2207676.2208573), the characters are given non-human names without attributes such as gender or race.
 The analysis of each scenario provides an example usage of the modeling framework described above. It includes a tracking tag usage element for illustrative purposes. However, as discussed previously, this element becomes more or less relevant depending on protocol evolution.
 Note that once a given attacker persona has been modeled, it could be recombined with a different victim persona, or vice versa, to model a different scenario. For example, a non-expert victim persona could be combined with both non-expert and expert attacker personas.
 
@@ -151,7 +151,7 @@ Strawberry and Elderberry live together. Neither has any specialized technologic
 
 ##### Analysis
 
-Here, the attacker and the victim are still cohabiting, and the attacker is monitoring the victim’s independent activities. This would allow the attacker to know if, for instance, the victim went to a police station or a domestic violence agency. The victim has reason to think that they are being tracked, but they cannot find the device. This can happen if the sound emitted by the device is insufficiently loud, and is particularly a risk in a car, where seat cushions or other typical features of a car may provide sound insulation for a hidden tag. The victim could benefit from having a mechanism to increase the volume of the sound emitted by the tag. Another notable feature of this scenario is that because of the cohabitation, the tag will spend most of the time in “near-owner state” as defined by the proposed industry consortium specification [I-D.detecting-unwanted-location-trackers-01](https://datatracker.ietf.org/doc/draft-detecting-unwanted-location-trackers/). In near-owner state it would not provide alerts under that specification.
+Here, the attacker and the victim are still cohabiting, and the attacker is monitoring the victim’s independent activities. This would allow the attacker to know if, for instance, the victim went to a police station or a domestic violence agency. The victim has reason to think that they are being tracked, but they cannot find the device. This can happen if the sound emitted by the device is insufficiently loud, and is particularly a risk in a car, where seat cushions or other typical features of a car may provide sound insulation for a hidden tag. The victim could benefit from having a mechanism to increase the volume of the sound emitted by the tag. Another notable feature of this scenario is that because of the cohabitation, the tag will spend most of the time in “near-owner state” as defined by the proposed industry consortium specification {{I-D.detecting-unwanted-location-trackers}}. In near-owner state it would not provide alerts under that specification.
 
 | Attacker Profile | Elderberry |
 | ------------- | ------------- |
@@ -173,7 +173,7 @@ Here, the attacker and the victim are still cohabiting, and the attacker is moni
 
 ##### Narrative
 
-Lime and Lemon have been dating for two years. Lemon works for a tech company and often emphasizes how much more they know about technology than Lime, who works at a restaurant. Lemon insists on having access to Lime’s computer and Android phone so that they can “make sure they are working well and that there are no dangerous apps.” Lemon hits Lime when angry and has threatened to out Lime as gay to their conservative parents and report them to Immigration & Customs Enforcement if Lime “talks back.” Lime met with an advocate at a local domestic violence program to talk about going to their shelter once a bed was available. The advocate did some safety planning with Lime, and mentioned that there is an app for Android that can scan for location trackers, but Lime did not feel safe installing this app because Lemon would see it. The next time Lime went to see the advocate, they chose a time when he knew Lemon had to be at work until late to make sure that Lemon did not follow them, but when Lemon got home from work they knew where Lime had been.
+Lime and Lemon have been dating for two years. Lemon works for a tech company and often emphasizes how much more they know about technology than Lime, who works at a restaurant. Lemon insists on having access to Lime’s computer and Android phone so that they can “make sure they are working well and that there are no dangerous apps.” Lemon hits Lime when angry and has threatened to out Lime as gay to their conservative parents and report them to Immigration & Customs Enforcement if Lime “talks back.” Lime met with an advocate at a local domestic violence program to talk about going to their shelter once a bed was available. The advocate did some safety planning with Lime, and mentioned that there is an app for Android that can scan for location trackers, but Lime did not feel safe installing this app because Lemon would see it. The next time Lime went to see the advocate, they chose a time when they knew Lemon had to be at work until late to make sure that Lemon did not follow them, but when Lemon got home from work they knew where Lime had been.
 
 ##### Analysis
 
@@ -212,7 +212,19 @@ There are many types of technology that can be used for location tracking. In ma
   - Connected cars.
   - User accounts for cloud services or social media.
 
-# Design requirements for preventing unwanted location tracking
+TODO What levels of access to resources or expertise might be defined out of scope? *MD: I'd argue nation-state level decryption (i.e. extremely high level of experise and resources) might be out of scope on the attacker end, but we would still want to ensure protections even in scenarios of low expertise/access to resources/technological safeguards on the victim side.*
+
+
+# Design Considerations
+
+As discussed in the {{security-considerations}}, unwanted location tracking can involve a variety of attacker, victim, and tracking tag profiles. A successful implementation to preventing unwanted location tracking would:
+
+- Include a variety of approaches to address different scenarios, including active scanning for devices, along with passive notifications
+- Account for scenarios in which the attacker has high expertise, proximity, and/or access to resources within the scope defined elsewhere in this document
+- Account for scenarios in which the victim has low expertise, access to resources, and/or access to technological safeguards
+- Avoid privacy compromises for the tag owner when protecting against unwanted location tracking
+
+TODO Do we want to be more specific here? For example, discussing example scenarios or test cases to evaluate outside of those included in {{security-considerations}}?
 
 # IANA Considerations
 
