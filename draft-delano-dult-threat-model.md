@@ -25,8 +25,8 @@ venue:
 author:
  -
     fullname: "Maggie Delano"
-    organization: Your Organization Here
-    email: "maggie.delano@gmail.com"
+    organization: Swarthmore College
+    email: "mdelano1@swarthmore.edu"
 
 normative:
 
@@ -35,7 +35,7 @@ informative:
 
 --- abstract
 
-Lightweight location tracking tags are in wide use to allow users to locate items. These tags function as a component of a crowdsourced tracking network in which devices belonging to other network users (e.g., phones) report which tags they see and their location, thus allowing the owner of the tag to determine where their tag was most recently seen. While there are many legitimate uses of these tags, they are also susceptible to misuse for the purpose of stalking and abuse. A protocol that allows others to detect unwanted location trackers must be incorporate an understanding of the unwanted tracking landscape today. This document provides a threat analysis for this purpose.
+Lightweight location tracking tags are in wide use to allow users to locate items. These tags function as a component of a crowdsourced tracking network in which devices belonging to other network users (e.g., phones) report which tags they see and their location, thus allowing the owner of the tag to determine where their tag was most recently seen. While there are many legitimate uses of these tags, they are also susceptible to misuse for the purpose of stalking and abuse. A protocol that allows others to detect unwanted location trackers must incorporate an understanding of the unwanted tracking landscape today. This document provides a threat analysis for this purpose, and will define what is in and out of scope for the unwanted location tracking protocols.
 
 
 --- middle
@@ -54,7 +54,7 @@ A naive implementation of this design exposes both a tag’s user and anyone who
   - Any attacker who can guess a tag ID can query the central server for its location.
   - An attacker can surreptitiously plant an accessory on a target and thus track them by tracking their "own" accessory.
 
-In order to minimize these privacy risks, it is necessary to analyze and be able to model different privacy threats. This document uses a flexible framework to provide analysis and modeling of different threat actors, as well as models of potential victims based on their threat context. It defines how these attacker and victim persona models can be combined into threat models. It is intended to work in concert with the requirements defined in [I-D.detecting-unwanted-location-trackers](https://ekr.github.io/draft-fossaceca-dult-finding/draft-fossaceca-dult-finding.html#I-D.detecting-unwanted-location-trackers), which facilitate detection of unwanted tracking tags.
+In order to minimize these privacy risks, it is necessary to analyze and be able to model different privacy threats. This document uses a flexible framework to provide analysis and modeling of different threat actors, as well as models of potential victims based on their threat context. It defines how these attacker and victim persona models can be combined into threat models. It is intended to work in concert with the requirements defined in [I-D.detecting-unwanted-location-trackers](https://datatracker.ietf.org/doc/html/draft-detecting-unwanted-location-trackers-01), which facilitate detection of unwanted tracking tags.
 
 
 
