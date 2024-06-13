@@ -28,6 +28,11 @@ author:
     organization: Swarthmore College
     email: "mdelano1@swarthmore.edu"
 
+ -
+    fullname: "Jessie Lowell"
+    organization: National Network to End Domestic Violence
+    email: jlowell@nnedv.org
+
 normative:
 
 informative:
@@ -56,19 +61,15 @@ A naive implementation of this design exposes both a tag’s user and anyone who
 
 In order to minimize these privacy risks, it is necessary to analyze and be able to model different privacy threats. This document uses a flexible framework to provide analysis and modeling of different threat actors, as well as models of potential victims based on their threat context. It defines how these attacker and victim persona models can be combined into threat models. It is intended to work in concert with the requirements defined in [I-D.detecting-unwanted-location-trackers](https://datatracker.ietf.org/doc/html/draft-detecting-unwanted-location-trackers-01), which facilitate detection of unwanted tracking tags.
 
-
-
 # Conventions and Definitions
 
+## Conventions
 {::boilerplate bcp14-tagged}
 
-# Unwanted Tracking Technical Overview
+## Definitions
 
-TODO Overview
-
-## How someone can be tracked using a Bluetooth device
-
-## Existing protections against unwanted tracking
+- **active scanning**: a search for location trackers manually initiated by a user
+- **passive scanning**: a search for location trackers running in the background, often accompanied by notifications for the user
 
 # Security Considerations
 
@@ -173,7 +174,7 @@ Here, the attacker and the victim are still cohabiting, and the attacker is moni
 
 ##### Narrative
 
-Lime and Lemon have been dating for two years. Lemon works for a tech company and often emphasizes how much more they know about technology than Lime, who works at a restaurant. Lemon insists on having access to Lime’s computer and Android phone so that they can “make sure they are working well and that there are no dangerous apps.” Lemon hits Lime when angry and has threatened to out Lime as gay to their conservative parents and report them to Immigration & Customs Enforcement if Lime “talks back.” Lime met with an advocate at a local domestic violence program to talk about going to their shelter once a bed was available. The advocate did some safety planning with Lime, and mentioned that there is an app for Android that can scan for location trackers, but Lime did not feel safe installing this app because Lemon would see it. The next time Lime went to see the advocate, they chose a time when he knew Lemon had to be at work until late to make sure that Lemon did not follow them, but when Lemon got home from work they knew where Lime had been.
+Lime and Lemon have been dating for two years. Lemon works for a tech company and often emphasizes how much more they know about technology than Lime, who works at a restaurant. Lemon insists on having access to Lime’s computer and Android phone so that they can “make sure they are working well and that there are no dangerous apps.” Lemon hits Lime when angry and has threatened to out Lime as gay to their conservative parents and report them to Immigration & Customs Enforcement if Lime “talks back.” Lime met with an advocate at a local domestic violence program to talk about going to their shelter once a bed was available. The advocate did some safety planning with Lime, and mentioned that there is an app for Android that can scan for location trackers, but Lime did not feel safe installing this app because Lemon would see it. The next time Lime went to see the advocate, they chose a time when they knew Lemon had to be at work until late to make sure that Lemon did not follow them, but when Lemon got home from work they knew where Lime had been.
 
 ##### Analysis
 
@@ -212,7 +213,16 @@ There are many types of technology that can be used for location tracking. In ma
   - Connected cars.
   - User accounts for cloud services or social media.
 
-# Design requirements for preventing unwanted location tracking
+TODO What levels of access to resources or expertise might be defined out of scope?
+
+# Design Considerations
+
+As discussed in the scenarios above, unwanted location tracking can involve a variety of attacker, victim, and tracking tag profiles. A successful implementation to preventing unwanted location tracking would:
+
+- Include a variety of approaches to address different scenarios, including active scanning for devices, along with passive notifications
+- Account for scenarios in which the attacker has high expertise, proximity, and/or access to resources within the scope defined elsewhere in this document
+- Account for scenarios in which the victim has low expertise, access to resources, and/or access to technological safeguards
+- Avoid privacy compromises for the tag owner when protecting against unwanted location tracking
 
 # IANA Considerations
 
