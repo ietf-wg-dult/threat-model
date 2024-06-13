@@ -224,6 +224,8 @@ As discussed in the {{security-considerations}}, unwanted location tracking can 
 - Account for scenarios in which the victim has low expertise, access to resources, and/or access to technological safeguards
 - Avoid privacy compromises for the tag owner when protecting against unwanted location tracking
 
+TODO Do we want to be more specific here? For example, discussing example scenarios or test cases to evaluate outside of those included in {{security-considerations}}?
+
 # IANA Considerations
 
 This document has no IANA actions.
