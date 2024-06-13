@@ -24,8 +24,10 @@ Abstract
    abuse.  A protocol that allows others to detect unwanted location
    trackers must incorporate an understanding of the unwanted tracking
    landscape today.  This document provides a threat analysis for this
-   purpose, and will define what is in and out of scope for the unwanted
-   location tracking protocols.
+   purpose, will define what is in and out of scope for the unwanted
+   location tracking protocols, and will provide some design
+   considerations for implementation of protocols to detect unwanted
+   location tracking.
 
 About This Document
 
