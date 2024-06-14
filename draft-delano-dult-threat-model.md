@@ -208,7 +208,7 @@ The scope of this threat analysis includes any easily-concealable accessory that
 
 ### Attacker Profiles
 
-An attacker who attempts to track a victim using a tracking tag and applications readily available for end-users (e.g. native tracking application) is in scope. Additonally, an attacker who physically modifies a tracking tag (e.g. to disable a speaker) is in scope. An atacker who alters the firmware of an existing tracking tag or creates a custom device that leverages the crowdsourced tracking network is in scope.
+An attacker who attempts to track a victim using a tracking tag and applications readily available for end-users (e.g. native tracking application) is in scope. Additonally, an attacker who physically modifies a tracking tag (e.g. to disable a speaker) is in scope. An atacker who makes non-nation-state level alterations to the firmware of an existing tracking tag or creates a custom device that leverages the crowdsourced tracking network is in scope.
 
 ### Victim Profiles
 
