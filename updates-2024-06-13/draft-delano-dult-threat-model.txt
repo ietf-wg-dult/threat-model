@@ -5,8 +5,8 @@
 Detecting Unwanted Location Trackers                           M. Delano
 Internet-Draft                                        Swarthmore College
 Intended status: Informational                                 J. Lowell
-Expires: 15 December 2024      National Network to End Domestic Violence
-                                                            13 June 2024
+Expires: 16 December 2024      National Network to End Domestic Violence
+                                                            14 June 2024
 
 
                         Draft DULT Threat Model
@@ -64,7 +64,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 15 December 2024.
+   This Internet-Draft will expire on 16 December 2024.
 
 Copyright Notice
 
@@ -91,7 +91,13 @@ Table of Contents
        3.1.1.  Example scenarios with analyses
        3.1.2.  Bluetooth vs. other technologies
      3.2.  What is in scope
+       3.2.1.  Technologies
+       3.2.2.  Attacker Profiles
+       3.2.3.  Victim Profiles
      3.3.  What is out of scope
+       3.3.1.  Technologies
+       3.3.2.  Attack Profiles
+       3.3.3.  Victim Profiles
    4.  Design Considerations
    5.  IANA Considerations
    6.  Normative References
@@ -504,11 +510,33 @@ Table of Contents
 
 3.2.  What is in scope
 
+3.2.1.  Technologies
+
    The scope of this threat analysis includes any easily-concealable
    accessory that is able to broadcast its location to other consumer
    devices.
 
+3.2.2.  Attacker Profiles
+
+   An attacker who attempts to track a victim using a tracking tag and
+   applications readily available for end-users (e.g. native tracking
+   application) is in scope.  Additonally, an attacker who physically
+   modifies a tracking tag (e.g. to disable a speaker) is in scope.  An
+   atacker who alters the firmware of an existing tracking tag or
+   creates a custom device that leverages the crowdsourced tracking
+   network is in scope.
+
+3.2.3.  Victim Profiles
+
+   All victims profiles are in scope regardless of their expertise,
+   access to resources, or access to technological safeguards.  For
+   example, protocols should account for a victim's lack of access to a
+   smartphone, and scenarios in which victims cannot install separate
+   software.
+
 3.3.  What is out of scope
+
+3.3.1.  Technologies
 
    There are many types of technology that can be used for location
    tracking.  In many cases, the threat analysis would be similar, as
@@ -528,37 +556,36 @@ Table of Contents
 
    *  User accounts for cloud services or social media.
 
-   TODO What levels of access to resources or expertise might be defined
-   out of scope? _MD: I'd argue nation-state level decryption (i.e.
-   extremely high level of experise and resources) might be out of scope
-   on the attacker end, but we would still want to ensure protections
-   even in scenarios of low expertise/access to resources/technological
-   safeguards on the victim side._
+3.3.2.  Attack Profiles
+
+   Attackers with nation-state level expertise and resources who deploy
+   custom or altered tracking tags to bypass protocol safeguards or
+   jailbreak a victim end-device (e.g. smartphone) are considered out of
+   scope.
+
+3.3.3.  Victim Profiles
+
+   N/A
 
 4.  Design Considerations
 
-   As discussed in the Section 3, unwanted location tracking can involve
-   a variety of attacker, victim, and tracking tag profiles.  A
-   successful implementation to preventing unwanted location tracking
-   would:
+   As discussed in Section 3, unwanted location tracking can involve a
+   variety of attacker, victim, and tracking tag profiles.  A successful
+   implementation to preventing unwanted location tracking would:
 
    *  Include a variety of approaches to address different scenarios,
-      including active scanning for devices, along with passive
-      notifications
+      including active and passive scanning and notifications or sounds
 
    *  Account for scenarios in which the attacker has high expertise,
-      proximity, and/or access to resources within the scope defined
-      elsewhere in this document
+      proximity, and/or access to resources within the scope defined in
+      Section 3.2 and Section 3.3
 
    *  Account for scenarios in which the victim has low expertise,
       access to resources, and/or access to technological safeguards
+      within the scope defined in Section 3.2 and Section 3.3
 
    *  Avoid privacy compromises for the tag owner when protecting
-      against unwanted location tracking
-
-   TODO Do we want to be more specific here?  For example, discussing
-   example scenarios or test cases to evaluate outside of those included
-   in Section 3?
+      against unwanted location tracking using tracking tags
 
 5.  IANA Considerations
 
