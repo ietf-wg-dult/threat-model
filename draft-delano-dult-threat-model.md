@@ -69,6 +69,7 @@ In order to minimize these privacy risks, it is necessary to analyze and be able
 
 - **active scanning**: a search for location trackers manually initiated by a user
 - **passive scanning**: a search for location trackers running in the background, often accompanied by notifications for the user
+- **tracking tag**: a small, concealable device that broadcasts location data to other devices
 
 # Security Considerations
 
