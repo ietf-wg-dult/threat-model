@@ -525,9 +525,9 @@ Table of Contents
    applications readily available for end-users (e.g. native tracking
    application) is in scope.  Additonally, an attacker who physically
    modifies a tracking tag (e.g. to disable a speaker) is in scope.  An
-   atacker who alters the firmware of an existing tracking tag or
-   creates a custom device that leverages the crowdsourced tracking
-   network is in scope.
+   atacker who makes non-nation-state level alterations to the firmware
+   of an existing tracking tag or creates a custom device that leverages
+   the crowdsourced tracking network is in scope.
 
 3.2.3.  Victim Profiles
 
