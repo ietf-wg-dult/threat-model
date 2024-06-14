@@ -201,9 +201,21 @@ The above taxonomy and threat analysis focus on location tracking tags. They are
 
 ## What is in scope
 
+### Technologies
+
 The scope of this threat analysis includes any easily-concealable accessory that is able to broadcast its location to other consumer devices.
 
+### Attacker Profiles
+
+An attacker who attempts to track a victim using a tracking tag and applications readily available for end-users (e.g. native tracking application) is in scope. Additonally, an attacker who physically modifies a tracking tag (e.g. to disable a speaker) is in scope. An atacker who alters the firmware of an existing tracking tag or creates a custom device that leverages the crowdsourced tracking network is in scope.
+
+### Victim Profiles
+
+All victims profiles are in scope regardless of their expertise, access to resources, or access to technological safeguards. For example, protocols should account for a victim's lack of access to a smartphone, and scenarios in which victims cannot install separate software.
+
 ## What is out of scope
+
+### Technologies
 
 There are many types of technology that can be used for location tracking. In many cases, the threat analysis would be similar, as the contexts in which potential attackers and victims exist and use the technology are similar. However, it would be infeasible to attempt to describe a threat analysis for each possible technology in this document. We have therefore limited its scope to location-tracking accessories that are small enough to be easily concealed, and able to broadcast their locations to other devices. The following are out of scope for this document:
 
@@ -212,19 +224,23 @@ There are many types of technology that can be used for location tracking. In ma
   - Connected cars.
   - User accounts for cloud services or social media.
 
-TODO What levels of access to resources or expertise might be defined out of scope? *MD: I'd argue nation-state level decryption (i.e. extremely high level of experise and resources) might be out of scope on the attacker end, but we would still want to ensure protections even in scenarios of low expertise/access to resources/technological safeguards on the victim side.*
+### Attack Profiles
+
+Attackers with nation-state level expertise and resources who deploy custom or altered tracking tags to bypass protocol safeguards or jailbreak a victim end-device (e.g. smartphone) are considered out of scope.
+
+### Victim Profiles
+
+N/A
 
 
 # Design Considerations
 
-As discussed in the {{security-considerations}}, unwanted location tracking can involve a variety of attacker, victim, and tracking tag profiles. A successful implementation to preventing unwanted location tracking would:
+As discussed in {{security-considerations}}, unwanted location tracking can involve a variety of attacker, victim, and tracking tag profiles. A successful implementation to preventing unwanted location tracking would:
 
-- Include a variety of approaches to address different scenarios, including active scanning for devices, along with passive notifications
-- Account for scenarios in which the attacker has high expertise, proximity, and/or access to resources within the scope defined elsewhere in this document
-- Account for scenarios in which the victim has low expertise, access to resources, and/or access to technological safeguards
-- Avoid privacy compromises for the tag owner when protecting against unwanted location tracking
-
-TODO Do we want to be more specific here? For example, discussing example scenarios or test cases to evaluate outside of those included in {{security-considerations}}?
+- Include a variety of approaches to address different scenarios, including active and passive scanning and notifications or sounds
+- Account for scenarios in which the attacker has high expertise, proximity, and/or access to resources within the scope defined in {{what-is-in-scope}} and {{what-is-out-of-scope}}
+- Account for scenarios in which the victim has low expertise, access to resources, and/or access to technological safeguards within the scope defined in {{what-is-in-scope}} and {{what-is-out-of-scope}}
+- Avoid privacy compromises for the tag owner when protecting against unwanted location tracking using tracking tags
 
 # IANA Considerations
 
