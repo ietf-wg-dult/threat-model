@@ -167,6 +167,9 @@ Table of Contents
    *  *passive scanning*: a search for location trackers running in the
       background, often accompanied by notifications for the user
 
+   *  *tracking tag*: a small, concealable device that broadcasts
+      location data to other devices
+
 3.  Security Considerations
 
    Incorporation of this threat analysis into the DULT protocol does not
