@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-07-21T00:15:18.380939+00:00",
+  "timestamp": "2024-07-23T00:13:54.192528+00:00",
   "repo": "maggiedelano/draft-delano-dult-threat-model",
   "labels": [
     {
@@ -49,7 +49,24 @@
       "color": "ffffff"
     }
   ],
-  "issues": [],
+  "issues": [
+    {
+      "number": 5,
+      "id": "I_kwDOMB0Qas6QdqMg",
+      "title": "Update levels of access to technological safeguards",
+      "url": "https://github.com/maggiedelano/draft-delano-dult-threat-model/issues/5",
+      "state": "OPEN",
+      "author": "maggiedelano",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "- Instead of \u201cnormal\u201d \u2013 could this be \u201chigh\u201d? Normal implies a common baseline.\r\n- Instead of \u201cimpaired\u201d \u2013 could we use \u201climited\u201d? Not having a high-level of access could be due to lack of information/understanding or because of the type of control of the abuser and the inability to use tech safety.",
+      "createdAt": "2024-07-22T20:15:11Z",
+      "updatedAt": "2024-07-22T20:15:11Z",
+      "closedAt": null,
+      "comments": []
+    }
+  ],
   "pulls": [
     {
       "number": 1,
