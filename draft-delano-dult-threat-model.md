@@ -101,8 +101,8 @@ In addition, the victim also has characteristics which influence the threat anal
     - High: The victim is generally able to safely access practical and relevant resources. These might include funds to pay a car mechanic or private investigator, law enforcement or legal assistance, or other resources.
     - Low: The victim is generally unable to safely access practical and relevant resources. These might include money to pay a car mechanic or private investigator, law enforcement or legal assistance, or other resources.
   - Access to technological safeguards
-    - Normal: The victim is able to safely use, and has access to, technological safeguards such as active scanning apps.
-    - Impaired: The victim is able to safely use, and has access to, technological safeguards such as active scanning apps, but is unable to use their full capacity.
+    - High: The victim is able to safely use, and has access to, technological safeguards such as active scanning apps.
+    - Limited: The victim is able to safely use, and has access to, technological safeguards such as active scanning apps, but is unable to use their full capacity.
     - Low: The victim is not able to use technological safeguards such as active scanning apps, due to reasons of safety or access.
 
 It is also appropriate to define who is using the tracking tags and incorporate this into a model. This is because if protocols overly deprioritize the privacy of tracking tags’ users, an attacker could use a victim’s own tag to track them. Beck et al. describe a [possible technological solution](https://eprint.iacr.org/2023/1332.pdf) to the problem of user privacy vs privacy of other potential victims.
