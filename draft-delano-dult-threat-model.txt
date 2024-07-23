@@ -5,8 +5,8 @@
 Detecting Unwanted Location Trackers                           M. Delano
 Internet-Draft                                        Swarthmore College
 Intended status: Informational                                 J. Lowell
-Expires: 16 December 2024      National Network to End Domestic Violence
-                                                            14 June 2024
+Expires: 24 January 2025       National Network to End Domestic Violence
+                                                            23 July 2024
 
 
                         Draft DULT Threat Model
@@ -64,7 +64,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 16 December 2024.
+   This Internet-Draft will expire on 24 January 2025.
 
 Copyright Notice
 
@@ -256,10 +256,10 @@ Table of Contents
 
    *  Access to technological safeguards
 
-      -  Normal: The victim is able to safely use, and has access to,
+      -  High: The victim is able to safely use, and has access to,
          technological safeguards such as active scanning apps.
 
-      -  Impaired: The victim is able to safely use, and has access to,
+      -  Limited: The victim is able to safely use, and has access to,
          technological safeguards such as active scanning apps, but is
          unable to use their full capacity.
 
