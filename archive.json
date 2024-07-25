@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-07-23T00:13:54.192528+00:00",
+  "timestamp": "2024-07-25T00:13:34.215170+00:00",
   "repo": "maggiedelano/draft-delano-dult-threat-model",
   "labels": [
     {
@@ -55,15 +55,15 @@
       "id": "I_kwDOMB0Qas6QdqMg",
       "title": "Update levels of access to technological safeguards",
       "url": "https://github.com/maggiedelano/draft-delano-dult-threat-model/issues/5",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "maggiedelano",
       "authorAssociation": "OWNER",
       "assignees": [],
       "labels": [],
       "body": "- Instead of \u201cnormal\u201d \u2013 could this be \u201chigh\u201d? Normal implies a common baseline.\r\n- Instead of \u201cimpaired\u201d \u2013 could we use \u201climited\u201d? Not having a high-level of access could be due to lack of information/understanding or because of the type of control of the abuser and the inability to use tech safety.",
       "createdAt": "2024-07-22T20:15:11Z",
-      "updatedAt": "2024-07-22T20:15:11Z",
-      "closedAt": null,
+      "updatedAt": "2024-07-23T16:36:02Z",
+      "closedAt": "2024-07-23T16:36:02Z",
       "comments": []
     }
   ],
@@ -256,6 +256,34 @@
       "mergedBy": "maggiedelano",
       "mergeCommit": {
         "oid": "f7f97a737dd9c4b60db654421c862ef05dc53911"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 6,
+      "id": "PR_kwDOMB0Qas52QiI0",
+      "title": "Updated levels of access to technological safeguards",
+      "url": "https://github.com/maggiedelano/draft-delano-dult-threat-model/pull/6",
+      "state": "MERGED",
+      "author": "maggiedelano",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Updated levels of access to technological safeguards",
+      "createdAt": "2024-07-23T19:48:08Z",
+      "updatedAt": "2024-07-23T19:51:14Z",
+      "baseRepository": "maggiedelano/draft-delano-dult-threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "f7f97a737dd9c4b60db654421c862ef05dc53911",
+      "headRepository": "exploretechsafety/draft-delano-dult-threat-model",
+      "headRefName": "main",
+      "headRefOid": "f1f96a9a22a1ed72346a31d93c4845a2d5ec9ec5",
+      "closedAt": "2024-07-23T19:51:14Z",
+      "mergedAt": "2024-07-23T19:51:14Z",
+      "mergedBy": "maggiedelano",
+      "mergeCommit": {
+        "oid": "f9cf753ea7fdd7e82d758919d1379de2d4d47382"
       },
       "comments": [],
       "reviews": []
