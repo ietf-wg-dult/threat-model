@@ -1,8 +1,8 @@
 ---
-title: "Draft DULT Threat Model"
+title: "DULT Threat Model"
 category: info
 
-docname: draft-delano-dult-threat-model-latest
+docname: draft-ietf-dult-threat-model-latest
 submissiontype: IETF  # also: "independent", "editorial", "IAB", or "IRTF"
 number:
 date:
@@ -11,16 +11,16 @@ v: 3
 area: "Security"
 workgroup: "Detecting Unwanted Location Trackers"
 keyword:
- - next generation
- - unicorn
- - sparkling distributed ledger
+ - Internet-Draft
+ - detecting unwanted location trackers
+ - threat model
 venue:
   group: "Detecting Unwanted Location Trackers"
   type: "Working Group"
   mail: "unwanted-trackers@ietf.org"
   arch: "https://mailarchive.ietf.org/arch/browse/unwanted-trackers/"
-  github: "maggiedelano/draft-delano-dult-threat-model"
-  latest: "https://maggiedelano.github.io/draft-delano-dult-threat-model/draft-delano-dult-threat-model.html"
+  github: "ietf-wg-dult/draft-ietf-dult-threat-model"
+  latest: "https://ietf-wg-dult.github.io/threat-model/draft-ietf-dult-threat-model.html"
 
 author:
  -
