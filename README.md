@@ -1,17 +1,16 @@
-# Draft DULT Threat Model
+# DULT Threat Model
 
-This is the working area for the individual Internet-Draft, "Draft DULT Threat Model".
+This is the working area for the DULT WG's Internet-Draft, "DULT Threat Model".
 
-* [Editor's Copy](https://maggiedelano.github.io/draft-delano-dult-threat-model/#go.draft-delano-dult-threat-model.html)
-* [Datatracker Page](https://datatracker.ietf.org/doc/draft-delano-dult-threat-model)
-* [Individual Draft](https://datatracker.ietf.org/doc/html/draft-delano-dult-threat-model)
-* [Compare Editor's Copy to Individual Draft](https://maggiedelano.github.io/draft-delano-dult-threat-model/#go.draft-delano-dult-threat-model.diff)
-
+* [Editor's Copy](https://ietf-wg-dult.github.io.github.io/threat-model/#go.draft-ietf-dult-threat-model.html)
+* [Datatracker Page](https://datatracker.ietf.org/doc/draft-ietf-dult-threat-model)
+* [Individual Draft](https://datatracker.ietf.org/doc/html/draft-ietf-dult-threat-model)
+* [Compare Editor's Copy to Individual Draft](https://ietf-wg-dult.github.io/threat-model/#go.draft-ietf-dult-threat-model.diff)
 
 ## Contributing
 
 See the
-[guidelines for contributions](https://github.com/maggiedelano/draft-delano-dult-threat-model/blob/main/CONTRIBUTING.md).
+[guidelines for contributions](https://github.com/ietf-wg-dult/threat-model/blob/main/CONTRIBUTING.md).
 
 Contributions can be made by creating pull requests.
 The GitHub interface supports creating pull requests using the Edit (✏) button.
