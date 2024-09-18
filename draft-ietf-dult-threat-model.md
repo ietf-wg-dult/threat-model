@@ -132,14 +132,14 @@ In this case, the attacker has planted a tag on a child. Co-parenting after sepa
 | ------------- | ------------- |
 | Expertise Level  | Non-Expert  |
 | Proximity to Victim  | Medium  |
-| Access to Resources	  | Unknown, but can be presumed higher than Mango’s due to Mango’s recent homelessness  |
+| Access to Resources  | Unknown, but can be presumed higher than Mango’s due to Mango’s recent homelessness  |
 
 |Victim Profile | Mango |
 | ------------- | ------------- |
 | Expertise Level  | Non-Expert  |
 | Access to Resources  | Low  |
-| Access to Technological Safeguards	  | Normal  |
-	
+| Access to Technological Safeguards  | Normal  |
+
 |Other Characteristics | Avocado and Mango |
 | ------------- | ------------- |
 | Accessory Usage  | Attacker Only  |
@@ -158,14 +158,14 @@ Here, the attacker and the victim are still cohabiting, and the attacker is moni
 | ------------- | ------------- |
 | Expertise Level  | Non-Expert  |
 | Proximity to Victim  | High  |
-| Access to Resources	  | High  |
+| Access to Resources  | High  |
 
 |Victim Profile | Strawberry |
 | ------------- | ------------- |
 | Expertise Level  | Non-Expert  |
 | Access to Resources  | Low  |
-| Access to Technological Safeguards	  | Impaired (cannot hear alert sound)  |
-	
+| Access to Technological Safeguards  | Impaired (cannot hear alert sound)  |
+
 |Other Characteristics | Elderberry and Strawberry |
 | ------------- | ------------- |
 | Accessory Usage  | Attacker Only  |
@@ -184,14 +184,14 @@ This is a case involving a high-skill attacker, with a large skill difference be
 | ------------- | ------------- |
 | Expertise Level  | Expert  |
 | Proximity to Victim  | High  |
-| Access to Resources	  | High  |
+| Access to Resources  | High  |
 
 |Victim Profile | Lime |
 | ------------- | ------------- |
 | Expertise Level  | Non-Expert  |
 | Access to Resources  | Low  |
-| Access to Technological Safeguards	  | Low  |
-	
+| Access to Technological Safeguards  | Low  |
+
 |Other Characteristics | Lemon and Lime |
 | ------------- | ------------- |
 | Accessory Usage  | Attacker Only  |
