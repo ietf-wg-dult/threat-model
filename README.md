@@ -2,7 +2,7 @@
 
 This is the working area for the DULT WG's Internet-Draft, "DULT Threat Model".
 
-* [Editor's Copy](https://ietf-wg-dult.github.io.github.io/threat-model/#go.draft-ietf-dult-threat-model.html)
+* [Editor's Copy](https://ietf-wg-dult.github.io/threat-model/#go.draft-ietf-dult-threat-model.html)
 * [Datatracker Page](https://datatracker.ietf.org/doc/draft-ietf-dult-threat-model)
 * [Individual Draft](https://datatracker.ietf.org/doc/html/draft-ietf-dult-threat-model)
 * [Compare Editor's Copy to Individual Draft](https://ietf-wg-dult.github.io/threat-model/#go.draft-ietf-dult-threat-model.diff)
