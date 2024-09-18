@@ -5,12 +5,12 @@
 Detecting Unwanted Location Trackers                           M. Delano
 Internet-Draft                                        Swarthmore College
 Intended status: Informational                                 J. Lowell
-Expires: 24 January 2025       National Network to End Domestic Violence
-                                                            23 July 2024
+Expires: 22 March 2025         National Network to End Domestic Violence
+                                                       18 September 2024
 
 
-                        Draft DULT Threat Model
-                 draft-delano-dult-threat-model-latest
+                           DULT Threat Model
+                  draft-ietf-dult-threat-model-latest
 
 Abstract
 
@@ -33,11 +33,10 @@ About This Document
 
    This note is to be removed before publishing as an RFC.
 
-   The latest revision of this draft can be found at
-   https://maggiedelano.github.io/draft-delano-dult-threat-model/draft-
-   delano-dult-threat-model.html.  Status information for this document
-   may be found at https://datatracker.ietf.org/doc/draft-delano-dult-
-   threat-model/.
+   The latest revision of this draft can be found at https://ietf-wg-
+   dult.github.io/threat-model/draft-ietf-dult-threat-model.html.
+   Status information for this document may be found at
+   https://datatracker.ietf.org/doc/draft-ietf-dult-threat-model/.
 
    Discussion of this document takes place on the Detecting Unwanted
    Location Trackers Working Group mailing list (mailto:unwanted-
@@ -47,7 +46,7 @@ About This Document
    trackers/.
 
    Source for this draft and an issue tracker can be found at
-   https://github.com/maggiedelano/draft-delano-dult-threat-model.
+   https://github.com/ietf-wg-dult/draft-ietf-dult-threat-model.
 
 Status of This Memo
 
@@ -64,7 +63,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 24 January 2025.
+   This Internet-Draft will expire on 22 March 2025.
 
 Copyright Notice
 
