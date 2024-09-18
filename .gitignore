@@ -17,7 +17,7 @@
 /versioned/
 Gemfile.lock
 archive.json
-draft-delano-dult-threat-model.xml
+draft-ietf-dult-threat-model.xml
 package-lock.json
 report.xml
 !requirements.txt
