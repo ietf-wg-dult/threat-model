@@ -5,8 +5,8 @@
 Detecting Unwanted Location Trackers                           M. Delano
 Internet-Draft                                        Swarthmore College
 Intended status: Informational                                 J. Lowell
-Expires: 22 March 2025         National Network to End Domestic Violence
-                                                       18 September 2024
+Expires: 27 March 2025         National Network to End Domestic Violence
+                                                       23 September 2024
 
 
                            DULT Threat Model
@@ -63,7 +63,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 22 March 2025.
+   This Internet-Draft will expire on 27 March 2025.
 
 Copyright Notice
 
