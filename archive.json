@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-09-22T01:13:58.728465+00:00",
+  "timestamp": "2024-09-24T01:09:46.888167+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -433,26 +433,89 @@
       "id": "PR_kwDOMB0Qas58LPmn",
       "title": "Update workflow",
       "url": "https://github.com/ietf-wg-dult/threat-model/pull/12",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "seanturner",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Update archive.yml",
       "createdAt": "2024-09-20T14:21:08Z",
-      "updatedAt": "2024-09-20T14:24:21Z",
+      "updatedAt": "2024-09-23T20:08:47Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
       "baseRefOid": "98494e8ab8decb04d7c980cbf5f29c8a71e69af9",
       "headRepository": "ietf-wg-dult/threat-model",
       "headRefName": "seanturner-update-workflow",
       "headRefOid": "ec4723c14ee23ba7129afbbc48a1c1a6ddafe6a9",
+      "closedAt": "2024-09-23T20:08:47Z",
+      "mergedAt": "2024-09-23T20:08:47Z",
+      "mergedBy": "maggiedelano",
+      "mergeCommit": {
+        "oid": "412ec3d9b8ef5e803528ab19bdd15a8c03d14896"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOMB0Qas6KeVZU",
+          "commit": {
+            "abbreviatedOid": "ec4723c"
+          },
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-09-23T20:08:13Z",
+          "updatedAt": "2024-09-23T20:08:13Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "id": "PR_kwDOMB0Qas58Yx2h",
+      "title": "Update CODEOWNERS",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/13",
+      "state": "OPEN",
+      "author": "seanturner",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Adding Jessie's email addresses.",
+      "createdAt": "2024-09-23T15:09:13Z",
+      "updatedAt": "2024-09-23T15:09:33Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "98494e8ab8decb04d7c980cbf5f29c8a71e69af9",
+      "headRepository": "ietf-wg-dult/threat-model",
+      "headRefName": "seanturner-code-owners",
+      "headRefOid": "2a3fd2b0e7c71ae38a870189dc8b05654bc6831c",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOMB0Qas6Kb_WV",
+          "commit": {
+            "abbreviatedOid": "eb078c4"
+          },
+          "author": "seanturner",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-09-23T15:09:27Z",
+          "updatedAt": "2024-09-23T15:09:28Z",
+          "comments": [
+            {
+              "originalPosition": 4,
+              "body": "```suggestion\r\ndraft-ietf-dult-threat-model.md maggie.delano@gmail.com Jessie.work.stuff@proton.me\r\n```",
+              "createdAt": "2024-09-23T15:09:27Z",
+              "updatedAt": "2024-09-23T15:09:28Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
