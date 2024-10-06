@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-10-03T01:09:49.135562+00:00",
+  "timestamp": "2024-10-06T01:14:30.486814+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -475,24 +475,26 @@
       "id": "PR_kwDOMB0Qas58Yx2h",
       "title": "Update CODEOWNERS",
       "url": "https://github.com/ietf-wg-dult/threat-model/pull/13",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "seanturner",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Adding Jessie's email addresses.",
       "createdAt": "2024-09-23T15:09:13Z",
-      "updatedAt": "2024-09-23T15:09:33Z",
+      "updatedAt": "2024-10-04T13:39:47Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
       "baseRefOid": "98494e8ab8decb04d7c980cbf5f29c8a71e69af9",
       "headRepository": "ietf-wg-dult/threat-model",
       "headRefName": "seanturner-code-owners",
       "headRefOid": "2a3fd2b0e7c71ae38a870189dc8b05654bc6831c",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2024-10-04T13:39:47Z",
+      "mergedAt": "2024-10-04T13:39:47Z",
+      "mergedBy": "seanturner",
+      "mergeCommit": {
+        "oid": "3c48384c54a16d3c45f315846f31b68d5f48065d"
+      },
       "comments": [],
       "reviews": [
         {
