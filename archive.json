@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-11-03T01:14:47.756414+00:00",
+  "timestamp": "2024-11-05T01:08:51.741826+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -518,6 +518,32 @@
           ]
         }
       ]
+    },
+    {
+      "number": 14,
+      "id": "PR_kwDOMB0Qas6Avyvn",
+      "title": "Update README.md",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/14",
+      "state": "OPEN",
+      "author": "seanturner",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2024-11-04T03:41:34Z",
+      "updatedAt": "2024-11-04T03:41:34Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "3c48384c54a16d3c45f315846f31b68d5f48065d",
+      "headRepository": "ietf-wg-dult/threat-model",
+      "headRefName": "seanturner-readme-2",
+      "headRefOid": "54a087be5bec5efece61c6c79269e40f6259ef52",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
