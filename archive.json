@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-01-30T01:07:27.629756+00:00",
+  "timestamp": "2025-02-02T01:12:06.333663+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -74,11 +74,13 @@
       "state": "OPEN",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
+      "assignees": [
+        "maggiedelano"
+      ],
       "labels": [],
       "body": "Update the threat model to discuss specific attacks on the DULT architecture. This could include:\n\n- Multiple tags following a single victim\n- Non-compliant tags (e.g. speaker disabled, altered firmware/firmware updates, spoofed, non-compliant tags)\n- Remote advertisement monitoring\n- Remote disablement\n\nEach of these attacks may be significant enough to warrant their own issues; this issue will link to those issues if/as they are created.\n\nThe document should also include discussion of attacks that are considered out of scope.",
       "createdAt": "2025-01-29T20:01:27Z",
-      "updatedAt": "2025-01-29T20:02:47Z",
+      "updatedAt": "2025-01-30T19:03:04Z",
       "closedAt": null,
       "comments": []
     },
@@ -96,7 +98,7 @@
       "labels": [],
       "body": "Discuss the attack by which multiple tags are tracking a single victim, which could impact the efficiency of protocols such as [Multi-Dealer Secret Sharing](https://eprint.iacr.org/2023/1332.pdf) (MDSS).",
       "createdAt": "2025-01-29T20:04:29Z",
-      "updatedAt": "2025-01-29T20:10:50Z",
+      "updatedAt": "2025-01-30T18:57:46Z",
       "closedAt": null,
       "comments": []
     },
@@ -114,7 +116,7 @@
       "labels": [],
       "body": "Discuss an attack by which bluetooth advertisement packets are monitored in order to track an individual using these packets rather than by the tracking network (see discussion [here](https://eprint.iacr.org/2023/1332.pdf))",
       "createdAt": "2025-01-29T20:06:09Z",
-      "updatedAt": "2025-01-29T20:10:50Z",
+      "updatedAt": "2025-01-30T18:57:47Z",
       "closedAt": null,
       "comments": []
     },
@@ -130,7 +132,7 @@
       "labels": [],
       "body": "Discuss attacks that are out of scope.",
       "createdAt": "2025-01-29T20:06:46Z",
-      "updatedAt": "2025-01-29T20:06:46Z",
+      "updatedAt": "2025-01-30T18:59:02Z",
       "closedAt": null,
       "comments": []
     },
@@ -142,11 +144,13 @@
       "state": "OPEN",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
+      "assignees": [
+        "exploretechsafety"
+      ],
       "labels": [],
       "body": "Expand on the taxonomy of unwanted tracking. In particular, include discussion of tag placement and anticipation of unwanted location tracking.",
       "createdAt": "2025-01-29T20:08:15Z",
-      "updatedAt": "2025-01-29T20:08:15Z",
+      "updatedAt": "2025-01-30T19:02:28Z",
       "closedAt": null,
       "comments": []
     },
@@ -164,7 +168,7 @@
       "labels": [],
       "body": "Elaborate on tag placement and how that might impact the threat model, attacks, etc.:\n\n- Tag placed on victim\u2019s person or immediate belongings\n- Tag(s) in proximity to victim but not on their person (e.g. child\u2019s backpack, car)\n- Tags nearby but not used for unwanted location tracking (e.g. false positives by family or on transit)\n",
       "createdAt": "2025-01-29T20:09:02Z",
-      "updatedAt": "2025-01-29T20:10:23Z",
+      "updatedAt": "2025-01-30T18:57:48Z",
       "closedAt": null,
       "comments": []
     },
@@ -182,7 +186,7 @@
       "labels": [],
       "body": "Update the taxonomy to discuss the victim's self-assessed likelihood of being tracked:\n\n- Support for potential victims who are actively looking for potential tags (i.e. active scanning)\n- Support for potential victims who are not actively looking for potential tags (i.e. passive notifications)\n",
       "createdAt": "2025-01-29T20:09:49Z",
-      "updatedAt": "2025-01-29T20:38:47Z",
+      "updatedAt": "2025-01-30T18:57:48Z",
       "closedAt": null,
       "comments": []
     },
@@ -194,11 +198,13 @@
       "state": "OPEN",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
+      "assignees": [
+        "maggiedelano"
+      ],
       "labels": [],
       "body": "Update the threat model document to discuss specific design constraints:\n\n- BLE protocol constraints (e.g. packet size, public advertisements)\n- Power constraints (protocol cannot have large impact on battery life)\n- Device constraints (protocol must be supported by existing hardware/software, should not require new designs)\n",
       "createdAt": "2025-01-29T20:12:22Z",
-      "updatedAt": "2025-01-29T20:12:22Z",
+      "updatedAt": "2025-01-30T19:03:05Z",
       "closedAt": null,
       "comments": []
     },
@@ -210,11 +216,13 @@
       "state": "OPEN",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
+      "assignees": [
+        "maggiedelano"
+      ],
       "labels": [],
       "body": "Discuss constraints of the BLE protocol that must be considered, including packet size, nature of public advertisements, etc.",
       "createdAt": "2025-01-29T20:12:53Z",
-      "updatedAt": "2025-01-29T20:12:53Z",
+      "updatedAt": "2025-01-30T19:03:05Z",
       "closedAt": null,
       "comments": []
     },
@@ -230,7 +238,7 @@
       "labels": [],
       "body": "Discuss any power constraints / acceptable impact on battery life.",
       "createdAt": "2025-01-29T20:13:12Z",
-      "updatedAt": "2025-01-29T20:13:12Z",
+      "updatedAt": "2025-01-30T18:58:17Z",
       "closedAt": null,
       "comments": []
     },
@@ -246,7 +254,7 @@
       "labels": [],
       "body": "Discuss any constraints related to devices, such as specific hardware or software that should be supported.",
       "createdAt": "2025-01-29T20:13:42Z",
-      "updatedAt": "2025-01-29T20:13:42Z",
+      "updatedAt": "2025-01-30T18:58:17Z",
       "closedAt": null,
       "comments": []
     },
@@ -258,11 +266,13 @@
       "state": "OPEN",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
+      "assignees": [
+        "maggiedelano"
+      ],
       "labels": [],
       "body": "Discuss specific proposed requirements for the tracking system, for example:\n\n- Users should be able to actively scan their location for devices that might be tracking them\n- Protocol should be able to detect an unwanted location tracker passively within X minutes \n- Tags that are separated from their owners should notify nearby users (how and how often?)\n- Users should be able to customize their settings\n- Platform should assist user in locating trackers\n- Users should be able to disable tracker\n",
       "createdAt": "2025-01-29T20:16:42Z",
-      "updatedAt": "2025-01-29T20:16:42Z",
+      "updatedAt": "2025-01-30T19:03:05Z",
       "closedAt": null,
       "comments": []
     },
@@ -274,11 +284,13 @@
       "state": "OPEN",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
+      "assignees": [
+        "maggiedelano"
+      ],
       "labels": [],
       "body": "Update the document to include a requirement that \"users should be able to actively scan their location for devices that might be tracking them.\"\n\nDiscuss key parameters such as ideal scan duration, when a scan should be able to be triggered, and when not to include a found device in a scan (e.g. devices that are near their owners).",
       "createdAt": "2025-01-29T20:18:13Z",
-      "updatedAt": "2025-01-29T20:18:13Z",
+      "updatedAt": "2025-01-30T19:05:01Z",
       "closedAt": null,
       "comments": []
     },
@@ -290,11 +302,13 @@
       "state": "OPEN",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
+      "assignees": [
+        "maggiedelano"
+      ],
       "labels": [],
       "body": "Update the document to include a requirement that \"The DULT protocol should be able to detect an unwanted location tracker passively\"\n\nDiscuss key parameters such as time to detection, acceptable false positive and false negative rates (and how those might be assessed).",
       "createdAt": "2025-01-29T20:19:45Z",
-      "updatedAt": "2025-01-29T20:19:45Z",
+      "updatedAt": "2025-01-30T19:05:01Z",
       "closedAt": null,
       "comments": []
     },
@@ -306,11 +320,13 @@
       "state": "OPEN",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
+      "assignees": [
+        "maggiedelano"
+      ],
       "labels": [],
       "body": "Update the document to include a requirement that \"Tags that are separated from their owners should notify nearby users\"\n\nDiscuss key parameters such as user customization (notification frequency, notification type, algorithm sensitivity, etc.).",
       "createdAt": "2025-01-29T20:21:48Z",
-      "updatedAt": "2025-01-29T20:21:48Z",
+      "updatedAt": "2025-01-30T19:05:02Z",
       "closedAt": null,
       "comments": []
     },
@@ -322,11 +338,13 @@
       "state": "OPEN",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
+      "assignees": [
+        "exploretechsafety"
+      ],
       "labels": [],
       "body": "Update the document to include a requirement that \"Platforms should assist user in locating trackers.\"\n\nDiscuss ways in which platforms might assist users, such as notifications (see [this issue](https://github.com/ietf-wg-dult/threat-model/issues/29)), user interface, disablement, etc. Confirm what is in the [charter](https://datatracker.ietf.org/doc/charter-ietf-dult/) when considering what should be required vs. suggested to platforms.",
       "createdAt": "2025-01-29T20:25:09Z",
-      "updatedAt": "2025-01-29T20:25:09Z",
+      "updatedAt": "2025-01-30T19:04:38Z",
       "closedAt": null,
       "comments": []
     },
@@ -338,11 +356,13 @@
       "state": "OPEN",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
+      "assignees": [
+        "exploretechsafety"
+      ],
       "labels": [],
       "body": "Update the document to include a requirement that \"Users should be able to disable tracker.\"\n\nDiscuss ways in which users might be able to do so, such as via the [platform](https://github.com/ietf-wg-dult/threat-model/issues/29) or some other means.\n\nplatforms might assist users, such as notifications (see https://github.com/ietf-wg-dult/threat-model/issues/29), user interface, disablement, etc. Confirm what is in the [charter](https://datatracker.ietf.org/doc/charter-ietf-dult/) when considering what should be required vs. suggested to platforms.",
       "createdAt": "2025-01-29T20:26:42Z",
-      "updatedAt": "2025-01-29T20:26:42Z",
+      "updatedAt": "2025-01-30T19:04:39Z",
       "closedAt": null,
       "comments": []
     },
@@ -360,7 +380,7 @@
       "labels": [],
       "body": "Remove references to \"easily concealable\" and \"consumer devices\" to broaden the scope of the threat model document (this is based on feedback from IETF 121).",
       "createdAt": "2025-01-29T20:28:28Z",
-      "updatedAt": "2025-01-29T20:28:28Z",
+      "updatedAt": "2025-01-30T19:01:06Z",
       "closedAt": null,
       "comments": []
     },
@@ -372,11 +392,13 @@
       "state": "OPEN",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
+      "assignees": [
+        "maggiedelano"
+      ],
       "labels": [],
       "body": "Update terminology in threat model document to be consistent with other documents.",
       "createdAt": "2025-01-29T20:29:34Z",
-      "updatedAt": "2025-01-29T20:29:34Z",
+      "updatedAt": "2025-01-30T19:03:06Z",
       "closedAt": null,
       "comments": []
     },
@@ -392,7 +414,7 @@
       "labels": [],
       "body": "Update terminology to match [accessory protocol document](https://github.com/ietf-wg-dult/accessory-protocol). (N.B. we discussed at IETF that the terminology in that document should likely serve as a reference, but if changes are needed, they can be made as well. This issue may therefore be lower priority while all groups work on their terminology.) ",
       "createdAt": "2025-01-29T20:31:08Z",
-      "updatedAt": "2025-01-29T20:32:04Z",
+      "updatedAt": "2025-01-30T18:56:14Z",
       "closedAt": null,
       "comments": []
     },
@@ -410,7 +432,7 @@
       "labels": [],
       "body": "Change the term \"broadcast\" to \"transmit\" to avoid connotation of the word broadcast.",
       "createdAt": "2025-01-29T20:31:50Z",
-      "updatedAt": "2025-01-29T20:38:27Z",
+      "updatedAt": "2025-01-30T19:00:46Z",
       "closedAt": null,
       "comments": []
     },
@@ -422,11 +444,49 @@
       "state": "OPEN",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
+      "assignees": [
+        "exploretechsafety"
+      ],
       "labels": [],
       "body": "Detecting unwanted location tracking is often discussed as a trade off between privacy of unassociated tag owners and security of tracking victims (see e.g. [this article](https://eprint.iacr.org/2023/1332.pdf)). However, victims could be threatened using either attacks related to [remote advertisement monitoring](https://github.com/ietf-wg-dult/threat-model/issues/17) as well as the \"standard\" tracking scenario. Update the document to discuss this, and how the protocol should prioritize different types of attacks, victims, etc.",
       "createdAt": "2025-01-29T20:36:41Z",
-      "updatedAt": "2025-01-29T20:36:41Z",
+      "updatedAt": "2025-01-30T19:00:32Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 37,
+      "id": "I_kwDOMB0Qas6oJLy0",
+      "title": "Attack: tags non-compliant due to certain disablements or modifications",
+      "url": "https://github.com/ietf-wg-dult/threat-model/issues/37",
+      "state": "OPEN",
+      "author": "exploretechsafety",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "exploretechsafety"
+      ],
+      "labels": [],
+      "body": "Discuss an attack by which tags rendered non-compliant due to certain disablements or modifications are used to track an individual. This could include, but is not limited to, altered firmware or a tag lacking firmware updates, a tag with its speaker disabled, or a spoofed tag.",
+      "createdAt": "2025-01-30T14:26:08Z",
+      "updatedAt": "2025-01-30T19:03:21Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 38,
+      "id": "I_kwDOMB0Qas6oK0pN",
+      "title": "Attack: misuse of remote disablement",
+      "url": "https://github.com/ietf-wg-dult/threat-model/issues/38",
+      "state": "OPEN",
+      "author": "exploretechsafety",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "exploretechsafety"
+      ],
+      "labels": [],
+      "body": "Discuss an attack by which remote disablement of a location tracker could be used to interfere with a victim's ability to detect or document it, or could be used to reset a victim's location tracker.",
+      "createdAt": "2025-01-30T17:27:28Z",
+      "updatedAt": "2025-01-30T19:03:21Z",
       "closedAt": null,
       "comments": []
     }
