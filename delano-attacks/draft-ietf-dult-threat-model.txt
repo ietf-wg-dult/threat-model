@@ -5,8 +5,8 @@
 Detecting Unwanted Location Trackers                           M. Delano
 Internet-Draft                                        Swarthmore College
 Intended status: Informational                                 J. Lowell
-Expires: 24 March 2025         National Network to End Domestic Violence
-                                                       20 September 2024
+Expires: 16 August 2025        National Network to End Domestic Violence
+                                                        12 February 2025
 
 
                            DULT Threat Model
@@ -63,11 +63,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 24 March 2025.
+   This Internet-Draft will expire on 16 August 2025.
 
 Copyright Notice
 
-   Copyright (c) 2024 IETF Trust and the persons identified as the
+   Copyright (c) 2025 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -89,14 +89,19 @@ Table of Contents
      3.1.  Taxonomy of unwanted tracking
        3.1.1.  Example scenarios with analyses
        3.1.2.  Bluetooth vs. other technologies
-     3.2.  What is in scope
-       3.2.1.  Technologies
-       3.2.2.  Attacker Profiles
-       3.2.3.  Victim Profiles
-     3.3.  What is out of scope
+     3.2.  Possible Methods to Circumvent of DULT Protocol
+       3.2.1.  Deploying Multiple Tags
+       3.2.2.  Remote Advertisement Monitoring
+       3.2.3.  Non-compliant tags (JESSIE TODO)
+       3.2.4.  Misuse of Remote Disablement (JESSIE TODO)
+     3.3.  What is in scope
        3.3.1.  Technologies
-       3.3.2.  Attack Profiles
+       3.3.2.  Attacker Profiles
        3.3.3.  Victim Profiles
+     3.4.  What is out of scope
+       3.4.1.  Technologies
+       3.4.2.  Attack Profiles
+       3.4.3.  Victim Profiles
    4.  Design Considerations
    5.  IANA Considerations
    6.  Normative References
@@ -510,15 +515,62 @@ Table of Contents
    enough to be easily concealed, and able to broadcast its location to
    other consumer devices.
 
-3.2.  What is in scope
+3.2.  Possible Methods to Circumvent of DULT Protocol
 
-3.2.1.  Technologies
+   There are several different ways an attacker could attempt to
+   circumvent the DULT protocol in order to track a victim without their
+   consent.  These include deploying multiple tags to follow a single
+   victim and using a non-compliant tag (e.g. speaker disabled, altered
+   firmware, spoofed tag).  There are also other potential concerns of
+   abuse of the DULT Protocol, such as remotely disabling a victim's
+   tracking tag.
+
+3.2.1.  Deploying Multiple Tags
+
+   When an attacker deploys tracking tags to follow a victim, they may
+   deploy more than one tag.  For example, if planting a tracking tag in
+   a car, the attacker might place one tag inside the car, and another
+   affixed on the outside of the car.  The DULT protocol must be robust
+   to this scenario.  This means that scans, whether passive or active,
+   need to be able to return more than one result if a device is
+   suspected of being used for unwanted tracking, and the time to do so
+   must not be significantly impeded by the presence of multiple
+   trackers.  This also applies to situations where many tags are
+   present, even if they are not being used for unwanted location
+   tracking, such as a busy train station or airport where tag owners
+   may or may not be in proximity to their tracking tags.
+
+3.2.2.  Remote Advertisement Monitoring
+
+   Bluetooth advertisement packets are not encrypted, so any device with
+   Bluetooh scanning capabilities in proximity to a location tracking
+   tag can receive Bluetooth advertisement packets.  If an attacker is
+   able to link an identifier in an advertisement packet to a particular
+   tag, they may be able to use this information to track the tag over
+   time, and potentially by proxy the victim or other individual,
+   without their consent.  Tracking tags typically rotate any
+   identifiers associated with the tag, but the duration with which they
+   rotate could be up to 24 hours (see e.g.
+   [I-D.detecting-unwanted-location-trackers]).  Beck et al. have
+   demonstrated (https://eprint.iacr.org/2023/1332.pdf) a technological
+   solution that employs secret sharing and error correction coding that
+   would reduce this to 60 seconds.  However, work must investigate how
+   robust this scheme is to the presence of multiple tags (see
+   Section 3.2.1).
+
+3.2.3.  Non-compliant tags (JESSIE TODO)
+
+3.2.4.  Misuse of Remote Disablement (JESSIE TODO)
+
+3.3.  What is in scope
+
+3.3.1.  Technologies
 
    The scope of this threat analysis includes any easily-concealable
    accessory that is able to broadcast its location to other consumer
    devices.
 
-3.2.2.  Attacker Profiles
+3.3.2.  Attacker Profiles
 
    An attacker who attempts to track a victim using a tracking tag and
    applications readily available for end-users (e.g. native tracking
@@ -528,7 +580,7 @@ Table of Contents
    of an existing tracking tag or creates a custom device that leverages
    the crowdsourced tracking network is in scope.
 
-3.2.3.  Victim Profiles
+3.3.3.  Victim Profiles
 
    All victims profiles are in scope regardless of their expertise,
    access to resources, or access to technological safeguards.  For
@@ -536,9 +588,9 @@ Table of Contents
    smartphone, and scenarios in which victims cannot install separate
    software.
 
-3.3.  What is out of scope
+3.4.  What is out of scope
 
-3.3.1.  Technologies
+3.4.1.  Technologies
 
    There are many types of technology that can be used for location
    tracking.  In many cases, the threat analysis would be similar, as
@@ -558,14 +610,14 @@ Table of Contents
 
    *  User accounts for cloud services or social media.
 
-3.3.2.  Attack Profiles
+3.4.2.  Attack Profiles
 
    Attackers with nation-state level expertise and resources who deploy
    custom or altered tracking tags to bypass protocol safeguards or
    jailbreak a victim end-device (e.g. smartphone) are considered out of
    scope.
 
-3.3.3.  Victim Profiles
+3.4.3.  Victim Profiles
 
    N/A
 
@@ -580,11 +632,11 @@ Table of Contents
 
    *  Account for scenarios in which the attacker has high expertise,
       proximity, and/or access to resources within the scope defined in
-      Section 3.2 and Section 3.3
+      Section 3.3 and Section 3.4
 
    *  Account for scenarios in which the victim has low expertise,
       access to resources, and/or access to technological safeguards
-      within the scope defined in Section 3.2 and Section 3.3
+      within the scope defined in Section 3.3 and Section 3.4
 
    *  Avoid privacy compromises for the tag owner when protecting
       against unwanted location tracking using tracking tags
