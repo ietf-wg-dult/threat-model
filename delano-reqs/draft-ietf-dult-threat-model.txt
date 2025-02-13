@@ -100,8 +100,8 @@ Table of Contents
    4.  Design Considerations
      4.1.  Design Requirements
        4.1.1.  Detecting Unwanted Location Tracking
-       4.1.2.  Finding Tracking Tags (JESSIE TODO)
-       4.1.3.  Disabling Tracking Tags (JESSIE TODO)
+       4.1.2.  Finding Tracking Tags
+       4.1.3.  Disabling Tracking Tags
        4.1.4.  Privacy and Security Requirements (TODO)
      4.2.  Design Constraints
        4.2.1.  Bluetooth constraints
@@ -655,9 +655,28 @@ Table of Contents
    along with lights and haptics so that people who are Deaf or hard of
    hearing can still locate them.
 
-4.1.2.  Finding Tracking Tags (JESSIE TODO)
+4.1.2.  Finding Tracking Tags
 
-4.1.3.  Disabling Tracking Tags (JESSIE TODO)
+   Even after a location tracker is detected through passive or active
+   scanning, a user may have difficulty in locating it.  For example, a
+   tag may be buried under a vehicle cushion.  Platforms should allow
+   users who have discovered a tracker through passive or active
+   scanning to request that the tracker signal its presence.
+
+   This assistance should be done in a way that is accessible to users
+   with sensory or other impairments by using multimodal signals.  For
+   instance, if a platform relies on sounds emitted by a tag to help a
+   user locate it, d/Deaf and hard of hearing users may not be able to
+   use this feature.  Platforms should combine different types of
+   signals, such as sound, light, and vibration.
+
+4.1.3.  Disabling Tracking Tags
+
+   In order to effectively prevent unwanted location tracking, users
+   should be able to disable location tracker tags.  This includes a
+   non-owner user being tracked by a tag's owner, as well as an owner
+   user who believes that an attacker is using their own tag to track
+   them.
 
 4.1.4.  Privacy and Security Requirements (TODO)
 
