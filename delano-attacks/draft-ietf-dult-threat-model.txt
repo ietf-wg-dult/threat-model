@@ -568,7 +568,9 @@ Table of Contents
 3.2.4.  Misuse of Remote Disablement
 
    An attacker might misuse remote disablement features to prevent a
-   victim detecting or locating a tag.
+   victim detecting or locating a tag.  This could be used to prevent a
+   victim locating an attacker's tag, or could be used by an attacker
+   against a victim's tag as a form of harassment.
 
 3.3.  What is in scope
 
