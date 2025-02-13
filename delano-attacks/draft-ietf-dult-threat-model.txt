@@ -5,8 +5,8 @@
 Detecting Unwanted Location Trackers                           M. Delano
 Internet-Draft                                        Swarthmore College
 Intended status: Informational                                 J. Lowell
-Expires: 16 August 2025        National Network to End Domestic Violence
-                                                        12 February 2025
+Expires: 17 August 2025        National Network to End Domestic Violence
+                                                        13 February 2025
 
 
                            DULT Threat Model
@@ -63,7 +63,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 16 August 2025.
+   This Internet-Draft will expire on 17 August 2025.
 
 Copyright Notice
 
@@ -92,8 +92,8 @@ Table of Contents
      3.2.  Possible Methods to Circumvent of DULT Protocol
        3.2.1.  Deploying Multiple Tags
        3.2.2.  Remote Advertisement Monitoring
-       3.2.3.  Non-compliant tags (JESSIE TODO)
-       3.2.4.  Misuse of Remote Disablement (JESSIE TODO)
+       3.2.3.  Non-compliant tags
+       3.2.4.  Misuse of Remote Disablement
      3.3.  What is in scope
        3.3.1.  Technologies
        3.3.2.  Attacker Profiles
@@ -558,9 +558,17 @@ Table of Contents
    robust this scheme is to the presence of multiple tags (see
    Section 3.2.1).
 
-3.2.3.  Non-compliant tags (JESSIE TODO)
+3.2.3.  Non-compliant tags
 
-3.2.4.  Misuse of Remote Disablement (JESSIE TODO)
+   An attacker might physically modify a tag in a way that makes it non-
+   compliant with the standard (e.g. disabling a speaker or vibration).
+   An attacker might make alterations to a tag's firmware that make it
+   non-compliant with the standard.
+
+3.2.4.  Misuse of Remote Disablement
+
+   An attacker might misuse remote disablement features to prevent a
+   victim detecting or locating a tag.
 
 3.3.  What is in scope
 
