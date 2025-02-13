@@ -241,6 +241,14 @@ Table of Contents
       -  Non-expert: The victim does not work or study in, or is a
          novice in, a technical field.
 
+   *  Expectation of unwanted tracking
+
+      -  Suspecting: The victim has reason to believe that unwanted
+         tracking is a likely risk.
+
+      -  Unsuspecting: The victim has no particular reason to be
+         concerned about unwanted tracking.
+
    *  Access to resources
 
       -  High: The victim is generally able to safely access practical
