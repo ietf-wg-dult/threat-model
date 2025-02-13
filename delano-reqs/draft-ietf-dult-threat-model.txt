@@ -98,6 +98,15 @@ Table of Contents
        3.3.2.  Attack Profiles
        3.3.3.  Victim Profiles
    4.  Design Considerations
+     4.1.  Design Requirements
+       4.1.1.  Detecting Unwanted Location Tracking
+       4.1.2.  Finding Tracking Tags (JESSIE TODO)
+       4.1.3.  Disabling Tracking Tags (JESSIE TODO)
+       4.1.4.  Privacy and Security Requirements (TODO)
+     4.2.  Design Constraints
+       4.2.1.  Bluetooth constraints
+       4.2.2.  Power constraints (TODO)
+       4.2.3.  Device constraints (TODO)
    5.  IANA Considerations
    6.  Normative References
    Acknowledgments
@@ -573,7 +582,7 @@ Table of Contents
 
    As discussed in Section 3, unwanted location tracking can involve a
    variety of attacker, victim, and tracking tag profiles.  A successful
-   implementation to preventing unwanted location tracking would:
+   implementation to preventing unwanted location tracking should:
 
    *  Include a variety of approaches to address different scenarios,
       including active and passive scanning and notifications or sounds
@@ -588,6 +597,91 @@ Table of Contents
 
    *  Avoid privacy compromises for the tag owner when protecting
       against unwanted location tracking using tracking tags
+
+4.1.  Design Requirements
+
+   The DULT protocol should 1) allow victims to detect unwanted location
+   tracking, 2) help victims find tags that are tracking them, and 3)
+   provide instructions for victims to disable those trackers if they
+   choose.  These affordances should be implemented while considering
+   the appropriate privacy and security requirements.
+
+4.1.1.  Detecting Unwanted Location Tracking
+
+   There are three main ways that the DULT protocol should assist
+   victims in detecting potentially unwanted location tracking: 1)
+   active scanning, 2) passive scanning, and 3) tracking tag alerts.
+
+4.1.1.1.  Active Scanning
+
+   There may be scenarios where a victim suspects that they are being
+   tracked without their consent.  Active scanning should allow a user
+   to use a native application on their device to search for tracking
+   tags that are separated from their owners.  Additional information
+   about when that tag has been previously encountered within a
+   designated time window (e.g. the last 12 hours) should also be
+   included if available (see Section 4.1.4).  Allowing users to
+   "snooze" or ignore tags known to be safe (e.g. tags from a family
+   member) could also be implemented.  Tracking tags that are near their
+   owners should not be shared to avoid abuse of the active scanning
+   feature.
+
+4.1.1.2.  Passive Scanning
+
+   The platform should passively scan for devices suspected of unwanted
+   location tracking and notify the user.  This will involve
+   implementing one or more algorithms to use to flag trackers and
+   determine when to notify the user.  (A dedicated DULT WG document
+   will address tracking algorithms, and will be linked when it is
+   available.)  The user could be notified through a push notification
+   or through Sounds and Haptics (see Section 4.1.1.3).  There will be
+   tradeoffs between detecting potential unwanted location tracking
+   promptly and alerting the potential victim prematurely.  One way to
+   handle these tradeoffs is to allow users to set the sensitivity of
+   these alerts.  For example, the AirGuard (https://github.com/seemoo-
+   lab/AirGuard) app includes three different "Security Level" settings
+   that users can customize.
+
+4.1.1.3.  Tracking Tag Alerts
+
+   Tracking tags may be difficult to locate, and users may not have a
+   device that can actively or passively scan for tracking tags.  The
+   DULT protocol should be built with accessibility in mind
+   (https://cdt.org/insights/centering-disability-in-mitigating-harms-
+   of-bluetooth-tracking-technology/) so that the most people can be
+   protected by the protocol.  In addition to push notifications on
+   nearby devices, tracking tags themselves should be able to notify end
+   users.  This should include periodic sounds when away from an owner,
+   along with lights and haptics so that people who are Deaf or hard of
+   hearing can still locate them.
+
+4.1.2.  Finding Tracking Tags (JESSIE TODO)
+
+4.1.3.  Disabling Tracking Tags (JESSIE TODO)
+
+4.1.4.  Privacy and Security Requirements (TODO)
+
+4.2.  Design Constraints
+
+   There are also design constraints that the DULT Protocol must
+   consider, including limitations of the Bluetooth Low Energy (BLE)
+   protocol, power constraints, and device constraints.
+
+4.2.1.  Bluetooth constraints
+
+   The Bluetooth Low Energy (BLE) payload used for advertisement
+   consists of up to 37 bytes.  One current adoption of unwanted
+   location tracking requires 12 of these bytes for implementing the
+   basic protocol, with the remaining optional (see
+   [I-D.detecting-unwanted-location-trackers]).  Implementation of the
+   DULT protocol will need to consider these limitations.  For example,
+   in Eldridge et al (https://eprint.iacr.org/2023/1332.pdf),
+   implementing Multi-Dealer Secret Sharing required using two
+   advertisement packets were needed instead of one.
+
+4.2.2.  Power constraints (TODO)
+
+4.2.3.  Device constraints (TODO)
 
 5.  IANA Considerations
 
