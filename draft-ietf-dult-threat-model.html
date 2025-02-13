@@ -1254,7 +1254,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <p id="section-1-1">Location tracking tags are widely-used devices that allow users to locate items. These tags function as a component of a crowdsourced tracking network in which devices belonging to other network users (e.g., phones) report on the location of tags they have seen. At a high level, this works as follows:<a href="#section-1-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-1-2.1">
-          <p id="section-1-2.1.1">Tags ("accessories") broadcast an advertisement payload containing accessory-specific information. The payload also indicates whether the accessory is separated from its owner and thus potentially lost.<a href="#section-1-2.1.1" class="pilcrow">¶</a></p>
+          <p id="section-1-2.1.1">Tags ("accessories") transmit an advertisement payload containing accessory-specific information. The payload also indicates whether the accessory is separated from its owner and thus potentially lost.<a href="#section-1-2.1.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-1-2.2">
           <p id="section-1-2.2.1">Devices belonging to other users ("non-owner devices") observe those payloads and if the payload is in a separated mode, reports its location to some central service.<a href="#section-1-2.2.1" class="pilcrow">¶</a></p>
@@ -1307,7 +1307,10 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
             <p id="section-2.2-1.2.1"><strong>passive scanning</strong>: a search for location trackers running in the background, often accompanied by notifications for the user<a href="#section-2.2-1.2.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-2.2-1.3">
-            <p id="section-2.2-1.3.1"><strong>tracking tag</strong>: a small, concealable device that broadcasts location data to other devices<a href="#section-2.2-1.3.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-1.3.1"><strong>tracking tag</strong>: a small device that is not easily discoverable and transmits location data to other devices.<a href="#section-2.2-1.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-2.2-1.4">
+            <p id="section-2.2-1.4.1"><strong>easily discoverable</strong>: device is larger than 30 cm in at least one dimension, device is larger than 18 cm x 13 xm in two of its dimensions, device is larger than 250 cm<sup>3</sup> in three-dimensional space<a href="#section-2.2-1.4.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 </section>
@@ -1699,7 +1702,7 @@ Note that once a given attacker persona has been modeled, it could be recombined
           <h4 id="name-bluetooth-vs-other-technolo">
 <a href="#section-3.1.2" class="section-number selfRef">3.1.2. </a><a href="#name-bluetooth-vs-other-technolo" class="section-name selfRef">Bluetooth vs. other technologies</a>
           </h4>
-<p id="section-3.1.2-1">The above taxonomy and threat analysis focus on location tracking tags. They are protocol-independent; if a tag were designed using a technology other than Bluetooth, they would still apply. The key attributes are the functionalities and physical properties of the accessory from the user’s perspective. The accessory must be small enough to be easily concealed, and able to broadcast its location to other consumer devices.<a href="#section-3.1.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.1.2-1">The above taxonomy and threat analysis focus on location tracking tags. They are protocol-independent; if a tag were designed using a technology other than Bluetooth, they would still apply. The key attributes are the functionalities and physical properties of the accessory from the user’s perspective. The accessory must be small and not easily discoverable and able to transmit its location to other consumer devices.<a href="#section-3.1.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1754,7 +1757,7 @@ Note that once a given attacker persona has been modeled, it could be recombined
           <h4 id="name-technologies">
 <a href="#section-3.3.1" class="section-number selfRef">3.3.1. </a><a href="#name-technologies" class="section-name selfRef">Technologies</a>
           </h4>
-<p id="section-3.3.1-1">The scope of this threat analysis includes any easily-concealable accessory that is able to broadcast its location to other consumer devices.<a href="#section-3.3.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.3.1-1">The scope of this threat analysis includes any accessory that is small and not easily discoverable and able to transmit its location to other consumer devices.<a href="#section-3.3.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="attacker-profiles">
@@ -1785,7 +1788,7 @@ Note that once a given attacker persona has been modeled, it could be recombined
           <h4 id="name-technologies-2">
 <a href="#section-3.4.1" class="section-number selfRef">3.4.1. </a><a href="#name-technologies-2" class="section-name selfRef">Technologies</a>
           </h4>
-<p id="section-3.4.1-1">There are many types of technology that can be used for location tracking. In many cases, the threat analysis would be similar, as the contexts in which potential attackers and victims exist and use the technology are similar. However, it would be infeasible to attempt to describe a threat analysis for each possible technology in this document. We have therefore limited its scope to location-tracking accessories that are small enough to be easily concealed, and able to broadcast their locations to other devices. The following are out of scope for this document:<a href="#section-3.4.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.4.1-1">There are many types of technology that can be used for location tracking. In many cases, the threat analysis would be similar, as the contexts in which potential attackers and victims exist and use the technology are similar. However, it would be infeasible to attempt to describe a threat analysis for each possible technology in this document. We have therefore limited its scope to location-tracking accessories that are small and not easily discoverable and able to transmit their locations to other devices. The following are out of scope for this document:<a href="#section-3.4.1-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.4.1-2.1">
               <p id="section-3.4.1-2.1.1">App-based technologies such as parental monitoring apps.<a href="#section-3.4.1-2.1.1" class="pilcrow">¶</a></p>

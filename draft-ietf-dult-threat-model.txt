@@ -116,7 +116,7 @@ Table of Contents
    (e.g., phones) report on the location of tags they have seen.  At a
    high level, this works as follows:
 
-   *  Tags ("accessories") broadcast an advertisement payload containing
+   *  Tags ("accessories") transmit an advertisement payload containing
       accessory-specific information.  The payload also indicates
       whether the accessory is separated from its owner and thus
       potentially lost.
@@ -171,8 +171,13 @@ Table of Contents
    *  *passive scanning*: a search for location trackers running in the
       background, often accompanied by notifications for the user
 
-   *  *tracking tag*: a small, concealable device that broadcasts
-      location data to other devices
+   *  *tracking tag*: a small device that is not easily discoverable and
+      transmits location data to other devices.
+
+   *  *easily discoverable*: device is larger than 30 cm in at least one
+      dimension, device is larger than 18 cm x 13 xm in two of its
+      dimensions, device is larger than 250 cm^3 in three-dimensional
+      space
 
 3.  Security Considerations
 
@@ -520,7 +525,7 @@ Table of Contents
    technology other than Bluetooth, they would still apply.  The key
    attributes are the functionalities and physical properties of the
    accessory from the user’s perspective.  The accessory must be small
-   enough to be easily concealed, and able to broadcast its location to
+   and not easily discoverable and able to transmit its location to
    other consumer devices.
 
 3.2.  Possible Methods to Circumvent DULT Protocol
@@ -584,9 +589,9 @@ Table of Contents
 
 3.3.1.  Technologies
 
-   The scope of this threat analysis includes any easily-concealable
-   accessory that is able to broadcast its location to other consumer
-   devices.
+   The scope of this threat analysis includes any accessory that is
+   small and not easily discoverable and able to transmit its location
+   to other consumer devices.
 
 3.3.2.  Attacker Profiles
 
@@ -616,9 +621,9 @@ Table of Contents
    the technology are similar.  However, it would be infeasible to
    attempt to describe a threat analysis for each possible technology in
    this document.  We have therefore limited its scope to location-
-   tracking accessories that are small enough to be easily concealed,
-   and able to broadcast their locations to other devices.  The
-   following are out of scope for this document:
+   tracking accessories that are small and not easily discoverable and
+   able to transmit their locations to other devices.  The following are
+   out of scope for this document:
 
    *  App-based technologies such as parental monitoring apps.
 
