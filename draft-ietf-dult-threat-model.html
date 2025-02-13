@@ -1212,39 +1212,6 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
             <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-design-considerations" class="internal xref">Design Considerations</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1">
-                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-design-requirements" class="internal xref">Design Requirements</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.1">
-                    <p id="section-toc.1-1.4.2.1.2.1.1"><a href="#section-4.1.1" class="auto internal xref">4.1.1</a>.  <a href="#name-detecting-unwanted-location" class="internal xref">Detecting Unwanted Location Tracking</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.2">
-                    <p id="section-toc.1-1.4.2.1.2.2.1"><a href="#section-4.1.2" class="auto internal xref">4.1.2</a>.  <a href="#name-finding-tracking-tags-jessi" class="internal xref">Finding Tracking Tags (JESSIE TODO)</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.3">
-                    <p id="section-toc.1-1.4.2.1.2.3.1"><a href="#section-4.1.3" class="auto internal xref">4.1.3</a>.  <a href="#name-disabling-tracking-tags-jes" class="internal xref">Disabling Tracking Tags (JESSIE TODO)</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.4">
-                    <p id="section-toc.1-1.4.2.1.2.4.1"><a href="#section-4.1.4" class="auto internal xref">4.1.4</a>.  <a href="#name-privacy-and-security-requir" class="internal xref">Privacy and Security Requirements (TODO)</a></p>
-</li>
-                </ul>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2">
-                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-design-constraints" class="internal xref">Design Constraints</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.1">
-                    <p id="section-toc.1-1.4.2.2.2.1.1"><a href="#section-4.2.1" class="auto internal xref">4.2.1</a>.  <a href="#name-bluetooth-constraints" class="internal xref">Bluetooth constraints</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.2">
-                    <p id="section-toc.1-1.4.2.2.2.2.1"><a href="#section-4.2.2" class="auto internal xref">4.2.2</a>.  <a href="#name-power-constraints-todo" class="internal xref">Power constraints (TODO)</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.3">
-                    <p id="section-toc.1-1.4.2.2.2.3.1"><a href="#section-4.2.3" class="auto internal xref">4.2.3</a>.  <a href="#name-device-constraints-todo" class="internal xref">Device constraints (TODO)</a></p>
-</li>
-                </ul>
-</li>
-            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
             <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
@@ -1792,7 +1759,7 @@ Note that once a given attacker persona has been modeled, it could be recombined
       <h2 id="name-design-considerations">
 <a href="#section-4" class="section-number selfRef">4. </a><a href="#name-design-considerations" class="section-name selfRef">Design Considerations</a>
       </h2>
-<p id="section-4-1">As discussed in <a href="#security-considerations" class="auto internal xref">Section 3</a>, unwanted location tracking can involve a variety of attacker, victim, and tracking tag profiles. A successful implementation to preventing unwanted location tracking should:<a href="#section-4-1" class="pilcrow">¶</a></p>
+<p id="section-4-1">As discussed in <a href="#security-considerations" class="auto internal xref">Section 3</a>, unwanted location tracking can involve a variety of attacker, victim, and tracking tag profiles. A successful implementation to preventing unwanted location tracking would:<a href="#section-4-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-4-2.1">
           <p id="section-4-2.1.1">Include a variety of approaches to address different scenarios, including active and passive scanning and notifications or sounds<a href="#section-4-2.1.1" class="pilcrow">¶</a></p>
@@ -1807,97 +1774,6 @@ Note that once a given attacker persona has been modeled, it could be recombined
           <p id="section-4-2.4.1">Avoid privacy compromises for the tag owner when protecting against unwanted location tracking using tracking tags<a href="#section-4-2.4.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<div id="design-requirements">
-<section id="section-4.1">
-        <h3 id="name-design-requirements">
-<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-design-requirements" class="section-name selfRef">Design Requirements</a>
-        </h3>
-<p id="section-4.1-1">The DULT protocol should 1) allow victims to detect unwanted location tracking, 2) help victims find tags that are tracking them, and 3) provide instructions for victims to disable those trackers if they choose. These affordances should be implemented while considering the appropriate privacy and security requirements.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
-<div id="detecting-unwanted-location-tracking">
-<section id="section-4.1.1">
-          <h4 id="name-detecting-unwanted-location">
-<a href="#section-4.1.1" class="section-number selfRef">4.1.1. </a><a href="#name-detecting-unwanted-location" class="section-name selfRef">Detecting Unwanted Location Tracking</a>
-          </h4>
-<p id="section-4.1.1-1">There are three main ways that the DULT protocol should assist victims in detecting potentially unwanted location tracking: 1) active scanning, 2) passive scanning, and 3) tracking tag alerts.<a href="#section-4.1.1-1" class="pilcrow">¶</a></p>
-<div id="active-scanning">
-<section id="section-4.1.1.1">
-            <h5 id="name-active-scanning">
-<a href="#section-4.1.1.1" class="section-number selfRef">4.1.1.1. </a><a href="#name-active-scanning" class="section-name selfRef">Active Scanning</a>
-            </h5>
-<p id="section-4.1.1.1-1">There may be scenarios where a victim suspects that they are being tracked without their consent. Active scanning should allow a user to use a native application on their device to search for tracking tags that are separated from their owners. Additional information about when that tag has been previously encountered within a designated time window (e.g. the last 12 hours) should also be included if available (see <a href="#privacy-and-security-requirements-todo" class="auto internal xref">Section 4.1.4</a>). Allowing users to "snooze" or ignore tags known to be safe (e.g. tags from a family member) could also be implemented. Tracking tags that are near their owners should not be shared to avoid abuse of the active scanning feature.<a href="#section-4.1.1.1-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="passive-scanning">
-<section id="section-4.1.1.2">
-            <h5 id="name-passive-scanning">
-<a href="#section-4.1.1.2" class="section-number selfRef">4.1.1.2. </a><a href="#name-passive-scanning" class="section-name selfRef">Passive Scanning</a>
-            </h5>
-<p id="section-4.1.1.2-1">The platform should passively scan for devices suspected of unwanted location tracking and notify the user. This will involve implementing one or more algorithms to use to flag trackers and determine when to notify the user. (A dedicated DULT WG document will address tracking algorithms, and will be linked when it is available.) The user could be notified through a push notification or through Sounds and Haptics (see <a href="#tracking-tag-alerts" class="auto internal xref">Section 4.1.1.3</a>). There will be tradeoffs between detecting potential unwanted location tracking promptly and alerting the potential victim prematurely. One way to handle these tradeoffs is to allow users to set the sensitivity of these alerts. For example, the <a href="https://github.com/seemoo-lab/AirGuard">AirGuard</a> app includes three different "Security Level" settings that users can customize.<a href="#section-4.1.1.2-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="tracking-tag-alerts">
-<section id="section-4.1.1.3">
-            <h5 id="name-tracking-tag-alerts">
-<a href="#section-4.1.1.3" class="section-number selfRef">4.1.1.3. </a><a href="#name-tracking-tag-alerts" class="section-name selfRef">Tracking Tag Alerts</a>
-            </h5>
-<p id="section-4.1.1.3-1">Tracking tags may be difficult to locate, and users may not have a device that can actively or passively scan for tracking tags. The DULT protocol should be built with <a href="https://cdt.org/insights/centering-disability-in-mitigating-harms-of-bluetooth-tracking-technology/">accessibility in mind</a> so that the most people can be protected by the protocol. In addition to push notifications on nearby devices, tracking tags themselves should be able to notify end users. This should include periodic sounds when away from an owner, along with lights and haptics so that people who are Deaf or hard of hearing can still locate them.<a href="#section-4.1.1.3-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-</section>
-</div>
-<div id="finding-tracking-tags-jessie-todo">
-<section id="section-4.1.2">
-          <h4 id="name-finding-tracking-tags-jessi">
-<a href="#section-4.1.2" class="section-number selfRef">4.1.2. </a><a href="#name-finding-tracking-tags-jessi" class="section-name selfRef">Finding Tracking Tags (JESSIE TODO)</a>
-        </h4>
-</section>
-</div>
-<div id="disabling-tracking-tags-jessie-todo">
-<section id="section-4.1.3">
-          <h4 id="name-disabling-tracking-tags-jes">
-<a href="#section-4.1.3" class="section-number selfRef">4.1.3. </a><a href="#name-disabling-tracking-tags-jes" class="section-name selfRef">Disabling Tracking Tags (JESSIE TODO)</a>
-        </h4>
-</section>
-</div>
-<div id="privacy-and-security-requirements-todo">
-<section id="section-4.1.4">
-          <h4 id="name-privacy-and-security-requir">
-<a href="#section-4.1.4" class="section-number selfRef">4.1.4. </a><a href="#name-privacy-and-security-requir" class="section-name selfRef">Privacy and Security Requirements (TODO)</a>
-        </h4>
-</section>
-</div>
-</section>
-</div>
-<div id="design-constraints">
-<section id="section-4.2">
-        <h3 id="name-design-constraints">
-<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-design-constraints" class="section-name selfRef">Design Constraints</a>
-        </h3>
-<p id="section-4.2-1">There are also design constraints that the DULT Protocol must consider, including limitations of the Bluetooth Low Energy (BLE) protocol, power constraints, and device constraints.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
-<div id="bluetooth-constraints">
-<section id="section-4.2.1">
-          <h4 id="name-bluetooth-constraints">
-<a href="#section-4.2.1" class="section-number selfRef">4.2.1. </a><a href="#name-bluetooth-constraints" class="section-name selfRef">Bluetooth constraints</a>
-          </h4>
-<p id="section-4.2.1-1">The Bluetooth Low Energy (BLE) payload used for advertisement consists of up to 37 bytes. One current adoption of unwanted location tracking requires 12 of these bytes for implementing the basic protocol, with the remaining optional (see <span>[<a href="#I-D.detecting-unwanted-location-trackers" class="cite xref">I-D.detecting-unwanted-location-trackers</a>]</span>). Implementation of the DULT protocol will need to consider these limitations. For example, in <a href="https://eprint.iacr.org/2023/1332.pdf">Eldridge et al</a>, implementing Multi-Dealer Secret Sharing required using two advertisement packets were needed instead of one.<a href="#section-4.2.1-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="power-constraints-todo">
-<section id="section-4.2.2">
-          <h4 id="name-power-constraints-todo">
-<a href="#section-4.2.2" class="section-number selfRef">4.2.2. </a><a href="#name-power-constraints-todo" class="section-name selfRef">Power constraints (TODO)</a>
-        </h4>
-</section>
-</div>
-<div id="device-constraints-todo">
-<section id="section-4.2.3">
-          <h4 id="name-device-constraints-todo">
-<a href="#section-4.2.3" class="section-number selfRef">4.2.3. </a><a href="#name-device-constraints-todo" class="section-name selfRef">Device constraints (TODO)</a>
-        </h4>
-</section>
-</div>
-</section>
-</div>
 </section>
 </div>
 <div id="iana-considerations">
