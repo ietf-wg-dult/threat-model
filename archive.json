@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-02-13T01:10:12.586029+00:00",
+  "timestamp": "2025-02-16T01:15:26.954863+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -990,21 +990,201 @@
       "id": "PR_kwDOMB0Qas6LAc6W",
       "title": "Add section on possible methods to circumvent DULT protocol, with two\u2026",
       "url": "https://github.com/ietf-wg-dult/threat-model/pull/39",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "\u2026 examples.\r\n\r\nAddresses #15, #16 and #17. \r\n\r\n@exploretechsafety, you could check out this branch and add your text so we can merge it all together.",
       "createdAt": "2025-02-12T19:35:24Z",
-      "updatedAt": "2025-02-12T19:37:22Z",
+      "updatedAt": "2025-02-13T19:59:17Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
       "baseRefOid": "8812d3e297633aeb4396bef09903af34f1ce87b8",
       "headRepository": "ietf-wg-dult/threat-model",
       "headRefName": "delano-attacks",
-      "headRefOid": "25f751e073c025b73a0d9cc54fb6b65c21f635a9",
-      "closedAt": null,
+      "headRefOid": "5ae4cfd4908dd186c4777b60604c4ad792581c3a",
+      "closedAt": "2025-02-13T19:59:16Z",
+      "mergedAt": "2025-02-13T19:59:16Z",
+      "mergedBy": "maggiedelano",
+      "mergeCommit": {
+        "oid": "236e4dd605bae1fe7d0a7b6efcff528b61bb7e7f"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOMB0Qas6b7iLT",
+          "commit": {
+            "abbreviatedOid": "bb66610"
+          },
+          "author": "exploretechsafety",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-02-13T19:50:31Z",
+          "updatedAt": "2025-02-13T19:50:31Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 40,
+      "id": "PR_kwDOMB0Qas6LAh6a",
+      "title": "Add expectation of unwanted tracking to victim taxonomy",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/40",
+      "state": "MERGED",
+      "author": "maggiedelano",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Adds expectation of unwanted location tracking (#21, parent issue #19). @exploretechsafety should add information for addressing #20 before merging.",
+      "createdAt": "2025-02-12T19:46:28Z",
+      "updatedAt": "2025-02-13T19:59:44Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "8812d3e297633aeb4396bef09903af34f1ce87b8",
+      "headRepository": "ietf-wg-dult/threat-model",
+      "headRefName": "delano-taxonomy",
+      "headRefOid": "55e6c4e1ef3b52daa82a6c1b14456cad5674e57a",
+      "closedAt": "2025-02-13T19:59:01Z",
+      "mergedAt": "2025-02-13T19:59:01Z",
+      "mergedBy": "exploretechsafety",
+      "mergeCommit": {
+        "oid": "ca57d5c99a9f0769709195b4bde0424581be2a7b"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOMB0Qas6b7mQz",
+          "commit": {
+            "abbreviatedOid": "55e6c4e"
+          },
+          "author": "exploretechsafety",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-02-13T19:58:34Z",
+          "updatedAt": "2025-02-13T19:58:34Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 41,
+      "id": "PR_kwDOMB0Qas6LJZ_N",
+      "title": "Add start of requirements and constraints",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/41",
+      "state": "MERGED",
+      "author": "maggiedelano",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "maggiedelano"
+      ],
+      "labels": [],
+      "body": "Addresses #22, #23, #26, #27, #28, #29. @exploretechsafety to add #30, #31 .",
+      "createdAt": "2025-02-13T18:41:09Z",
+      "updatedAt": "2025-02-13T20:04:27Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "7c2275490d68eaec781891fb11685180567582f3",
+      "headRepository": "ietf-wg-dult/threat-model",
+      "headRefName": "delano-reqs",
+      "headRefOid": "b14be353577a721960125b1369959d3807710d90",
+      "closedAt": "2025-02-13T20:04:27Z",
+      "mergedAt": "2025-02-13T20:04:27Z",
+      "mergedBy": "exploretechsafety",
+      "mergeCommit": {
+        "oid": "7155f9f9fa6a2d11bb3647560f384044c749937d"
+      },
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Will update this to better sync up my and Jessie's text.",
+          "createdAt": "2025-02-13T20:02:19Z",
+          "updatedAt": "2025-02-13T20:02:19Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOMB0Qas6b7pAp",
+          "commit": {
+            "abbreviatedOid": "b14be35"
+          },
+          "author": "exploretechsafety",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-02-13T20:04:15Z",
+          "updatedAt": "2025-02-13T20:04:15Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 42,
+      "id": "PR_kwDOMB0Qas6LJh4v",
+      "title": "Change scope to be clear on types of devices and change transmit to b\u2026",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/42",
+      "state": "MERGED",
+      "author": "maggiedelano",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "maggiedelano"
+      ],
+      "labels": [],
+      "body": "\u2026roadcast.\r\n\r\nAddresses feedback from IETF 121 and issues #32 and #35.",
+      "createdAt": "2025-02-13T18:59:53Z",
+      "updatedAt": "2025-02-13T20:02:40Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "7c2275490d68eaec781891fb11685180567582f3",
+      "headRepository": "ietf-wg-dult/threat-model",
+      "headRefName": "delano-doc-scope",
+      "headRefOid": "20a933041cd19bda6b7f21f6d620de7639eb76f1",
+      "closedAt": "2025-02-13T20:02:34Z",
+      "mergedAt": "2025-02-13T20:02:33Z",
+      "mergedBy": "exploretechsafety",
+      "mergeCommit": {
+        "oid": "a3f47b828159482393985d8aac32249c8e3bbde3"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOMB0Qas6b7oJV",
+          "commit": {
+            "abbreviatedOid": "20a9330"
+          },
+          "author": "exploretechsafety",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-02-13T20:02:20Z",
+          "updatedAt": "2025-02-13T20:02:20Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 43,
+      "id": "PR_kwDOMB0Qas6LJ8qN",
+      "title": "Revert \"Add start of requirements and constraints\"",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/43",
+      "state": "CLOSED",
+      "author": "exploretechsafety",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Reverts ietf-wg-dult/threat-model#41",
+      "createdAt": "2025-02-13T20:04:53Z",
+      "updatedAt": "2025-02-13T20:07:50Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "7155f9f9fa6a2d11bb3647560f384044c749937d",
+      "headRepository": "ietf-wg-dult/threat-model",
+      "headRefName": "revert-41-delano-reqs",
+      "headRefOid": "50bee5dc907c3c3176b9a76fabaa727ae9cfb573",
+      "closedAt": "2025-02-13T20:07:50Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
@@ -1012,24 +1192,24 @@
       "reviews": []
     },
     {
-      "number": 40,
-      "id": "PR_kwDOMB0Qas6LAh6a",
-      "title": "Add expectation of unwanted tracking to victim taxonomy",
-      "url": "https://github.com/ietf-wg-dult/threat-model/pull/40",
+      "number": 44,
+      "id": "PR_kwDOMB0Qas6LKAQL",
+      "title": "refer to tracking tag alerts section and add instructions for platforms",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/44",
       "state": "OPEN",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
-      "body": "Adds expectation of unwanted location tracking (#21, parent issue #19). @exploretechsafety should add information for addressing #20 before merging.",
-      "createdAt": "2025-02-12T19:46:28Z",
-      "updatedAt": "2025-02-12T19:46:29Z",
+      "body": "Just integrate the text from the two authors better and also add that platforms should include instructions on how to disable trackers.",
+      "createdAt": "2025-02-13T20:13:18Z",
+      "updatedAt": "2025-02-13T20:13:19Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
-      "baseRefOid": "8812d3e297633aeb4396bef09903af34f1ce87b8",
+      "baseRefOid": "7155f9f9fa6a2d11bb3647560f384044c749937d",
       "headRepository": "ietf-wg-dult/threat-model",
-      "headRefName": "delano-taxonomy",
-      "headRefOid": "55e6c4e1ef3b52daa82a6c1b14456cad5674e57a",
+      "headRefName": "delano-reqs",
+      "headRefOid": "d43cb089c58cab18c89818837f53e0c9009f9059",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
