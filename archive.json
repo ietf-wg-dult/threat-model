@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-02-16T01:15:26.954863+00:00",
+  "timestamp": "2025-02-18T01:09:58.939267+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -487,6 +487,38 @@
       "body": "Discuss an attack by which remote disablement of a location tracker could be used to interfere with a victim's ability to detect or document it, or could be used to reset a victim's location tracker.",
       "createdAt": "2025-01-30T17:27:28Z",
       "updatedAt": "2025-01-30T19:03:21Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 45,
+      "id": "I_kwDOMB0Qas6qP5gb",
+      "title": "Proposal: Introduce Threat Prioritization Framework in DULT Threat Model",
+      "url": "https://github.com/ietf-wg-dult/threat-model/issues/45",
+      "state": "OPEN",
+      "author": "shaileshprabhu95",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "**Summary**:\nThe current draft lacks a structured threat prioritization approach, making it difficult to assess which threats require urgent mitigation. This proposal suggests introducing a **Threat Prioritization Matrix** to classify risks based on **Likelihood**, **Impact**, and **Feasibility**.\n\n**Proposed Threat Prioritization Matrix**:\n\n<html xmlns:m=\"http://schemas.microsoft.com/office/2004/12/omml\"\nxmlns=\"http://www.w3.org/TR/REC-html40\">\n\n<head>\n\n<meta name=ProgId content=PowerPoint.Slide>\n<meta name=Generator content=\"Microsoft PowerPoint 15\">\n<!--tr\n\t{mso-height-source:auto;}\ncol\n\t{mso-width-source:auto;}\ntd\n\t{padding-top:1.0px;\n\tpadding-right:1.0px;\n\tpadding-left:1.0px;\n\tmso-ignore:padding;\n\tcolor:windowtext;\n\tfont-size:18.0pt;\n\tfont-weight:400;\n\tfont-style:normal;\n\ttext-decoration:none;\n\tfont-family:Arial;\n\tmso-generic-font-family:auto;\n\tmso-font-charset:0;\n\ttext-align:general;\n\tvertical-align:bottom;\n\tborder:none;\n\tmso-background-source:auto;\n\tmso-pattern:auto;}\n.oa1\n\t{border-top:1.0pt solid white;\n\tborder-right:1.0pt solid white;\n\tborder-bottom:3.0pt solid white;\n\tborder-left:1.0pt solid white;\n\tbackground:#156082;\n\tmso-pattern:auto none;\n\ttext-align:center;\n\tvertical-align:middle;\n\tpadding-bottom:3.6pt;\n\tpadding-left:7.2pt;\n\tpadding-top:3.6pt;\n\tpadding-right:7.2pt;}\n.oa2\n\t{border-top:3.0pt solid white;\n\tborder-right:1.0pt solid white;\n\tborder-bottom:1.0pt solid white;\n\tborder-left:1.0pt solid white;\n\tbackground:#CCD2D8;\n\tmso-pattern:auto none;\n\tvertical-align:middle;\n\tpadding-bottom:3.6pt;\n\tpadding-left:7.2pt;\n\tpadding-top:3.6pt;\n\tpadding-right:7.2pt;}\n.oa3\n\t{border-top:3.0pt solid white;\n\tborder-right:1.0pt solid white;\n\tborder-bottom:1.0pt solid white;\n\tborder-left:1.0pt solid white;\n\tbackground:#CCD2D8;\n\tmso-pattern:auto none;\n\ttext-align:center;\n\tvertical-align:middle;\n\tpadding-bottom:3.6pt;\n\tpadding-left:7.2pt;\n\tpadding-top:3.6pt;\n\tpadding-right:7.2pt;}\n.oa4\n\t{border:1.0pt solid white;\n\tbackground:#E7EAED;\n\tmso-pattern:auto none;\n\tvertical-align:middle;\n\tpadding-bottom:3.6pt;\n\tpadding-left:7.2pt;\n\tpadding-top:3.6pt;\n\tpadding-right:7.2pt;}\n.oa5\n\t{border:1.0pt solid white;\n\tbackground:#E7EAED;\n\tmso-pattern:auto none;\n\ttext-align:center;\n\tvertical-align:middle;\n\tpadding-bottom:3.6pt;\n\tpadding-left:7.2pt;\n\tpadding-top:3.6pt;\n\tpadding-right:7.2pt;}\n.oa6\n\t{border:1.0pt solid white;\n\tbackground:#CCD2D8;\n\tmso-pattern:auto none;\n\tvertical-align:middle;\n\tpadding-bottom:3.6pt;\n\tpadding-left:7.2pt;\n\tpadding-top:3.6pt;\n\tpadding-right:7.2pt;}\n.oa7\n\t{border:1.0pt solid white;\n\tbackground:#CCD2D8;\n\tmso-pattern:auto none;\n\ttext-align:center;\n\tvertical-align:middle;\n\tpadding-bottom:3.6pt;\n\tpadding-left:7.2pt;\n\tpadding-top:3.6pt;\n\tpadding-right:7.2pt;}\n</head>\n\n<body>\n<!--StartFragment-->\n\n\nThreat type | Likelihood | Impact | Feasibility | Risk Level\n-- | -- | -- | -- | --\nCasual Tracking (e.g., AirTag   hidden in a bag) | High | High | Easy | Critical\nTag Identifier Evasion (MAC   Address Randomization) | Medium | High | Medium | High\nRelay Attack on Tracking Networks | Low | High | Difficult | Medium\nNetwork-Based Tracking via Cloud   Services | Low | Medium | Difficult | Medium\nTag Disguising (Altering Physical   or Firmware Characteristics) | Low | Medium | Difficult | Medium\nJamming or Signal Interference   Attacks | Low | Low | Medium | Low\n\n\n\n<!--EndFragment-->\n</body>\n\n</html>\n\n**Why This is Needed?**\n\n1. Helps prioritize mitigation efforts for **high-risk threats**.\n2. Allows vendors (like Apple, Google, etc.) to **allocate resources efficiently**.\n3. Provides a **structured approach to risk assessment** for policymakers.\n",
+      "createdAt": "2025-02-16T19:43:44Z",
+      "updatedAt": "2025-02-16T19:43:44Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 46,
+      "id": "I_kwDOMB0Qas6qTF3C",
+      "title": "Proposal: Address False Positives in Unwanted Tracking Detection",
+      "url": "https://github.com/ietf-wg-dult/threat-model/issues/46",
+      "state": "OPEN",
+      "author": "shaileshprabhu95",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "**Summary**:\nThe draft currently lacks a discussion on false positives in unwanted tracking detection, which can undermine the system\u2019s effectiveness. False alarms reduce user trust, impact legitimate tracking use cases (e.g., shared devices, IoT deployments), and may create legal risks for service providers.\n\n**Key Issues with False Positives**:\n1. **Users May Ignore Alerts**: If alerts occur too frequently for legitimate tracking devices, users may start ignoring them, making real tracking threats harder to detect.\n2. **Disrupts Enterprise & Shared Spaces**: Workplaces, hospitals, rental cars, and logistics environments rely on Bluetooth tracking for legitimate purposes.\n3. **Legal & Compliance Risks**: Misidentification of devices as malicious could create privacy disputes and regulatory challenges.\n\n**Proposed Enhancements:**\n\n1. **Define Common Causes of False Positives**\n    - **Legitimate shared devices** (e.g., family members\u2019 AirTags, corporate assets).\n    - **Overlapping Bluetooth signals** in crowded areas.\n    - **Short-term presence vs. actual tracking threats** (e.g., an AirTag in a borrowed bag vs. malicious tracking).\n    - **Algorithmic errors** in motion pattern analysis.\n\n2. **Introduce Heuristic-Based Filtering Mechanisms**\n    - **Context Awareness**: Reduce false alerts by factoring in historical interactions with a device.\n    - **Adaptive Learning**: Allow user feedback (e.g., \"Mark this tracker as trusted\").\n    - **Risk-Based Confidence Score**: Instead of binary alerts, show a low/medium/high risk score based on tracking duration and proximity.\n",
+      "createdAt": "2025-02-17T08:28:44Z",
+      "updatedAt": "2025-02-17T08:28:44Z",
       "closedAt": null,
       "comments": []
     }
