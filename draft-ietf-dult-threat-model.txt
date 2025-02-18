@@ -5,8 +5,8 @@
 Detecting Unwanted Location Trackers                           M. Delano
 Internet-Draft                                        Swarthmore College
 Intended status: Informational                                 J. Lowell
-Expires: 17 August 2025        National Network to End Domestic Violence
-                                                        13 February 2025
+Expires: 22 August 2025        National Network to End Domestic Violence
+                                                        18 February 2025
 
 
                            DULT Threat Model
@@ -63,7 +63,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 17 August 2025.
+   This Internet-Draft will expire on 22 August 2025.
 
 Copyright Notice
 
@@ -736,14 +736,10 @@ Table of Contents
    scanning, a user may have difficulty in locating it.  For example, a
    tag may be buried under a vehicle cushion.  Platforms should allow
    users who have discovered a tracker through passive or active
-   scanning to request that the tracker signal its presence.
-
-   This assistance should be done in a way that is accessible to users
-   with sensory or other impairments by using multimodal signals.  For
-   instance, if a platform relies on sounds emitted by a tag to help a
-   user locate it, d/Deaf and hard of hearing users may not be able to
-   use this feature.  Platforms should combine different types of
-   signals, such as sound, light, and vibration.
+   scanning to request that the tracker signal its presence.  This
+   assistance should be done in a way that is accessible to users with
+   sensory or other impairments by using multimodal signals as described
+   in Section 4.1.1.3.
 
 4.1.3.  Disabling Tracking Tags
 
@@ -751,7 +747,8 @@ Table of Contents
    should be able to disable location tracker tags.  This includes a
    non-owner user being tracked by a tag's owner, as well as an owner
    user who believes that an attacker is using their own tag to track
-   them.
+   them.  Platforms should provide instructions for disabling tracking
+   tags once they are located.
 
 4.1.4.  Privacy and Security Requirements (TODO)
 
