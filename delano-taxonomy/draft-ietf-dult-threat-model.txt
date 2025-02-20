@@ -5,8 +5,8 @@
 Detecting Unwanted Location Trackers                           M. Delano
 Internet-Draft                                        Swarthmore College
 Intended status: Informational                                 J. Lowell
-Expires: 16 August 2025        National Network to End Domestic Violence
-                                                        12 February 2025
+Expires: 24 August 2025        National Network to End Domestic Violence
+                                                        20 February 2025
 
 
                            DULT Threat Model
@@ -63,7 +63,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 16 August 2025.
+   This Internet-Draft will expire on 24 August 2025.
 
 Copyright Notice
 
@@ -89,15 +89,29 @@ Table of Contents
      3.1.  Taxonomy of unwanted tracking
        3.1.1.  Example scenarios with analyses
        3.1.2.  Bluetooth vs. other technologies
-     3.2.  What is in scope
-       3.2.1.  Technologies
-       3.2.2.  Attacker Profiles
-       3.2.3.  Victim Profiles
-     3.3.  What is out of scope
+     3.2.  Possible Methods to Circumvent DULT Protocol
+       3.2.1.  Deploying Multiple Tags
+       3.2.2.  Remote Advertisement Monitoring
+       3.2.3.  Non-compliant tags
+       3.2.4.  Misuse of Remote Disablement
+     3.3.  What is in scope
        3.3.1.  Technologies
-       3.3.2.  Attack Profiles
+       3.3.2.  Attacker Profiles
        3.3.3.  Victim Profiles
+     3.4.  What is out of scope
+       3.4.1.  Technologies
+       3.4.2.  Attack Profiles
+       3.4.3.  Victim Profiles
    4.  Design Considerations
+     4.1.  Design Requirements
+       4.1.1.  Detecting Unwanted Location Tracking
+       4.1.2.  Finding Tracking Tags
+       4.1.3.  Disabling Tracking Tags
+       4.1.4.  Privacy and Security Requirements (TODO)
+     4.2.  Design Constraints
+       4.2.1.  Bluetooth constraints
+       4.2.2.  Power constraints (TODO)
+       4.2.3.  Device constraints (TODO)
    5.  IANA Considerations
    6.  Normative References
    Acknowledgments
@@ -111,7 +125,7 @@ Table of Contents
    (e.g., phones) report on the location of tags they have seen.  At a
    high level, this works as follows:
 
-   *  Tags ("accessories") broadcast an advertisement payload containing
+   *  Tags ("accessories") transmit an advertisement payload containing
       accessory-specific information.  The payload also indicates
       whether the accessory is separated from its owner and thus
       potentially lost.
@@ -166,8 +180,13 @@ Table of Contents
    *  *passive scanning*: a search for location trackers running in the
       background, often accompanied by notifications for the user
 
-   *  *tracking tag*: a small, concealable device that broadcasts
-      location data to other devices
+   *  *tracking tag*: a small device that is not easily discoverable and
+      transmits location data to other devices.
+
+   *  *easily discoverable*: device is larger than 30 cm in at least one
+      dimension, device is larger than 18 cm x 13 xm in two of its
+      dimensions, device is larger than 250 cm^3 in three-dimensional
+      space
 
 3.  Security Considerations
 
@@ -515,18 +534,75 @@ Table of Contents
    technology other than Bluetooth, they would still apply.  The key
    attributes are the functionalities and physical properties of the
    accessory from the user’s perspective.  The accessory must be small
-   enough to be easily concealed, and able to broadcast its location to
+   and not easily discoverable and able to transmit its location to
    other consumer devices.
 
-3.2.  What is in scope
+3.2.  Possible Methods to Circumvent DULT Protocol
 
-3.2.1.  Technologies
+   There are several different ways an attacker could attempt to
+   circumvent the DULT protocol in order to track a victim without their
+   consent.  These include deploying multiple tags to follow a single
+   victim and using a non-compliant tag (e.g. speaker disabled, altered
+   firmware, spoofed tag).  There are also other potential concerns of
+   abuse of the DULT Protocol, such as remotely disabling a victim's
+   tracking tag.
 
-   The scope of this threat analysis includes any easily-concealable
-   accessory that is able to broadcast its location to other consumer
-   devices.
+3.2.1.  Deploying Multiple Tags
 
-3.2.2.  Attacker Profiles
+   When an attacker deploys tracking tags to follow a victim, they may
+   deploy more than one tag.  For example, if planting a tracking tag in
+   a car, the attacker might place one tag inside the car, and another
+   affixed on the outside of the car.  The DULT protocol must be robust
+   to this scenario.  This means that scans, whether passive or active,
+   need to be able to return more than one result if a device is
+   suspected of being used for unwanted tracking, and the time to do so
+   must not be significantly impeded by the presence of multiple
+   trackers.  This also applies to situations where many tags are
+   present, even if they are not being used for unwanted location
+   tracking, such as a busy train station or airport where tag owners
+   may or may not be in proximity to their tracking tags.
+
+3.2.2.  Remote Advertisement Monitoring
+
+   Bluetooth advertisement packets are not encrypted, so any device with
+   Bluetooh scanning capabilities in proximity to a location tracking
+   tag can receive Bluetooth advertisement packets.  If an attacker is
+   able to link an identifier in an advertisement packet to a particular
+   tag, they may be able to use this information to track the tag over
+   time, and potentially by proxy the victim or other individual,
+   without their consent.  Tracking tags typically rotate any
+   identifiers associated with the tag, but the duration with which they
+   rotate could be up to 24 hours (see e.g.
+   [I-D.detecting-unwanted-location-trackers]).  Beck et al. have
+   demonstrated (https://eprint.iacr.org/2023/1332.pdf) a technological
+   solution that employs secret sharing and error correction coding that
+   would reduce this to 60 seconds.  However, work must investigate how
+   robust this scheme is to the presence of multiple tags (see
+   Section 3.2.1).
+
+3.2.3.  Non-compliant tags
+
+   An attacker might physically modify a tag in a way that makes it non-
+   compliant with the standard (e.g. disabling a speaker or vibration).
+   An attacker might make alterations to a tag's firmware that make it
+   non-compliant with the standard.
+
+3.2.4.  Misuse of Remote Disablement
+
+   An attacker might misuse remote disablement features to prevent a
+   victim detecting or locating a tag.  This could be used to prevent a
+   victim locating an attacker's tag, or could be used by an attacker
+   against a victim's tag as a form of harassment.
+
+3.3.  What is in scope
+
+3.3.1.  Technologies
+
+   The scope of this threat analysis includes any accessory that is
+   small and not easily discoverable and able to transmit its location
+   to other consumer devices.
+
+3.3.2.  Attacker Profiles
 
    An attacker who attempts to track a victim using a tracking tag and
    applications readily available for end-users (e.g. native tracking
@@ -536,7 +612,7 @@ Table of Contents
    of an existing tracking tag or creates a custom device that leverages
    the crowdsourced tracking network is in scope.
 
-3.2.3.  Victim Profiles
+3.3.3.  Victim Profiles
 
    All victims profiles are in scope regardless of their expertise,
    access to resources, or access to technological safeguards.  For
@@ -544,9 +620,9 @@ Table of Contents
    smartphone, and scenarios in which victims cannot install separate
    software.
 
-3.3.  What is out of scope
+3.4.  What is out of scope
 
-3.3.1.  Technologies
+3.4.1.  Technologies
 
    There are many types of technology that can be used for location
    tracking.  In many cases, the threat analysis would be similar, as
@@ -554,9 +630,9 @@ Table of Contents
    the technology are similar.  However, it would be infeasible to
    attempt to describe a threat analysis for each possible technology in
    this document.  We have therefore limited its scope to location-
-   tracking accessories that are small enough to be easily concealed,
-   and able to broadcast their locations to other devices.  The
-   following are out of scope for this document:
+   tracking accessories that are small and not easily discoverable and
+   able to transmit their locations to other devices.  The following are
+   out of scope for this document:
 
    *  App-based technologies such as parental monitoring apps.
 
@@ -566,14 +642,14 @@ Table of Contents
 
    *  User accounts for cloud services or social media.
 
-3.3.2.  Attack Profiles
+3.4.2.  Attack Profiles
 
    Attackers with nation-state level expertise and resources who deploy
    custom or altered tracking tags to bypass protocol safeguards or
    jailbreak a victim end-device (e.g. smartphone) are considered out of
    scope.
 
-3.3.3.  Victim Profiles
+3.4.3.  Victim Profiles
 
    N/A
 
@@ -581,21 +657,122 @@ Table of Contents
 
    As discussed in Section 3, unwanted location tracking can involve a
    variety of attacker, victim, and tracking tag profiles.  A successful
-   implementation to preventing unwanted location tracking would:
+   implementation to preventing unwanted location tracking should:
 
    *  Include a variety of approaches to address different scenarios,
       including active and passive scanning and notifications or sounds
 
    *  Account for scenarios in which the attacker has high expertise,
       proximity, and/or access to resources within the scope defined in
-      Section 3.2 and Section 3.3
+      Section 3.3 and Section 3.4
 
    *  Account for scenarios in which the victim has low expertise,
       access to resources, and/or access to technological safeguards
-      within the scope defined in Section 3.2 and Section 3.3
+      within the scope defined in Section 3.3 and Section 3.4
 
    *  Avoid privacy compromises for the tag owner when protecting
       against unwanted location tracking using tracking tags
+
+4.1.  Design Requirements
+
+   The DULT protocol should 1) allow victims to detect unwanted location
+   tracking, 2) help victims find tags that are tracking them, and 3)
+   provide instructions for victims to disable those trackers if they
+   choose.  These affordances should be implemented while considering
+   the appropriate privacy and security requirements.
+
+4.1.1.  Detecting Unwanted Location Tracking
+
+   There are three main ways that the DULT protocol should assist
+   victims in detecting potentially unwanted location tracking: 1)
+   active scanning, 2) passive scanning, and 3) tracking tag alerts.
+
+4.1.1.1.  Active Scanning
+
+   There may be scenarios where a victim suspects that they are being
+   tracked without their consent.  Active scanning should allow a user
+   to use a native application on their device to search for tracking
+   tags that are separated from their owners.  Additional information
+   about when that tag has been previously encountered within a
+   designated time window (e.g. the last 12 hours) should also be
+   included if available (see Section 4.1.4).  Allowing users to
+   "snooze" or ignore tags known to be safe (e.g. tags from a family
+   member) could also be implemented.  Tracking tags that are near their
+   owners should not be shared to avoid abuse of the active scanning
+   feature.
+
+4.1.1.2.  Passive Scanning
+
+   The platform should passively scan for devices suspected of unwanted
+   location tracking and notify the user.  This will involve
+   implementing one or more algorithms to use to flag trackers and
+   determine when to notify the user.  (A dedicated DULT WG document
+   will address tracking algorithms, and will be linked when it is
+   available.)  The user could be notified through a push notification
+   or through Sounds and Haptics (see Section 4.1.1.3).  There will be
+   tradeoffs between detecting potential unwanted location tracking
+   promptly and alerting the potential victim prematurely.  One way to
+   handle these tradeoffs is to allow users to set the sensitivity of
+   these alerts.  For example, the AirGuard (https://github.com/seemoo-
+   lab/AirGuard) app includes three different "Security Level" settings
+   that users can customize.
+
+4.1.1.3.  Tracking Tag Alerts
+
+   Tracking tags may be difficult to locate, and users may not have a
+   device that can actively or passively scan for tracking tags.  The
+   DULT protocol should be built with accessibility in mind
+   (https://cdt.org/insights/centering-disability-in-mitigating-harms-
+   of-bluetooth-tracking-technology/) so that the most people can be
+   protected by the protocol.  In addition to push notifications on
+   nearby devices, tracking tags themselves should be able to notify end
+   users.  This should include periodic sounds when away from an owner,
+   along with lights and haptics so that people who are Deaf or hard of
+   hearing can still locate them.
+
+4.1.2.  Finding Tracking Tags
+
+   Even after a location tracker is detected through passive or active
+   scanning, a user may have difficulty in locating it.  For example, a
+   tag may be buried under a vehicle cushion.  Platforms should allow
+   users who have discovered a tracker through passive or active
+   scanning to request that the tracker signal its presence.  This
+   assistance should be done in a way that is accessible to users with
+   sensory or other impairments by using multimodal signals as described
+   in Section 4.1.1.3.
+
+4.1.3.  Disabling Tracking Tags
+
+   In order to effectively prevent unwanted location tracking, users
+   should be able to disable location tracker tags.  This includes a
+   non-owner user being tracked by a tag's owner, as well as an owner
+   user who believes that an attacker is using their own tag to track
+   them.  Platforms should provide instructions for disabling tracking
+   tags once they are located.
+
+4.1.4.  Privacy and Security Requirements (TODO)
+
+4.2.  Design Constraints
+
+   There are also design constraints that the DULT Protocol must
+   consider, including limitations of the Bluetooth Low Energy (BLE)
+   protocol, power constraints, and device constraints.
+
+4.2.1.  Bluetooth constraints
+
+   The Bluetooth Low Energy (BLE) payload used for advertisement
+   consists of up to 37 bytes.  One current adoption of unwanted
+   location tracking requires 12 of these bytes for implementing the
+   basic protocol, with the remaining optional (see
+   [I-D.detecting-unwanted-location-trackers]).  Implementation of the
+   DULT protocol will need to consider these limitations.  For example,
+   in Eldridge et al (https://eprint.iacr.org/2023/1332.pdf),
+   implementing Multi-Dealer Secret Sharing required using two
+   advertisement packets were needed instead of one.
+
+4.2.2.  Power constraints (TODO)
+
+4.2.3.  Device constraints (TODO)
 
 5.  IANA Considerations
 

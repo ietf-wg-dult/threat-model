@@ -10,14 +10,14 @@
 <meta content="
        Lightweight location tracking tags are in wide use to allow users to locate items. These tags function as a component of a crowdsourced tracking network in which devices belonging to other network users (e.g., phones) report which tags they see and their location, thus allowing the owner of the tag to determine where their tag was most recently seen. While there are many legitimate uses of these tags, they are also susceptible to misuse for the purpose of stalking and abuse. A protocol that allows others to detect unwanted location trackers must incorporate an understanding of the unwanted tracking landscape today. This document provides a threat analysis for this purpose, will define what is in and out of scope for the unwanted location tracking protocols, and will provide some design considerations for implementation of protocols to detect unwanted location tracking. 
     " name="description">
-<meta content="xml2rfc 3.26.0" name="generator">
+<meta content="xml2rfc 3.27.0" name="generator">
 <meta content="Internet-Draft" name="keyword">
 <meta content="detecting unwanted location trackers" name="keyword">
 <meta content="threat model" name="keyword">
 <meta content="draft-ietf-dult-threat-model-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.26.0
-    Python 3.12.8
+  xml2rfc 3.27.0
+    Python 3.12.9
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
     intervaltree 3.1.0
@@ -438,7 +438,7 @@ dl {
     margin-bottom: 0;
   }
 }
-dl > dt {
+dl:not(.dlNewline) > dt {
   float: left;
   margin-right: 2ch;
   min-width: 8ch;
@@ -1051,7 +1051,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Delano &amp; Lowell</td>
-<td class="center">Expires 16 August 2025</td>
+<td class="center">Expires 24 August 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1064,12 +1064,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-dult-threat-model-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-02-12" class="published">12 February 2025</time>
+<time datetime="2025-02-20" class="published">20 February 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-08-16">16 August 2025</time></dd>
+<dd class="expires"><time datetime="2025-08-24">24 August 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1123,7 +1123,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 16 August 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 24 August 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1181,30 +1181,47 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 </ul>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2">
-                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-what-is-in-scope" class="internal xref">What is in scope</a></p>
+                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-possible-methods-to-circumv" class="internal xref">Possible Methods to Circumvent DULT Protocol</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.1">
-                    <p id="section-toc.1-1.3.2.2.2.1.1"><a href="#section-3.2.1" class="auto internal xref">3.2.1</a>.  <a href="#name-technologies" class="internal xref">Technologies</a></p>
+                    <p id="section-toc.1-1.3.2.2.2.1.1"><a href="#section-3.2.1" class="auto internal xref">3.2.1</a>.  <a href="#name-deploying-multiple-tags" class="internal xref">Deploying Multiple Tags</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.2">
-                    <p id="section-toc.1-1.3.2.2.2.2.1"><a href="#section-3.2.2" class="auto internal xref">3.2.2</a>.  <a href="#name-attacker-profiles" class="internal xref">Attacker Profiles</a></p>
+                    <p id="section-toc.1-1.3.2.2.2.2.1"><a href="#section-3.2.2" class="auto internal xref">3.2.2</a>.  <a href="#name-remote-advertisement-monito" class="internal xref">Remote Advertisement Monitoring</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.3">
-                    <p id="section-toc.1-1.3.2.2.2.3.1"><a href="#section-3.2.3" class="auto internal xref">3.2.3</a>.  <a href="#name-victim-profiles" class="internal xref">Victim Profiles</a></p>
+                    <p id="section-toc.1-1.3.2.2.2.3.1"><a href="#section-3.2.3" class="auto internal xref">3.2.3</a>.  <a href="#name-non-compliant-tags" class="internal xref">Non-compliant tags</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.4">
+                    <p id="section-toc.1-1.3.2.2.2.4.1"><a href="#section-3.2.4" class="auto internal xref">3.2.4</a>.  <a href="#name-misuse-of-remote-disablemen" class="internal xref">Misuse of Remote Disablement</a></p>
 </li>
                 </ul>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3">
-                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="auto internal xref">3.3</a>.  <a href="#name-what-is-out-of-scope" class="internal xref">What is out of scope</a></p>
+                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="auto internal xref">3.3</a>.  <a href="#name-what-is-in-scope" class="internal xref">What is in scope</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3.2.1">
-                    <p id="section-toc.1-1.3.2.3.2.1.1"><a href="#section-3.3.1" class="auto internal xref">3.3.1</a>.  <a href="#name-technologies-2" class="internal xref">Technologies</a></p>
+                    <p id="section-toc.1-1.3.2.3.2.1.1"><a href="#section-3.3.1" class="auto internal xref">3.3.1</a>.  <a href="#name-technologies" class="internal xref">Technologies</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3.2.2">
-                    <p id="section-toc.1-1.3.2.3.2.2.1"><a href="#section-3.3.2" class="auto internal xref">3.3.2</a>.  <a href="#name-attack-profiles" class="internal xref">Attack Profiles</a></p>
+                    <p id="section-toc.1-1.3.2.3.2.2.1"><a href="#section-3.3.2" class="auto internal xref">3.3.2</a>.  <a href="#name-attacker-profiles" class="internal xref">Attacker Profiles</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3.2.3">
-                    <p id="section-toc.1-1.3.2.3.2.3.1"><a href="#section-3.3.3" class="auto internal xref">3.3.3</a>.  <a href="#name-victim-profiles-2" class="internal xref">Victim Profiles</a></p>
+                    <p id="section-toc.1-1.3.2.3.2.3.1"><a href="#section-3.3.3" class="auto internal xref">3.3.3</a>.  <a href="#name-victim-profiles" class="internal xref">Victim Profiles</a></p>
+</li>
+                </ul>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.4">
+                <p id="section-toc.1-1.3.2.4.1"><a href="#section-3.4" class="auto internal xref">3.4</a>.  <a href="#name-what-is-out-of-scope" class="internal xref">What is out of scope</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.4.2.1">
+                    <p id="section-toc.1-1.3.2.4.2.1.1"><a href="#section-3.4.1" class="auto internal xref">3.4.1</a>.  <a href="#name-technologies-2" class="internal xref">Technologies</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.4.2.2">
+                    <p id="section-toc.1-1.3.2.4.2.2.1"><a href="#section-3.4.2" class="auto internal xref">3.4.2</a>.  <a href="#name-attack-profiles" class="internal xref">Attack Profiles</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.4.2.3">
+                    <p id="section-toc.1-1.3.2.4.2.3.1"><a href="#section-3.4.3" class="auto internal xref">3.4.3</a>.  <a href="#name-victim-profiles-2" class="internal xref">Victim Profiles</a></p>
 </li>
                 </ul>
 </li>
@@ -1212,6 +1229,39 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
             <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-design-considerations" class="internal xref">Design Considerations</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1">
+                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-design-requirements" class="internal xref">Design Requirements</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.1">
+                    <p id="section-toc.1-1.4.2.1.2.1.1"><a href="#section-4.1.1" class="auto internal xref">4.1.1</a>.  <a href="#name-detecting-unwanted-location" class="internal xref">Detecting Unwanted Location Tracking</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.2">
+                    <p id="section-toc.1-1.4.2.1.2.2.1"><a href="#section-4.1.2" class="auto internal xref">4.1.2</a>.  <a href="#name-finding-tracking-tags" class="internal xref">Finding Tracking Tags</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.3">
+                    <p id="section-toc.1-1.4.2.1.2.3.1"><a href="#section-4.1.3" class="auto internal xref">4.1.3</a>.  <a href="#name-disabling-tracking-tags" class="internal xref">Disabling Tracking Tags</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.4">
+                    <p id="section-toc.1-1.4.2.1.2.4.1"><a href="#section-4.1.4" class="auto internal xref">4.1.4</a>.  <a href="#name-privacy-and-security-requir" class="internal xref">Privacy and Security Requirements (TODO)</a></p>
+</li>
+                </ul>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2">
+                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-design-constraints" class="internal xref">Design Constraints</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.1">
+                    <p id="section-toc.1-1.4.2.2.2.1.1"><a href="#section-4.2.1" class="auto internal xref">4.2.1</a>.  <a href="#name-bluetooth-constraints" class="internal xref">Bluetooth constraints</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.2">
+                    <p id="section-toc.1-1.4.2.2.2.2.1"><a href="#section-4.2.2" class="auto internal xref">4.2.2</a>.  <a href="#name-power-constraints-todo" class="internal xref">Power constraints (TODO)</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.3">
+                    <p id="section-toc.1-1.4.2.2.2.3.1"><a href="#section-4.2.3" class="auto internal xref">4.2.3</a>.  <a href="#name-device-constraints-todo" class="internal xref">Device constraints (TODO)</a></p>
+</li>
+                </ul>
+</li>
+            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
             <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
@@ -1237,7 +1287,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <p id="section-1-1">Location tracking tags are widely-used devices that allow users to locate items. These tags function as a component of a crowdsourced tracking network in which devices belonging to other network users (e.g., phones) report on the location of tags they have seen. At a high level, this works as follows:<a href="#section-1-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-1-2.1">
-          <p id="section-1-2.1.1">Tags ("accessories") broadcast an advertisement payload containing accessory-specific information. The payload also indicates whether the accessory is separated from its owner and thus potentially lost.<a href="#section-1-2.1.1" class="pilcrow">¶</a></p>
+          <p id="section-1-2.1.1">Tags ("accessories") transmit an advertisement payload containing accessory-specific information. The payload also indicates whether the accessory is separated from its owner and thus potentially lost.<a href="#section-1-2.1.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-1-2.2">
           <p id="section-1-2.2.1">Devices belonging to other users ("non-owner devices") observe those payloads and if the payload is in a separated mode, reports its location to some central service.<a href="#section-1-2.2.1" class="pilcrow">¶</a></p>
@@ -1290,7 +1340,10 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
             <p id="section-2.2-1.2.1"><strong>passive scanning</strong>: a search for location trackers running in the background, often accompanied by notifications for the user<a href="#section-2.2-1.2.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-2.2-1.3">
-            <p id="section-2.2-1.3.1"><strong>tracking tag</strong>: a small, concealable device that broadcasts location data to other devices<a href="#section-2.2-1.3.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-1.3.1"><strong>tracking tag</strong>: a small device that is not easily discoverable and transmits location data to other devices.<a href="#section-2.2-1.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-2.2-1.4">
+            <p id="section-2.2-1.4.1"><strong>easily discoverable</strong>: device is larger than 30 cm in at least one dimension, device is larger than 18 cm x 13 xm in two of its dimensions, device is larger than 250 cm<sup>3</sup> in three-dimensional space<a href="#section-2.2-1.4.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 </section>
@@ -1682,83 +1735,123 @@ Note that once a given attacker persona has been modeled, it could be recombined
           <h4 id="name-bluetooth-vs-other-technolo">
 <a href="#section-3.1.2" class="section-number selfRef">3.1.2. </a><a href="#name-bluetooth-vs-other-technolo" class="section-name selfRef">Bluetooth vs. other technologies</a>
           </h4>
-<p id="section-3.1.2-1">The above taxonomy and threat analysis focus on location tracking tags. They are protocol-independent; if a tag were designed using a technology other than Bluetooth, they would still apply. The key attributes are the functionalities and physical properties of the accessory from the user’s perspective. The accessory must be small enough to be easily concealed, and able to broadcast its location to other consumer devices.<a href="#section-3.1.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.1.2-1">The above taxonomy and threat analysis focus on location tracking tags. They are protocol-independent; if a tag were designed using a technology other than Bluetooth, they would still apply. The key attributes are the functionalities and physical properties of the accessory from the user’s perspective. The accessory must be small and not easily discoverable and able to transmit its location to other consumer devices.<a href="#section-3.1.2-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="possible-methods-to-circumvent-dult-protocol">
+<section id="section-3.2">
+        <h3 id="name-possible-methods-to-circumv">
+<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-possible-methods-to-circumv" class="section-name selfRef">Possible Methods to Circumvent DULT Protocol</a>
+        </h3>
+<p id="section-3.2-1">There are several different ways an attacker could attempt to circumvent the DULT protocol in order to track a victim without their consent. These include deploying multiple tags to follow a single victim and using a non-compliant tag (e.g. speaker disabled, altered firmware, spoofed tag). There are also other potential concerns of abuse of the DULT Protocol, such as remotely disabling a victim's tracking tag.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+<div id="deploying-multiple-tags">
+<section id="section-3.2.1">
+          <h4 id="name-deploying-multiple-tags">
+<a href="#section-3.2.1" class="section-number selfRef">3.2.1. </a><a href="#name-deploying-multiple-tags" class="section-name selfRef">Deploying Multiple Tags</a>
+          </h4>
+<p id="section-3.2.1-1">When an attacker deploys tracking tags to follow a victim, they may deploy more than one tag. For example, if planting a tracking tag in a car, the attacker might place one tag inside the car, and another affixed on the outside of the car. The DULT protocol must be robust to this scenario. This means that scans, whether passive or active, need to be able to return more than one result if a device is suspected of being used for unwanted tracking, and the time to do so must not be significantly impeded by the presence of multiple trackers. This also applies to situations where many tags are present, even if they are not being used for unwanted location tracking, such as a busy train station or airport where tag owners may or may not be in proximity to their tracking tags.<a href="#section-3.2.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="remote-advertisement-monitoring">
+<section id="section-3.2.2">
+          <h4 id="name-remote-advertisement-monito">
+<a href="#section-3.2.2" class="section-number selfRef">3.2.2. </a><a href="#name-remote-advertisement-monito" class="section-name selfRef">Remote Advertisement Monitoring</a>
+          </h4>
+<p id="section-3.2.2-1">Bluetooth advertisement packets are not encrypted, so any device with Bluetooh scanning capabilities in proximity to a location tracking tag can receive Bluetooth advertisement packets. If an attacker is able to link an identifier in an advertisement packet to a particular tag, they may be able to use this information to track the tag over time, and potentially by proxy the victim or other individual, without their consent. Tracking tags typically rotate any identifiers associated with the tag, but the duration with which they rotate could be up to 24 hours (see e.g. <span>[<a href="#I-D.detecting-unwanted-location-trackers" class="cite xref">I-D.detecting-unwanted-location-trackers</a>]</span>). Beck et al. have <a href="https://eprint.iacr.org/2023/1332.pdf">demonstrated</a> a technological solution that employs secret sharing and error correction coding that would reduce this to 60 seconds. However, work must investigate how robust this scheme is to the presence of multiple tags (see <a href="#deploying-multiple-tags" class="auto internal xref">Section 3.2.1</a>).<a href="#section-3.2.2-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="non-compliant-tags">
+<section id="section-3.2.3">
+          <h4 id="name-non-compliant-tags">
+<a href="#section-3.2.3" class="section-number selfRef">3.2.3. </a><a href="#name-non-compliant-tags" class="section-name selfRef">Non-compliant tags</a>
+          </h4>
+<p id="section-3.2.3-1">An attacker might physically modify a tag in a way that makes it non-compliant with the standard (e.g. disabling a speaker or vibration). An attacker might make alterations to a tag's firmware that make it non-compliant with the standard.<a href="#section-3.2.3-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="misuse-of-remote-disablement">
+<section id="section-3.2.4">
+          <h4 id="name-misuse-of-remote-disablemen">
+<a href="#section-3.2.4" class="section-number selfRef">3.2.4. </a><a href="#name-misuse-of-remote-disablemen" class="section-name selfRef">Misuse of Remote Disablement</a>
+          </h4>
+<p id="section-3.2.4-1">An attacker might misuse remote disablement features to prevent a victim detecting or locating a tag. This could be used to prevent a victim locating an attacker's tag, or could be used by an attacker against a victim's tag as a form of harassment.<a href="#section-3.2.4-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
 </div>
 <div id="what-is-in-scope">
-<section id="section-3.2">
+<section id="section-3.3">
         <h3 id="name-what-is-in-scope">
-<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-what-is-in-scope" class="section-name selfRef">What is in scope</a>
+<a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-what-is-in-scope" class="section-name selfRef">What is in scope</a>
         </h3>
 <div id="technologies">
-<section id="section-3.2.1">
+<section id="section-3.3.1">
           <h4 id="name-technologies">
-<a href="#section-3.2.1" class="section-number selfRef">3.2.1. </a><a href="#name-technologies" class="section-name selfRef">Technologies</a>
+<a href="#section-3.3.1" class="section-number selfRef">3.3.1. </a><a href="#name-technologies" class="section-name selfRef">Technologies</a>
           </h4>
-<p id="section-3.2.1-1">The scope of this threat analysis includes any easily-concealable accessory that is able to broadcast its location to other consumer devices.<a href="#section-3.2.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.3.1-1">The scope of this threat analysis includes any accessory that is small and not easily discoverable and able to transmit its location to other consumer devices.<a href="#section-3.3.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="attacker-profiles">
-<section id="section-3.2.2">
+<section id="section-3.3.2">
           <h4 id="name-attacker-profiles">
-<a href="#section-3.2.2" class="section-number selfRef">3.2.2. </a><a href="#name-attacker-profiles" class="section-name selfRef">Attacker Profiles</a>
+<a href="#section-3.3.2" class="section-number selfRef">3.3.2. </a><a href="#name-attacker-profiles" class="section-name selfRef">Attacker Profiles</a>
           </h4>
-<p id="section-3.2.2-1">An attacker who attempts to track a victim using a tracking tag and applications readily available for end-users (e.g. native tracking application) is in scope. Additonally, an attacker who physically modifies a tracking tag (e.g. to disable a speaker) is in scope. An atacker who makes non-nation-state level alterations to the firmware of an existing tracking tag or creates a custom device that leverages the crowdsourced tracking network is in scope.<a href="#section-3.2.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.3.2-1">An attacker who attempts to track a victim using a tracking tag and applications readily available for end-users (e.g. native tracking application) is in scope. Additonally, an attacker who physically modifies a tracking tag (e.g. to disable a speaker) is in scope. An atacker who makes non-nation-state level alterations to the firmware of an existing tracking tag or creates a custom device that leverages the crowdsourced tracking network is in scope.<a href="#section-3.3.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="victim-profiles">
-<section id="section-3.2.3">
+<section id="section-3.3.3">
           <h4 id="name-victim-profiles">
-<a href="#section-3.2.3" class="section-number selfRef">3.2.3. </a><a href="#name-victim-profiles" class="section-name selfRef">Victim Profiles</a>
+<a href="#section-3.3.3" class="section-number selfRef">3.3.3. </a><a href="#name-victim-profiles" class="section-name selfRef">Victim Profiles</a>
           </h4>
-<p id="section-3.2.3-1">All victims profiles are in scope regardless of their expertise, access to resources, or access to technological safeguards. For example, protocols should account for a victim's lack of access to a smartphone, and scenarios in which victims cannot install separate software.<a href="#section-3.2.3-1" class="pilcrow">¶</a></p>
+<p id="section-3.3.3-1">All victims profiles are in scope regardless of their expertise, access to resources, or access to technological safeguards. For example, protocols should account for a victim's lack of access to a smartphone, and scenarios in which victims cannot install separate software.<a href="#section-3.3.3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
 </div>
 <div id="what-is-out-of-scope">
-<section id="section-3.3">
+<section id="section-3.4">
         <h3 id="name-what-is-out-of-scope">
-<a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-what-is-out-of-scope" class="section-name selfRef">What is out of scope</a>
+<a href="#section-3.4" class="section-number selfRef">3.4. </a><a href="#name-what-is-out-of-scope" class="section-name selfRef">What is out of scope</a>
         </h3>
 <div id="technologies-1">
-<section id="section-3.3.1">
+<section id="section-3.4.1">
           <h4 id="name-technologies-2">
-<a href="#section-3.3.1" class="section-number selfRef">3.3.1. </a><a href="#name-technologies-2" class="section-name selfRef">Technologies</a>
+<a href="#section-3.4.1" class="section-number selfRef">3.4.1. </a><a href="#name-technologies-2" class="section-name selfRef">Technologies</a>
           </h4>
-<p id="section-3.3.1-1">There are many types of technology that can be used for location tracking. In many cases, the threat analysis would be similar, as the contexts in which potential attackers and victims exist and use the technology are similar. However, it would be infeasible to attempt to describe a threat analysis for each possible technology in this document. We have therefore limited its scope to location-tracking accessories that are small enough to be easily concealed, and able to broadcast their locations to other devices. The following are out of scope for this document:<a href="#section-3.3.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.4.1-1">There are many types of technology that can be used for location tracking. In many cases, the threat analysis would be similar, as the contexts in which potential attackers and victims exist and use the technology are similar. However, it would be infeasible to attempt to describe a threat analysis for each possible technology in this document. We have therefore limited its scope to location-tracking accessories that are small and not easily discoverable and able to transmit their locations to other devices. The following are out of scope for this document:<a href="#section-3.4.1-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-3.3.1-2.1">
-              <p id="section-3.3.1-2.1.1">App-based technologies such as parental monitoring apps.<a href="#section-3.3.1-2.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-3.4.1-2.1">
+              <p id="section-3.4.1-2.1.1">App-based technologies such as parental monitoring apps.<a href="#section-3.4.1-2.1.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-3.3.1-2.2">
-              <p id="section-3.3.1-2.2.1">Other Internet of Things (IoT) devices.<a href="#section-3.3.1-2.2.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-3.4.1-2.2">
+              <p id="section-3.4.1-2.2.1">Other Internet of Things (IoT) devices.<a href="#section-3.4.1-2.2.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-3.3.1-2.3">
-              <p id="section-3.3.1-2.3.1">Connected cars.<a href="#section-3.3.1-2.3.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-3.4.1-2.3">
+              <p id="section-3.4.1-2.3.1">Connected cars.<a href="#section-3.4.1-2.3.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-3.3.1-2.4">
-              <p id="section-3.3.1-2.4.1">User accounts for cloud services or social media.<a href="#section-3.3.1-2.4.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-3.4.1-2.4">
+              <p id="section-3.4.1-2.4.1">User accounts for cloud services or social media.<a href="#section-3.4.1-2.4.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 </section>
 </div>
 <div id="attack-profiles">
-<section id="section-3.3.2">
+<section id="section-3.4.2">
           <h4 id="name-attack-profiles">
-<a href="#section-3.3.2" class="section-number selfRef">3.3.2. </a><a href="#name-attack-profiles" class="section-name selfRef">Attack Profiles</a>
+<a href="#section-3.4.2" class="section-number selfRef">3.4.2. </a><a href="#name-attack-profiles" class="section-name selfRef">Attack Profiles</a>
           </h4>
-<p id="section-3.3.2-1">Attackers with nation-state level expertise and resources who deploy custom or altered tracking tags to bypass protocol safeguards or jailbreak a victim end-device (e.g. smartphone) are considered out of scope.<a href="#section-3.3.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.4.2-1">Attackers with nation-state level expertise and resources who deploy custom or altered tracking tags to bypass protocol safeguards or jailbreak a victim end-device (e.g. smartphone) are considered out of scope.<a href="#section-3.4.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="victim-profiles-1">
-<section id="section-3.3.3">
+<section id="section-3.4.3">
           <h4 id="name-victim-profiles-2">
-<a href="#section-3.3.3" class="section-number selfRef">3.3.3. </a><a href="#name-victim-profiles-2" class="section-name selfRef">Victim Profiles</a>
+<a href="#section-3.4.3" class="section-number selfRef">3.4.3. </a><a href="#name-victim-profiles-2" class="section-name selfRef">Victim Profiles</a>
           </h4>
-<p id="section-3.3.3-1">N/A<a href="#section-3.3.3-1" class="pilcrow">¶</a></p>
+<p id="section-3.4.3-1">N/A<a href="#section-3.4.3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1770,21 +1863,114 @@ Note that once a given attacker persona has been modeled, it could be recombined
       <h2 id="name-design-considerations">
 <a href="#section-4" class="section-number selfRef">4. </a><a href="#name-design-considerations" class="section-name selfRef">Design Considerations</a>
       </h2>
-<p id="section-4-1">As discussed in <a href="#security-considerations" class="auto internal xref">Section 3</a>, unwanted location tracking can involve a variety of attacker, victim, and tracking tag profiles. A successful implementation to preventing unwanted location tracking would:<a href="#section-4-1" class="pilcrow">¶</a></p>
+<p id="section-4-1">As discussed in <a href="#security-considerations" class="auto internal xref">Section 3</a>, unwanted location tracking can involve a variety of attacker, victim, and tracking tag profiles. A successful implementation to preventing unwanted location tracking should:<a href="#section-4-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-4-2.1">
           <p id="section-4-2.1.1">Include a variety of approaches to address different scenarios, including active and passive scanning and notifications or sounds<a href="#section-4-2.1.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-4-2.2">
-          <p id="section-4-2.2.1">Account for scenarios in which the attacker has high expertise, proximity, and/or access to resources within the scope defined in <a href="#what-is-in-scope" class="auto internal xref">Section 3.2</a> and <a href="#what-is-out-of-scope" class="auto internal xref">Section 3.3</a><a href="#section-4-2.2.1" class="pilcrow">¶</a></p>
+          <p id="section-4-2.2.1">Account for scenarios in which the attacker has high expertise, proximity, and/or access to resources within the scope defined in <a href="#what-is-in-scope" class="auto internal xref">Section 3.3</a> and <a href="#what-is-out-of-scope" class="auto internal xref">Section 3.4</a><a href="#section-4-2.2.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-4-2.3">
-          <p id="section-4-2.3.1">Account for scenarios in which the victim has low expertise, access to resources, and/or access to technological safeguards within the scope defined in <a href="#what-is-in-scope" class="auto internal xref">Section 3.2</a> and <a href="#what-is-out-of-scope" class="auto internal xref">Section 3.3</a><a href="#section-4-2.3.1" class="pilcrow">¶</a></p>
+          <p id="section-4-2.3.1">Account for scenarios in which the victim has low expertise, access to resources, and/or access to technological safeguards within the scope defined in <a href="#what-is-in-scope" class="auto internal xref">Section 3.3</a> and <a href="#what-is-out-of-scope" class="auto internal xref">Section 3.4</a><a href="#section-4-2.3.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-4-2.4">
           <p id="section-4-2.4.1">Avoid privacy compromises for the tag owner when protecting against unwanted location tracking using tracking tags<a href="#section-4-2.4.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
+<div id="design-requirements">
+<section id="section-4.1">
+        <h3 id="name-design-requirements">
+<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-design-requirements" class="section-name selfRef">Design Requirements</a>
+        </h3>
+<p id="section-4.1-1">The DULT protocol should 1) allow victims to detect unwanted location tracking, 2) help victims find tags that are tracking them, and 3) provide instructions for victims to disable those trackers if they choose. These affordances should be implemented while considering the appropriate privacy and security requirements.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
+<div id="detecting-unwanted-location-tracking">
+<section id="section-4.1.1">
+          <h4 id="name-detecting-unwanted-location">
+<a href="#section-4.1.1" class="section-number selfRef">4.1.1. </a><a href="#name-detecting-unwanted-location" class="section-name selfRef">Detecting Unwanted Location Tracking</a>
+          </h4>
+<p id="section-4.1.1-1">There are three main ways that the DULT protocol should assist victims in detecting potentially unwanted location tracking: 1) active scanning, 2) passive scanning, and 3) tracking tag alerts.<a href="#section-4.1.1-1" class="pilcrow">¶</a></p>
+<div id="active-scanning">
+<section id="section-4.1.1.1">
+            <h5 id="name-active-scanning">
+<a href="#section-4.1.1.1" class="section-number selfRef">4.1.1.1. </a><a href="#name-active-scanning" class="section-name selfRef">Active Scanning</a>
+            </h5>
+<p id="section-4.1.1.1-1">There may be scenarios where a victim suspects that they are being tracked without their consent. Active scanning should allow a user to use a native application on their device to search for tracking tags that are separated from their owners. Additional information about when that tag has been previously encountered within a designated time window (e.g. the last 12 hours) should also be included if available (see <a href="#privacy-and-security-requirements-todo" class="auto internal xref">Section 4.1.4</a>). Allowing users to "snooze" or ignore tags known to be safe (e.g. tags from a family member) could also be implemented. Tracking tags that are near their owners should not be shared to avoid abuse of the active scanning feature.<a href="#section-4.1.1.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="passive-scanning">
+<section id="section-4.1.1.2">
+            <h5 id="name-passive-scanning">
+<a href="#section-4.1.1.2" class="section-number selfRef">4.1.1.2. </a><a href="#name-passive-scanning" class="section-name selfRef">Passive Scanning</a>
+            </h5>
+<p id="section-4.1.1.2-1">The platform should passively scan for devices suspected of unwanted location tracking and notify the user. This will involve implementing one or more algorithms to use to flag trackers and determine when to notify the user. (A dedicated DULT WG document will address tracking algorithms, and will be linked when it is available.) The user could be notified through a push notification or through Sounds and Haptics (see <a href="#tracking-tag-alerts" class="auto internal xref">Section 4.1.1.3</a>). There will be tradeoffs between detecting potential unwanted location tracking promptly and alerting the potential victim prematurely. One way to handle these tradeoffs is to allow users to set the sensitivity of these alerts. For example, the <a href="https://github.com/seemoo-lab/AirGuard">AirGuard</a> app includes three different "Security Level" settings that users can customize.<a href="#section-4.1.1.2-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="tracking-tag-alerts">
+<section id="section-4.1.1.3">
+            <h5 id="name-tracking-tag-alerts">
+<a href="#section-4.1.1.3" class="section-number selfRef">4.1.1.3. </a><a href="#name-tracking-tag-alerts" class="section-name selfRef">Tracking Tag Alerts</a>
+            </h5>
+<p id="section-4.1.1.3-1">Tracking tags may be difficult to locate, and users may not have a device that can actively or passively scan for tracking tags. The DULT protocol should be built with <a href="https://cdt.org/insights/centering-disability-in-mitigating-harms-of-bluetooth-tracking-technology/">accessibility in mind</a> so that the most people can be protected by the protocol. In addition to push notifications on nearby devices, tracking tags themselves should be able to notify end users. This should include periodic sounds when away from an owner, along with lights and haptics so that people who are Deaf or hard of hearing can still locate them.<a href="#section-4.1.1.3-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="finding-tracking-tags">
+<section id="section-4.1.2">
+          <h4 id="name-finding-tracking-tags">
+<a href="#section-4.1.2" class="section-number selfRef">4.1.2. </a><a href="#name-finding-tracking-tags" class="section-name selfRef">Finding Tracking Tags</a>
+          </h4>
+<p id="section-4.1.2-1">Even after a location tracker is detected through passive or active scanning, a user may have difficulty in locating it. For example, a tag may be buried under a vehicle cushion. Platforms should allow users who have discovered a tracker through passive or active scanning to request that the tracker signal its presence. This assistance should be done in a way that is accessible to users with sensory or other impairments by using multimodal signals as described in <a href="#tracking-tag-alerts" class="auto internal xref">Section 4.1.1.3</a>.<a href="#section-4.1.2-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="disabling-tracking-tags">
+<section id="section-4.1.3">
+          <h4 id="name-disabling-tracking-tags">
+<a href="#section-4.1.3" class="section-number selfRef">4.1.3. </a><a href="#name-disabling-tracking-tags" class="section-name selfRef">Disabling Tracking Tags</a>
+          </h4>
+<p id="section-4.1.3-1">In order to effectively prevent unwanted location tracking, users should be able to disable location tracker tags. This includes a non-owner user being tracked by a tag's owner, as well as an owner user who believes that an attacker is using their own tag to track them. Platforms should provide instructions for disabling tracking tags once they are located.<a href="#section-4.1.3-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="privacy-and-security-requirements-todo">
+<section id="section-4.1.4">
+          <h4 id="name-privacy-and-security-requir">
+<a href="#section-4.1.4" class="section-number selfRef">4.1.4. </a><a href="#name-privacy-and-security-requir" class="section-name selfRef">Privacy and Security Requirements (TODO)</a>
+        </h4>
+</section>
+</div>
+</section>
+</div>
+<div id="design-constraints">
+<section id="section-4.2">
+        <h3 id="name-design-constraints">
+<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-design-constraints" class="section-name selfRef">Design Constraints</a>
+        </h3>
+<p id="section-4.2-1">There are also design constraints that the DULT Protocol must consider, including limitations of the Bluetooth Low Energy (BLE) protocol, power constraints, and device constraints.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
+<div id="bluetooth-constraints">
+<section id="section-4.2.1">
+          <h4 id="name-bluetooth-constraints">
+<a href="#section-4.2.1" class="section-number selfRef">4.2.1. </a><a href="#name-bluetooth-constraints" class="section-name selfRef">Bluetooth constraints</a>
+          </h4>
+<p id="section-4.2.1-1">The Bluetooth Low Energy (BLE) payload used for advertisement consists of up to 37 bytes. One current adoption of unwanted location tracking requires 12 of these bytes for implementing the basic protocol, with the remaining optional (see <span>[<a href="#I-D.detecting-unwanted-location-trackers" class="cite xref">I-D.detecting-unwanted-location-trackers</a>]</span>). Implementation of the DULT protocol will need to consider these limitations. For example, in <a href="https://eprint.iacr.org/2023/1332.pdf">Eldridge et al</a>, implementing Multi-Dealer Secret Sharing required using two advertisement packets were needed instead of one.<a href="#section-4.2.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="power-constraints-todo">
+<section id="section-4.2.2">
+          <h4 id="name-power-constraints-todo">
+<a href="#section-4.2.2" class="section-number selfRef">4.2.2. </a><a href="#name-power-constraints-todo" class="section-name selfRef">Power constraints (TODO)</a>
+        </h4>
+</section>
+</div>
+<div id="device-constraints-todo">
+<section id="section-4.2.3">
+          <h4 id="name-device-constraints-todo">
+<a href="#section-4.2.3" class="section-number selfRef">4.2.3. </a><a href="#name-device-constraints-todo" class="section-name selfRef">Device constraints (TODO)</a>
+        </h4>
+</section>
+</div>
+</section>
+</div>
 </section>
 </div>
 <div id="iana-considerations">
