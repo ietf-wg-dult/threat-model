@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-02-20T01:10:47.055668+00:00",
+  "timestamp": "2025-02-23T01:15:19.084769+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -497,7 +497,7 @@
       "url": "https://github.com/ietf-wg-dult/threat-model/issues/45",
       "state": "OPEN",
       "author": "shaileshprabhu95",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "**Summary**:\nThe current draft lacks a structured threat prioritization approach, making it difficult to assess which threats require urgent mitigation. This proposal suggests introducing a **Threat Prioritization Matrix** to classify risks based on **Likelihood**, **Impact**, and **Feasibility**.\n\n**Proposed Threat Prioritization Matrix**:\n\n<html xmlns:m=\"http://schemas.microsoft.com/office/2004/12/omml\"\nxmlns=\"http://www.w3.org/TR/REC-html40\">\n\n<head>\n\n<meta name=ProgId content=PowerPoint.Slide>\n<meta name=Generator content=\"Microsoft PowerPoint 15\">\n<!--tr\n\t{mso-height-source:auto;}\ncol\n\t{mso-width-source:auto;}\ntd\n\t{padding-top:1.0px;\n\tpadding-right:1.0px;\n\tpadding-left:1.0px;\n\tmso-ignore:padding;\n\tcolor:windowtext;\n\tfont-size:18.0pt;\n\tfont-weight:400;\n\tfont-style:normal;\n\ttext-decoration:none;\n\tfont-family:Arial;\n\tmso-generic-font-family:auto;\n\tmso-font-charset:0;\n\ttext-align:general;\n\tvertical-align:bottom;\n\tborder:none;\n\tmso-background-source:auto;\n\tmso-pattern:auto;}\n.oa1\n\t{border-top:1.0pt solid white;\n\tborder-right:1.0pt solid white;\n\tborder-bottom:3.0pt solid white;\n\tborder-left:1.0pt solid white;\n\tbackground:#156082;\n\tmso-pattern:auto none;\n\ttext-align:center;\n\tvertical-align:middle;\n\tpadding-bottom:3.6pt;\n\tpadding-left:7.2pt;\n\tpadding-top:3.6pt;\n\tpadding-right:7.2pt;}\n.oa2\n\t{border-top:3.0pt solid white;\n\tborder-right:1.0pt solid white;\n\tborder-bottom:1.0pt solid white;\n\tborder-left:1.0pt solid white;\n\tbackground:#CCD2D8;\n\tmso-pattern:auto none;\n\tvertical-align:middle;\n\tpadding-bottom:3.6pt;\n\tpadding-left:7.2pt;\n\tpadding-top:3.6pt;\n\tpadding-right:7.2pt;}\n.oa3\n\t{border-top:3.0pt solid white;\n\tborder-right:1.0pt solid white;\n\tborder-bottom:1.0pt solid white;\n\tborder-left:1.0pt solid white;\n\tbackground:#CCD2D8;\n\tmso-pattern:auto none;\n\ttext-align:center;\n\tvertical-align:middle;\n\tpadding-bottom:3.6pt;\n\tpadding-left:7.2pt;\n\tpadding-top:3.6pt;\n\tpadding-right:7.2pt;}\n.oa4\n\t{border:1.0pt solid white;\n\tbackground:#E7EAED;\n\tmso-pattern:auto none;\n\tvertical-align:middle;\n\tpadding-bottom:3.6pt;\n\tpadding-left:7.2pt;\n\tpadding-top:3.6pt;\n\tpadding-right:7.2pt;}\n.oa5\n\t{border:1.0pt solid white;\n\tbackground:#E7EAED;\n\tmso-pattern:auto none;\n\ttext-align:center;\n\tvertical-align:middle;\n\tpadding-bottom:3.6pt;\n\tpadding-left:7.2pt;\n\tpadding-top:3.6pt;\n\tpadding-right:7.2pt;}\n.oa6\n\t{border:1.0pt solid white;\n\tbackground:#CCD2D8;\n\tmso-pattern:auto none;\n\tvertical-align:middle;\n\tpadding-bottom:3.6pt;\n\tpadding-left:7.2pt;\n\tpadding-top:3.6pt;\n\tpadding-right:7.2pt;}\n.oa7\n\t{border:1.0pt solid white;\n\tbackground:#CCD2D8;\n\tmso-pattern:auto none;\n\ttext-align:center;\n\tvertical-align:middle;\n\tpadding-bottom:3.6pt;\n\tpadding-left:7.2pt;\n\tpadding-top:3.6pt;\n\tpadding-right:7.2pt;}\n</head>\n\n<body>\n<!--StartFragment-->\n\n\nThreat type | Likelihood | Impact | Feasibility | Risk Level\n-- | -- | -- | -- | --\nCasual Tracking (e.g., AirTag   hidden in a bag) | High | High | Easy | Critical\nTag Identifier Evasion (MAC   Address Randomization) | Medium | High | Medium | High\nRelay Attack on Tracking Networks | Low | High | Difficult | Medium\nNetwork-Based Tracking via Cloud   Services | Low | Medium | Difficult | Medium\nTag Disguising (Altering Physical   or Firmware Characteristics) | Low | Medium | Difficult | Medium\nJamming or Signal Interference   Attacks | Low | Low | Medium | Low\n\n\n\n<!--EndFragment-->\n</body>\n\n</html>\n\n**Why This is Needed?**\n\n1. Helps prioritize mitigation efforts for **high-risk threats**.\n2. Allows vendors (like Apple, Google, etc.) to **allocate resources efficiently**.\n3. Provides a **structured approach to risk assessment** for policymakers.\n",
@@ -513,12 +513,44 @@
       "url": "https://github.com/ietf-wg-dult/threat-model/issues/46",
       "state": "OPEN",
       "author": "shaileshprabhu95",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "**Summary**:\nThe draft currently lacks a discussion on false positives in unwanted tracking detection, which can undermine the system\u2019s effectiveness. False alarms reduce user trust, impact legitimate tracking use cases (e.g., shared devices, IoT deployments), and may create legal risks for service providers.\n\n**Key Issues with False Positives**:\n1. **Users May Ignore Alerts**: If alerts occur too frequently for legitimate tracking devices, users may start ignoring them, making real tracking threats harder to detect.\n2. **Disrupts Enterprise & Shared Spaces**: Workplaces, hospitals, rental cars, and logistics environments rely on Bluetooth tracking for legitimate purposes.\n3. **Legal & Compliance Risks**: Misidentification of devices as malicious could create privacy disputes and regulatory challenges.\n\n**Proposed Enhancements:**\n\n1. **Define Common Causes of False Positives**\n    - **Legitimate shared devices** (e.g., family members\u2019 AirTags, corporate assets).\n    - **Overlapping Bluetooth signals** in crowded areas.\n    - **Short-term presence vs. actual tracking threats** (e.g., an AirTag in a borrowed bag vs. malicious tracking).\n    - **Algorithmic errors** in motion pattern analysis.\n\n2. **Introduce Heuristic-Based Filtering Mechanisms**\n    - **Context Awareness**: Reduce false alerts by factoring in historical interactions with a device.\n    - **Adaptive Learning**: Allow user feedback (e.g., \"Mark this tracker as trusted\").\n    - **Risk-Based Confidence Score**: Instead of binary alerts, show a low/medium/high risk score based on tracking duration and proximity.\n",
       "createdAt": "2025-02-17T08:28:44Z",
       "updatedAt": "2025-02-17T08:28:44Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 51,
+      "id": "I_kwDOMB0Qas6q5mks",
+      "title": "Elaborate on Power Constraints in Threat Model Draft (Section 4.2.2 - Power constraints)",
+      "url": "https://github.com/ietf-wg-dult/threat-model/issues/51",
+      "state": "OPEN",
+      "author": "shaileshprabhu95",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Given that unwanted tracking detection often relies on periodic Bluetooth scanning, continuous background monitoring can significantly impact battery life on mobile devices. The Threat Model draft should explicitly discuss power limitations and propose energy-efficient solutions.\n\n**Proposed Enhancements**\nI propose adding the following details to Section 4.2.2 (Power Constraints):\n\n1. **Challenges of Continuous Scanning**:\n    - Constantly scanning for tracking devices drains the battery, making detection mechanisms impractical for everyday use.\n    - High-frequency scanning increases energy consumption, especially on mobile devices with limited battery capacity.\n\n2. **Potential Power-Efficient Approaches**:\n    - **Adaptive Scanning**: Dynamically adjust the scan frequency based on detected risk levels (e.g., increase frequency when a suspicious device is nearby).\n    - **Event-Triggered Detection**: Activate scanning only when the user enters a high-risk scenario (e.g., when moving into a new location or after a prolonged stationary period).\n    - **Low-Power Mode for Background Detection**: Use low-energy techniques such as passive Bluetooth listening instead of active scanning.\n    - **Offloading Detection to Edge Devices**: Explore offloading detection tasks to companion devices (e.g., smartwatches or home hubs) to distribute power consumption.\n\n3. **Impact on Protocol Design**:\n    - The DULT protocol must balance **detection accuracy** with **battery efficiency** to ensure usability.\n    - Consideration of **device-specific power constraints** (e.g., differences between smartphones, wearables, and IoT devices).",
+      "createdAt": "2025-02-20T20:43:21Z",
+      "updatedAt": "2025-02-20T20:43:21Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 52,
+      "id": "I_kwDOMB0Qas6rDql3",
+      "title": "Proposal to elaborate on Device Constraints (Section 4.2.3)",
+      "url": "https://github.com/ietf-wg-dult/threat-model/issues/52",
+      "state": "OPEN",
+      "author": "shaileshprabhu95",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "The draft currently has a placeholder for **Device Constraints (Section 4.2.3)** under **Design Constraints**. This section may explicitly outline hardware, OS, processing, and connectivity limitations that impact unwanted tracking detection.\n\n**Proposed Additions**\n1. **Hardware Limitations**\n    - Variability in BLE scanning capabilities across older vs. newer smartphones, feature phones, and IoT devices.\n    - Differences in antenna sensitivity, chipset power, and OS-level access impacting detection.\n\n2. **OS and Platform Restrictions**\n    - Mobile OS restrictions on background BLE scanning (e.g., iOS/Android privacy policies).\n    - Wearables and IoT devices may have stricter power and resource limitations.\n  \n3. **Processing and Memory Constraints**\n    - Limited processing power and RAM on low-end devices can make continuous tracking detection difficult.\n    - Some ML-based detection mechanisms may be too resource-intensive for constrained devices.\n\n4. **Connectivity and Cloud Dependency**\n    - Some tracking detection approaches rely on cloud services, which may not work in offline or low-connectivity environments.\n    - Devices in airplane mode, rural areas, or secure environments may not have access to cloud-assisted detection.\n\n**Potential Enhancements**\n- Introduce lightweight detection mechanisms for constrained devices.\n- Define adaptive scanning strategies based on device capabilities.\n- Discuss fallback mechanisms when a device lacks full detection capability.",
+      "createdAt": "2025-02-21T19:40:01Z",
+      "updatedAt": "2025-02-21T19:40:01Z",
       "closedAt": null,
       "comments": []
     }
@@ -1071,7 +1103,7 @@
       "labels": [],
       "body": "Adds expectation of unwanted location tracking (#21, parent issue #19). @exploretechsafety should add information for addressing #20 before merging.",
       "createdAt": "2025-02-12T19:46:28Z",
-      "updatedAt": "2025-02-13T19:59:44Z",
+      "updatedAt": "2025-02-20T07:47:01Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
       "baseRefOid": "8812d3e297633aeb4396bef09903af34f1ce87b8",
@@ -1270,25 +1302,33 @@
       "id": "PR_kwDOMB0Qas6Lnofg",
       "title": "Addressing last 3 pre-milestone issues",
       "url": "https://github.com/ietf-wg-dult/threat-model/pull/47",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "exploretechsafety",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "I still couldn't manage to get make working on Windows, so I think there might be formatting errors here. The text is there, at any rate. The changes might be across different branches - I tried to commit to main, but then couldn't figure out how to do the pull request for that.",
       "createdAt": "2025-02-18T15:40:50Z",
-      "updatedAt": "2025-02-18T15:40:51Z",
+      "updatedAt": "2025-02-20T07:58:43Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "delano-reqs",
       "baseRefOid": "d43cb089c58cab18c89818837f53e0c9009f9059",
       "headRepository": "ietf-wg-dult/threat-model",
       "headRefName": "main",
-      "headRefOid": "8963557ff25d1a38d4a15b2ba2be34ce00ce6643",
-      "closedAt": null,
+      "headRefOid": "e5ad0d419d0fd30051bf918a6dc2b219b5edb793",
+      "closedAt": "2025-02-20T07:58:43Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "It looks like the commits were made to main and then the pull request is being done to the delano-reqs branch. You should make commits to the branch and then try to pull request to move them to main. I created a new pull request that does this for you (#50). I saw there were still some TODO items so I was not sure if you were done. You can check that out and keep working on it. Let me know over there if you are done though.",
+          "createdAt": "2025-02-20T07:58:43Z",
+          "updatedAt": "2025-02-20T07:58:43Z"
+        }
+      ],
       "reviews": []
     },
     {
@@ -1298,44 +1338,116 @@
       "url": "https://github.com/ietf-wg-dult/threat-model/pull/48",
       "state": "OPEN",
       "author": "shaileshprabhu95",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "This PR adds:\r\n\r\n1. Additional threats to Section 3.2\r\n2. Introducing a Threat Matrix in Section 3.3",
       "createdAt": "2025-02-19T10:35:33Z",
-      "updatedAt": "2025-02-19T10:35:34Z",
+      "updatedAt": "2025-02-20T20:02:07Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
-      "baseRefOid": "8963557ff25d1a38d4a15b2ba2be34ce00ce6643",
+      "baseRefOid": "449d758bc37c8f1c26e53e71ef6aa613c019b13b",
       "headRepository": "shaileshprabhu95/threat-model",
       "headRefName": "rev1",
-      "headRefOid": "e3a064145784cf025273c55ebcef2082af483ff1",
+      "headRefOid": "c4ed359f8c6d7156f8921295e9926aafe9ee0418",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
-      "reviews": []
+      "comments": [
+        {
+          "author": "shaileshprabhu95",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Hi Maggie,\r\n\r\nThank you for the review. I have updated this PR to incorporate your feedback. The revisions include:\r\n\r\n1. Adding descriptions for the impact, likelihood, feasibility, and risk levels that were removed from the Threat Matrix headers.\r\n2. Expanding the attack profiles with additional details on how each attack works, its feasibility, and its impact.\r\n3. Defining \"Mitigation Available\" and providing definitions for the other columns as well.\r\n\r\nPlease review the updated PR and let me know if any further refinements are needed. Thanks! @maggiedelano ",
+          "createdAt": "2025-02-20T19:38:44Z",
+          "updatedAt": "2025-02-20T19:38:44Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOMB0Qas6ctA-K",
+          "commit": {
+            "abbreviatedOid": "26ed67c"
+          },
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "Thanks for your PR!\r\n\r\nI made some minor commits, fixing the trailing white space, and also truncating the column headers because they were too long to fit the HTML view appropriately.\r\n\r\nI think a few additions would be helpful:\r\n1. Adding the low/medium/high descriptions to the text since they were removed from the headers\r\n2. We should discuss the profile of each attack in a bit more detail in each of the paragraphs now that we have the table. This reasoning will also help me and others assess whether each cell in the matrix is appropriate or not.\r\n3. Can you define what you mean by mitigation available? (And if it makes sense, the definitions of any of the other columns)\r\n\r\nIf you can take a first pass at this, that would be great, and I can help update further as needed. ",
+          "createdAt": "2025-02-20T08:24:41Z",
+          "updatedAt": "2025-02-20T08:24:41Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 49,
       "id": "PR_kwDOMB0Qas6LwvWp",
       "title": "Adding Confidence-based Threat Alerts to draft-ietf-dult-threat-model",
       "url": "https://github.com/ietf-wg-dult/threat-model/pull/49",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "shaileshprabhu95",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "This PR adds text related to Confidence-based Threat Alerts to users in Section 4.1.1.2\r\n",
       "createdAt": "2025-02-19T14:40:01Z",
-      "updatedAt": "2025-02-19T14:40:02Z",
+      "updatedAt": "2025-02-20T18:15:26Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
       "baseRefOid": "8963557ff25d1a38d4a15b2ba2be34ce00ce6643",
       "headRepository": "shaileshprabhu95/threat-model",
       "headRefName": "rev2",
-      "headRefOid": "576fe78e76f8c77de1b825249b5e1f85ee25b227",
+      "headRefOid": "eb00041cfcc44ebe383135e3c6d52a2fba8b0d4c",
+      "closedAt": "2025-02-20T08:11:08Z",
+      "mergedAt": "2025-02-20T08:11:08Z",
+      "mergedBy": "maggiedelano",
+      "mergeCommit": {
+        "oid": "449d758bc37c8f1c26e53e71ef6aa613c019b13b"
+      },
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Looks great, thank you! \r\n\r\nP.S., the compile process for the document is very picky about trailing white space. You can run `make fix-lint` locally to fix the issue. See: https://github.com/martinthomson/i-d-template/blob/main/doc/FEATURES.md and https://github.com/martinthomson/i-d-template/blob/main/doc/SETUP.md.",
+          "createdAt": "2025-02-20T08:10:52Z",
+          "updatedAt": "2025-02-20T08:10:52Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOMB0Qas6cs0Wi",
+          "commit": {
+            "abbreviatedOid": "576fe78"
+          },
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Thank you for this important addition!",
+          "createdAt": "2025-02-20T08:02:36Z",
+          "updatedAt": "2025-02-20T08:02:36Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 50,
+      "id": "PR_kwDOMB0Qas6L2znj",
+      "title": "Update taxonomy with Jessie's recent edits",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/50",
+      "state": "OPEN",
+      "author": "maggiedelano",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-02-20T07:56:44Z",
+      "updatedAt": "2025-02-20T07:56:45Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "e5ad0d419d0fd30051bf918a6dc2b219b5edb793",
+      "headRepository": "ietf-wg-dult/threat-model",
+      "headRefName": "delano-taxonomy",
+      "headRefOid": "dc1f786f3e9477a94bd3a103e6068df966db4070",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
