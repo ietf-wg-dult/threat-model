@@ -87,7 +87,8 @@ Table of Contents
      2.2.  Definitions
    3.  Security Considerations
      3.1.  Taxonomy of unwanted tracking
-       3.1.1.  Example scenarios with analyses
+       3.1.1.  Example scenarios with analyses TODO: expand scenarios
+               to incorporate expanded taxonomy
        3.1.2.  Bluetooth vs. other technologies
      3.2.  Possible Methods to Circumvent DULT Protocol
        3.2.1.  Threat Prioritization Framework for DULT Threat Model
@@ -307,7 +308,10 @@ Table of Contents
    use a victim’s own tag to track them.  Beck et al. describe a
    possible technological solution
    (https://eprint.iacr.org/2023/1332.pdf) to the problem of user
-   privacy vs privacy of other potential victims.
+   privacy vs privacy of other potential victims.  In designing the
+   protocol, these concerns should be weighed equally.  TODO: Is this
+   actually how we want to weigh them?  This warrants further
+   discussion.
 
    *  Tracking tag usage
 
@@ -320,7 +324,55 @@ Table of Contents
       -  Attacker and victim: Both the attacker and victim control one
          or more tracking tags.
 
-3.1.1.  Example scenarios with analyses
+   Any of the threat analyses above could be affected by placement of
+   the tag(s).  For instance, a tag could be placed on a victim's
+   person, or in proximity to a victim but not on their person (e.g. a
+   child's backpack).  Examples include:
+
+   *  Tag placement
+
+      -  Tag on victim's person or immediate belongings.  This attack
+         vector allows an attacker to track a victim in a fine-grained
+         way.  It is also more likely that this attack would trigger an
+         alert from the tag.
+
+      -  Tag(s) in proximity to victim but not on their person (e.g.
+         child's backpack, car).  While this is a less fine-grained
+         attack, it may also be less likely to be discovered by the
+         victim.  A child may not realize the significance of an alert
+         or know how to check for a tag.  A parent may not think to scan
+         for such a tag, or may have more difficulty finding a tag in a
+         complex location such as a car.
+
+      -  Tags nearby but not used for unwanted location tracking (e.g.
+         false positives by companions or on transit).  While this is
+         not an attack vector in its own right, repeated false positives
+         may discourage a victim from treating alerts seriously.
+
+      -  Multiple tags using multiple types of placement.  This attack
+         vector may trick a victim into believing that they have fully
+         addressed the attack when they have not.  It also allows for a
+         diversity of monitoring types (e.g. monitoring the victim's
+         precise location, monitoring a child's routine, monitoring car
+         usage).
+
+   Anticipation, or lack thereof, of unwanted tracking, may affect the
+   threat and the attack.  If the victim does not realize that they are
+   at risk (as is common early in an abusive relationship, or if a
+   victim is being stalked by a stranger), they may be less likely to
+   use active scanning tools or understand the implications of detected
+   tags.
+
+   *  Anticipation of unwanted tracking
+
+      -  High anticipation: The victim believes that an attacker is
+         tracking or may be tracking their location.
+
+      -  Low anticipation: The victim is unaware or does not believe
+         that an attacker is tracking or may be tracking their location.
+
+3.1.1.  Example scenarios with analyses TODO: expand scenarios to
+        incorporate expanded taxonomy
 
    The following scenarios are composite cases based upon reports from
    the field.  They are intended to illustrate different angles of the
