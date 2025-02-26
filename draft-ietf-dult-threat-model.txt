@@ -119,7 +119,7 @@ Table of Contents
      4.2.  Design Constraints
        4.2.1.  Bluetooth constraints
        4.2.2.  Power constraints (TODO)
-       4.2.3.  Device constraints (TODO)
+       4.2.3.  Device constraints
    5.  IANA Considerations
    6.  Normative References
    Acknowledgments
@@ -1052,7 +1052,65 @@ Table of Contents
 
 4.2.2.  Power constraints (TODO)
 
-4.2.3.  Device constraints (TODO)
+4.2.3.  Device constraints
+
+   Unwanted tracking detection is constrained by the diverse range of
+   devices used for scanning, each with varying hardware capabilities,
+   operating system restrictions, processing power, and connectivity
+   limitations.  These factors directly impact the effectiveness of
+   detection mechanisms and must be carefully considered in protocol
+   design.
+
+   Hardware variability affects detection accuracy.  While newer
+   smartphones are equipped with advanced Bluetooth Low Energy (BLE)
+   chipsets capable of frequent and reliable scanning, older
+   smartphones, feature phones, and IoT devices may have reduced BLE
+   performance.  Differences in antenna sensitivity, chipset power, and
+   OS-level access control can result in inconsistent detection, where
+   some devices fail to detect tracking signals as reliably as others.
+
+   Operating system restrictions can affect detection efforts,
+   particularly due to background Bluetooth Low Energy (BLE) scanning
+   policies.  Both iOS and Android implement mechanisms to manage
+   background scanning behavior, balancing energy efficiency and privacy
+   considerations.  On iOS, background BLE scanning operates with
+   periodic constraints, which may limit the frequency of detection
+   updates.  Android applies similar policies to regulate background
+   processes and optimize power consumption.  Additionally, privacy
+   frameworks on mobile platforms may influence how applications access
+   and process certain device-related data.  These factors, along with
+   resource limitations in wearables and IoT devices, can impact the
+   feasibility of continuous scanning and detection.
+
+   Processing and memory constraints are another limiting factor,
+   particularly for low-end mobile devices and embedded systems.
+   Continuous scanning and anomaly detection algorithms, especially
+   those relying on machine learning-based threat detection, require
+   substantial processing power and RAM.  Devices with limited
+   computational resources may struggle to maintain effective real-time
+   detection without degrading overall performance.  Ensuring that
+   detection mechanisms remain lightweight and optimized for constrained
+   environments is essential.
+
+   Connectivity limitations introduce additional challenges.  Some
+   unwanted tracking detection mechanisms rely on cloud-based lookups to
+   verify tracker identities and share threat intelligence.  However,
+   users in offline environments, such as those in airplane mode, rural
+   areas with limited connectivity, or secure facilities with network
+   restrictions, may be unable to access these services.  In such cases,
+   detection must rely on local scanning and offline heuristics rather
+   than real-time cloud-based verification.
+
+   To address these challenges, detection mechanisms should incorporate
+   adaptive scanning strategies that adjust based on device
+   capabilities, optimizing performance while maintaining security.
+   Lightweight detection methods, such as event-triggered scanning and
+   passive Bluetooth listening, can improve efficiency on constrained
+   devices.  Additionally, fallback mechanisms should be implemented to
+   provide at least partial detection functionality even when full-
+   featured scanning is not available.  Ensuring that detection remains
+   effective across diverse hardware and software environments is
+   critical for broad user protection.
 
 5.  IANA Considerations
 
