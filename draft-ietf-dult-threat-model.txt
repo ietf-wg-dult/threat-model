@@ -5,8 +5,8 @@
 Detecting Unwanted Location Trackers                           M. Delano
 Internet-Draft                                        Swarthmore College
 Intended status: Informational                                 J. Lowell
-Expires: 30 August 2025        National Network to End Domestic Violence
-                                                        26 February 2025
+Expires: 1 September 2025      National Network to End Domestic Violence
+                                                        28 February 2025
 
 
                            DULT Threat Model
@@ -63,7 +63,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 30 August 2025.
+   This Internet-Draft will expire on 1 September 2025.
 
 Copyright Notice
 
@@ -119,7 +119,7 @@ Table of Contents
        4.1.4.  Privacy and Security Requirements (TODO)
      4.2.  Design Constraints
        4.2.1.  Bluetooth constraints
-       4.2.2.  Power constraints (TODO)
+       4.2.2.  Power constraints
        4.2.3.  Device constraints
    5.  IANA Considerations
    6.  Normative References
@@ -1102,7 +1102,39 @@ Table of Contents
    implementing Multi-Dealer Secret Sharing required using two
    advertisement packets were needed instead of one.
 
-4.2.2.  Power constraints (TODO)
+4.2.2.  Power constraints
+
+   Unwanted tracking detection mechanisms typically rely on periodic
+   Bluetooth scanning to identify unknown tracking devices.  However,
+   continuous background scanning poses a significant power challenge,
+   especially for mobile devices with limited battery capacity.
+   Maintaining high-frequency scans for extended periods can lead to
+   excessive energy consumption, impacting device usability and battery
+   longevity.
+
+   To address these concerns, detection systems must incorporate power-
+   efficient approaches that balance security with practicality.
+   Adaptive scanning strategies can dynamically adjust the scan
+   frequency based on contextual risk levels.  For example, if a
+   suspicious tracking device is detected nearby, the system can
+   temporarily increase scan frequency while reverting to a lower-power
+   mode when no threats are present.
+
+   Event-triggered detection offers another alternative by activating
+   scanning only in specific high-risk scenarios.  Users moving into a
+   new location or transitioning from a prolonged stationary state may
+   require more frequent detection, while routine movement in known safe
+   environments can minimize energy consumption.  Additionally, passive
+   Bluetooth listening techniques could serve as a low-power alternative
+   to active scanning, allowing background detection without excessive
+   battery drain.
+
+   The DULT protocol must account for these power limitations in its
+   design, ensuring that detection mechanisms remain effective without
+   significantly degrading battery performance.  Consideration of
+   device-specific constraints, such as variations in power efficiency
+   across smartphones, wearables, and IoT devices, will be critical in
+   maintaining a balance between security and usability.
 
 4.2.3.  Device constraints
 
