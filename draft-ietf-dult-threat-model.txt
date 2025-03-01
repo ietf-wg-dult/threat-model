@@ -1098,19 +1098,48 @@ Table of Contents
 
 4.2.1.  Bluetooth constraints
 
-   The Bluetooth Low Energy protocol involves transmission of public
-   advertisement packets that are readable by any nearby devices.  This
-   means that any information in advertisement packets, such as tracker
-   IDs, must be considered publicly available information.  The BLE
-   payload used for advertisement consists of up to 37 bytes.  One
-   current adoption of unwanted location tracking requires 12 of these
-   bytes for implementing the basic protocol, with the remaining
-   optional (see [I-D.detecting-unwanted-location-trackers]).
-   Implementation of the DULT protocol will need to consider these
-   limitations.  For example, in Eldridge et al
-   (https://eprint.iacr.org/2023/1332.pdf), implementing Multi-Dealer
-   Secret Sharing required using two advertisement packets were needed
-   instead of one.
+   Detecting trackers requires analyzing Bluetooth Low Energy (BLE)
+   advertisement packets.  Most advertisements are publicly transmitted,
+   allowing passive scanning by any nearby receiver.  While this enables
+   open detection of unknown tracking devices, it also raises privacy
+   concerns (see Section 1).  Some BLE implementations employ randomized
+   MAC addresses and other privacy-preserving techniques, which could
+   impact persistent tracking detection.
+
+   The BLE payload in BLE 4.0 can support advertisement packets of up to
+   37 bytes.  One current adoption of unwanted location tracking
+   requires 12 of these bytes for implementing the basic protocol, with
+   the remaining optional (see
+   [I-D.detecting-unwanted-location-trackers]).  Implementation of the
+   DULT protocol will need to consider these limitations.  For example,
+   in Eldridge et al (https://eprint.iacr.org/2023/1332.pdf),
+   implementing Multi-Dealer Secret Sharing required using two
+   advertisement packets were needed instead of one due to payload
+   constraints.  While BLE 5.0 supports 255+ bytes of data, the protocol
+   is not backwards compatible and thus may not be suitable for the DULT
+   protocol.
+
+   BLE advertisements operate in the 2.4 GHz ISM band, making them
+   susceptible to interference from Wi-Fi, microwave ovens, and other
+   wireless devices.  The presence of environmental noise may degrade
+   detection accuracy and introduce variability in scan results.
+
+   The BLE protocol also enforces strict power efficiency mechanisms,
+   such as advertising intervals and connection event scheduling, which
+   impact detection frequency.  Devices operating in low-power modes may
+   significantly reduce their advertisement frequency to conserve
+   energy, making periodic detection less reliable.  Furthermore,
+   platform-level constraints, such as OS-imposed scanning limits and
+   background activity restrictions, further impact the consistency and
+   responsiveness of tracking detection mechanisms.  For further
+   discussion of power constraints, see Section 4.2.2.
+
+   To address these challenges, detection mechanisms must balance
+   efficiency, privacy, and accuracy while working within the
+   constraints of the BLE protocol.  Solutions may include leveraging
+   multiple observations over time, integrating probabilistic risk
+   scoring, and optimizing scanning strategies based on known BLE
+   limitations.
 
 4.2.2.  Power constraints
 
