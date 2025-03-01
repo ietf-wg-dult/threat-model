@@ -5,8 +5,8 @@
 Detecting Unwanted Location Trackers                           M. Delano
 Internet-Draft                                        Swarthmore College
 Intended status: Informational                                 J. Lowell
-Expires: 1 September 2025      National Network to End Domestic Violence
-                                                        28 February 2025
+Expires: 2 September 2025      National Network to End Domestic Violence
+                                                            1 March 2025
 
 
                            DULT Threat Model
@@ -63,7 +63,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 1 September 2025.
+   This Internet-Draft will expire on 2 September 2025.
 
 Copyright Notice
 
@@ -887,13 +887,15 @@ Table of Contents
 
 3.3.2.  Attacker Profiles
 
-   An attacker who attempts to track a victim using a tracking tag and
-   applications readily available for end-users (e.g. native tracking
-   application) is in scope.  Additonally, an attacker who physically
-   modifies a tracking tag (e.g. to disable a speaker) is in scope.  An
-   atacker who makes non-nation-state level alterations to the firmware
-   of an existing tracking tag or creates a custom device that leverages
-   the crowdsourced tracking network is in scope.
+   An attacker who deploys any of the attacks described in Section 3.2.1
+   is considered in scope.  This includes attempts to track a victim
+   using a tracking tag and applications readily available for end-users
+   (e.g. native tracking application) is in scope.  Additonally, an
+   attacker who physically modifies a tracking tag (e.g. to disable a
+   speaker) is in scope.  An attacker who makes non-nation-state level
+   alterations to the firmware of an existing tracking tag or creates a
+   custom device that leverages the crowdsourced tracking network is in
+   scope.
 
 3.3.3.  Victim Profiles
 
@@ -1071,7 +1073,9 @@ Table of Contents
    scanning to request that the tracker signal its presence.  This
    assistance should be done in a way that is accessible to users with
    sensory or other impairments by using multimodal signals as described
-   in Section 4.1.1.3.
+   in Section 4.1.1.3.  Platforms may also implement other methods to
+   assist in locating trackers, such as precision finding using Ultra-
+   wideband.
 
 4.1.3.  Disabling Tracking Tags
 
@@ -1092,15 +1096,19 @@ Table of Contents
 
 4.2.1.  Bluetooth constraints
 
-   The Bluetooth Low Energy (BLE) payload used for advertisement
-   consists of up to 37 bytes.  One current adoption of unwanted
-   location tracking requires 12 of these bytes for implementing the
-   basic protocol, with the remaining optional (see
-   [I-D.detecting-unwanted-location-trackers]).  Implementation of the
-   DULT protocol will need to consider these limitations.  For example,
-   in Eldridge et al (https://eprint.iacr.org/2023/1332.pdf),
-   implementing Multi-Dealer Secret Sharing required using two
-   advertisement packets were needed instead of one.
+   The Bluetooth Low Energy protocol involves transmission of public
+   advertisement packets that are readable by any nearby devices.  This
+   means that any information in advertisement packets, such as tracker
+   IDs, must be considered publicly available information.  The BLE
+   payload used for advertisement consists of up to 37 bytes.  One
+   current adoption of unwanted location tracking requires 12 of these
+   bytes for implementing the basic protocol, with the remaining
+   optional (see [I-D.detecting-unwanted-location-trackers]).
+   Implementation of the DULT protocol will need to consider these
+   limitations.  For example, in Eldridge et al
+   (https://eprint.iacr.org/2023/1332.pdf), implementing Multi-Dealer
+   Secret Sharing required using two advertisement packets were needed
+   instead of one.
 
 4.2.2.  Power constraints
 
