@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-02-27T01:11:58.846792+00:00",
+  "timestamp": "2025-03-02T01:16:12.621243+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -211,7 +211,7 @@
       "id": "I_kwDOMB0Qas6oCSAX",
       "title": "Discuss design constraints a successful protocol must consider",
       "url": "https://github.com/ietf-wg-dult/threat-model/issues/22",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -220,8 +220,8 @@
       "labels": [],
       "body": "Update the threat model document to discuss specific design constraints:\n\n- BLE protocol constraints (e.g. packet size, public advertisements)\n- Power constraints (protocol cannot have large impact on battery life)\n- Device constraints (protocol must be supported by existing hardware/software, should not require new designs)\n",
       "createdAt": "2025-01-29T20:12:22Z",
-      "updatedAt": "2025-01-30T19:03:05Z",
-      "closedAt": null,
+      "updatedAt": "2025-03-01T08:18:19Z",
+      "closedAt": "2025-03-01T08:18:19Z",
       "comments": []
     },
     {
@@ -229,7 +229,7 @@
       "id": "I_kwDOMB0Qas6oCSNO",
       "title": "Constraints: BLE Protocol",
       "url": "https://github.com/ietf-wg-dult/threat-model/issues/23",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -238,24 +238,32 @@
       "labels": [],
       "body": "Discuss constraints of the BLE protocol that must be considered, including packet size, nature of public advertisements, etc.",
       "createdAt": "2025-01-29T20:12:53Z",
-      "updatedAt": "2025-01-30T19:03:05Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2025-03-01T08:17:51Z",
+      "closedAt": "2025-03-01T08:17:49Z",
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Resolved in #56 and #58.",
+          "createdAt": "2025-03-01T08:17:49Z",
+          "updatedAt": "2025-03-01T08:17:49Z"
+        }
+      ]
     },
     {
       "number": 24,
       "id": "I_kwDOMB0Qas6oCSW-",
       "title": "Constraints: Power",
       "url": "https://github.com/ietf-wg-dult/threat-model/issues/24",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Discuss any power constraints / acceptable impact on battery life.",
       "createdAt": "2025-01-29T20:13:12Z",
-      "updatedAt": "2025-02-26T23:11:48Z",
-      "closedAt": null,
+      "updatedAt": "2025-02-28T07:32:13Z",
+      "closedAt": "2025-02-28T07:32:13Z",
       "comments": [
         {
           "author": "maggiedelano",
@@ -506,9 +514,17 @@
       "labels": [],
       "body": "Detecting unwanted location tracking is often discussed as a trade off between privacy of unassociated tag owners and security of tracking victims (see e.g. [this article](https://eprint.iacr.org/2023/1332.pdf)). However, victims could be threatened using either attacks related to [remote advertisement monitoring](https://github.com/ietf-wg-dult/threat-model/issues/17) as well as the \"standard\" tracking scenario. Update the document to discuss this, and how the protocol should prioritize different types of attacks, victims, etc.",
       "createdAt": "2025-01-29T20:36:41Z",
-      "updatedAt": "2025-01-30T19:00:32Z",
+      "updatedAt": "2025-03-01T08:24:06Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Pushing this to Post-IETF 122. Relevant section is on line 117 in the current draft:\n\n> It is also appropriate to define who is using the tracking tags and incorporate this into a model. This is because if protocols overly deprioritize the privacy of tracking tags\u2019 users, an attacker could use a victim\u2019s own tag to track them. Beck et al. describe a [possible technological solution](https://eprint.iacr.org/2023/1332.pdf) to the problem of user privacy vs privacy of other potential victims. In designing the protocol, these concerns should be weighed equally. TODO: Is this actually how we want to weigh them? This warrants further discussion.\n\nText could also be added to the Privacy and Security Requirements section (currently 4.1.4). ",
+          "createdAt": "2025-03-01T08:24:06Z",
+          "updatedAt": "2025-03-01T08:24:06Z"
+        }
+      ]
     },
     {
       "number": 37,
@@ -599,15 +615,15 @@
       "id": "I_kwDOMB0Qas6q5mks",
       "title": "Elaborate on Power Constraints in Threat Model Draft (Section 4.2.2 - Power constraints)",
       "url": "https://github.com/ietf-wg-dult/threat-model/issues/51",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "shaileshprabhu95",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Given that unwanted tracking detection often relies on periodic Bluetooth scanning, continuous background monitoring can significantly impact battery life on mobile devices. The Threat Model draft should explicitly discuss power limitations and propose energy-efficient solutions.\n\n**Proposed Enhancements**\nI propose adding the following details to Section 4.2.2 (Power Constraints):\n\n1. **Challenges of Continuous Scanning**:\n    - Constantly scanning for tracking devices drains the battery, making detection mechanisms impractical for everyday use.\n    - High-frequency scanning increases energy consumption, especially on mobile devices with limited battery capacity.\n\n2. **Potential Power-Efficient Approaches**:\n    - **Adaptive Scanning**: Dynamically adjust the scan frequency based on detected risk levels (e.g., increase frequency when a suspicious device is nearby).\n    - **Event-Triggered Detection**: Activate scanning only when the user enters a high-risk scenario (e.g., when moving into a new location or after a prolonged stationary period).\n    - **Low-Power Mode for Background Detection**: Use low-energy techniques such as passive Bluetooth listening instead of active scanning.\n    - **Offloading Detection to Edge Devices**: Explore offloading detection tasks to companion devices (e.g., smartwatches or home hubs) to distribute power consumption.\n\n3. **Impact on Protocol Design**:\n    - The DULT protocol must balance **detection accuracy** with **battery efficiency** to ensure usability.\n    - Consideration of **device-specific power constraints** (e.g., differences between smartphones, wearables, and IoT devices).",
       "createdAt": "2025-02-20T20:43:21Z",
-      "updatedAt": "2025-02-25T14:36:58Z",
-      "closedAt": null,
+      "updatedAt": "2025-02-28T07:31:26Z",
+      "closedAt": "2025-02-28T07:31:26Z",
       "comments": [
         {
           "author": "maggiedelano",
@@ -669,6 +685,85 @@
       "body": "We should consider what to do in the case where an attacker has access to a victim's tracking account (e.g. Apple FindMy). This should probably go in the security considerations section.",
       "createdAt": "2025-02-26T22:52:57Z",
       "updatedAt": "2025-02-26T22:53:16Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 57,
+      "id": "I_kwDOMB0Qas6sG2YE",
+      "title": "Adding BLE Constraints Section to Design Constraints",
+      "url": "https://github.com/ietf-wg-dult/threat-model/issues/57",
+      "state": "CLOSED",
+      "author": "shaileshprabhu95",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Given that unwanted tracking detection heavily relies on **Bluetooth Low Energy (BLE)** technology, it is important to outline the protocol's inherent limitations that impact detection mechanisms. Adding this section will strengthen the draft by explicitly acknowledging BLE\u2019s constraints and ensuring detection mechanisms are designed with these limitations in mind.\n\n**Proposed Additions:**\nThe new section should cover:\n\n1. **Packet Size Limitations**:\n    - BLE advertisement packets have a maximum payload size of 31 bytes in legacy advertisements (Bluetooth 4.0/4.1/4.2).\n    - Bluetooth 5.0+ introduces extended advertisements with a higher payload capacity of 255 bytes, but not all devices support this feature.\n    - These limitations constrain the amount of metadata that can be included in advertisements for unwanted tracking detection.\n    \n2. **Nature of Public Advertisements**:\n    - BLE advertisements are typically public and can be passively scanned by any nearby receiver, which raises privacy concerns.\n    - Devices implementing unwanted tracking detection must balance open detection with privacy-preserving mechanisms to avoid unnecessary exposure.\n\n3. **Broadcast Interval Trade-offs**:\n    - BLE advertisements are transmitted at specific intervals, impacting detection latency.\n    - Frequent advertisements improve tracking accuracy but increase power consumption.\n    - Adaptive strategies are required to optimize both efficiency and detection reliability.\n\n4. **Protocol-Level Constraints**:\n    - BLE operates in the 2.4 GHz ISM band, making it susceptible to interference from Wi-Fi, microwave ovens, and other wireless devices.\n    - Some BLE devices implement privacy features (randomized MAC addresses), which may hinder persistent tracking.\n    - The BLE stack on mobile OS platforms (iOS/Android) imposes background scanning limitations, affecting continuous monitoring.",
+      "createdAt": "2025-02-28T15:34:04Z",
+      "updatedAt": "2025-03-01T08:18:42Z",
+      "closedAt": "2025-03-01T08:18:42Z",
+      "comments": [
+        {
+          "author": "shaileshprabhu95",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Hi Maggie and Jessie, I've addressed this issue in PR: https://github.com/ietf-wg-dult/threat-model/pull/58\n\nKindly review and let me know if this PR is good for merge. Thanks! ",
+          "createdAt": "2025-02-28T15:49:19Z",
+          "updatedAt": "2025-02-28T15:49:19Z"
+        },
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Resolved in #58, thanks!",
+          "createdAt": "2025-03-01T08:18:42Z",
+          "updatedAt": "2025-03-01T08:18:42Z"
+        }
+      ]
+    },
+    {
+      "number": 60,
+      "id": "I_kwDOMB0Qas6sLoJN",
+      "title": "Add acknowledgements section",
+      "url": "https://github.com/ietf-wg-dult/threat-model/issues/60",
+      "state": "OPEN",
+      "author": "maggiedelano",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Fill out the acknowledgements section.",
+      "createdAt": "2025-03-01T08:25:12Z",
+      "updatedAt": "2025-03-01T08:25:12Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 61,
+      "id": "I_kwDOMB0Qas6sLoO1",
+      "title": "Expand scenarios to incorporate expanded taxonomy",
+      "url": "https://github.com/ietf-wg-dult/threat-model/issues/61",
+      "state": "OPEN",
+      "author": "maggiedelano",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Update scenarios based on expanded taxonomy in version -01.",
+      "createdAt": "2025-03-01T08:25:49Z",
+      "updatedAt": "2025-03-01T08:27:06Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 62,
+      "id": "I_kwDOMB0Qas6sLoW1",
+      "title": "Requirement: Privacy and Security",
+      "url": "https://github.com/ietf-wg-dult/threat-model/issues/62",
+      "state": "OPEN",
+      "author": "maggiedelano",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Consider adding specific requirements related to privacy and security in the design requirements section. We will need to think about what should go in this document versus some of the other documents, and also how to consider design tradeoffs (see also #36).",
+      "createdAt": "2025-03-01T08:26:52Z",
+      "updatedAt": "2025-03-01T08:26:52Z",
       "closedAt": null,
       "comments": []
     }
@@ -1461,7 +1556,7 @@
       "labels": [],
       "body": "This PR adds:\r\n\r\n1. Additional threats to Section 3.2\r\n2. Introducing a Threat Matrix in Section 3.3",
       "createdAt": "2025-02-19T10:35:33Z",
-      "updatedAt": "2025-02-26T22:24:46Z",
+      "updatedAt": "2025-02-27T04:10:56Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
       "baseRefOid": "449d758bc37c8f1c26e53e71ef6aa613c019b13b",
@@ -1609,25 +1704,35 @@
       "id": "PR_kwDOMB0Qas6Me4XE",
       "title": "Elaborate on Power Constraints in Section 4.2.2",
       "url": "https://github.com/ietf-wg-dult/threat-model/pull/53",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "shaileshprabhu95",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "This PR adds text to **Power Constraints** in **Section 4.2.2**, and hence resolves https://github.com/ietf-wg-dult/threat-model/issues/51",
       "createdAt": "2025-02-25T14:35:28Z",
-      "updatedAt": "2025-02-26T22:34:19Z",
+      "updatedAt": "2025-02-28T08:25:19Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
-      "baseRefOid": "449d758bc37c8f1c26e53e71ef6aa613c019b13b",
+      "baseRefOid": "c220551514badbd0878dd5fa44125f117df0cfa7",
       "headRepository": "shaileshprabhu95/threat-model",
       "headRefName": "powconstraints",
-      "headRefOid": "d51e08e7fd180fce707bea0ce005dc57fcfd03fc",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
-      "comments": [],
+      "headRefOid": "3525e5de5c1ec43030622c52f267bf7c27329761",
+      "closedAt": "2025-02-28T07:31:25Z",
+      "mergedAt": "2025-02-28T07:31:25Z",
+      "mergedBy": "maggiedelano",
+      "mergeCommit": {
+        "oid": "49b5e8ed991e50d0bbf5b3719b21f0a9c26038af"
+      },
+      "comments": [
+        {
+          "author": "shaileshprabhu95",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Hi Maggie, thanks for your review! Yes - I'm okay with leaving out the paragraph on companion devices if it's outside the intended scope.\r\nI've removed this paragraph in the latest commit https://github.com/ietf-wg-dult/threat-model/pull/53/commits/3525e5de5c1ec43030622c52f267bf7c27329761\r\n\r\nPlease let me know if the PR is now good to merge. Thanks! @maggiedelano ",
+          "createdAt": "2025-02-27T04:47:21Z",
+          "updatedAt": "2025-02-27T04:47:21Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDOMB0Qas6duF4f",
@@ -1656,7 +1761,7 @@
       "labels": [],
       "body": "This PR adds text to Device Constraints in Section 4.2.3, and hence resolves https://github.com/ietf-wg-dult/threat-model/issues/52",
       "createdAt": "2025-02-25T15:40:48Z",
-      "updatedAt": "2025-02-26T22:37:04Z",
+      "updatedAt": "2025-02-27T04:11:53Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
       "baseRefOid": "449d758bc37c8f1c26e53e71ef6aa613c019b13b",
@@ -1691,24 +1796,110 @@
       "id": "PR_kwDOMB0Qas6MuBe9",
       "title": "Minor updates to attacks and finding",
       "url": "https://github.com/ietf-wg-dult/threat-model/pull/56",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Just add minor clarifications: which attacks are in scope, finding options, BLE constraints.",
       "createdAt": "2025-02-26T23:08:41Z",
-      "updatedAt": "2025-02-26T23:18:42Z",
+      "updatedAt": "2025-03-01T07:52:36Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
       "baseRefOid": "c220551514badbd0878dd5fa44125f117df0cfa7",
       "headRepository": "ietf-wg-dult/threat-model",
       "headRefName": "delano-ietf122issues",
       "headRefOid": "b0ee4f077e5080aa57a83914d8e1913adfa42930",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-03-01T07:52:36Z",
+      "mergedAt": "2025-03-01T07:52:36Z",
+      "mergedBy": "maggiedelano",
+      "mergeCommit": {
+        "oid": "8be68af9b0349a102113281fbdfd457d7465a06f"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOMB0Qas6eDm9k",
+          "commit": {
+            "abbreviatedOid": "b0ee4f0"
+          },
+          "author": "exploretechsafety",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-02-28T20:47:43Z",
+          "updatedAt": "2025-02-28T20:47:43Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 58,
+      "id": "PR_kwDOMB0Qas6M9UzY",
+      "title": "Adding BLE Protocol Constraints to Design Constraints",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/58",
+      "state": "MERGED",
+      "author": "shaileshprabhu95",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "This PR adds BLR Protocol Constraints to Section 4.2.1 of the DULT Threat Model draft, and hence addresses https://github.com/ietf-wg-dult/threat-model/issues/57 and https://github.com/ietf-wg-dult/threat-model/issues/23",
+      "createdAt": "2025-02-28T15:47:45Z",
+      "updatedAt": "2025-03-01T08:55:10Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "24f31861f74d0f812d4d9cfc05a177f2a7fa405b",
+      "headRepository": "shaileshprabhu95/threat-model",
+      "headRefName": "ble_constraints",
+      "headRefOid": "9d93b2d12f311649f328a6a35da5fe1724fac3f4",
+      "closedAt": "2025-03-01T08:17:16Z",
+      "mergedAt": "2025-03-01T08:17:16Z",
+      "mergedBy": "maggiedelano",
+      "mergeCommit": {
+        "oid": "a053f4f23ea1e295c927ba4a86b55be9c01efde3"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOMB0Qas6eF5bi",
+          "commit": {
+            "abbreviatedOid": "7ee62ec"
+          },
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "Thanks! I also made an update to this section, so I will merge our contributions and then merge the PR.",
+          "createdAt": "2025-03-01T08:00:23Z",
+          "updatedAt": "2025-03-01T08:00:23Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 59,
+      "id": "PR_kwDOMB0Qas6NBd-q",
+      "title": "add Shailesh as co-author",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/59",
+      "state": "MERGED",
+      "author": "maggiedelano",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-03-01T07:58:43Z",
+      "updatedAt": "2025-03-01T07:59:18Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "8be68af9b0349a102113281fbdfd457d7465a06f",
+      "headRepository": "ietf-wg-dult/threat-model",
+      "headRefName": "delano-add-shailesh",
+      "headRefOid": "f036e42276c2e645aa93aa10d390649feb836b0c",
+      "closedAt": "2025-03-01T07:59:18Z",
+      "mergedAt": "2025-03-01T07:59:18Z",
+      "mergedBy": "maggiedelano",
+      "mergeCommit": {
+        "oid": "24f31861f74d0f812d4d9cfc05a177f2a7fa405b"
+      },
       "comments": [],
       "reviews": []
     }
