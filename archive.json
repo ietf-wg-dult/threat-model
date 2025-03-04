@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-03-02T01:16:12.621243+00:00",
+  "timestamp": "2025-03-04T01:13:02.618674+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -454,9 +454,17 @@
       "labels": [],
       "body": "Update terminology in threat model document to be consistent with other documents.",
       "createdAt": "2025-01-29T20:29:34Z",
-      "updatedAt": "2025-02-26T22:53:48Z",
+      "updatedAt": "2025-03-03T18:43:18Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Brent mentions in #64 that the preferred term in the charter is non-conformant not non-compliant.",
+          "createdAt": "2025-03-03T18:43:05Z",
+          "updatedAt": "2025-03-03T18:43:18Z"
+        }
+      ]
     },
     {
       "number": 34,
@@ -764,6 +772,187 @@
       "body": "Consider adding specific requirements related to privacy and security in the design requirements section. We will need to think about what should go in this document versus some of the other documents, and also how to consider design tradeoffs (see also #36).",
       "createdAt": "2025-03-01T08:26:52Z",
       "updatedAt": "2025-03-01T08:26:52Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 63,
+      "id": "I_kwDOMB0Qas6sQRJo",
+      "title": "Remote disablement is underspecified",
+      "url": "https://github.com/ietf-wg-dult/threat-model/issues/63",
+      "state": "OPEN",
+      "author": "bledvina",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Reading section 3.2.6 entitled Misuse of Remote Disablement, I don't think \"Remote Disablement\" is defined sufficiently well. The first sentence explains how an \"attacker might misuse remote disablement features,\" but then the third sentence talks about \"The ability to disable a victim's protections.\" I think defining what remote disablement means in the context of this document would help. For example, it could be remote disablement of location tracking or it could be remote disablement of unwanted tracking protections or both or it could mean something else entirely.  ",
+      "createdAt": "2025-03-03T01:30:36Z",
+      "updatedAt": "2025-03-03T18:18:14Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Thanks Brent, I think being more specific is a good idea. As you've said, it could have to do with disablement of location tracking or unwanted tracking protections only, and I'd add that this could be done on the tracking tag or the device. \n\nI think @exploretechsafety was working on this section, so I'll give them a chance to respond as well and see if we can clarify the text. I don't think we will get this in by the deadline at 23:59 UTC today, but if we can come to consensus before the meeting we will have time to discuss other topics.",
+          "createdAt": "2025-03-03T18:18:12Z",
+          "updatedAt": "2025-03-03T18:18:12Z"
+        }
+      ]
+    },
+    {
+      "number": 64,
+      "id": "I_kwDOMB0Qas6sQS-3",
+      "title": "Rotating Tracker IDs",
+      "url": "https://github.com/ietf-wg-dult/threat-model/issues/64",
+      "state": "OPEN",
+      "author": "bledvina",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "I see two potential issues with the Rotating Tracker IDs section (Section 3.27). The first is that this section appears to be a subset of the Non-compliant tags section (Section 3.2.5). The second issue is that rotating tracker IDs are not inherently a problem. Nominally, you want the static information in the BT payload to rotate periodically to minimize local privacy concerns but also balance longer-term unwanted tracking detection.  Is the Rotating Tracker IDs section meant to state that an attacker being able to rotate tracker IDs too fast (e.g., once per minute) is the problem?",
+      "createdAt": "2025-03-03T01:38:26Z",
+      "updatedAt": "2025-03-03T22:38:12Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Thanks, Brent! I agree about the overlap. I'm going to create an issue specifically to address the non-compliant tag section; we might want to create multiple sub attacks for that section to increase clarity and minimize potential overlap.\n\nI'd guess the issue is more someone rotating tracker IDs too fast, @shaileshprabhu95 was the one who did the first draft of this section, so I'll let them comment before making changes. As with the other issue, we probably won't be able to fix in the next few hours, but would be good to try to come to consensus before the next meeting.",
+          "createdAt": "2025-03-03T18:25:23Z",
+          "updatedAt": "2025-03-03T18:25:23Z"
+        },
+        {
+          "author": "bledvina",
+          "authorAssociation": "NONE",
+          "body": "@maggiedelano sounds good on breaking down non-compliant tags section into multiple sub-attack vectors. \n\nbtw, the language in the charter we aligned on was non-comformant tags. Might be good to check with larger group on using the word non-conformant vs non-compliant ",
+          "createdAt": "2025-03-03T18:31:54Z",
+          "updatedAt": "2025-03-03T18:31:54Z"
+        },
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "great re: breaking down, will work on it further in #69. \n\nI'll also make a note of non-conformant vs. non-compliant to bring up in the next meeting.",
+          "createdAt": "2025-03-03T18:41:28Z",
+          "updatedAt": "2025-03-03T18:41:28Z"
+        },
+        {
+          "author": "bledvina",
+          "authorAssociation": "NONE",
+          "body": "@maggiedelano you could also use the unwanted-trackers email group to ask the community about non-compliant vs non-conformant",
+          "createdAt": "2025-03-03T22:38:12Z",
+          "updatedAt": "2025-03-03T22:38:12Z"
+        }
+      ]
+    },
+    {
+      "number": 65,
+      "id": "I_kwDOMB0Qas6sQunf",
+      "title": "Remote Advertisement Monitoring",
+      "url": "https://github.com/ietf-wg-dult/threat-model/issues/65",
+      "state": "OPEN",
+      "author": "bledvina",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "I have a couple concerns with Section 3.2.4 (Remote Advertisement Monitoring). First, BT advertisements can be received whether they are encrypted or not. Maybe the point is that they cannot be decoded when encrypted? Irrespective, it's not clear why encryption matters here.\n\nThe second concern I have is the last sentence in this section calls out use of advanced correlation techniques, and I think I understand what is meant, but it might be helpful to explain in more detail or provide a reference. \n\n",
+      "createdAt": "2025-03-03T03:25:49Z",
+      "updatedAt": "2025-03-03T18:27:51Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Thanks, Brent! \n\n1) How about changing the first sentence in that section from \"Bluetooth advertisement packets are not encrypted, so any device with Bluetooth scanning capabilities in proximity to a location tracking tag can receive Bluetooth advertisement packets.\" to \"Any device with Bluetooth scanning capabilities in proximity to a location tracking tag can receive Bluetooth advertisement packets.\"\n\n2) I will defer to @shaileshprabhu95 to address the second part of this issue.",
+          "createdAt": "2025-03-03T18:27:50Z",
+          "updatedAt": "2025-03-03T18:27:50Z"
+        }
+      ]
+    },
+    {
+      "number": 66,
+      "id": "I_kwDOMB0Qas6sQu9x",
+      "title": "guessing a tag ID",
+      "url": "https://github.com/ietf-wg-dult/threat-model/issues/66",
+      "state": "OPEN",
+      "author": "bledvina",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "In the introduction, there is a statement that says any attacker who can guess a tag ID can query the central server for its location. Is this always true?",
+      "createdAt": "2025-03-03T03:27:06Z",
+      "updatedAt": "2025-03-03T18:31:37Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "This is a good question. It might not always be true, I'd guess it would depend on the implementation of the central server. Tagging @ekr @cfossace as authors on that doc, and @exploretechsafety as author of that section. ",
+          "createdAt": "2025-03-03T18:31:35Z",
+          "updatedAt": "2025-03-03T18:31:35Z"
+        }
+      ]
+    },
+    {
+      "number": 67,
+      "id": "I_kwDOMB0Qas6sQwpH",
+      "title": "Bluetooth vs other technologies section",
+      "url": "https://github.com/ietf-wg-dult/threat-model/issues/67",
+      "state": "OPEN",
+      "author": "bledvina",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "The second sentence in Bluetooth vs other technologies makes a statement that the threat analysis focuses on location tracking tags that use Bluetooth or other technologies. Is this meant to suggest using other technologies than Bluetooth for crowd-sourcing?\n\nAdditionally, this section states in the last sentence: \"able to transmit its location to other consumer devices.\" This is one way crowd-sourcing can work, but the alternative way is for a consumer device to transmit its own location as the proxy for the tag's location.  ",
+      "createdAt": "2025-03-03T03:33:31Z",
+      "updatedAt": "2025-03-03T18:37:34Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I think we went back and forth on this a bit at the last meeting (about how broadly to define the scope of the document with respect to Bluetooth vs. other techniques). I agree we should try to be precise here. Maybe we can clarify this phrase \"if a tag were designed using a technology other than Bluetooth\" to something like \"if a tag were designed **for crowd-sourced location tracking** using a technology other than Bluetooth\"? Tagging @exploretechsafety as I think they wrote this section.\n\nFor the last sentence, what about something like \"able to participate in a crowd-sourced location tracking network\"? We can try to use the same wording for both parts, and eventually aligning with the other documents (see also #34).",
+          "createdAt": "2025-03-03T18:37:33Z",
+          "updatedAt": "2025-03-03T18:37:33Z"
+        }
+      ]
+    },
+    {
+      "number": 68,
+      "id": "I_kwDOMB0Qas6sQx2R",
+      "title": "Spoofing Legitimate Devices section",
+      "url": "https://github.com/ietf-wg-dult/threat-model/issues/68",
+      "state": "OPEN",
+      "author": "bledvina",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "I'm not sure I follow what is covered in this section. Crowd-sourcing networks typically look for certain types of Bluetooth advertisements, not common Bluetooth devices. Given that, it's not clear how modifying a tracker to mimic a common Bluetooth device would be a threat.\n\nAdditionally, another spoofing scenario worth calling out is recording and replaying Bluetooth advertisements from a legitimate tracker. This is generally straightforward and presents challenges on attribution. ",
+      "createdAt": "2025-03-03T03:38:23Z",
+      "updatedAt": "2025-03-03T18:39:36Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Thanks, Brent. I think the key here would be spoofing a device that is then able to participate in the crowd-sourced location tracking network. We should also include the other spoofing scenario you mentioned. @shaileshprabhu95 can you take a look here as well and propose some changes?",
+          "createdAt": "2025-03-03T18:39:34Z",
+          "updatedAt": "2025-03-03T18:39:34Z"
+        }
+      ]
+    },
+    {
+      "number": 69,
+      "id": "I_kwDOMB0Qas6sYBTK",
+      "title": "Review non-compliant tags attack section",
+      "url": "https://github.com/ietf-wg-dult/threat-model/issues/69",
+      "state": "OPEN",
+      "author": "maggiedelano",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "The non-compliant tags attack section is more of an umbrella for specific types of attacks, some of which are duplicated in the next (see #64). Review that section and consider making additional attack entries for those listed.",
+      "createdAt": "2025-03-03T18:24:42Z",
+      "updatedAt": "2025-03-03T18:24:42Z",
       "closedAt": null,
       "comments": []
     }
