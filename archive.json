@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-03-04T01:13:02.618674+00:00",
+  "timestamp": "2025-03-06T01:13:04.794656+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -783,11 +783,13 @@
       "state": "OPEN",
       "author": "bledvina",
       "authorAssociation": "NONE",
-      "assignees": [],
+      "assignees": [
+        "exploretechsafety"
+      ],
       "labels": [],
       "body": "Reading section 3.2.6 entitled Misuse of Remote Disablement, I don't think \"Remote Disablement\" is defined sufficiently well. The first sentence explains how an \"attacker might misuse remote disablement features,\" but then the third sentence talks about \"The ability to disable a victim's protections.\" I think defining what remote disablement means in the context of this document would help. For example, it could be remote disablement of location tracking or it could be remote disablement of unwanted tracking protections or both or it could mean something else entirely.  ",
       "createdAt": "2025-03-03T01:30:36Z",
-      "updatedAt": "2025-03-03T18:18:14Z",
+      "updatedAt": "2025-03-04T20:49:31Z",
       "closedAt": null,
       "comments": [
         {
@@ -856,7 +858,7 @@
       "labels": [],
       "body": "I have a couple concerns with Section 3.2.4 (Remote Advertisement Monitoring). First, BT advertisements can be received whether they are encrypted or not. Maybe the point is that they cannot be decoded when encrypted? Irrespective, it's not clear why encryption matters here.\n\nThe second concern I have is the last sentence in this section calls out use of advanced correlation techniques, and I think I understand what is meant, but it might be helpful to explain in more detail or provide a reference. \n\n",
       "createdAt": "2025-03-03T03:25:49Z",
-      "updatedAt": "2025-03-03T18:27:51Z",
+      "updatedAt": "2025-03-04T19:50:51Z",
       "closedAt": null,
       "comments": [
         {
@@ -865,6 +867,13 @@
           "body": "Thanks, Brent! \n\n1) How about changing the first sentence in that section from \"Bluetooth advertisement packets are not encrypted, so any device with Bluetooth scanning capabilities in proximity to a location tracking tag can receive Bluetooth advertisement packets.\" to \"Any device with Bluetooth scanning capabilities in proximity to a location tracking tag can receive Bluetooth advertisement packets.\"\n\n2) I will defer to @shaileshprabhu95 to address the second part of this issue.",
           "createdAt": "2025-03-03T18:27:50Z",
           "updatedAt": "2025-03-03T18:27:50Z"
+        },
+        {
+          "author": "shaileshprabhu95",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Thanks, Brent, for the suggestions.\n\nMaggie - I have raised a PR here: https://github.com/ietf-wg-dult/threat-model/pull/72 that addresses the second part of this issue. Kindly review and let me know if this is good for merge. @maggiedelano ",
+          "createdAt": "2025-03-04T19:50:49Z",
+          "updatedAt": "2025-03-04T19:50:49Z"
         }
       ]
     },
@@ -876,11 +885,13 @@
       "state": "OPEN",
       "author": "bledvina",
       "authorAssociation": "NONE",
-      "assignees": [],
+      "assignees": [
+        "exploretechsafety"
+      ],
       "labels": [],
       "body": "In the introduction, there is a statement that says any attacker who can guess a tag ID can query the central server for its location. Is this always true?",
       "createdAt": "2025-03-03T03:27:06Z",
-      "updatedAt": "2025-03-03T18:31:37Z",
+      "updatedAt": "2025-03-04T20:50:26Z",
       "closedAt": null,
       "comments": [
         {
@@ -900,11 +911,13 @@
       "state": "OPEN",
       "author": "bledvina",
       "authorAssociation": "NONE",
-      "assignees": [],
+      "assignees": [
+        "exploretechsafety"
+      ],
       "labels": [],
       "body": "The second sentence in Bluetooth vs other technologies makes a statement that the threat analysis focuses on location tracking tags that use Bluetooth or other technologies. Is this meant to suggest using other technologies than Bluetooth for crowd-sourcing?\n\nAdditionally, this section states in the last sentence: \"able to transmit its location to other consumer devices.\" This is one way crowd-sourcing can work, but the alternative way is for a consumer device to transmit its own location as the proxy for the tag's location.  ",
       "createdAt": "2025-03-03T03:33:31Z",
-      "updatedAt": "2025-03-03T18:37:34Z",
+      "updatedAt": "2025-03-04T20:50:56Z",
       "closedAt": null,
       "comments": [
         {
@@ -928,7 +941,7 @@
       "labels": [],
       "body": "I'm not sure I follow what is covered in this section. Crowd-sourcing networks typically look for certain types of Bluetooth advertisements, not common Bluetooth devices. Given that, it's not clear how modifying a tracker to mimic a common Bluetooth device would be a threat.\n\nAdditionally, another spoofing scenario worth calling out is recording and replaying Bluetooth advertisements from a legitimate tracker. This is generally straightforward and presents challenges on attribution. ",
       "createdAt": "2025-03-03T03:38:23Z",
-      "updatedAt": "2025-03-03T18:39:36Z",
+      "updatedAt": "2025-03-04T12:21:06Z",
       "closedAt": null,
       "comments": [
         {
@@ -937,6 +950,13 @@
           "body": "Thanks, Brent. I think the key here would be spoofing a device that is then able to participate in the crowd-sourced location tracking network. We should also include the other spoofing scenario you mentioned. @shaileshprabhu95 can you take a look here as well and propose some changes?",
           "createdAt": "2025-03-03T18:39:34Z",
           "updatedAt": "2025-03-03T18:39:34Z"
+        },
+        {
+          "author": "shaileshprabhu95",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Thanks, Brent, for your review.\nMaggie - I've raised this PR to address Brent's review comments: https://github.com/ietf-wg-dult/threat-model/pull/70\nI've also incorporated Brent's suggestion to call out \"Recording and Replaying Bluetooth advertisements from a legitimate tracker\".\n\nKindly review the PR and let me know if any refinements are needed. Thanks! @maggiedelano ",
+          "createdAt": "2025-03-04T12:21:05Z",
+          "updatedAt": "2025-03-04T12:21:05Z"
         }
       ]
     },
@@ -953,6 +973,24 @@
       "body": "The non-compliant tags attack section is more of an umbrella for specific types of attacks, some of which are duplicated in the next (see #64). Review that section and consider making additional attack entries for those listed.",
       "createdAt": "2025-03-03T18:24:42Z",
       "updatedAt": "2025-03-03T18:24:42Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 71,
+      "id": "I_kwDOMB0Qas6sj2Ze",
+      "title": "Paired to multiple accounts/devices",
+      "url": "https://github.com/ietf-wg-dult/threat-model/issues/71",
+      "state": "OPEN",
+      "author": "bledvina",
+      "authorAssociation": "NONE",
+      "assignees": [
+        "exploretechsafety"
+      ],
+      "labels": [],
+      "body": "Adding this issue on behalf of Eva Galperin's email on 10/18/2024. In that email she stated:\n\n\"I also support adoption, with the caveats that the TODO sections still need to be filled in and that if the behavior of trackers that are paired to multiple devices is outside of the scope of this document, then we need to make sure to cover it somewhere else. Many trackers currently have this capabilitiy and I want to make sure that if a person finds an unwanted tracker that they are able to find out about all of the devices that it is paired to, not just the primary one.\"\n\nNot sure if this has been addressed or not, but when I just read through the threat model document, I don't think this issue has been addressed yet.",
+      "createdAt": "2025-03-04T18:18:05Z",
+      "updatedAt": "2025-03-04T20:51:44Z",
       "closedAt": null,
       "comments": []
     }
@@ -2089,6 +2127,84 @@
       "mergeCommit": {
         "oid": "24f31861f74d0f812d4d9cfc05a177f2a7fa405b"
       },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 70,
+      "id": "PR_kwDOMB0Qas6NTSCG",
+      "title": "Addressing review comments by Brent on Spoofing Legitimate Devices",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/70",
+      "state": "OPEN",
+      "author": "shaileshprabhu95",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "This PR addresses the review comments in https://github.com/ietf-wg-dult/threat-model/issues/68",
+      "createdAt": "2025-03-04T12:15:00Z",
+      "updatedAt": "2025-03-04T12:15:01Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "a053f4f23ea1e295c927ba4a86b55be9c01efde3",
+      "headRepository": "shaileshprabhu95/threat-model",
+      "headRefName": "spoof_update",
+      "headRefOid": "b81ffa86bde262f0d01714d9509a2d62bdb840a2",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 72,
+      "id": "PR_kwDOMB0Qas6NXY5z",
+      "title": "Adding details to Advanced Correlation Techniques in Remote Advertisement Monitoring",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/72",
+      "state": "OPEN",
+      "author": "shaileshprabhu95",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "This PR addresses the second part of the review comment in https://github.com/ietf-wg-dult/threat-model/issues/65",
+      "createdAt": "2025-03-04T19:46:19Z",
+      "updatedAt": "2025-03-04T19:46:20Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "a053f4f23ea1e295c927ba4a86b55be9c01efde3",
+      "headRepository": "shaileshprabhu95/threat-model",
+      "headRefName": "identifier_update",
+      "headRefOid": "bf67bd7efe3605f3f6a5f22f7543c1f0232129cb",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 73,
+      "id": "PR_kwDOMB0Qas6NiRst",
+      "title": "Patch for remote disablement issue #63",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/73",
+      "state": "OPEN",
+      "author": "exploretechsafety",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Elaboration on Misuse of Remote Disablement section.",
+      "createdAt": "2025-03-05T20:49:07Z",
+      "updatedAt": "2025-03-05T20:49:08Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "delano-attacks",
+      "baseRefOid": "744e5bef2e9be81397a321306492f454be06746c",
+      "headRepository": "ietf-wg-dult/threat-model",
+      "headRefName": "main",
+      "headRefOid": "2786dc81a5a48a39ac89ac75fb6fb25fae1357c0",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
       "comments": [],
       "reviews": []
     }
