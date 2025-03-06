@@ -592,12 +592,13 @@ Table of Contents
 3.1.2.  Bluetooth vs. other technologies
 
    The above taxonomy and threat analysis focus on location tracking
-   tags.  They are protocol-independent; if a tag were designed using a
-   technology other than Bluetooth, they would still apply.  The key
-   attributes are the functionalities and physical properties of the
-   accessory from the user’s perspective.  The accessory must be small
-   and not easily discoverable and able to transmit its location to
-   other consumer devices.
+   tags.  They are protocol-independent; if a tag were designed for
+   crowdsourced location tracking using a technology other than
+   Bluetooth, they would still apply.  The key attributes are the
+   functionalities and physical properties of the accessory from the
+   user’s perspective.  The accessory must be small and not easily
+   discoverable and able to transmit its location to other consumer
+   devices.
 
 3.2.  Possible Methods to Circumvent DULT Protocol
 
