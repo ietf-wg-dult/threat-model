@@ -312,6 +312,20 @@ Attackers can modify tracker broadcasts to mimic common Bluetooth devices, makin
 
 Attackers may use a mix of tracking devices from different manufacturers (e.g., Apple AirTags, Tile, Samsung SmartTags) to exploit gaps in vendor-specific tracking protections. Many detection systems are brand-dependent, making them ineffective against mixed tracker deployments. Establishing a cross-vendor framework for detection and alerts would enhance protection. The impact is high, as it circumvents traditional defenses, while the likelihood is medium, since deploying multiple brands requires effort. With feasibility at a hard level, this remains a medium-risk attack. No effective mitigation currently exists, though research into cross-technology threat detection is ongoing.
 
+In the context of this document, remote disablement may refer to remote disablement of unwanted tracking protections, remote disablement of location tracking, or both.
+
+#### Remote Disablement of Unwanted Tracking Protections
+
+An attacker might misuse remote disablement features to prevent a victim detecting or locating a tag. This could be accomplished by disabling the victim's unwanted tracking protection measures on their device, or by modifying the tag itself such that the victim's protection measures are unable to detect the tag.
+
+The ability to disable a victim’s protections introduces a medium impact, while the likelihood is medium, as it requires specific technical knowledge. Since execution is moderately complex, feasibility is moderate, leading to a medium-risk attack. While authentication measures and anti-malware software to detect and remove stalkerware can partially mitigate this risk, these protections are not foolproof.
+
+#### Remote Disablement of Location Tracking
+
+An attacker might misuse remote disablement of location tracking against a victim who is legitimately using a tag, as a form of harassment. This could be accomplished by using the victim's device to disconnect it from the tag, or by physically modifying the tag.
+
+The ability to disable a victim’s tracking tag introduces a low to medium impact, while the likelihood is medium, as it requires specific technical knowledge. Since execution is moderately complex, feasibility is moderate, leading to a medium-risk attack. While authentication measures and anti-malware software to detect and remove stalkerware can partially mitigate this risk, these protections are not foolproof.
+
 ## What is in scope
 
 ### Technologies
