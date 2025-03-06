@@ -879,19 +879,18 @@ Table of Contents
    effective mitigation currently exists, though research into cross-
    technology threat detection is ongoing.
 
-   In the context of this document, remote disablement may refer to
-   remote disablement of unwanted tracking protections, remote
-   disablement of location tracking, or both.
-
 3.2.12.1.  Remote Disablement of Unwanted Tracking Protections
 
-   An attacker might misuse remote disablement features to prevent a
-   victim detecting or locating a tag.  This could be accomplished by
-   disabling the victim's unwanted tracking protection measures on their
-   device, or by modifying the tag itself such that the victim's
-   protection measures are unable to detect the tag.
+   In the context of this document, remote disablement may refer to
+   remote disablement of unwanted tracking protections, remote
+   disablement of location tracking, or both.  An attacker might misuse
+   remote disablement features to prevent a victim detecting or locating
+   a tag.  This could be accomplished by disabling the victim's unwanted
+   tracking protection measures on their device, or by modifying the tag
+   itself such that the victim's protection measures are unable to
+   detect the tag.
 
-   The ability to disable a victim’s protections introduces a medium
+   The ability to disable a victim's protections introduces a medium
    impact, while the likelihood is medium, as it requires specific
    technical knowledge.  Since execution is moderately complex,
    feasibility is moderate, leading to a medium-risk attack.  While
@@ -906,7 +905,7 @@ Table of Contents
    harassment.  This could be accomplished by using the victim's device
    to disconnect it from the tag, or by physically modifying the tag.
 
-   The ability to disable a victim’s tracking tag introduces a low to
+   The ability to disable a victim's tracking tag introduces a low to
    medium impact, while the likelihood is medium, as it requires
    specific technical knowledge.  Since execution is moderately complex,
    feasibility is moderate, leading to a medium-risk attack.  While
