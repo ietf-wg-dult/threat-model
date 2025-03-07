@@ -3,7 +3,7 @@ title: "DULT Threat Model"
 category: info
 
 docname: draft-ietf-dult-threat-model-latest
-submissiontype: IETF  # also: "independent", "editorial", "IAB", or "IRTF"
+submissiontype: IETF
 number:
 date:
 consensus: true
