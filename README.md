@@ -1,11 +1,14 @@
+<!-- regenerate: on (set to off if you edit this file) -->
+
 # DULT Threat Model
 
-This is the working area for the DULT WG's Internet-Draft, "DULT Threat Model".
+This is the working area for the IETF [DULT Working Group](https://datatracker.ietf.org/group/dult/documents/) Internet-Draft, "DULT Threat Model".
 
 * [Editor's Copy](https://ietf-wg-dult.github.io/threat-model/#go.draft-ietf-dult-threat-model.html)
 * [Datatracker Page](https://datatracker.ietf.org/doc/draft-ietf-dult-threat-model)
-* [WG Draft](https://datatracker.ietf.org/doc/html/draft-ietf-dult-threat-model)
-* [Compare Editor's Copy to Individual Draft](https://ietf-wg-dult.github.io/threat-model/#go.draft-ietf-dult-threat-model.diff)
+* [Working Group Draft](https://datatracker.ietf.org/doc/html/draft-ietf-dult-threat-model)
+* [Compare Editor's Copy to Working Group Draft](https://ietf-wg-dult.github.io/threat-model/#go.draft-ietf-dult-threat-model.diff)
+
 
 ## Contributing
 
