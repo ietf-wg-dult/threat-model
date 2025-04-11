@@ -5,10 +5,10 @@
 Detecting Unwanted Location Trackers                           M. Delano
 Internet-Draft                                        Swarthmore College
 Intended status: Informational                                 J. Lowell
-Expires: 7 September 2025      National Network to End Domestic Violence
+Expires: 13 October 2025       National Network to End Domestic Violence
                                                                S. Prabhu
                                                                    Nokia
-                                                            6 March 2025
+                                                           11 April 2025
 
 
                            DULT Threat Model
@@ -65,7 +65,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 7 September 2025.
+   This Internet-Draft will expire on 13 October 2025.
 
 Copyright Notice
 
@@ -97,7 +97,7 @@ Table of Contents
        3.2.2.  Threat Matrix
        3.2.3.  Deploying Multiple Tags
        3.2.4.  Remote Advertisement Monitoring
-       3.2.5.  Non-compliant tags
+       3.2.5.  Non-conformant tags
        3.2.6.  Misuse of Remote Disablement
        3.2.7.  Rotating Tracker IDs
        3.2.8.  Delayed Activation of Trackers
@@ -605,7 +605,7 @@ Table of Contents
    There are several different ways an attacker could attempt to
    circumvent the DULT protocol in order to track a victim without their
    consent.  These include deploying multiple tags to follow a single
-   victim and using a non-compliant tag (e.g. speaker disabled, altered
+   victim and using a non-conformant tag (e.g. speaker disabled, altered
    firmware, spoofed tag).  There are also other potential concerns of
    abuse of the DULT Protocol, such as remotely disabling a victim's
    tracking tag.
@@ -615,7 +615,7 @@ Table of Contents
    Threats in the DULT ecosystem vary in severity, feasibility, and
    likelihood, affecting users in different ways.  Some threats enable
    long-term tracking, while others exploit gaps in detection mechanisms
-   or leverage non-compliant devices.  To assess and prioritize these
+   or leverage non-conformant devices.  To assess and prioritize these
    risks, the following framework classifies threats based on their
    impact, likelihood, feasibility, affected users, and the availability
    of mitigations.  A Threat Matrix is included that provides a
@@ -691,7 +691,8 @@ Table of Contents
    |Advertisement|      |          |           |      |users   |          |
    |Monitoring   |      |          |           |      |        |          |
    +-------------+------+----------+-----------+------+--------+----------+
-   |Non-Compliant|High  |Medium    |Moderate   |Medium|Victims |No        |
+   |Non-         |High  |Medium    |Moderate   |Medium|Victims |No        |
+   |Conformant   |      |          |           |      |        |          |
    |Tags         |      |          |           |      |        |          |
    +-------------+------+----------+-----------+------+--------+----------+
    |Misuse of    |Medium|Medium    |Moderate   |Medium|Victims |Partial   |
@@ -772,12 +773,12 @@ Table of Contents
    partial mitigation, attackers can still use advanced correlation
    techniques to bypass this defense.
 
-3.2.5.  Non-compliant tags
+3.2.5.  Non-conformant tags
 
    An attacker might physically modify a tag in a way that makes it non-
-   compliant with the standard (e.g. disabling a speaker or vibration).
+   conformant with the standard (e.g. disabling a speaker or vibration).
    An attacker might make alterations to a tag's firmware that make it
-   non-compliant with the standard.  This bypasses key protections
+   non-conformant with the standard.  This bypasses key protections
    entirely, making the impact high by preventing victims from
    discovering hidden trackers.  Although technical modifications
    require some expertise, they are achievable with moderate effort,
@@ -1134,6 +1135,19 @@ Table of Contents
    background activity restrictions, further impact the consistency and
    responsiveness of tracking detection mechanisms.  For further
    discussion of power constraints, see Section 4.2.2.
+
+   Additionally, Bluetooth-based tracking systems typically rely on an
+   active Bluetooth connection on the owner’s device to determine
+   whether a tag is in the owner's possession.  If the owner disables
+   Bluetooth on their phone, the system may incorrectly infer that the
+   tag is no longer nearby, potentially triggering a false positive
+   alert for unwanted tracking.  This limitation arises from the
+   inability of Bluetooth-based systems to verify proximity without
+   active signals from the owner’s device.  There is currently no
+   straightforward solution to this issue using Bluetooth alone, and it
+   represents an inherent trade-off between privacy and detection
+   reliability.  Systems should account for this possibility and
+   communicate it clearly to users.
 
    To address these challenges, detection mechanisms must balance
    efficiency, privacy, and accuracy while working within the
