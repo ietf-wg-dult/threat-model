@@ -118,7 +118,8 @@ Table of Contents
        4.1.1.  Detecting Unwanted Location Tracking
        4.1.2.  Finding Tracking Tags
        4.1.3.  Disabling Tracking Tags
-       4.1.4.  Privacy and Security Requirements (TODO)
+       4.1.4.  Notification Management for Trusted Devices
+       4.1.5.  Privacy and Security Requirements (TODO)
      4.2.  Design Constraints
        4.2.1.  Bluetooth constraints
        4.2.2.  Power constraints
@@ -984,7 +985,7 @@ Table of Contents
    tags that are separated from their owners.  Additional information
    about when that tag has been previously encountered within a
    designated time window (e.g. the last 12 hours) should also be
-   included if available (see Section 4.1.4).  Allowing users to
+   included if available (see Section 4.1.5).  Allowing users to
    "snooze" or ignore tags known to be safe (e.g. tags from a family
    member) could also be implemented.  Tracking tags that are near their
    owners should not be shared to avoid abuse of the active scanning
@@ -1090,7 +1091,31 @@ Table of Contents
    them.  Platforms should provide instructions for disabling tracking
    tags once they are located.
 
-4.1.4.  Privacy and Security Requirements (TODO)
+4.1.4.  Notification Management for Trusted Devices
+
+   To reduce alert fatigue and improve user experience, implementations
+   should allow users to snooze passive notifications from tracking tags
+   that have been explicitly marked as trusted or friendly.  This is
+   particularly useful in scenarios where users regularly encounter the
+   same tag (e.g., a family member's keys or a shared vehicle tag).
+
+   Such snoozed tags may also be de-prioritized or grouped separately
+   during active scans, helping users focus on unfamiliar or potentially
+   malicious trackers.  Platforms should make it easy to manage snoozed
+   devices and review or revoke trust status as needed.  It is also
+   advisable to implement revalidation mechanisms, for example, resuming
+   notifications after a period of time to prevent long-term blind
+   spots.
+
+   Some platforms may wish to implement family sharing or shared
+   ownership models, where multiple users can be associated with a
+   single tracker.  However, this introduces the risk of abuse (e.g., an
+   attacker adding a victim to the shared list in order to avoid
+   triggering passive notifications), and therefore should be approached
+   with caution and abuse mitigation in mind.  These features are
+   optional and may vary by platform.
+
+4.1.5.  Privacy and Security Requirements (TODO)
 
 4.2.  Design Constraints
 
