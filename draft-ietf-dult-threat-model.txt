@@ -1091,6 +1091,33 @@ Table of Contents
    them.  Platforms should provide instructions for disabling tracking
    tags once they are located.
 
+   Beyond simple deactivation, users should also receive guidance on
+   additional steps they may take, depending on their specific
+   situation:
+
+   *  Advice on destruction or preservation: In some cases, destroying a
+      tracker may eliminate the risk of further tracking.  However,
+      users should be made aware that doing so may result in the loss of
+      evidence that could otherwise be used to prove tracking or
+      identify an abuser.  Destroying the device might also lead to
+      escalation in abusive contexts.  Guidance should help users weigh
+      these risks and determine the most appropriate course of action.
+
+   *  Serial number access and use: Platforms should inform users how to
+      retrieve the serial number or unique identifier of the tracker,
+      even if the tag is not from the same platform.  Serial numbers may
+      be used to report the device, verify its origin, or, in
+      cooperation with manufacturers or authorities, identify the
+      registered owner of the tag.
+
+   It is important to consider where educational and disabling guidance
+   is hosted.  For instance, information about disabling trackers should
+   be publicly accessible, possibly from neutral, decentralized, or
+   international organizations, to mitigate the risk of government
+   censorship or politically motivated takedowns.  This ensures access
+   for vulnerable users, including those in high-risk environments or
+   authoritarian regions.
+
 4.1.4.  Notification Management for Trusted Devices
 
    To reduce alert fatigue and improve user experience, implementations
