@@ -753,7 +753,7 @@ Table of Contents
 3.2.4.  Remote Advertisement Monitoring
 
    Bluetooth advertisement packets are not encrypted, so any device with
-   Bluetooh scanning capabilities in proximity to a location tracking
+   Bluetooth scanning capabilities in proximity to a location tracking
    tag can receive Bluetooth advertisement packets.  If an attacker is
    able to link an identifier in an advertisement packet to a particular
    tag, they may be able to use this information to track the tag over
@@ -770,9 +770,19 @@ Table of Contents
    persistent surveillance while circumventing built-in protections.
    Given that capturing Bluetooth signals is trivial using common
    scanning tools, the likelihood is high, and the feasibility is easy,
-   making it a high-risk attack.  While rotating identifiers provides
-   partial mitigation, attackers can still use advanced correlation
-   techniques to bypass this defense.
+   making it a high-risk attack.
+
+   While rotating identifiers provides partial mitigation, attackers can
+   still use advanced correlation techniques, such as signal
+   fingerprinting, timing analysis, and multi-sensor triangulation, to
+   bypass this defense.  These methods leverage unique transmission
+   characteristics, RSSI (Received Signal Strength Indicator)
+   variations, and environmental factors to probabilistically link
+   rotating identifiers back to a single device over time.  Prior
+   research, such as Beck et al., has demonstrated
+   (https://eprint.iacr.org/2023/1332.pdf) how statistical models can be
+   used to correlate Bluetooth signals even when identifiers change
+   frequently.
 
 3.2.5.  Non-conformant tags
 
