@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-04-13T02:43:45.162734+00:00",
+  "timestamp": "2025-04-15T01:18:25.811332+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -2531,7 +2531,7 @@
       "labels": [],
       "body": "This PR addresses the second part of the review comment in https://github.com/ietf-wg-dult/threat-model/issues/65",
       "createdAt": "2025-03-04T19:46:19Z",
-      "updatedAt": "2025-04-11T18:14:34Z",
+      "updatedAt": "2025-04-14T09:58:31Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
       "baseRefOid": "a053f4f23ea1e295c927ba4a86b55be9c01efde3",
