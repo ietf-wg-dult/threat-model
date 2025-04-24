@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-04-15T01:18:25.811332+00:00",
+  "timestamp": "2025-04-24T01:17:46.382077+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -3010,7 +3010,7 @@
       "labels": [],
       "body": "\u2026ted owner information. \r\n\r\nIt does not address that a serial number should be required but hidden, but I think that should be addressed in the accessory protocol document. The issue for that is [here](https://github.com/ietf-wg-dult/accessory-protocol/issues/19).\r\n\r\nResolves #90.",
       "createdAt": "2025-04-11T19:44:48Z",
-      "updatedAt": "2025-04-11T19:55:40Z",
+      "updatedAt": "2025-04-22T02:02:56Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
       "baseRefOid": "576c331e220d0276a1591adc3eea263b4d5336d8",
@@ -3022,7 +3022,21 @@
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOMB0Qas6l2lO-",
+          "commit": {
+            "abbreviatedOid": "8455500"
+          },
+          "author": "Ricppy",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-04-22T02:02:56Z",
+          "updatedAt": "2025-04-22T02:02:56Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
