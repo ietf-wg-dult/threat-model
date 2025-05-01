@@ -1041,13 +1041,18 @@ Table of Contents
    determine when to notify the user.  (A dedicated DULT WG document
    will address tracking algorithms, and will be linked when it is
    available.)  The user could be notified through a push notification
-   or through Sounds and Haptics (see Section 4.1.1.3).  There will be
-   tradeoffs between detecting potential unwanted location tracking
-   promptly and alerting the potential victim prematurely.  One way to
-   handle these tradeoffs is to allow users to set the sensitivity of
-   these alerts.  For example, the AirGuard (https://github.com/seemoo-
-   lab/AirGuard) app includes three different "Security Level" settings
-   that users can customize.
+   or through Sounds and Haptics (see Section 4.1.1.3).  When a tag has
+   been identified as potentially being used for unwanted location
+   tracking, the user should be able to view the serial number of the
+   device along with obfuscated owner information (e.g. last four digits
+   of phone number, obfuscated email address) and instructions on how to
+   find and/or disable the device (see Section 4.1.2 and Section 4.1.3).
+   There will be tradeoffs between detecting potential unwanted location
+   tracking promptly and alerting the potential victim prematurely.  One
+   way to handle these tradeoffs is to allow users to set the
+   sensitivity of these alerts.  For example, the AirGuard
+   (https://github.com/seemoo-lab/AirGuard) app includes three different
+   "Security Level" settings that users can customize.
 
    To improve the accuracy of unwanted tracking detection, a confidence
    scoring mechanism can be used.  Instead of issuing binary alerts for
