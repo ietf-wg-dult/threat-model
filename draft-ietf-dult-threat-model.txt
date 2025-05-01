@@ -930,7 +930,9 @@ Table of Contents
 
    The scope of this threat analysis includes any accessory that is
    small and not easily discoverable and able to transmit its location
-   to other consumer devices.
+   to other consumer devices.  Larger and/or easily discoverable devices
+   such as laptops with tracking tag integrations may also choose to
+   implement the protocol.
 
 3.3.2.  Attacker Profiles
 
