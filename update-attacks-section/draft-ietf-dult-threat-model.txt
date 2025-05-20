@@ -907,12 +907,12 @@ Table of Contents
    networks.  By impersonating an authorized tracker, an attacker could
    inject false location data, misattribute tracker ownership, or evade
    detection by appearing as a trusted device or rotating identifiers
-   frequently.  This tactic increases the difficulty of accurately
-   identifying unauthorized tracking attempts and undermines the
-   reliability of the network.  Currently, no fully effective mitigation
-   exists.  However, improvements in authentication mechanisms, such as
-   cryptographic signing of broadcasts, and anomaly detection techniques
-   may help reduce the risk.
+   frequently to evade detection.  This tactic increases the difficulty
+   of accurately identifying unauthorized tracking attempts and
+   undermines the reliability of the network.  Currently, no fully
+   effective mitigation exists.  However, improvements in authentication
+   mechanisms, such as cryptographic signing of broadcasts, and anomaly
+   detection techniques may help reduce the risk.
 
    Impersonation attacks require defeating authentication mechanisms,
    making them less likely (low likelihood) but high impact if
