@@ -392,21 +392,6 @@ Table of Contents
          precise location, monitoring a child's routine, monitoring car
          usage).
 
-   Anticipation, or lack thereof, of unwanted tracking, may affect the
-   threat and the attack.  If the victim does not realize that they are
-   at risk (as is common early in an abusive relationship, or if a
-   victim is being stalked by a stranger), they may be less likely to
-   use active scanning tools or understand the implications of detected
-   tags.
-
-   *  Anticipation of unwanted tracking
-
-      -  High anticipation: The victim believes that an attacker is
-         tracking or may be tracking their location.
-
-      -  Low anticipation: The victim is unaware or does not believe
-         that an attacker is tracking or may be tracking their location.
-
 3.1.1.  Example scenarios with analyses TODO: expand scenarios to
         incorporate expanded taxonomy
 
