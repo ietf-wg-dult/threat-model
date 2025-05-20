@@ -5,10 +5,10 @@
 Detecting Unwanted Location Trackers                           M. Delano
 Internet-Draft                                        Swarthmore College
 Intended status: Informational                                 J. Lowell
-Expires: 3 November 2025       National Network to End Domestic Violence
+Expires: 21 November 2025      National Network to End Domestic Violence
                                                                S. Prabhu
                                                                    Nokia
-                                                              2 May 2025
+                                                             20 May 2025
 
 
                            DULT Threat Model
@@ -67,7 +67,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 3 November 2025.
+   This Internet-Draft will expire on 21 November 2025.
 
 Copyright Notice
 
@@ -630,10 +630,9 @@ Table of Contents
    crowd-sourced location tracking using a technology other than
    Bluetooth, they would still apply.  The key attributes are the
    functionalities and physical properties of the accessory from the
-   user’s perspective.  The accessory must be small and not easily
-   discoverable and able to transmit its location to other consumer
-   devices able to participate in a crowd-sourced location tracking
-   network.
+   user’s perspective.  The accessory must be small, not easily
+   discoverable, and able to participate in a crowd-sourced location
+   tracking network.
 
 3.2.  Possible Methods to Circumvent DULT Protocol
 
