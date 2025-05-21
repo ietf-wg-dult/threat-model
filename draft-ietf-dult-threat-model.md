@@ -78,7 +78,7 @@ In order to standardize a protocol for detecting unwanted location tracking, thu
 
 - **active scanning**: a search for location trackers manually initiated by a user
 - **passive scanning**: a search for location trackers running in the background, often accompanied by notifications for the user
-- **tracking tag**: a small device that is not easily discoverable and transmits location data to other devices.
+- **tracking tag**: a small device that is not easily discoverable and is able to participate in a crowd-sourced location tracking network.
 - **easily discoverable**: a device that is larger than 30 cm in at least one dimension, larger than 18 cm x 13 xm in two of its dimensions, and/or larger than 250 cm<sup>3</sup> in three-dimensional space
 
 # Security Considerations
@@ -332,7 +332,7 @@ Attackers may use a mix of tracking devices from different manufacturers (e.g., 
 
 ### Technologies
 
-The scope of this threat analysis includes any accessory that is small and not easily discoverable and able to participate in a crowd-sourced network. Larger and/or easily discoverable devices such as laptops with tracking tag integrations may also choose to implement the protocol.
+The scope of this threat analysis includes any accessory that is small, not easily discoverable, and able to participate in a crowd-sourced location tracking network. Larger and/or easily discoverable devices such as laptops with tracking tag integrations may also choose to implement the protocol.
 
 ### Attacker Profiles
 
@@ -346,7 +346,7 @@ All victims profiles are in scope regardless of their expertise, access to resou
 
 ### Technologies
 
-There are many types of technology that can be used for location tracking. In many cases, the threat analysis would be similar, as the contexts in which potential attackers and victims exist and use the technology are similar. However, it would be infeasible to attempt to describe a threat analysis for each possible technology in this document. We have therefore limited its scope to location-tracking accessories that are small and not easily discoverable and able to transmit their locations to other devices. The following are out of scope for this document:
+There are many types of technology that can be used for location tracking. In many cases, the threat analysis would be similar, as the contexts in which potential attackers and victims exist and use the technology are similar. However, it would be infeasible to attempt to describe a threat analysis for each possible technology in this document. We have therefore limited its scope to location-tracking accessories that are small, not easily discoverable, and able to participate in a crowd-sourced location tracking network. The following are out of scope for this document:
 
   - App-based technologies such as parental monitoring apps.
   - Other Internet of Things (IoT) devices.
