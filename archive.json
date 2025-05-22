@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-05-04T01:26:01.505978+00:00",
+  "timestamp": "2025-05-22T01:20:43.837497+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -689,7 +689,7 @@
       "id": "I_kwDOMB0Qas6r1vBE",
       "title": "Consideration: Attacker has access to victim's tracking account",
       "url": "https://github.com/ietf-wg-dult/threat-model/issues/55",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -698,8 +698,8 @@
       "labels": [],
       "body": "We should consider what to do in the case where an attacker has access to a victim's tracking account (e.g. Apple FindMy). This should probably go in the security considerations section.",
       "createdAt": "2025-02-26T22:52:57Z",
-      "updatedAt": "2025-04-11T18:28:00Z",
-      "closedAt": null,
+      "updatedAt": "2025-05-20T18:48:08Z",
+      "closedAt": "2025-05-20T18:48:08Z",
       "comments": []
     },
     {
@@ -792,7 +792,7 @@
       "id": "I_kwDOMB0Qas6sQRJo",
       "title": "Remote disablement is underspecified",
       "url": "https://github.com/ietf-wg-dult/threat-model/issues/63",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "bledvina",
       "authorAssociation": "NONE",
       "assignees": [
@@ -801,8 +801,8 @@
       "labels": [],
       "body": "Reading section 3.2.6 entitled Misuse of Remote Disablement, I don't think \"Remote Disablement\" is defined sufficiently well. The first sentence explains how an \"attacker might misuse remote disablement features,\" but then the third sentence talks about \"The ability to disable a victim's protections.\" I think defining what remote disablement means in the context of this document would help. For example, it could be remote disablement of location tracking or it could be remote disablement of unwanted tracking protections or both or it could mean something else entirely.  ",
       "createdAt": "2025-03-03T01:30:36Z",
-      "updatedAt": "2025-04-11T18:24:46Z",
-      "closedAt": null,
+      "updatedAt": "2025-05-20T17:22:38Z",
+      "closedAt": "2025-05-20T17:22:38Z",
       "comments": [
         {
           "author": "maggiedelano",
@@ -825,7 +825,7 @@
       "id": "I_kwDOMB0Qas6sQS-3",
       "title": "Rotating Tracker IDs",
       "url": "https://github.com/ietf-wg-dult/threat-model/issues/64",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "bledvina",
       "authorAssociation": "NONE",
       "assignees": [
@@ -834,8 +834,8 @@
       "labels": [],
       "body": "I see two potential issues with the Rotating Tracker IDs section (Section 3.27). The first is that this section appears to be a subset of the Non-compliant tags section (Section 3.2.5). The second issue is that rotating tracker IDs are not inherently a problem. Nominally, you want the static information in the BT payload to rotate periodically to minimize local privacy concerns but also balance longer-term unwanted tracking detection.  Is the Rotating Tracker IDs section meant to state that an attacker being able to rotate tracker IDs too fast (e.g., once per minute) is the problem?",
       "createdAt": "2025-03-03T01:38:26Z",
-      "updatedAt": "2025-04-11T18:26:17Z",
-      "closedAt": null,
+      "updatedAt": "2025-05-20T17:22:38Z",
+      "closedAt": "2025-05-20T17:22:38Z",
       "comments": [
         {
           "author": "maggiedelano",
@@ -920,7 +920,7 @@
       "id": "I_kwDOMB0Qas6sQu9x",
       "title": "guessing a tag ID",
       "url": "https://github.com/ietf-wg-dult/threat-model/issues/66",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "bledvina",
       "authorAssociation": "NONE",
       "assignees": [
@@ -929,8 +929,8 @@
       "labels": [],
       "body": "In the introduction, there is a statement that says any attacker who can guess a tag ID can query the central server for its location. Is this always true?",
       "createdAt": "2025-03-03T03:27:06Z",
-      "updatedAt": "2025-04-11T18:24:47Z",
-      "closedAt": null,
+      "updatedAt": "2025-05-20T18:22:10Z",
+      "closedAt": "2025-05-20T18:22:09Z",
       "comments": [
         {
           "author": "maggiedelano",
@@ -938,6 +938,13 @@
           "body": "This is a good question. It might not always be true, I'd guess it would depend on the implementation of the central server. Tagging @ekr @cfossace as authors on that doc, and @exploretechsafety as author of that section. ",
           "createdAt": "2025-03-03T18:31:35Z",
           "updatedAt": "2025-03-03T18:31:35Z"
+        },
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Going to close this issue for now; the intro is dealing with a \"naive implementation\" to demonstrate the privacy concerns; ideally these privacy risks would be avoided.",
+          "createdAt": "2025-05-20T18:22:09Z",
+          "updatedAt": "2025-05-20T18:22:09Z"
         }
       ]
     },
@@ -946,7 +953,7 @@
       "id": "I_kwDOMB0Qas6sQwpH",
       "title": "Bluetooth vs other technologies section",
       "url": "https://github.com/ietf-wg-dult/threat-model/issues/67",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "bledvina",
       "authorAssociation": "NONE",
       "assignees": [
@@ -955,8 +962,8 @@
       "labels": [],
       "body": "The second sentence in Bluetooth vs other technologies makes a statement that the threat analysis focuses on location tracking tags that use Bluetooth or other technologies. Is this meant to suggest using other technologies than Bluetooth for crowd-sourcing?\n\nAdditionally, this section states in the last sentence: \"able to transmit its location to other consumer devices.\" This is one way crowd-sourcing can work, but the alternative way is for a consumer device to transmit its own location as the proxy for the tag's location.  ",
       "createdAt": "2025-03-03T03:33:31Z",
-      "updatedAt": "2025-04-11T18:24:47Z",
-      "closedAt": null,
+      "updatedAt": "2025-05-20T18:52:15Z",
+      "closedAt": "2025-05-20T18:52:15Z",
       "comments": [
         {
           "author": "maggiedelano",
@@ -1005,7 +1012,7 @@
       "id": "I_kwDOMB0Qas6sYBTK",
       "title": "Review non-compliant tags attack section",
       "url": "https://github.com/ietf-wg-dult/threat-model/issues/69",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -1015,8 +1022,8 @@
       "labels": [],
       "body": "The non-compliant tags attack section is more of an umbrella for specific types of attacks, some of which are duplicated in the next (see #64). Review that section and consider making additional attack entries for those listed.",
       "createdAt": "2025-03-03T18:24:42Z",
-      "updatedAt": "2025-04-11T18:25:52Z",
-      "closedAt": null,
+      "updatedAt": "2025-05-20T17:22:37Z",
+      "closedAt": "2025-05-20T17:22:37Z",
       "comments": [
         {
           "author": "shaileshprabhu95",
@@ -1036,12 +1043,12 @@
       "author": "bledvina",
       "authorAssociation": "NONE",
       "assignees": [
-        "exploretechsafety"
+        "maggiedelano"
       ],
       "labels": [],
       "body": "Adding this issue on behalf of Eva Galperin's email on 10/18/2024. In that email she stated:\n\n\"I also support adoption, with the caveats that the TODO sections still need to be filled in and that if the behavior of trackers that are paired to multiple devices is outside of the scope of this document, then we need to make sure to cover it somewhere else. Many trackers currently have this capabilitiy and I want to make sure that if a person finds an unwanted tracker that they are able to find out about all of the devices that it is paired to, not just the primary one.\"\n\nNot sure if this has been addressed or not, but when I just read through the threat model document, I don't think this issue has been addressed yet.",
       "createdAt": "2025-03-04T18:18:05Z",
-      "updatedAt": "2025-04-11T18:24:48Z",
+      "updatedAt": "2025-05-20T18:26:39Z",
       "closedAt": null,
       "comments": [
         {
@@ -1058,7 +1065,7 @@
       "id": "I_kwDOMB0Qas6tW3ol",
       "title": "Attack: nRootTag",
       "url": "https://github.com/ietf-wg-dult/threat-model/issues/77",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -1067,8 +1074,8 @@
       "labels": [],
       "body": "Update attacks section to address this attack covered recently ([full article](https://cec.gmu.edu/news/2025-02/find-my-hacker-how-apples-network-can-be-potential-tracking-tool)):\n\n> The team of [Qiang Zeng](https://www.gmu.edu/profiles/zeng) and [Lannan Luo](https://lannan.github.io/)\u2014both associate professors in the [Department of Computer Science](https://cs.gmu.edu/)\u2014and PhD students Chen and Xiaoyue Ma found the attack works by tricking Apple's Find My network into thinking the target device is a lost AirTag. AirTag sends Bluetooth messages to nearby Apple devices, which then anonymously relay its location via Apple Cloud to the owner for tracking. Their attack method can turn a device\u2014whether it's a desktop, smartphone, or IoT device\u2014into an \"AirTag\" without Apple's permission, at which point the network begins tracking.",
       "createdAt": "2025-03-10T21:20:12Z",
-      "updatedAt": "2025-05-02T06:22:19Z",
-      "closedAt": null,
+      "updatedAt": "2025-05-21T15:14:04Z",
+      "closedAt": "2025-05-21T15:14:04Z",
       "comments": [
         {
           "author": "shaileshprabhu95",
@@ -1117,7 +1124,7 @@
       "id": "I_kwDOMB0Qas6unx1r",
       "title": "Duplication in text: expectation and anticipation of unwanted location tracking",
       "url": "https://github.com/ietf-wg-dult/threat-model/issues/79",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -1126,8 +1133,8 @@
       "labels": [],
       "body": "I think both Jessie and I added similar text in Section 3.1; we should keep one or the other or merge in some way:\n\n> *  Expectation of unwanted tracking\n> \n>       -  Suspecting: The victim has reason to believe that unwanted\n>          tracking is a likely risk.\n> \n>       -  Unsuspecting: The victim has no particular reason to be\n>          concerned about unwanted tracking.\n\nvs. \n\n> Anticipation, or lack thereof, of unwanted tracking, may affect the\n>    threat and the attack.  If the victim does not realize that they are\n>    at risk (as is common early in an abusive relationship, or if a\n>    victim is being stalked by a stranger), they may be less likely to\n>    use active scanning tools or understand the implications of detected\n>    tags.\n> \n>    *  Anticipation of unwanted tracking\n> \n>       -  High anticipation: The victim believes that an attacker is\n>          tracking or may be tracking their location.\n> \n>       -  Low anticipation: The victim is unaware or does not believe\n>          that an attacker is tracking or may be tracking their location.",
       "createdAt": "2025-03-18T19:36:46Z",
-      "updatedAt": "2025-04-11T18:25:05Z",
-      "closedAt": null,
+      "updatedAt": "2025-05-20T17:44:44Z",
+      "closedAt": "2025-05-20T17:44:43Z",
       "comments": []
     },
     {
@@ -1294,6 +1301,24 @@
       "createdAt": "2025-04-11T17:41:35Z",
       "updatedAt": "2025-05-01T17:46:14Z",
       "closedAt": "2025-05-01T17:46:14Z",
+      "comments": []
+    },
+    {
+      "number": 97,
+      "id": "I_kwDOMB0Qas63cFb6",
+      "title": "Undetecttag",
+      "url": "https://github.com/ietf-wg-dult/threat-model/issues/97",
+      "state": "CLOSED",
+      "author": "maggiedelano",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "maggiedelano"
+      ],
+      "labels": [],
+      "body": "Include [undetecttag](https://undetectag.com/products/undetectag) in threat model. (I have a draft PR for this ready to go, including issue here for tracking purposes.)",
+      "createdAt": "2025-05-20T16:24:41Z",
+      "updatedAt": "2025-05-20T17:22:37Z",
+      "closedAt": "2025-05-20T17:22:37Z",
       "comments": []
     }
   ],
@@ -2631,21 +2656,21 @@
       "id": "PR_kwDOMB0Qas6Nq5Oz",
       "title": "Increase clarity about definition of remote disablement",
       "url": "https://github.com/ietf-wg-dult/threat-model/pull/74",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Adds Jessie's changes from #73.",
       "createdAt": "2025-03-06T17:13:44Z",
-      "updatedAt": "2025-05-01T16:24:04Z",
+      "updatedAt": "2025-05-20T17:23:06Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
       "baseRefOid": "3028f7fb3b2f57794b9055bb68dbe1adf2a42f18",
       "headRepository": "ietf-wg-dult/threat-model",
       "headRefName": "remote-disablement",
       "headRefOid": "405d6190be4791ef029ee919a95e3a7faf5166dc",
-      "closedAt": null,
+      "closedAt": "2025-05-20T17:23:05Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
@@ -2656,6 +2681,13 @@
           "body": "@exploretechsafety, you can use the PR 74 branch to keep working on these changes. If you push them they will show up here.\r\n\r\nHere are some suggested changes:\r\n- We should add the new attacks to the threat matrix at the top of this section\r\n- I'm still a little confused at the difference between disabling unwanted tracking protections vs. location tracking. I assume the former is a more narrow version of the latter?\r\n- We already have a misuse of remote disablement section earlier in this section. We should figure out if/how to merge them.",
           "createdAt": "2025-03-06T17:25:18Z",
           "updatedAt": "2025-03-06T17:25:18Z"
+        },
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Closing due to #98.",
+          "createdAt": "2025-05-20T17:23:05Z",
+          "updatedAt": "2025-05-20T17:23:05Z"
         }
       ],
       "reviews": [
@@ -2705,25 +2737,33 @@
       "id": "PR_kwDOMB0Qas6OC4wm",
       "title": "Adding sub-attacks to Non-compliant Tags Section 3.2.5",
       "url": "https://github.com/ietf-wg-dult/threat-model/pull/76",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "shaileshprabhu95",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "This PR adds sub-attacks to **Section 3.2.5: Non-Compliant Tags** to which the earlier **Section 3.2.7: Rotating Tracker IDs** is merged.\r\n\r\nHence, resolves https://github.com/ietf-wg-dult/threat-model/issues/64, https://github.com/ietf-wg-dult/threat-model/issues/69",
       "createdAt": "2025-03-10T19:30:23Z",
-      "updatedAt": "2025-05-01T16:28:29Z",
+      "updatedAt": "2025-05-20T17:18:43Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
       "baseRefOid": "45c425aa6cdee3c31c5c58188e537ea1901d19be",
       "headRepository": "shaileshprabhu95/threat-model",
       "headRefName": "noncompliant_update",
       "headRefOid": "1bddb051d8c7c286c2514012607d8c9ca3ff589b",
-      "closedAt": null,
+      "closedAt": "2025-05-20T17:18:42Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "exploretechsafety",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Given #98 this one seems no longer necessary.",
+          "createdAt": "2025-05-20T17:18:42Z",
+          "updatedAt": "2025-05-20T17:18:42Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDOMB0Qas6fRr1w",
@@ -3001,24 +3041,26 @@
       "id": "PR_kwDOMB0Qas6STh6c",
       "title": "Remove anticipation paragraph",
       "url": "https://github.com/ietf-wg-dult/threat-model/pull/92",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Closes #79. The text is covered under the victim taxonomy above.\r\n\r\n@exploretechsafety please let me know if you disagree.",
       "createdAt": "2025-04-11T19:04:54Z",
-      "updatedAt": "2025-05-01T17:50:57Z",
+      "updatedAt": "2025-05-20T17:44:42Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
       "baseRefOid": "576c331e220d0276a1591adc3eea263b4d5336d8",
       "headRepository": "ietf-wg-dult/threat-model",
       "headRefName": "fix-duplicate-anticipation-text",
       "headRefOid": "fc78e66d5c1b6302cc2cb50c2044165d5ccc6b5c",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-05-20T17:44:42Z",
+      "mergedAt": "2025-05-20T17:44:42Z",
+      "mergedBy": "maggiedelano",
+      "mergeCommit": {
+        "oid": "d226e0f1ac4e3d712e612cd22de95dd30ed4ca24"
+      },
       "comments": [
         {
           "author": "maggiedelano",
@@ -3040,6 +3082,19 @@
           "body": "The existence of low anticipation scenarios does seem like something that this document should cover, as they're pretty common. Is this content somewhere else in the document (as I see the name \"fix-duplicate-anticipation-text\")?",
           "createdAt": "2025-05-01T16:20:33Z",
           "updatedAt": "2025-05-01T16:20:33Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOMB0Qas6qK6AR",
+          "commit": {
+            "abbreviatedOid": "fc78e66"
+          },
+          "author": "exploretechsafety",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Given that as you pointed out this is covered elsewhere in the document, then yes, removing this is fine.",
+          "createdAt": "2025-05-20T17:07:31Z",
+          "updatedAt": "2025-05-20T17:07:31Z",
           "comments": []
         }
       ]
@@ -3188,24 +3243,209 @@
       "id": "PR_kwDOMB0Qas6Utt2n",
       "title": "Adding text for Attack: Unauthorized Enrollment in a Crowdsourced Tracking Network",
       "url": "https://github.com/ietf-wg-dult/threat-model/pull/96",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "shaileshprabhu95",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Resolves https://github.com/ietf-wg-dult/threat-model/issues/77",
       "createdAt": "2025-05-02T06:13:46Z",
-      "updatedAt": "2025-05-02T06:19:08Z",
+      "updatedAt": "2025-05-21T15:40:08Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "7180d55431e8ace814d63f52ed3d563718758265",
+      "headRepository": "shaileshprabhu95/threat-model",
+      "headRefName": "unauth_enrol",
+      "headRefOid": "6bb8757a637463ce0d4359f48e769fccce74474f",
+      "closedAt": "2025-05-21T15:14:03Z",
+      "mergedAt": "2025-05-21T15:14:03Z",
+      "mergedBy": "maggiedelano",
+      "mergeCommit": {
+        "oid": "762deeba917e364f0fa39343894e8d270f7e148c"
+      },
+      "comments": [
+        {
+          "author": "shaileshprabhu95",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@maggiedelano , @exploretechsafety  - does this PR look okay? \r\n",
+          "createdAt": "2025-05-20T16:44:52Z",
+          "updatedAt": "2025-05-20T16:44:52Z"
+        },
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Sorry for the delay, I was working on #98 and only just finished. I want to take a look and see if I can incorporate this text based on that new PR. Will make some edits to this PR with that in mind shortly.",
+          "createdAt": "2025-05-20T17:24:39Z",
+          "updatedAt": "2025-05-20T17:24:39Z"
+        },
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@shaileshprabhu95 take a look and let me know if this merging of the text with the new impersonation attack section looks okay to you, if so I will merge it.",
+          "createdAt": "2025-05-20T17:44:05Z",
+          "updatedAt": "2025-05-20T17:44:05Z"
+        },
+        {
+          "author": "shaileshprabhu95",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@maggiedelano @exploretechsafety  - thanks for the review.\r\n\r\n@maggiedelano  - yes, the merging of the text looks fine. Please merge the PR. Thanks.",
+          "createdAt": "2025-05-21T06:05:36Z",
+          "updatedAt": "2025-05-21T06:05:36Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOMB0Qas6qK9Nj",
+          "commit": {
+            "abbreviatedOid": "98e7d37"
+          },
+          "author": "exploretechsafety",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "This looks good enough to approve. I'm wondering how sophisticated an attacker needs to be in order to use this - it looks like the answer is relatively high given that it has only recently been documented by researchers. And given that attackers' technological expertise is being assessed relative to the general population, rather than that of the hacker population. Given that, do we think feasibility should be considered moderate or low?",
+          "createdAt": "2025-05-20T17:12:46Z",
+          "updatedAt": "2025-05-20T17:12:46Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 98,
+      "id": "PR_kwDOMB0Qas6W7NIx",
+      "title": "Update attacks section to incorporate PRs 74, 76 and fix consistency issues",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/98",
+      "state": "MERGED",
+      "author": "maggiedelano",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "This builds off PRs #74 and #76 and is intended to consolidate those changes and therefore those PRs can be closed if this one is approved. It also includes other additions and updates to the attacks section.\r\n\r\nCloses #69, closes #97, closes #63, closes #64. Addresses part of #35, but leaving that open as there are still other considerations that we may want to discuss elsewhere. ",
+      "createdAt": "2025-05-20T16:43:33Z",
+      "updatedAt": "2025-05-20T17:22:36Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
       "baseRefOid": "d8293b8c0e25a2012a44e96733f4f28b2691364f",
-      "headRepository": "shaileshprabhu95/threat-model",
-      "headRefName": "unauth_enrol",
-      "headRefOid": "98e7d37755971bc677f894d4e9e5e8e0506f7c95",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRepository": "ietf-wg-dult/threat-model",
+      "headRefName": "update-attacks-section",
+      "headRefOid": "43af1006951b942144c1f2751ce34c71d16f7940",
+      "closedAt": "2025-05-20T17:22:36Z",
+      "mergedAt": "2025-05-20T17:22:36Z",
+      "mergedBy": "maggiedelano",
+      "mergeCommit": {
+        "oid": "7180d55431e8ace814d63f52ed3d563718758265"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOMB0Qas6qK_6Y",
+          "commit": {
+            "abbreviatedOid": "43af100"
+          },
+          "author": "exploretechsafety",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "These look good, and I agree that accepting this means closing the issues listed above.",
+          "createdAt": "2025-05-20T17:17:13Z",
+          "updatedAt": "2025-05-20T17:17:13Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 99,
+      "id": "PR_kwDOMB0Qas6W7r_m",
+      "title": "Addressing #55",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/99",
+      "state": "MERGED",
+      "author": "exploretechsafety",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "This adds a section to address Issue #55 Consideration: Attacker has access to victim's tracking account.",
+      "createdAt": "2025-05-20T17:45:25Z",
+      "updatedAt": "2025-05-20T18:48:07Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "d226e0f1ac4e3d712e612cd22de95dd30ed4ca24",
+      "headRepository": "ietf-wg-dult/threat-model",
+      "headRefName": "exploretechsafety-consideration-access",
+      "headRefOid": "0cc03a2d66d9218b10c66a2bf127e9590d3cf239",
+      "closedAt": "2025-05-20T18:48:07Z",
+      "mergedAt": "2025-05-20T18:48:07Z",
+      "mergedBy": "maggiedelano",
+      "mergeCommit": {
+        "oid": "b5ade58afdc06a18348519324c9a699ea8414c65"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOMB0Qas6qL9BR",
+          "commit": {
+            "abbreviatedOid": "0cc03a2"
+          },
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-05-20T18:48:01Z",
+          "updatedAt": "2025-05-20T18:48:01Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 100,
+      "id": "PR_kwDOMB0Qas6W8AST",
+      "title": "Resolving #67",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/100",
+      "state": "MERGED",
+      "author": "maggiedelano",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Adding suggestions for resolving #67",
+      "createdAt": "2025-05-20T18:24:36Z",
+      "updatedAt": "2025-05-20T18:52:14Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "d226e0f1ac4e3d712e612cd22de95dd30ed4ca24",
+      "headRepository": "ietf-wg-dult/threat-model",
+      "headRefName": "exploretechsafety-attacks",
+      "headRefOid": "fad37cc553da4acda00f4a6024aad5840f87cd55",
+      "closedAt": "2025-05-20T18:52:14Z",
+      "mergedAt": "2025-05-20T18:52:14Z",
+      "mergedBy": "maggiedelano",
+      "mergeCommit": {
+        "oid": "91164822547735a31918a1b02c7270a1c782d25c"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 101,
+      "id": "PR_kwDOMB0Qas6XFk8F",
+      "title": "Remove .idea and update .gitignore",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/101",
+      "state": "MERGED",
+      "author": "maggiedelano",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-05-21T15:44:58Z",
+      "updatedAt": "2025-05-21T15:45:30Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "762deeba917e364f0fa39343894e8d270f7e148c",
+      "headRepository": "ietf-wg-dult/threat-model",
+      "headRefName": "remove-idea",
+      "headRefOid": "1eb6bc38b3c1cfcd016def7e6864115b84fc591b",
+      "closedAt": "2025-05-21T15:45:30Z",
+      "mergedAt": "2025-05-21T15:45:30Z",
+      "mergedBy": "maggiedelano",
+      "mergeCommit": {
+        "oid": "0eb5afe9227408f2d7e1e0159a184112dffcd4f9"
+      },
       "comments": [],
       "reviews": []
     }
