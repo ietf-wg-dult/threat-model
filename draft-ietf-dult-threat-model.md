@@ -77,6 +77,7 @@ In order to standardize a protocol for detecting unwanted location tracking, thu
 ## Definitions
 
 These terms have specific meanings that are shared across all DULT protocol documents:
+
 - The term **accessory** is used to refer to any product intended to interface with a platform through the means described in these documents.
 - The term **location-tracking accessory** refers to any accessory that has location-tracking capabilities, including, but not limited to, crowd-sourced location, GPS/GNSS location, WiFi location, cell location, etc., and provides the location information back to the owner of the accessory via a crowdsourced network (see definition below) using the internet, cellular connection, etc. Location tracking accessories that are easily discoverable (see definition below) MUST adhere to the DULT protocol.
 - The term **easily discoverable** refers to an accessory that is larger than 30 cm in at least one dimension, larger than 18 cm x 13 cm in two of its dimensions, and/or larger than 250 cm^3 in three-dimensional space.
@@ -92,7 +93,7 @@ These terms have specific meanings that are shared across all DULT protocol docu
 - The term **active scanning** refers to method(s) of unwanted tracking detection that involves a user initiated scan for nearby accessories.
 - The term **passive scanning** refers to method(s) of unwanted tracking detection that are running in the background on all devices and may trigger unwanted tracking alerts.
 - The term **platform-compatible method** refers to a method of communication between the platform and the accessory/accessory manufacturers to exchange information, including, but not limited to, BT GATT protocol, BT advertisement, HTTP, etc.
-The term **disablement** refers to the process of preventing a specific location-tracking accessory from communicating with the crowdsourced network. This could be through physical means (e.g. removing the battery) or via a command sent by a platform to an accessory (remote disablement, see definition below).
+- The term **disablement** refers to the process of preventing a specific location-tracking accessory from communicating with the crowdsourced network. This could be through physical means (e.g. removing the battery) or via a command sent by a platform to an accessory (remote disablement, see definition below).
 - The term **remote disablement** refers to the process of preventing a specific location-tracking accessory from communicating with the crowdsourced network via a command sent by a platform.
 - The term **disablement instructions** refers to steps non-owner device users can take to disable a location-tracking accessory suspected of unwanted tracking.
 
