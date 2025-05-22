@@ -1372,25 +1372,63 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
         <h3 id="name-definitions">
 <a href="#section-2.2" class="section-number selfRef">2.2. </a><a href="#name-definitions" class="section-name selfRef">Definitions</a>
         </h3>
-<p id="section-2.2-1">These terms have specific meanings that are shared across all DULT protocol documents:
-- The term <strong>accessory</strong> is used to refer to any product intended to interface with a platform through the means described in these documents.
-- The term <strong>location-tracking accessory</strong> refers to any accessory that has location-tracking capabilities, including, but not limited to, crowd-sourced location, GPS/GNSS location, WiFi location, cell location, etc., and provides the location information back to the owner of the accessory via a crowdsourced network (see definition below) using the internet, cellular connection, etc. Location tracking accessories that are easily discoverable (see definition below) <span class="bcp14">MUST</span> adhere to the DULT protocol.
-- The term <strong>easily discoverable</strong> refers to an accessory that is larger than 30 cm in at least one dimension, larger than 18 cm x 13 cm in two of its dimensions, and/or larger than 250 cm^3 in three-dimensional space.
-- The term <strong>crowdsourced network</strong> refers to a service that platforms (see definition below) communicate with to share and retrieve location information of accessories.
-- The term <strong>platform</strong> is used to refer to device hardware and associated operating systems that communicate with accessories. Examples of devices are phones, tablets, laptops, etc.
-- The term <strong>owner device</strong> is a device that is associated with the accessory and can retrieve the accessory's location by querying the crowdsourced network.
-- The term <strong>non-owner device</strong> refers to a device that may connect to an accessory but is not an owner device of that accessory.
-- The term <strong>location-enabled state</strong> refers to the state an accessory is in where its location can be remotely viewed by its owner.
-- The term <strong>location-enabled advertisement payload</strong> refers to the Bluetooth (BT) advertisement payload that is advertised when an accessory has recently, is currently, or will in the future provide location updates to its owner.
-- The term <strong>unwanted tracking (UT)</strong> refers to undesired tracking of a person, their property, or their belongings by a location-enabled accessory.
-- The term <strong>unwanted tracking detection</strong> refers to the algorithms that detect the presence of an unknown accessory traveling with a person over time.
-- The term <strong>unwanted tracking alert</strong> refers to notifying the user of the presence of an unrecognized accessory that may be traveling with them over time and allows them to take various actions, including playing a sound on the accessory if it's in Bluetooth Low Energy (LE) range.
-- The term <strong>active scanning</strong> refers to method(s) of unwanted tracking detection that involves a user initiated scan for nearby accessories.
-- The term <strong>passive scanning</strong> refers to method(s) of unwanted tracking detection that are running in the background on all devices and may trigger unwanted tracking alerts.
-- The term <strong>platform-compatible method</strong> refers to a method of communication between the platform and the accessory/accessory manufacturers to exchange information, including, but not limited to, BT GATT protocol, BT advertisement, HTTP, etc.
-The term <strong>disablement</strong> refers to the process of preventing a specific location-tracking accessory from communicating with the crowdsourced network. This could be through physical means (e.g. removing the battery) or via a command sent by a platform to an accessory (remote disablement, see definition below).
-- The term <strong>remote disablement</strong> refers to the process of preventing a specific location-tracking accessory from communicating with the crowdsourced network via a command sent by a platform.
-- The term <strong>disablement instructions</strong> refers to steps non-owner device users can take to disable a location-tracking accessory suspected of unwanted tracking.<a href="#section-2.2-1" class="pilcrow">¶</a></p>
+<p id="section-2.2-1">These terms have specific meanings that are shared across all DULT protocol documents:<a href="#section-2.2-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-2.2-2.1">
+            <p id="section-2.2-2.1.1">The term <strong>accessory</strong> is used to refer to any product intended to interface with a platform through the means described in these documents.<a href="#section-2.2-2.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-2.2-2.2">
+            <p id="section-2.2-2.2.1">The term <strong>location-tracking accessory</strong> refers to any accessory that has location-tracking capabilities, including, but not limited to, crowd-sourced location, GPS/GNSS location, WiFi location, cell location, etc., and provides the location information back to the owner of the accessory via a crowdsourced network (see definition below) using the internet, cellular connection, etc. Location tracking accessories that are easily discoverable (see definition below) <span class="bcp14">MUST</span> adhere to the DULT protocol.<a href="#section-2.2-2.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-2.2-2.3">
+            <p id="section-2.2-2.3.1">The term <strong>easily discoverable</strong> refers to an accessory that is larger than 30 cm in at least one dimension, larger than 18 cm x 13 cm in two of its dimensions, and/or larger than 250 cm^3 in three-dimensional space.<a href="#section-2.2-2.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-2.2-2.4">
+            <p id="section-2.2-2.4.1">The term <strong>crowdsourced network</strong> refers to a service that platforms (see definition below) communicate with to share and retrieve location information of accessories.<a href="#section-2.2-2.4.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-2.2-2.5">
+            <p id="section-2.2-2.5.1">The term <strong>platform</strong> is used to refer to device hardware and associated operating systems that communicate with accessories. Examples of devices are phones, tablets, laptops, etc.<a href="#section-2.2-2.5.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-2.2-2.6">
+            <p id="section-2.2-2.6.1">The term <strong>owner device</strong> is a device that is associated with the accessory and can retrieve the accessory's location by querying the crowdsourced network.<a href="#section-2.2-2.6.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-2.2-2.7">
+            <p id="section-2.2-2.7.1">The term <strong>non-owner device</strong> refers to a device that may connect to an accessory but is not an owner device of that accessory.<a href="#section-2.2-2.7.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-2.2-2.8">
+            <p id="section-2.2-2.8.1">The term <strong>location-enabled state</strong> refers to the state an accessory is in where its location can be remotely viewed by its owner.<a href="#section-2.2-2.8.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-2.2-2.9">
+            <p id="section-2.2-2.9.1">The term <strong>location-enabled advertisement payload</strong> refers to the Bluetooth (BT) advertisement payload that is advertised when an accessory has recently, is currently, or will in the future provide location updates to its owner.<a href="#section-2.2-2.9.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-2.2-2.10">
+            <p id="section-2.2-2.10.1">The term <strong>unwanted tracking (UT)</strong> refers to undesired tracking of a person, their property, or their belongings by a location-enabled accessory.<a href="#section-2.2-2.10.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-2.2-2.11">
+            <p id="section-2.2-2.11.1">The term <strong>unwanted tracking detection</strong> refers to the algorithms that detect the presence of an unknown accessory traveling with a person over time.<a href="#section-2.2-2.11.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-2.2-2.12">
+            <p id="section-2.2-2.12.1">The term <strong>unwanted tracking alert</strong> refers to notifying the user of the presence of an unrecognized accessory that may be traveling with them over time and allows them to take various actions, including playing a sound on the accessory if it's in Bluetooth Low Energy (LE) range.<a href="#section-2.2-2.12.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-2.2-2.13">
+            <p id="section-2.2-2.13.1">The term <strong>active scanning</strong> refers to method(s) of unwanted tracking detection that involves a user initiated scan for nearby accessories.<a href="#section-2.2-2.13.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-2.2-2.14">
+            <p id="section-2.2-2.14.1">The term <strong>passive scanning</strong> refers to method(s) of unwanted tracking detection that are running in the background on all devices and may trigger unwanted tracking alerts.<a href="#section-2.2-2.14.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-2.2-2.15">
+            <p id="section-2.2-2.15.1">The term <strong>platform-compatible method</strong> refers to a method of communication between the platform and the accessory/accessory manufacturers to exchange information, including, but not limited to, BT GATT protocol, BT advertisement, HTTP, etc.<a href="#section-2.2-2.15.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-2.2-2.16">
+            <p id="section-2.2-2.16.1">The term <strong>disablement</strong> refers to the process of preventing a specific location-tracking accessory from communicating with the crowdsourced network. This could be through physical means (e.g. removing the battery) or via a command sent by a platform to an accessory (remote disablement, see definition below).<a href="#section-2.2-2.16.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-2.2-2.17">
+            <p id="section-2.2-2.17.1">The term <strong>remote disablement</strong> refers to the process of preventing a specific location-tracking accessory from communicating with the crowdsourced network via a command sent by a platform.<a href="#section-2.2-2.17.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-2.2-2.18">
+            <p id="section-2.2-2.18.1">The term <strong>disablement instructions</strong> refers to steps non-owner device users can take to disable a location-tracking accessory suspected of unwanted tracking.<a href="#section-2.2-2.18.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
 </section>
 </div>
 </section>
