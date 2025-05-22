@@ -45,13 +45,13 @@ informative:
 
 --- abstract
 
-Lightweight location tracking tags are in wide use to allow users to locate items. These tags function as a component of a crowd-sourced tracking network in which devices belonging to other network users (e.g., phones) report which tags they see and their location, thus allowing the owner of the tag to determine where their tag was most recently seen. While there are many legitimate uses of these tags, they are also susceptible to misuse for the purpose of stalking and abuse. A protocol that allows others to detect unwanted location trackers must incorporate an understanding of the unwanted tracking landscape today. This document provides a threat analysis for this purpose, including a taxonomy of unwanted tracking and potential attacks against detection of unwanted location tracking (DULT) protocols. The document defines what is in and out of scope for the unwanted location tracking protocols, and provides design requirements, constraints, and considerations for implementation of protocols to detect unwanted location tracking.
+Lightweight location tracking tags are in wide use to allow users to locate items. These tags function as a component of a crowdsourced tracking network in which devices belonging to other network users (e.g., phones) report which tags they see and their location, thus allowing the owner of the tag to determine where their tag was most recently seen. While there are many legitimate uses of these tags, they are also susceptible to misuse for the purpose of stalking and abuse. A protocol that allows others to detect unwanted location trackers must incorporate an understanding of the unwanted tracking landscape today. This document provides a threat analysis for this purpose, including a taxonomy of unwanted tracking and potential attacks against detection of unwanted location tracking (DULT) protocols. The document defines what is in and out of scope for the unwanted location tracking protocols, and provides design requirements, constraints, and considerations for implementation of protocols to detect unwanted location tracking.
 
 --- middle
 
 # Introduction
 
-Location tracking tags are devices that allow users to locate items. These tags function as a component of a crowd-sourced tracking network in which devices belonging to other network users (e.g., phones) report on the location of tags they have seen. At a high level, this works as follows:
+Location tracking tags are devices that allow users to locate items. These tags function as a component of a crowdsourced tracking network in which devices belonging to other network users (e.g., phones) report on the location of tags they have seen. At a high level, this works as follows:
 
   - Tags ("accessories") transmit an advertisement payload containing accessory-specific information. The payload indicates whether the accessory is separated from its owner and thus potentially lost.
   - Devices belonging to other users ("non-owner devices") observe those payloads and if the payload is in a separated mode, reports its location to some central service.
@@ -63,7 +63,7 @@ A naive implementation of this design exposes both a tag's user and anyone who m
   - Any attacker who can guess a tag ID can query the central server for its location.
   - An attacker can surreptitiously plant an accessory on a target and thus track them by tracking their "own" accessory.
 
-While location tracking tags have existed for over a decade, they became especially widely-used in the Global North in the last several years as crowd-sourced networks were deployed by major smart phone manufacturers. However, due to their reliance on a high density of non-owner devices for the network to be effective and the relative cost of location tracking tags, location tracker use in the Global South is typically limited to affluent communities. If the cost of non-owner devices and location tracking tags decrease, an uptick of unwanted location tracking could also occur in contexts where it is currently infeasible.
+While location tracking tags have existed for over a decade, they became especially widely-used in the Global North in the last several years as crowdsourced networks were deployed by major smart phone manufacturers. However, due to their reliance on a high density of non-owner devices for the network to be effective and the relative cost of location tracking tags, location tracker use in the Global South is typically limited to affluent communities. If the cost of non-owner devices and location tracking tags decrease, an uptick of unwanted location tracking could also occur in contexts where it is currently infeasible.
 
 Detecting unwanted location tracking is currently left to individual tracking tag manufacturers and software on non-owner devices. Each manufacturer and smartphone operating system has different implementations to prevent unwanted location tracking, which may or may not be compatible with other manufacturers or operating systems. The goal of the IETF Detecting Unwanted Location Tracking (DULT) working group is to standardize a protocol between location tracking tags and non-owner devices.
 
@@ -78,7 +78,7 @@ In order to standardize a protocol for detecting unwanted location tracking, thu
 
 - **active scanning**: a search for location trackers manually initiated by a user
 - **passive scanning**: a search for location trackers running in the background, often accompanied by notifications for the user
-- **tracking tag**: a small device that is not easily discoverable and is able to participate in a crowd-sourced location tracking network.
+- **tracking tag**: a small device that is not easily discoverable and is able to participate in a crowdsourced location tracking network.
 - **easily discoverable**: a device that is larger than 30 cm in at least one dimension, larger than 18 cm x 13 xm in two of its dimensions, and/or larger than 250 cm<sup>3</sup> in three-dimensional space
 
 # Security Considerations
@@ -227,7 +227,7 @@ This is a case involving a high-skill attacker, with a large skill difference be
 
 ### Bluetooth vs. other technologies
 
-The above taxonomy and threat analysis focus on location tracking tags. They are protocol-independent; if a tag were designed for crowd-sourced location tracking using a technology other than Bluetooth, they would still apply. The key attributes are the functionalities and physical properties of the accessory from the user’s perspective. The accessory must be small, not easily discoverable, and able to participate in a crowd-sourced location tracking network.
+The above taxonomy and threat analysis focus on location tracking tags. They are protocol-independent; if a tag were designed for crowdsourced location tracking using a technology other than Bluetooth, they would still apply. The key attributes are the functionalities and physical properties of the accessory from the user’s perspective. The accessory must be small, not easily discoverable, and able to participate in a crowdsourced location tracking network.
 
 ## Possible Methods to Circumvent DULT Protocol
 
@@ -308,7 +308,7 @@ An attacker might intentionally disable passive unwanted location tracking detec
 
 ### Disabling Victim Tag
 
-An attacker might intentionally disable a victim's tag as a form of harassment. This could be done with physical access to the tag, using a victim's own device to disable the tag, or with remote access to disable the tag via the crowd-sourced network. The impact and likelihood of this attack is medium. The feasibility is moderate, as it requires some access to victim's tag, device, or account. The risk level is therefore medium. Physical disablement of a tag cannot be mitigated, but other forms of disablement may be mitigated by notifying users that a change has been made on their account, similar to suspicious login notifications.
+An attacker might intentionally disable a victim's tag as a form of harassment. This could be done with physical access to the tag, using a victim's own device to disable the tag, or with remote access to disable the tag via the crowdsourced network. The impact and likelihood of this attack is medium. The feasibility is moderate, as it requires some access to victim's tag, device, or account. The risk level is therefore medium. Physical disablement of a tag cannot be mitigated, but other forms of disablement may be mitigated by notifying users that a change has been made on their account, similar to suspicious login notifications.
 
 ### Multi-Tag Correlation Attack
 
@@ -316,9 +316,9 @@ By distributing multiple tracking tags across locations frequently visited by a 
 
 ### Impersonation Attack
 
-Attackers might be able to impersonate legitimate tracking devices and successfully authenticate within crowd-sourced location tracking networks, enabling tracking without complying with the DULT protocol. This can be done by [deploying custom tags](https://www.hackster.io/news/fabian-braunlein-s-esp32-powered-find-you-tag-bypasses-apple-s-airtag-anti-stalking-protections-0f2c9ee7da74) or by using [devices to mimic tags](https://cec.gmu.edu/news/2025-02/find-my-hacker-how-apples-network-can-be-potential-tracking-tool). By impersonating an authorized tag, an attacker could inject false location data, misattribute tag ownership, or evade detection by appearing as a trusted device or rotating identifiers frequently to evade detection. This tactic increases the difficulty of accurately identifying unauthorized tracking attempts and undermines the reliability of the network. Currently, no fully effective mitigation exists. However, improvements in authentication mechanisms, such as cryptographic signing of broadcasts, and anomaly detection techniques may help reduce the risk.
+Attackers might be able to impersonate legitimate tracking devices and successfully authenticate within crowdsourced location tracking networks, enabling tracking without complying with the DULT protocol. This can be done by [deploying custom tags](https://www.hackster.io/news/fabian-braunlein-s-esp32-powered-find-you-tag-bypasses-apple-s-airtag-anti-stalking-protections-0f2c9ee7da74) or by using [devices to mimic tags](https://cec.gmu.edu/news/2025-02/find-my-hacker-how-apples-network-can-be-potential-tracking-tool). By impersonating an authorized tag, an attacker could inject false location data, misattribute tag ownership, or evade detection by appearing as a trusted device or rotating identifiers frequently to evade detection. This tactic increases the difficulty of accurately identifying unauthorized tracking attempts and undermines the reliability of the network. Currently, no fully effective mitigation exists. However, improvements in authentication mechanisms, such as cryptographic signing of broadcasts, and anomaly detection techniques may help reduce the risk.
 
-The impact of this attack is high, as it enables real-time location tracking by exploiting the behavior of crowd-sourced location networks. The likelihood is medium and the feasibility is moderate; while examples have been demonstrated by researchers, attacks depend on either deploying custom hardware or exploiting platform-specific capabilities such as unrestricted Bluetooth broadcasting. As a result, the overall risk level is considered high. Protocol-level authentication is needed to validate tracker identities and prevent these attacks. Operating systems can partially mitigate software impersonation attacks by restricting low-level BLE broadcasting unless elevated privileges are granted.
+The impact of this attack is high, as it enables real-time location tracking by exploiting the behavior of crowdsourced location networks. The likelihood is medium and the feasibility is moderate; while examples have been demonstrated by researchers, attacks depend on either deploying custom hardware or exploiting platform-specific capabilities such as unrestricted Bluetooth broadcasting. As a result, the overall risk level is considered high. Protocol-level authentication is needed to validate tracker identities and prevent these attacks. Operating systems can partially mitigate software impersonation attacks by restricting low-level BLE broadcasting unless elevated privileges are granted.
 
 ### Replay Attack
 
@@ -332,11 +332,11 @@ Attackers may use a mix of tracking devices from different manufacturers (e.g., 
 
 ### Technologies
 
-The scope of this threat analysis includes any accessory that is small, not easily discoverable, and able to participate in a crowd-sourced location tracking network. Larger and/or easily discoverable devices such as laptops with tracking tag integrations may also choose to implement the protocol.
+The scope of this threat analysis includes any accessory that is small, not easily discoverable, and able to participate in a crowdsourced location tracking network. Larger and/or easily discoverable devices such as laptops with tracking tag integrations may also choose to implement the protocol.
 
 ### Attacker Profiles
 
-An attacker who deploys any of the attacks described in {{threat-prioritization-framework-for-dult-threat-model}} is considered in scope. This includes attempts to track a victim using a tracking tag and applications readily available for end-users (e.g. native tracking application) is in scope. Additionally, an attacker who physically modifies a tracking tag (e.g. to disable a speaker) is in scope. An attacker who makes non-nation-state level alterations to the firmware of an existing tracking tag or creates a custom device that leverages the crowd-sourced tracking network is in scope.
+An attacker who deploys any of the attacks described in {{threat-prioritization-framework-for-dult-threat-model}} is considered in scope. This includes attempts to track a victim using a tracking tag and applications readily available for end-users (e.g. native tracking application) is in scope. Additionally, an attacker who physically modifies a tracking tag (e.g. to disable a speaker) is in scope. An attacker who makes non-nation-state level alterations to the firmware of an existing tracking tag or creates a custom device that leverages the crowdsourced tracking network is in scope.
 
 ### Victim Profiles
 
@@ -346,7 +346,7 @@ All victims profiles are in scope regardless of their expertise, access to resou
 
 ### Technologies
 
-There are many types of technology that can be used for location tracking. In many cases, the threat analysis would be similar, as the contexts in which potential attackers and victims exist and use the technology are similar. However, it would be infeasible to attempt to describe a threat analysis for each possible technology in this document. We have therefore limited its scope to location-tracking accessories that are small, not easily discoverable, and able to participate in a crowd-sourced location tracking network. The following are out of scope for this document:
+There are many types of technology that can be used for location tracking. In many cases, the threat analysis would be similar, as the contexts in which potential attackers and victims exist and use the technology are similar. However, it would be infeasible to attempt to describe a threat analysis for each possible technology in this document. We have therefore limited its scope to location-tracking accessories that are small, not easily discoverable, and able to participate in a crowdsourced location tracking network. The following are out of scope for this document:
 
   - App-based technologies such as parental monitoring apps.
   - Other Internet of Things (IoT) devices.
