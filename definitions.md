@@ -1,0 +1,16 @@
+These terms have specific meanings that are shared across all DULT protocol documents:
+- The term **accessory** is used to refer to any product intended to interface with a platform through the means described in these documents.
+- The term **location-tracking accessory** refers to any accessory that has location-tracking capabilities, including, but not limited to, crowd-sourced location, GPS/GNSS location, WiFi location, cell location, etc., and provides the location information back to the owner of the accessory via a crowdsourced network (see definition below) using the internet, cellular connection, etc. Location tracking accessories that are easily discoverable (see definition below) MUST adhere to the DULT protocol.
+- The term **easily discoverable** refers to an accessory that is larger than 30 cm in at least one dimension, larger than 18 cm x 13 cm in two of its dimensions, and/or larger than 250 cm^3 in three-dimensional space.
+- The term **crowdsourced network** refers to a service that platforms communicate with to share and retrieve location information of accessories.
+- The term **owner device** is a device that is associated with the accessory and can retrieve the accessory's location by querying the crowdsourced network.
+- The term **non-owner device** refers to a device that may connect to an accessory but is not an owner device of that accessory.
+- The term **platform** is used to refer to mobile device hardware and associated operating system. Examples of mobile devices are phones, tablets, laptops, etc.
+- The term **location-enabled state** refers to the state an accessory in where its location can be remotely viewed by its owner.
+- The term **location-enabled advertisement payload** refers to the Bluetooth (BT) advertisement payload that is advertised when an accessory has recently, is currently, or will in the future provide location updates to its owner.
+- The term **unwanted tracking (UT)** refers to undesired tracking of a person, their property, or their belongings by a location-enabled accessory.
+- The term **unwanted tracking detection** refers to the algorithms that detect the presence of an unknown accessory traveling with a person over time.
+- The term **unwanted tracking alert** refers to notifying the user of the presence of an unrecognized accessory that may be traveling with them over time and allows them to take various actions, including playing a sound on the accessory if it's in Bluetooth Low Energy (LE) range.
+- The term **active scanning** refers to method(s) of unwanted tracking detection that involves a user initiated scan for nearby accessories.
+- The term **passive scanning** refers to method(s) of unwanted tracking detection that are running in the background on all devices and may trigger unwanted tracking alerts.
+- The term **platform-compatible method** refers to a method of communication between the platform and the accessory/accessory manufacturers to exchange information, including, but not limited to, BT GATT protocol, BT advertisement, HTTP, etc.
