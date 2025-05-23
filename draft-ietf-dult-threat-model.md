@@ -379,7 +379,7 @@ The DULT protocol should 1) allow victims to detect unwanted location tracking, 
 
 ### Detecting Unwanted Location Tracking
 
-There are three main ways that the DULT protocol should assist victims in detecting potentially unwanted location tracking: 1) active scanning, 2) passive scanning, and 3) tracking tag alerts.
+There are four ways that the DULT protocol should assist victims in detecting potentially unwanted location tracking: 1) active scanning, 2) passive scanning, 3) tracking tag alerts, and 4) crowdsourced network activities logs.
 
 #### Active Scanning
 
@@ -405,6 +405,12 @@ This approach ensures that users receive actionable and meaningful alerts, reduc
 #### Tracking Tag Alerts
 
 Tracking tags may be difficult to locate, and users may not have a device that can actively or passively scan for tracking tags. The DULT protocol should be built with [accessibility in mind](https://cdt.org/insights/centering-disability-in-mitigating-harms-of-bluetooth-tracking-technology/) so that the most people can be protected by the protocol. In addition to push notifications on nearby devices, tracking tags themselves should be able to notify end users. This should include periodic sounds when away from an owner, along with lights and haptics so that people who are Deaf or hard of hearing can still locate them.
+
+#### Crowdsourced Network Activities Logs
+
+[Stephenson et al.](https://www.usenix.org/system/files/usenixsecurity23-stephenson-lessons.pdf) point out that Internet of Things devices like location tracking accessories do not have ways to reveal abusive behavior. This can be addressed through the use of detailed logs that provide insights for victims about which accounts have accessed the location of which accessories and when. Crowdsourced networks should log common user activities for review by each accessory owner, and should not be able to be deleted.
+
+Logs should include sufficient detail to detect unwanted location tracking without being another vector for surveillance. For example, a log could state that "User B viewed the location of device X at [time]." By including information about user, device, and time, victims can determine whether their own accessories are being used to track them, and whether or not their accounts connected to the crowdsourced network are compromised.
 
 ### Finding Tracking Tags
 
