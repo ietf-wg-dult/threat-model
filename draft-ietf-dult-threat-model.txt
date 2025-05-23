@@ -5,10 +5,10 @@
 Detecting Unwanted Location Trackers                           M. Delano
 Internet-Draft                                        Swarthmore College
 Intended status: Informational                                 J. Lowell
-Expires: 22 November 2025      National Network to End Domestic Violence
+Expires: 24 November 2025      National Network to End Domestic Violence
                                                                S. Prabhu
                                                                    Nokia
-                                                             21 May 2025
+                                                             23 May 2025
 
 
                            DULT Threat Model
@@ -67,7 +67,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 22 November 2025.
+   This Internet-Draft will expire on 24 November 2025.
 
 Copyright Notice
 
@@ -927,6 +927,19 @@ Table of Contents
    effective mitigation exists.  However, improvements in authentication
    mechanisms, such as cryptographic signing of broadcasts, and anomaly
    detection techniques may help reduce the risk.
+
+   In addition to full impersonation, adversaries may exploit platform-
+   specific assumptions to suppress alerts.  For instance, Chen et al.
+   describe
+   (https://www.usenix.org/system/files/conference/usenixsecurity25/
+   sec25cycle1-prepub-1266-chen-junming.pdf) a technique in which an
+   attacker sets the status field of a broadcast message to 0x00 to
+   emulate MacBook location beacons.  Since such beacons are typically
+   ignored by Apple’s unwanted tracking alerts, this evasion method
+   allows the attacker to remain undetected.  This demonstrates how
+   attackers can exploit trust assumptions about certain device classes
+   to bypass user protections, further complicating detection and
+   mitigation.
 
    The impact of this attack is high, as it enables real-time location
    tracking by exploiting the behavior of crowdsourced location
