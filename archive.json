@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-05-22T01:20:43.837497+00:00",
+  "timestamp": "2025-05-25T01:27:43.845386+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -1319,6 +1319,86 @@
       "createdAt": "2025-05-20T16:24:41Z",
       "updatedAt": "2025-05-20T17:22:37Z",
       "closedAt": "2025-05-20T17:22:37Z",
+      "comments": []
+    },
+    {
+      "number": 103,
+      "id": "I_kwDOMB0Qas631t2a",
+      "title": "Attack: altered status bit",
+      "url": "https://github.com/ietf-wg-dult/threat-model/issues/103",
+      "state": "CLOSED",
+      "author": "maggiedelano",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "shaileshprabhu95"
+      ],
+      "labels": [],
+      "body": "In Chen et al. they describe an attack that we should make sure to account for:\n\n> Previous work by Mayberry et al. [43] describes multiple evasion techniques to avoid such alerts. For instance, setting the Status field of a lost message to 0x00 can prevent tracking alerts, as such messages are typically sent by MacBooks, which Apple deems \u201cirrelevant\u201d for tracking purposes. We validated this evasion technique on the latest version of iOS for iPhone, confirming that no alerts were triggered.\n\nThis might not need to be a separate attack, and could probably fit into the Impersonation Attack section.",
+      "createdAt": "2025-05-22T19:06:59Z",
+      "updatedAt": "2025-05-23T15:18:08Z",
+      "closedAt": "2025-05-23T15:18:08Z",
+      "comments": [
+        {
+          "author": "shaileshprabhu95",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@maggiedelano  - I've raised a PR for this: https://github.com/ietf-wg-dult/threat-model/pull/104\nKindly review, thanks!",
+          "createdAt": "2025-05-23T06:07:59Z",
+          "updatedAt": "2025-05-23T06:07:59Z"
+        }
+      ]
+    },
+    {
+      "number": 105,
+      "id": "I_kwDOMB0Qas64Bdgn",
+      "title": "User activity logging to facilitate detection of unwanted tracking",
+      "url": "https://github.com/ietf-wg-dult/threat-model/issues/105",
+      "state": "OPEN",
+      "author": "maggiedelano",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "maggiedelano"
+      ],
+      "labels": [],
+      "body": "[Stephenson et al.](https://www.usenix.org/system/files/usenixsecurity23-stephenson-lessons.pdf) discuss how IoT abuse can be detected using detailed logs of user activities: \n\n> Towards (2), IoT devices should have detailed logs of user activities like viewing a camera feed, checking the security system status, or changing the temperature. Importantly, these logs should also contain information on who is doing these actions (e.g., \u201cUser A changed the temperature at [time]\u201d or \u201cUser B viewed the location of device X at [time]\u201d).\n\nHowever, these logs need to be designed carefully:\n\n> When designing these logs, researchers must carefully consider the potential drawbacks. For example, the same logs that provide transparency to a victim-survivor may at the same time provide another vector for surveillance. This is especially concerning given that we have identified real-world examples of abusers using activity logs maliciously (Section 4).\n\nWe should consider including a suggestion for platforms to log certain user activities when engaging with the crowdsourced network. For example \u201cUser B viewed the location of device X at [time]\u201d like shown above. This would also address at least part of #71 about knowing which accounts have access to location information for which tags, but also when they view that location. It would also give an indicator of whether the victim's account or device itself has been compromised or if an attacker is accessing information about the tag from their own account. \n\nI think this makes most sense to add to 4.1 Design requirements, likely after 4.1.1.3 (so 4.1.1.4).",
+      "createdAt": "2025-05-23T19:52:00Z",
+      "updatedAt": "2025-05-23T20:11:07Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 106,
+      "id": "I_kwDOMB0Qas64Bn1z",
+      "title": "Combine likelihood and feasibility into the same metric",
+      "url": "https://github.com/ietf-wg-dult/threat-model/issues/106",
+      "state": "OPEN",
+      "author": "maggiedelano",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "shaileshprabhu95"
+      ],
+      "labels": [],
+      "body": "In the current threat matrix, we have a separate category for feasibility and for likelihood. However, in practice they seem be mostly redundant because there is only one attack where they aren't perfectly aligned (i.e. easy feasibility = high likelihood, hard feasibility = low likelihood, or moderate feasibility = medium likelihood, see table below). Additionally, the definition of high likelihood includes a direct reference to feasibility (High: Frequently occurring or easily executed.) \n\nI propose we merge these categories into just likelihood. This would require updating the threat matrix and also any references to feasibility in the text (though we can use feasibility as a reason to justify likelihood). Shailesh, this was your original taxonomy, what do you think?\n\n![Image](https://github.com/user-attachments/assets/13ef54bc-5f69-4878-ae57-ece7599d12d8)",
+      "createdAt": "2025-05-23T20:10:28Z",
+      "updatedAt": "2025-05-23T20:10:58Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 108,
+      "id": "I_kwDOMB0Qas64B0Pe",
+      "title": "Attack: access to victim account",
+      "url": "https://github.com/ietf-wg-dult/threat-model/issues/108",
+      "state": "OPEN",
+      "author": "maggiedelano",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "shaileshprabhu95"
+      ],
+      "labels": [],
+      "body": "We have a new section about attacker access to victim account (under security considerations), but I am wondering if we also need to include it as a threat against the DULT protocol.\n\nA user will not be notified of potential unwanted location tracking if they are being tracked by their own tag.\n\nI think the step here would be to take some of the language from the aforementioned section and create an attack for it.",
+      "createdAt": "2025-05-23T20:36:27Z",
+      "updatedAt": "2025-05-23T20:37:00Z",
+      "closedAt": null,
       "comments": []
     }
   ],
@@ -3446,6 +3526,108 @@
       "mergeCommit": {
         "oid": "0eb5afe9227408f2d7e1e0159a184112dffcd4f9"
       },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 102,
+      "id": "PR_kwDOMB0Qas6XRWI2",
+      "title": "Add shared DULT definitions and update threat model document to reflect those definitions",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/102",
+      "state": "OPEN",
+      "author": "maggiedelano",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "See especially the updated definitions section starting on line 79 of the threat model markdown file. This combines definitions from the [accessory protocol document ](https://github.com/ietf-wg-dult/accessory-protocol/blob/d579f69dfbf2a63942b28964aa1d67773a51dfb0/draft-ietf-dult-accessory-protocol.md?plain=1#L84) along with those used in the threat model document and the finding document. I tried to focus on definitions that are likely to be common to all documents. Each individual document may also have other definitions relevant to that document or a subset of documents.\r\n\r\nThe threat model text has not been fully updated to reflect the new text; once the draft definitions are agreed upon, the PR will be updated accordingly and changed from a draft to a regular PR.\r\n\r\nSee discussion also as an issue on the [accessory protocol repo](https://github.com/ietf-wg-dult/accessory-protocol/issues/8).\r\n\r\nCloses #33, closes #34.\r\n\r\n",
+      "createdAt": "2025-05-22T18:02:09Z",
+      "updatedAt": "2025-05-22T18:18:43Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "0eb5afe9227408f2d7e1e0159a184112dffcd4f9",
+      "headRepository": "ietf-wg-dult/threat-model",
+      "headRefName": "fix-terminology",
+      "headRefOid": "4c9af098614f08ab028dd2768b695f3d3b5ade07",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 104,
+      "id": "PR_kwDOMB0Qas6XVJHo",
+      "title": "Updating Impersonation Attack section to add the work by Chen et al. (altered status bit)",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/104",
+      "state": "MERGED",
+      "author": "shaileshprabhu95",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "This PR adds the evasion technique described by Chen et al. in https://www.usenix.org/system/files/conference/usenixsecurity25/sec25cycle1-prepub-1266-chen-junming.pdf to the existing Impersonation attack.\r\n\r\nResolves https://github.com/ietf-wg-dult/threat-model/issues/103",
+      "createdAt": "2025-05-23T06:06:00Z",
+      "updatedAt": "2025-05-24T07:21:56Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "0eb5afe9227408f2d7e1e0159a184112dffcd4f9",
+      "headRepository": "shaileshprabhu95/threat-model",
+      "headRefName": "impersonation_update",
+      "headRefOid": "b78e419967ed60dd75b34cf505c4f64f2ee2fbfe",
+      "closedAt": "2025-05-23T15:18:07Z",
+      "mergedAt": "2025-05-23T15:18:07Z",
+      "mergedBy": "maggiedelano",
+      "mergeCommit": {
+        "oid": "9996e603b43a9b3f3e4a01832ab74aa6002a00f8"
+      },
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Looks great, thank you!",
+          "createdAt": "2025-05-23T15:18:20Z",
+          "updatedAt": "2025-05-23T15:18:20Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOMB0Qas6qwWAx",
+          "commit": {
+            "abbreviatedOid": "b78e419"
+          },
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-05-23T15:17:52Z",
+          "updatedAt": "2025-05-23T15:17:52Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 107,
+      "id": "PR_kwDOMB0Qas6XcnqT",
+      "title": "Add crowdsourced network logging to detect unwanted location tracking",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/107",
+      "state": "OPEN",
+      "author": "maggiedelano",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Closes #105.",
+      "createdAt": "2025-05-23T20:33:33Z",
+      "updatedAt": "2025-05-23T20:33:34Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "9996e603b43a9b3f3e4a01832ab74aa6002a00f8",
+      "headRepository": "ietf-wg-dult/threat-model",
+      "headRefName": "delano-logging",
+      "headRefOid": "d88716c50d7e7e95345fa2bd8dd5467db6a84037",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
       "comments": [],
       "reviews": []
     }
