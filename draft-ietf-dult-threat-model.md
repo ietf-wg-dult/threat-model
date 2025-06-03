@@ -408,7 +408,7 @@ Tracking tags may be difficult to locate, and users may not have a device that c
 
 #### Crowdsourced Network Activities Logs
 
-[Stephenson et al.](https://www.usenix.org/system/files/usenixsecurity23-stephenson-lessons.pdf) point out that Internet of Things devices like location tracking accessories do not have ways to reveal abusive behavior. This can be addressed through the use of detailed logs that provide insights for victims about which accounts have accessed the location of which accessories and when. Crowdsourced networks should log common user activities for review by each accessory owner, and should not be able to be deleted.
+[Stephenson et al.](https://www.usenix.org/system/files/usenixsecurity23-stephenson-lessons.pdf) point out that Internet of Things devices like location tracking accessories do not have ways to reveal abusive behavior. This can be addressed through the use of detailed logs that provide insights for victims about which accounts have accessed the location of which accessories and when. Crowdsourced networks should log common user activities for review by each accessory owner, and should not be able to be easily deleted by accessory owners, who might do so as a way to hide evidence of unwanted location tracking.
 
 Logs should include sufficient detail to detect unwanted location tracking without being another vector for surveillance. For example, a log could state that "User B viewed the location of device X at [time]." By including information about user, device, and time, victims can determine whether their own accessories are being used to track them, and whether or not their accounts connected to the crowdsourced network are compromised.
 
