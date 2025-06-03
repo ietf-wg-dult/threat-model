@@ -85,13 +85,33 @@ In order to standardize a protocol for detecting unwanted location tracking, thu
 
 Incorporation of this threat analysis into the DULT protocol does not introduce any security risks not already inherent in the underlying Bluetooth tracking tag protocols. Existing attempts to prevent unwanted tracking by the owner of a tag have been criticized as potentially making it easier to engage in unwanted tracking of the owner of a tag. However, Beck et al. have [demonstrated](https://eprint.iacr.org/2023/1332.pdf) a technological solution that employs secret sharing and error correction coding.
 
-## Attacker access to victim account
+## Security Considerations Unique To Unwanted Location Tracking
+
+### Attacker access to victim account
 
 In a situation involving interpersonal control, an attacker may have access to a victim's tracking account (e.g. Apple FindMy). The attacker could have physical access to a mobile device on which a tracking account app is installed, remote access through a web portal, or both.
 
 The risk of an attacker accessing a victim's tracking account remotely can be mitigated, though not eliminated, through support for different forms of multi-factor authentication (including hardware keys, e.g. Yubikeys, as well as more traditional methods). While this can also be used to mitigate the risk posed by physical access, taking overt security measures while frequently in physical proximity to the attacker may lead to the attacker escalating their tactics of interpersonal control. Risk assessments and the weighing of tradeoffs in such situations are often highly individualized.
 
 The ability of a user to access a tracking account over a web portal illustrates the need to consider web app security as part of support for detecting unwanted location trackers.
+
+### Balancing Privacy and Security
+
+In order to avoid pitting the privacy of tag owners not engaged in unwanted tracking against the security/safety of victims, the DULT protocol must consider the privacy and safety of different users of the crowdsourced network.
+
+#### Security against unwanted tracking for potential victims
+
+The DULT protocol must make it possible for potential victims to discover unwanted trackers across device hardware and operating system within a reasonable amount of time. It should aid the victim in determining whether the source of the unwanted tag, while not providing a full name or contact information on demand (as the tag may merely have been lost or otherwise coincidentally in proximity, and providing excessive information would violate the privacy of a non-malicious tag owner). This could potentially be done with obfuscation, such as showing a partially redacted email address or phone number.
+
+#### Privacy for potential victims against the use of security measures for further surveillance
+
+The DULT protocol must consider the threat vector of an attacker with access to a victim's tag-associated account. In one study of how intimate partners misuse technology [Freed et al, 2018](https://dl.acm.org/doi/pdf/10.1145/3173574.3174241), 72% of survivors reported being forced or coerced to share passwords with an abuser. 41% reported that a cohabiting abuser "went through" their device while they were not looking, allowing the abuser to obtain saved account passwords in many cases. 67% reported that an abuser was able to "hack" into their accounts remotely. To prevent use of a victim's own tag as a means of surveillance, the protocol should minimize information accessible through a user's tag-linked account.
+
+#### Privacy for unassociated tag owners
+
+Any unassociated tag owner, whether an abuse/stalking survivor or not, could potentially be the victim of an attack leveraging the victim's own tags. Survivors and activists for women's and LGBTQIA+ rights, and/or against intimate interpersonal violence, may face severe government surveillance, repression, and even imprisonment [Amnesty International, 2025](https://www.amnesty.org/en/latest/news/2025/03/iran-authorities-target-womens-rights-activists-with-arbitrary-arrest-flogging-and-death-penalty/), [Human Rights Watch, 2020](https://www.hrw.org/news/2020/03/18/kazakhstan-womens-day-activists-convicted), [Ruiz-Navarro, 2015](https://www.theguardian.com/global-development/2015/mar/18/honduras-women-gladys-lanza-feminism-human-rights). Broad issues of technological privacy, including privacy against government and corporate surveillance, affect many populations, including but not limited to human rights defenders, children, migrants, and LGBTQIA+ people. Some people in these categories may _also_ be survivors of abuse or stalking. The DULT protocol must not eschew legitimate privacy interests of tag owners in the name of safety and security for victims of unwanted tracking.
+
+The same person may be a victim of both unwanted tracking via an attacker's tag, and surveillance via their own tag, either at different times or simultaneously. The DULT protocol should account for this scenario.
 
 ## Taxonomy of unwanted tracking
 
@@ -383,7 +403,7 @@ There are three main ways that the DULT protocol should assist victims in detect
 
 #### Active Scanning
 
-There may be scenarios where a victim suspects that they are being tracked without their consent. Active scanning should allow a user to use a native application on their device to search for tracking tags that are separated from their owners. Additional information about when that tag has been previously encountered within a designated time window (e.g. the last 12 hours) should also be included if available (see {{privacy-and-security-requirements}}). Allowing users to "snooze" or ignore tags known to be safe (e.g. tags from a family member) could also be implemented. Tracking tags that are near their owners should not be shared to avoid abuse of the active scanning feature.
+There may be scenarios where a victim suspects that they are being tracked without their consent. Active scanning should allow a user to use a native application on their device to search for tracking tags that are separated from their owners. Additional information about when that tag has been previously encountered within a designated time window (e.g. the last 12 hours) should also be included if available (see {{balancing-privacy-and-security}}). Allowing users to "snooze" or ignore tags known to be safe (e.g. tags from a family member) could also be implemented. Tracking tags that are near their owners should not be shared to avoid abuse of the active scanning feature.
 
 #### Passive Scanning
 
@@ -428,24 +448,6 @@ To reduce alert fatigue and improve user experience, implementations should allo
 Such snoozed tags may also be de-prioritized or grouped separately during active scans, helping users focus on unfamiliar or potentially malicious trackers. Platforms should make it easy to manage snoozed devices and review or revoke trust status as needed. It is also advisable to implement revalidation mechanisms, for example, resuming notifications after a period of time to prevent long-term blind spots.
 
 Some platforms may wish to implement family sharing or shared ownership models, where multiple users can be associated with a single tracker. However, this introduces the risk of abuse (e.g., an attacker adding a victim to the shared list in order to avoid triggering passive notifications), and therefore should be approached with caution and abuse mitigation in mind. These features are optional and may vary by platform.
-
-### Privacy and Security Requirements
-
-In order to avoid pitting the privacy of tag owners not engaged in unwanted tracking against the security/safety of victims, the DULT protocol must consider privacy and safety requirements.
-
-#### Security against unwanted tracking for potential victims
-
-The DULT protocol must make it possible for potential victims to discover unwanted trackers across device hardware and operating system within a reasonable amount of time. It should aid the victim in determining whether the source of the unwanted tag, while not providing a full name or contact information on demand (as the tag may merely have been lost or otherwise coincidentally in proximity, and providing excessive information would violate the privacy of a non-malicious tag owner). This could potentially be done with obfuscation, such as showing a partially redacted email address or phone number.
-
-#### Privacy for potential victims against the use of security measures for further surveillance
-
-The DULT protocol must consider the threat vector of an attacker with access to a victim's tag-associated account. In one study of how intimate partners misuse technology [Freed et al, 2018](https://dl.acm.org/doi/pdf/10.1145/3173574.3174241), 72% of survivors reported being forced or coerced to share passwords with an abuser. 41% reported that a cohabiting abuser "went through" their device while they were not looking, allowing the abuser to obtain saved account passwords in many cases. 67% reported that an abuser was able to "hack" into their accounts remotely. To prevent use of a victim's own tag as a means of surveillance, the protocol should minimize information accessible through a user's tag-linked account.
-
-#### Privacy for unassociated tag owners
-
-Any unassociated tag owner, whether an abuse/stalking survivor or not, could potentially be the victim of an attack leveraging the victim's own tags. Survivors and activists for women's and LGBTQIA+ rights, and/or against intimate interpersonal violence, may face severe government surveillance, repression, and even imprisonment [Amnesty International, 2025](https://www.amnesty.org/en/latest/news/2025/03/iran-authorities-target-womens-rights-activists-with-arbitrary-arrest-flogging-and-death-penalty/), [Human Rights Watch, 2020](https://www.hrw.org/news/2020/03/18/kazakhstan-womens-day-activists-convicted), [Ruiz-Navarro, 2015](https://www.theguardian.com/global-development/2015/mar/18/honduras-women-gladys-lanza-feminism-human-rights). Broad issues of technological privacy, including privacy against government and corporate surveillance, affect many populations, including but not limited to human rights defenders, children, migrants, and LGBTQIA+ people. Some people in these categories may _also_ be survivors of abuse or stalking. The DULT protocol must not eschew legitimate privacy interests of tag owners in the name of safety and security for victims of unwanted tracking.
-
-The same person may be a victim of both unwanted tracking via an attacker's tag, and surveillance via their own tag, either at different times or simultaneously. The DULT protocol should account for this scenario.
 
 ## Design Constraints
 
