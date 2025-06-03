@@ -95,6 +95,8 @@ The risk of an attacker accessing a victim's tracking account remotely can be mi
 
 The ability of a user to access a tracking account over a web portal illustrates the need to consider web app security as part of support for detecting unwanted location trackers.
 
+### TODO: Other considerations
+
 ## Balancing Privacy and Security
 
 In order to avoid pitting the privacy of tag owners not engaged in unwanted tracking against the security/safety of victims, the DULT protocol must consider and balance the privacy and safety of different users of the crowdsourced network.
@@ -105,7 +107,7 @@ The DULT protocol must make it possible for potential victims to discover unwant
 
 #### Privacy for potential victims against the use of security measures for further surveillance
 
-The DULT protocol must consider the threat vector of an attacker with access to a victim's tag-associated account. In one study of how intimate partners misuse technology [Freed et al, 2018](https://dl.acm.org/doi/pdf/10.1145/3173574.3174241), 72% of survivors reported being forced or coerced to share passwords with an abuser. 41% reported that a cohabiting abuser "went through" their device while they were not looking, allowing the abuser to obtain saved account passwords in many cases. 67% reported that an abuser was able to "hack" into their accounts remotely. To prevent use of a victim's own tag as a means of surveillance, the protocol should minimize information accessible through a user's tag-linked account.
+The DULT protocol must consider the threat vector of an attacker with access to a victim's tag-associated account. In one study of how intimate partners misuse technology [Freed et al, 2018](https://dl.acm.org/doi/pdf/10.1145/3173574.3174241), 72% of survivors reported being forced or coerced to share passwords with an abuser. 41% reported that a cohabiting abuser "went through" their device while they were not looking, allowing the abuser to obtain saved account passwords in many cases. 67% reported that an abuser was able to "hack" into their accounts remotely. To prevent use of a victim's own tag as a means of surveillance, the protocol should minimize information that can be accessed from a web interface associated with a user's tag-linked account.
 
 #### Privacy for unassociated tag owners
 
