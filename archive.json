@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-01T01:44:11.077371+00:00",
+  "timestamp": "2025-06-03T01:22:35.403812+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -1398,6 +1398,22 @@
       "body": "We have a new section about attacker access to victim account (under security considerations), but I am wondering if we also need to include it as a threat against the DULT protocol.\n\nA user will not be notified of potential unwanted location tracking if they are being tracked by their own tag.\n\nI think the step here would be to take some of the language from the aforementioned section and create an attack for it.",
       "createdAt": "2025-05-23T20:36:27Z",
       "updatedAt": "2025-05-23T20:37:00Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 111,
+      "id": "I_kwDOMB0Qas65cFZQ",
+      "title": "Missing Stranger Stalking Example Scenario",
+      "url": "https://github.com/ietf-wg-dult/threat-model/issues/111",
+      "state": "OPEN",
+      "author": "cstapl",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Example scenarios currently focus on threat actors known to the victim. We should consider including threat actors not known to the victim, as there have been a number of examples of this type of stalking at bars and other nightlife activities. In these circumstances it may be more challenging for the victim to identify the attacker, since they will not be able to recognize obfuscated phone number or email. ",
+      "createdAt": "2025-06-02T18:12:25Z",
+      "updatedAt": "2025-06-02T18:12:25Z",
       "closedAt": null,
       "comments": []
     }
