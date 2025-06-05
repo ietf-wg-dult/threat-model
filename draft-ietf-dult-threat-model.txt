@@ -5,10 +5,10 @@
 Detecting Unwanted Location Trackers                           M. Delano
 Internet-Draft                                        Swarthmore College
 Intended status: Informational                                 J. Lowell
-Expires: 24 November 2025      National Network to End Domestic Violence
+Expires: 7 December 2025       National Network to End Domestic Violence
                                                                S. Prabhu
                                                                    Nokia
-                                                             23 May 2025
+                                                             5 June 2025
 
 
                            DULT Threat Model
@@ -67,7 +67,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 24 November 2025.
+   This Internet-Draft will expire on 7 December 2025.
 
 Copyright Notice
 
@@ -166,6 +166,14 @@ Table of Contents
 
    *  An attacker can surreptitiously plant an accessory on a target and
       thus track them by tracking their "own" accessory.
+
+   *  Attackers could launch Denial-of-Service (DoS) attacks by flooding
+      the tracking service with spoofed tag reports, disrupting real
+      updates and overwhelming the central server.
+
+   *  Frequent co-location of multiple tags enables the central server
+      or a passive observer to infer social relationships, routines, or
+      group behaviors, compromising user privacy without consent.
 
    While location tracking tags have existed for over a decade, they
    became especially widely-used in the Global North in the last several
@@ -1074,10 +1082,12 @@ Table of Contents
 4.1.  Design Requirements
 
    The DULT protocol should 1) allow victims to detect unwanted location
-   tracking, 2) help victims find tags that are tracking them, and 3)
-   provide instructions for victims to disable those trackers if they
-   choose.  These affordances should be implemented while considering
-   the appropriate privacy and security requirements.
+   tracking, 2) help victims find tags that are tracking them while
+   minimizing false positives (e.g., avoiding legitimate, co-owned, or
+   nearby tags being misidentified as threats), and 3) provide
+   instructions for victims to disable those trackers if they choose.
+   These affordances should be implemented while considering the
+   appropriate privacy and security requirements.
 
 4.1.1.  Detecting Unwanted Location Tracking
 
@@ -1125,6 +1135,65 @@ Table of Contents
    all detected tracking devices, the system assigns a confidence score
    based on multiple factors, helping distinguish between genuine
    tracking threats and benign scenarios.
+
+   This section outlines potential factors that may contribute to
+   assessing the likelihood of unwanted location tracking.  Each factor
+   can be considered independently to help inform an overall risk
+   assessment.
+
+4.1.1.2.1.  Duration of Proximity
+
+   Tracks how long a device remains in close proximity to the user.
+
+   *Rationale*: Devices that persist near a user for extended periods
+   are more likely to indicate tracking activity than transient
+   encounters (e.g., passing someone on public transit).
+
+4.1.1.2.1.1.  Movement Correlation
+
+   Measures how closely the movement of the suspected device mirrors
+   that of the user.
+
+   *Rationale*: High movement correlation (e.g., appearing at home, then
+   work, then a store with the user) increases the likelihood that the
+   device is following the user intentionally.
+
+4.1.1.2.1.2.  Signal Strength Trends
+
+   Observes how the signal strength of the suspected device (e.g.,
+   Bluetooth RSSI) changes over time.
+
+   *Rationale*: A sustained or increasing signal strength suggests
+   physical proximity to the user, strengthening the case for
+   intentional tracking.
+
+4.1.1.2.1.3.  Persistence
+
+   Evaluates how often and across how many different times/locations the
+   same device is observed, while accounting for identifier rotation.
+
+   *Rationale*: Frequent reappearances over time and space can indicate
+   deliberate placement, even if identifiers change periodically.
+
+4.1.1.2.1.4.  Hardware Identity
+
+   Analyzes available Bluetooth advertisement metadata, such as vendor-
+   specific fields or tracker model indicators, while respecting
+   identifier randomization.
+
+   *Rationale*: Certain devices (e.g., known commercial trackers) are
+   more likely to be associated with tracking.  Even with rotating
+   identifiers, consistent vendor metadata or other characteristics may
+   provide useful signals.
+
+4.1.1.2.1.5.  Environmental Context
+
+   Considers the location in which the device is seen (e.g., home,
+   office, public places).
+
+   *Rationale*: Devices seen only in familiar, safe zones may be
+   harmless.  Appearances in unfamiliar or private locations without
+   explanation raise concern.
 
    A confidence-based approach offers the following advantages:
 
@@ -1291,15 +1360,18 @@ Table of Contents
    wireless devices.  The presence of environmental noise may degrade
    detection accuracy and introduce variability in scan results.
 
-   The BLE protocol also enforces strict power efficiency mechanisms,
-   such as advertising intervals and connection event scheduling, which
-   impact detection frequency.  Devices operating in low-power modes may
-   significantly reduce their advertisement frequency to conserve
-   energy, making periodic detection less reliable.  Furthermore,
-   platform-level constraints, such as OS-imposed scanning limits and
-   background activity restrictions, further impact the consistency and
-   responsiveness of tracking detection mechanisms.  For further
-   discussion of power constraints, see Section 4.2.2.
+   BLE uses channel hopping for advertising (three advertising
+   channels).  Scanners need to cover all these channels to avoid
+   missing advertisements.The BLE protocol also enforces strict power
+   efficiency mechanisms, such as advertising intervals and connection
+   event scheduling, which impact detection frequency.  Devices
+   operating in low-power modes or sleep modes may significantly reduce
+   their advertisement frequency to conserve energy, making periodic
+   detection less reliable.  Furthermore, platform-level constraints,
+   such as OS-imposed scanning limits and background activity
+   restrictions, further impact the consistency and responsiveness of
+   tracking detection mechanisms.  For further discussion of power
+   constraints, see Section 4.2.2.
 
    Additionally, Bluetooth-based tracking systems typically rely on an
    active Bluetooth connection on the owner’s device to determine
@@ -1384,6 +1456,15 @@ Table of Contents
    and process certain device-related data.  These factors, along with
    resource limitations in wearables and IoT devices, can impact the
    feasibility of continuous scanning and detection.
+
+   Further, platform permission models can restrict access to BLE scan
+   data.  For example, Android requires coarse or fine location
+   permissions to perform BLE scanning, and users may revoke these
+   permissions.  Additionally, radio coexistence (BLE and Wi-Fi sharing
+   the 2.4 GHz band) can impact BLE performance, especially on devices
+   with shared chipsets.  User interface constraints, especially on
+   wearables, may also limit how users receive or interact with tracking
+   alerts.
 
    Processing and memory constraints are another limiting factor,
    particularly for low-end mobile devices and embedded systems.

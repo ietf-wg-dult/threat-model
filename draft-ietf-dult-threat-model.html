@@ -23,12 +23,12 @@
     google-i18n-address 3.1.1
     intervaltree 3.1.0
     Jinja2 3.1.6
-    lxml 5.3.0
+    lxml 5.3.1
     platformdirs 4.3.8
     pycountry 24.6.1
     PyYAML 6.0.2
     requests 2.32.3
-    setuptools 70.3.0
+    setuptools 80.9.0
     wcwidth 0.2.13
 -->
 <link href="draft-ietf-dult-threat-model.xml" rel="alternate" type="application/rfc+xml">
@@ -1048,11 +1048,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">DULT Threat Model</td>
-<td class="right">May 2025</td>
+<td class="right">June 2025</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Delano, et al.</td>
-<td class="center">Expires 24 November 2025</td>
+<td class="center">Expires 7 December 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1065,12 +1065,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-dult-threat-model-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-05-23" class="published">23 May 2025</time>
+<time datetime="2025-06-05" class="published">5 June 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-11-24">24 November 2025</time></dd>
+<dd class="expires"><time datetime="2025-12-07">7 December 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1128,7 +1128,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 24 November 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 7 December 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1344,6 +1344,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </li>
         <li class="normal" id="section-1-4.3">
           <p id="section-1-4.3.1">An attacker can surreptitiously plant an accessory on a target and thus track them by tracking their "own" accessory.<a href="#section-1-4.3.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-1-4.4">
+          <p id="section-1-4.4.1">Attackers could launch Denial-of-Service (DoS) attacks by flooding the tracking service with spoofed tag reports, disrupting real updates and overwhelming the central server.<a href="#section-1-4.4.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-1-4.5">
+          <p id="section-1-4.5.1">Frequent co-location of multiple tags enables the central server or a passive observer to infer social relationships, routines, or group behaviors, compromising user privacy without consent.<a href="#section-1-4.5.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <p id="section-1-5">While location tracking tags have existed for over a decade, they became especially widely-used in the Global North in the last several years as crowdsourced networks were deployed by major smart phone manufacturers. However, due to their reliance on a high density of non-owner devices for the network to be effective and the relative cost of location tracking tags, location tracker use in the Global South is typically limited to affluent communities. If the cost of non-owner devices and location tracking tags decrease, an uptick of unwanted location tracking could also occur in contexts where it is currently infeasible.<a href="#section-1-5" class="pilcrow">¶</a></p>
@@ -2235,7 +2241,7 @@ Note that once a given attacker persona has been modeled, it could be recombined
         <h3 id="name-design-requirements">
 <a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-design-requirements" class="section-name selfRef">Design Requirements</a>
         </h3>
-<p id="section-4.1-1">The DULT protocol should 1) allow victims to detect unwanted location tracking, 2) help victims find tags that are tracking them, and 3) provide instructions for victims to disable those trackers if they choose. These affordances should be implemented while considering the appropriate privacy and security requirements.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
+<p id="section-4.1-1">The DULT protocol should 1) allow victims to detect unwanted location tracking, 2) help victims find tags that are tracking them while minimizing false positives (e.g., avoiding legitimate, co-owned, or nearby tags being misidentified as threats), and 3) provide instructions for victims to disable those trackers if they choose. These affordances should be implemented while considering the appropriate privacy and security requirements.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
 <div id="detecting-unwanted-location-tracking">
 <section id="section-4.1.1">
           <h4 id="name-detecting-unwanted-location">
@@ -2257,30 +2263,85 @@ Note that once a given attacker persona has been modeled, it could be recombined
             </h5>
 <p id="section-4.1.1.2-1">The platform should passively scan for devices suspected of unwanted location tracking and notify the user. This will involve implementing one or more algorithms to use to flag trackers and determine when to notify the user. (A dedicated DULT WG document will address tracking algorithms, and will be linked when it is available.) The user could be notified through a push notification or through Sounds and Haptics (see <a href="#tracking-tag-alerts" class="auto internal xref">Section 4.1.1.3</a>). When a tag has been identified as potentially being used for unwanted location tracking, the user should be able to view the serial number of the device along with obfuscated owner information (e.g. last four digits of phone number, obfuscated email address) and instructions on how to find and/or disable the device (see <a href="#finding-tracking-tags" class="auto internal xref">Section 4.1.2</a> and <a href="#disabling-tracking-tags" class="auto internal xref">Section 4.1.3</a>). There will be tradeoffs between detecting potential unwanted location tracking promptly and alerting the potential victim prematurely. One way to handle these tradeoffs is to allow users to set the sensitivity of these alerts. For example, the <a href="https://github.com/seemoo-lab/AirGuard">AirGuard</a> app includes three different "Security Level" settings that users can customize.<a href="#section-4.1.1.2-1" class="pilcrow">¶</a></p>
 <p id="section-4.1.1.2-2">To improve the accuracy of unwanted tracking detection, a confidence scoring mechanism can be used. Instead of issuing binary alerts for all detected tracking devices, the system assigns a confidence score based on multiple factors, helping distinguish between genuine tracking threats and benign scenarios.<a href="#section-4.1.1.2-2" class="pilcrow">¶</a></p>
-<p id="section-4.1.1.2-3">A confidence-based approach offers the following advantages:<a href="#section-4.1.1.2-3" class="pilcrow">¶</a></p>
+<p id="section-4.1.1.2-3">This section outlines potential factors that may contribute to assessing the likelihood of unwanted location tracking. Each factor can be considered independently to help inform an overall risk assessment.<a href="#section-4.1.1.2-3" class="pilcrow">¶</a></p>
+<div id="duration-of-proximity">
+<section id="section-4.1.1.2.1">
+              <h6 id="name-duration-of-proximity">
+<a href="#section-4.1.1.2.1" class="section-number selfRef">4.1.1.2.1. </a><a href="#name-duration-of-proximity" class="section-name selfRef">Duration of Proximity</a>
+              </h6>
+<p id="section-4.1.1.2.1-1">Tracks how long a device remains in close proximity to the user.<a href="#section-4.1.1.2.1-1" class="pilcrow">¶</a></p>
+<p id="section-4.1.1.2.1-2"><strong>Rationale</strong>: Devices that persist near a user for extended periods are more likely to indicate tracking activity than transient encounters (e.g., passing someone on public transit).<a href="#section-4.1.1.2.1-2" class="pilcrow">¶</a></p>
+<div id="movement-correlation">
+<section id="section-4.1.1.2.1.1">
+                <h6 id="name-movement-correlation">
+<a href="#section-4.1.1.2.1.1" class="section-number selfRef">4.1.1.2.1.1. </a><a href="#name-movement-correlation" class="section-name selfRef">Movement Correlation</a>
+                </h6>
+<p id="section-4.1.1.2.1.1-1">Measures how closely the movement of the suspected device mirrors that of the user.<a href="#section-4.1.1.2.1.1-1" class="pilcrow">¶</a></p>
+<p id="section-4.1.1.2.1.1-2"><strong>Rationale</strong>: High movement correlation (e.g., appearing at home, then work, then a store with the user) increases the likelihood that the device is following the user intentionally.<a href="#section-4.1.1.2.1.1-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="signal-strength-trends">
+<section id="section-4.1.1.2.1.2">
+                <h6 id="name-signal-strength-trends">
+<a href="#section-4.1.1.2.1.2" class="section-number selfRef">4.1.1.2.1.2. </a><a href="#name-signal-strength-trends" class="section-name selfRef">Signal Strength Trends</a>
+                </h6>
+<p id="section-4.1.1.2.1.2-1">Observes how the signal strength of the suspected device (e.g., Bluetooth RSSI) changes over time.<a href="#section-4.1.1.2.1.2-1" class="pilcrow">¶</a></p>
+<p id="section-4.1.1.2.1.2-2"><strong>Rationale</strong>: A sustained or increasing signal strength suggests physical proximity to the user, strengthening the case for intentional tracking.<a href="#section-4.1.1.2.1.2-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="persistence">
+<section id="section-4.1.1.2.1.3">
+                <h6 id="name-persistence">
+<a href="#section-4.1.1.2.1.3" class="section-number selfRef">4.1.1.2.1.3. </a><a href="#name-persistence" class="section-name selfRef">Persistence</a>
+                </h6>
+<p id="section-4.1.1.2.1.3-1">Evaluates how often and across how many different times/locations the same device is observed, while accounting for identifier rotation.<a href="#section-4.1.1.2.1.3-1" class="pilcrow">¶</a></p>
+<p id="section-4.1.1.2.1.3-2"><strong>Rationale</strong>: Frequent reappearances over time and space can indicate deliberate placement, even if identifiers change periodically.<a href="#section-4.1.1.2.1.3-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="hardware-identity">
+<section id="section-4.1.1.2.1.4">
+                <h6 id="name-hardware-identity">
+<a href="#section-4.1.1.2.1.4" class="section-number selfRef">4.1.1.2.1.4. </a><a href="#name-hardware-identity" class="section-name selfRef">Hardware Identity</a>
+                </h6>
+<p id="section-4.1.1.2.1.4-1">Analyzes available Bluetooth advertisement metadata, such as vendor-specific fields or tracker model indicators, while respecting identifier randomization.<a href="#section-4.1.1.2.1.4-1" class="pilcrow">¶</a></p>
+<p id="section-4.1.1.2.1.4-2"><strong>Rationale</strong>: Certain devices (e.g., known commercial trackers) are more likely to be associated with tracking. Even with rotating identifiers, consistent vendor metadata or other characteristics may provide useful signals.<a href="#section-4.1.1.2.1.4-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="environmental-context">
+<section id="section-4.1.1.2.1.5">
+                <h6 id="name-environmental-context">
+<a href="#section-4.1.1.2.1.5" class="section-number selfRef">4.1.1.2.1.5. </a><a href="#name-environmental-context" class="section-name selfRef">Environmental Context</a>
+                </h6>
+<p id="section-4.1.1.2.1.5-1">Considers the location in which the device is seen (e.g., home, office, public places).<a href="#section-4.1.1.2.1.5-1" class="pilcrow">¶</a></p>
+<p id="section-4.1.1.2.1.5-2"><strong>Rationale</strong>: Devices seen only in familiar, safe zones may be harmless. Appearances in unfamiliar or private locations without explanation raise concern.<a href="#section-4.1.1.2.1.5-2" class="pilcrow">¶</a></p>
+<p id="section-4.1.1.2.1.5-3">A confidence-based approach offers the following advantages:<a href="#section-4.1.1.2.1.5-3" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.1.1.2-4.1">
-                <p id="section-4.1.1.2-4.1.1">Reduced False Positives: A confidence-based approach can help filter out benign tracking scenarios, such as transient signals or shared family devices. Instead of triggering alerts based solely on presence, the system can dynamically adjust its sensitivity based on behavioral patterns. For example, if a tracking device appears near a user only briefly or follows a predictable shared usage pattern (e.g., a Bluetooth tag frequently used by family members), it may be assigned a low confidence score. This prevents unnecessary alerts while still ensuring that persistent and anomalous tracking behaviors are flagged for user attention.<a href="#section-4.1.1.2-4.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-4.1.1.2.1.5-4.1">
+                    <p id="section-4.1.1.2.1.5-4.1.1">Reduced False Positives: A confidence-based approach can help filter out benign tracking scenarios, such as transient signals or shared family devices. Instead of triggering alerts based solely on presence, the system can dynamically adjust its sensitivity based on behavioral patterns. For example, if a tracking device appears near a user only briefly or follows a predictable shared usage pattern (e.g., a Bluetooth tag frequently used by family members), it may be assigned a low confidence score. This prevents unnecessary alerts while still ensuring that persistent and anomalous tracking behaviors are flagged for user attention.<a href="#section-4.1.1.2.1.5-4.1.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="normal" id="section-4.1.1.2-4.2">
-                <p id="section-4.1.1.2-4.2.1">Context-Aware Threat Evaluation: The confidence score can incorporate contextual factors such as movement patterns, duration of proximity, and recurrence. For instance, if a tracker is detected only once in a public place (e.g., at a café or airport), it is less likely to indicate malicious tracking. However, if the same tracker reappears near the user across multiple locations or over an extended period, its confidence score increases, prompting a higher-priority alert.<a href="#section-4.1.1.2-4.2.1" class="pilcrow">¶</a></p>
+                  <li class="normal" id="section-4.1.1.2.1.5-4.2">
+                    <p id="section-4.1.1.2.1.5-4.2.1">Context-Aware Threat Evaluation: The confidence score can incorporate contextual factors such as movement patterns, duration of proximity, and recurrence. For instance, if a tracker is detected only once in a public place (e.g., at a café or airport), it is less likely to indicate malicious tracking. However, if the same tracker reappears near the user across multiple locations or over an extended period, its confidence score increases, prompting a higher-priority alert.<a href="#section-4.1.1.2.1.5-4.2.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="normal" id="section-4.1.1.2-4.3">
-                <p id="section-4.1.1.2-4.3.1">Adaptive Alert Sensitivity: By dynamically adjusting detection thresholds based on confidence scores, the system can prioritize high-risk scenarios while minimizing unnecessary alerts. Users may receive warnings based on escalating levels of certainty, such as:<a href="#section-4.1.1.2-4.3.1" class="pilcrow">¶</a></p>
+                  <li class="normal" id="section-4.1.1.2.1.5-4.3">
+                    <p id="section-4.1.1.2.1.5-4.3.1">Adaptive Alert Sensitivity: By dynamically adjusting detection thresholds based on confidence scores, the system can prioritize high-risk scenarios while minimizing unnecessary alerts. Users may receive warnings based on escalating levels of certainty, such as:<a href="#section-4.1.1.2.1.5-4.3.1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.1.1.2-4.3.2.1">
-                    <p id="section-4.1.1.2-4.3.2.1.1">Low confidence: Informational notification (e.g., "An unfamiliar tracker was briefly detected nearby.")<a href="#section-4.1.1.2-4.3.2.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-4.1.1.2.1.5-4.3.2.1">
+                        <p id="section-4.1.1.2.1.5-4.3.2.1.1">Low confidence: Informational notification (e.g., "An unfamiliar tracker was briefly detected nearby.")<a href="#section-4.1.1.2.1.5-4.3.2.1.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="normal" id="section-4.1.1.2-4.3.2.2">
-                    <p id="section-4.1.1.2-4.3.2.2.1">Medium confidence: Warning with recommended actions (e.g., "A tracker has been detected multiple times near you. Check your surroundings.")<a href="#section-4.1.1.2-4.3.2.2.1" class="pilcrow">¶</a></p>
+                      <li class="normal" id="section-4.1.1.2.1.5-4.3.2.2">
+                        <p id="section-4.1.1.2.1.5-4.3.2.2.1">Medium confidence: Warning with recommended actions (e.g., "A tracker has been detected multiple times near you. Check your surroundings.")<a href="#section-4.1.1.2.1.5-4.3.2.2.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="normal" id="section-4.1.1.2-4.3.2.3">
-                    <p id="section-4.1.1.2-4.3.2.3.1">High confidence: Urgent alert with mitigation options (e.g., "A tracker has been persistently following you. Consider removing or disabling it.")<a href="#section-4.1.1.2-4.3.2.3.1" class="pilcrow">¶</a></p>
+                      <li class="normal" id="section-4.1.1.2.1.5-4.3.2.3">
+                        <p id="section-4.1.1.2.1.5-4.3.2.3.1">High confidence: Urgent alert with mitigation options (e.g., "A tracker has been persistently following you. Consider removing or disabling it.")<a href="#section-4.1.1.2.1.5-4.3.2.3.1" class="pilcrow">¶</a></p>
+</li>
+                    </ul>
 </li>
                 </ul>
-</li>
-            </ul>
-<p id="section-4.1.1.2-5">This approach ensures that users receive actionable and meaningful alerts, reducing notification fatigue while maintaining strong protection against unwanted tracking.<a href="#section-4.1.1.2-5" class="pilcrow">¶</a></p>
+<p id="section-4.1.1.2.1.5-5">This approach ensures that users receive actionable and meaningful alerts, reducing notification fatigue while maintaining strong protection against unwanted tracking.<a href="#section-4.1.1.2.1.5-5" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
 </section>
 </div>
 <div id="tracking-tag-alerts">
@@ -2352,7 +2413,7 @@ Note that once a given attacker persona has been modeled, it could be recombined
 <p id="section-4.2.1-1">Detecting trackers requires analyzing Bluetooth Low Energy (BLE) advertisement packets. Most advertisements are publicly transmitted, allowing passive scanning by any nearby receiver. While this enables open detection of unknown tracking devices, it also raises privacy concerns (see <a href="#introduction" class="auto internal xref">Section 1</a>). Some BLE implementations employ randomized MAC addresses and other privacy-preserving techniques, which could impact persistent tracking detection.<a href="#section-4.2.1-1" class="pilcrow">¶</a></p>
 <p id="section-4.2.1-2">The BLE payload in BLE 4.0 can support advertisement packets of up to 37 bytes. One current adoption of unwanted location tracking requires 12 of these bytes for implementing the basic protocol, with the remaining optional (see <span>[<a href="#I-D.detecting-unwanted-location-trackers" class="cite xref">I-D.detecting-unwanted-location-trackers</a>]</span>). Implementation of the DULT protocol will need to consider these limitations. For example, in <a href="https://eprint.iacr.org/2023/1332.pdf">Eldridge et al</a>, implementing Multi-Dealer Secret Sharing required using two advertisement packets were needed instead of one due to payload constraints. While BLE 5.0 supports 255+ bytes of data, the protocol is not backwards compatible and thus may not be suitable for the DULT protocol.<a href="#section-4.2.1-2" class="pilcrow">¶</a></p>
 <p id="section-4.2.1-3">BLE advertisements operate in the 2.4 GHz ISM band, making them susceptible to interference from Wi-Fi, microwave ovens, and other wireless devices. The presence of environmental noise may degrade detection accuracy and introduce variability in scan results.<a href="#section-4.2.1-3" class="pilcrow">¶</a></p>
-<p id="section-4.2.1-4">The BLE protocol also enforces strict power efficiency mechanisms, such as advertising intervals and connection event scheduling, which impact detection frequency. Devices operating in low-power modes may significantly reduce their advertisement frequency to conserve energy, making periodic detection less reliable. Furthermore, platform-level constraints, such as OS-imposed scanning limits and background activity restrictions, further impact the consistency and responsiveness of tracking detection mechanisms. For further discussion of power constraints, see <a href="#power-constraints" class="auto internal xref">Section 4.2.2</a>.<a href="#section-4.2.1-4" class="pilcrow">¶</a></p>
+<p id="section-4.2.1-4">BLE uses channel hopping for advertising (three advertising channels). Scanners need to cover all these channels to avoid missing advertisements.The BLE protocol also enforces strict power efficiency mechanisms, such as advertising intervals and connection event scheduling, which impact detection frequency. Devices operating in low-power modes or sleep modes may significantly reduce their advertisement frequency to conserve energy, making periodic detection less reliable. Furthermore, platform-level constraints, such as OS-imposed scanning limits and background activity restrictions, further impact the consistency and responsiveness of tracking detection mechanisms. For further discussion of power constraints, see <a href="#power-constraints" class="auto internal xref">Section 4.2.2</a>.<a href="#section-4.2.1-4" class="pilcrow">¶</a></p>
 <p id="section-4.2.1-5">Additionally, Bluetooth-based tracking systems typically rely on an active Bluetooth connection on the owner’s device to determine whether a tag is in the owner's possession. If the owner disables Bluetooth on their phone, the system may incorrectly infer that the tag is no longer nearby, potentially triggering a false positive alert for unwanted tracking. This limitation arises from the inability of Bluetooth-based systems to verify proximity without active signals from the owner’s device. There is currently no straightforward solution to this issue using Bluetooth alone, and it represents an inherent trade-off between privacy and detection reliability. Systems should account for this possibility and communicate it clearly to users.<a href="#section-4.2.1-5" class="pilcrow">¶</a></p>
 <p id="section-4.2.1-6">To address these challenges, detection mechanisms must balance efficiency, privacy, and accuracy while working within the constraints of the BLE protocol. Solutions may include leveraging multiple observations over time, integrating probabilistic risk scoring, and optimizing scanning strategies based on known BLE limitations.<a href="#section-4.2.1-6" class="pilcrow">¶</a></p>
 </section>
@@ -2376,9 +2437,10 @@ Note that once a given attacker persona has been modeled, it could be recombined
 <p id="section-4.2.3-1">Unwanted tracking detection is constrained by the diverse range of devices used for scanning, each with varying hardware capabilities, operating system restrictions, processing power, and connectivity limitations. These factors directly impact the effectiveness of detection mechanisms and must be carefully considered in protocol design.<a href="#section-4.2.3-1" class="pilcrow">¶</a></p>
 <p id="section-4.2.3-2">Hardware variability affects detection accuracy. While newer smartphones are equipped with advanced Bluetooth Low Energy (BLE) chipsets capable of frequent and reliable scanning, older smartphones, feature phones, and IoT devices may have reduced BLE performance. Differences in antenna sensitivity, chipset power, and OS-level access control can result in inconsistent detection, where some devices fail to detect tracking signals as reliably as others.<a href="#section-4.2.3-2" class="pilcrow">¶</a></p>
 <p id="section-4.2.3-3">Operating system restrictions can affect detection efforts, particularly due to background Bluetooth Low Energy (BLE) scanning policies. Both iOS and Android implement mechanisms to manage background scanning behavior, balancing energy efficiency and privacy considerations. On iOS, background BLE scanning operates with periodic constraints, which may limit the frequency of detection updates. Android applies similar policies to regulate background processes and optimize power consumption. Additionally, privacy frameworks on mobile platforms may influence how applications access and process certain device-related data. These factors, along with resource limitations in wearables and IoT devices, can impact the feasibility of continuous scanning and detection.<a href="#section-4.2.3-3" class="pilcrow">¶</a></p>
-<p id="section-4.2.3-4">Processing and memory constraints are another limiting factor, particularly for low-end mobile devices and embedded systems. Continuous scanning and anomaly detection algorithms, especially those relying on machine learning-based threat detection, require substantial processing power and RAM. Devices with limited computational resources may struggle to maintain effective real-time detection without degrading overall performance. Ensuring that detection mechanisms remain lightweight and optimized for constrained environments is essential.<a href="#section-4.2.3-4" class="pilcrow">¶</a></p>
-<p id="section-4.2.3-5">Connectivity limitations introduce additional challenges. Some unwanted tracking detection mechanisms rely on cloud-based lookups to verify tracker identities and share threat intelligence. However, users in offline environments, such as those in airplane mode, rural areas with limited connectivity, or secure facilities with network restrictions, may be unable to access these services. In such cases, detection must rely on local scanning and offline heuristics rather than real-time cloud-based verification.<a href="#section-4.2.3-5" class="pilcrow">¶</a></p>
-<p id="section-4.2.3-6">To address these challenges, detection mechanisms should incorporate adaptive scanning strategies that adjust based on device capabilities, optimizing performance while maintaining security. Lightweight detection methods, such as event-triggered scanning and passive Bluetooth listening, can improve efficiency on constrained devices. Additionally, fallback mechanisms should be implemented to provide at least partial detection functionality even when full-featured scanning is not available. Ensuring that detection remains effective across diverse hardware and software environments is critical for broad user protection.<a href="#section-4.2.3-6" class="pilcrow">¶</a></p>
+<p id="section-4.2.3-4">Further, platform permission models can restrict access to BLE scan data. For example, Android requires coarse or fine location permissions to perform BLE scanning, and users may revoke these permissions. Additionally, radio coexistence (BLE and Wi-Fi sharing the 2.4 GHz band) can impact BLE performance, especially on devices with shared chipsets. User interface constraints, especially on wearables, may also limit how users receive or interact with tracking alerts.<a href="#section-4.2.3-4" class="pilcrow">¶</a></p>
+<p id="section-4.2.3-5">Processing and memory constraints are another limiting factor, particularly for low-end mobile devices and embedded systems. Continuous scanning and anomaly detection algorithms, especially those relying on machine learning-based threat detection, require substantial processing power and RAM. Devices with limited computational resources may struggle to maintain effective real-time detection without degrading overall performance. Ensuring that detection mechanisms remain lightweight and optimized for constrained environments is essential.<a href="#section-4.2.3-5" class="pilcrow">¶</a></p>
+<p id="section-4.2.3-6">Connectivity limitations introduce additional challenges. Some unwanted tracking detection mechanisms rely on cloud-based lookups to verify tracker identities and share threat intelligence. However, users in offline environments, such as those in airplane mode, rural areas with limited connectivity, or secure facilities with network restrictions, may be unable to access these services. In such cases, detection must rely on local scanning and offline heuristics rather than real-time cloud-based verification.<a href="#section-4.2.3-6" class="pilcrow">¶</a></p>
+<p id="section-4.2.3-7">To address these challenges, detection mechanisms should incorporate adaptive scanning strategies that adjust based on device capabilities, optimizing performance while maintaining security. Lightweight detection methods, such as event-triggered scanning and passive Bluetooth listening, can improve efficiency on constrained devices. Additionally, fallback mechanisms should be implemented to provide at least partial detection functionality even when full-featured scanning is not available. Ensuring that detection remains effective across diverse hardware and software environments is critical for broad user protection.<a href="#section-4.2.3-7" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
