@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-03T01:22:35.403812+00:00",
+  "timestamp": "2025-06-05T01:21:32.574442+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -1048,7 +1048,7 @@
       "labels": [],
       "body": "Adding this issue on behalf of Eva Galperin's email on 10/18/2024. In that email she stated:\n\n\"I also support adoption, with the caveats that the TODO sections still need to be filled in and that if the behavior of trackers that are paired to multiple devices is outside of the scope of this document, then we need to make sure to cover it somewhere else. Many trackers currently have this capabilitiy and I want to make sure that if a person finds an unwanted tracker that they are able to find out about all of the devices that it is paired to, not just the primary one.\"\n\nNot sure if this has been addressed or not, but when I just read through the threat model document, I don't think this issue has been addressed yet.",
       "createdAt": "2025-03-04T18:18:05Z",
-      "updatedAt": "2025-05-20T18:26:39Z",
+      "updatedAt": "2025-06-04T15:54:04Z",
       "closedAt": null,
       "comments": [
         {
@@ -1057,6 +1057,20 @@
           "body": "More information from IETF 122 relevant to this issue:\n\nApple currently provides the last four digits of the phone number or an obfuscated email address of the person who registered it. If a tag is connected to more than one account, it does not address this. Eva elaborated: \"I just want to make sure that if a tag is reporting to multiple accounts that the person who is being followed by the tag has a way of knowing how many and having the same data about all of the accounts.\"\n\nAn open question is whether multiple accounts should even be able to be paired to a tag at all. One example for where it could be would be family sharing. Then the next question is where to address this. I think it is fine to include a design requirement in this threat model document, but then something also needs to be in the accessory protocol document: During the meeting,  ekr said: Refreshing my memory, S 3.16.1 of the accessory protocol document covers this. It seems like if anything needs to change, it's a sentence that says \"if there are multiple owners, then this information shall be available for all of them\".\n\nSo order of operations:\n- decide whether multiple accounts should be able to be paired to a tag (I think this is just yes)\n- update design requirements in this doc\n- add a line to the accessory protocol document\n\nEva said she could help with this so I will reach out to her directly.",
           "createdAt": "2025-04-09T20:50:12Z",
           "updatedAt": "2025-04-09T20:50:12Z"
+        },
+        {
+          "author": "cstapl",
+          "authorAssociation": "NONE",
+          "body": "Maggie, Eva - there's another side to this we should consider: A close proximity attack where the threat actor has physical access to the victim's device, knowledge of the passcode, etc. and shares the malicious tracker with the victim as a way to circumvent the alerts. Should I create a new issue related to that, or should it be considered in the work above? ",
+          "createdAt": "2025-06-03T15:23:26Z",
+          "updatedAt": "2025-06-03T15:23:26Z"
+        },
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I think this fits in with #108? I think creating an attack for this would be a great idea. See also #109 that Jessie is working on. I think this is discrete enough that you can add it though since they are not adding to the attacks section in that PR.",
+          "createdAt": "2025-06-04T15:53:56Z",
+          "updatedAt": "2025-06-04T15:53:56Z"
         }
       ]
     },
@@ -1392,14 +1406,23 @@
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
-        "shaileshprabhu95"
+        "shaileshprabhu95",
+        "cstapl"
       ],
       "labels": [],
       "body": "We have a new section about attacker access to victim account (under security considerations), but I am wondering if we also need to include it as a threat against the DULT protocol.\n\nA user will not be notified of potential unwanted location tracking if they are being tracked by their own tag.\n\nI think the step here would be to take some of the language from the aforementioned section and create an attack for it.",
       "createdAt": "2025-05-23T20:36:27Z",
-      "updatedAt": "2025-05-23T20:37:00Z",
+      "updatedAt": "2025-06-03T15:17:26Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "cstapl",
+          "authorAssociation": "NONE",
+          "body": "Agree. Multi-user access is an important safety consideration - both via surreptitious account access, and surreptitious shared trackers. ",
+          "createdAt": "2025-06-03T15:17:25Z",
+          "updatedAt": "2025-06-03T15:17:25Z"
+        }
+      ]
     },
     {
       "number": 111,
@@ -1409,13 +1432,73 @@
       "state": "OPEN",
       "author": "cstapl",
       "authorAssociation": "NONE",
-      "assignees": [],
+      "assignees": [
+        "exploretechsafety"
+      ],
       "labels": [],
       "body": "Example scenarios currently focus on threat actors known to the victim. We should consider including threat actors not known to the victim, as there have been a number of examples of this type of stalking at bars and other nightlife activities. In these circumstances it may be more challenging for the victim to identify the attacker, since they will not be able to recognize obfuscated phone number or email. ",
       "createdAt": "2025-06-02T18:12:25Z",
-      "updatedAt": "2025-06-02T18:12:25Z",
+      "updatedAt": "2025-06-03T19:30:54Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Great point. Jessie is going to be working on updating the taxonomy, so this is good timing. See also #61. ",
+          "createdAt": "2025-06-03T19:30:46Z",
+          "updatedAt": "2025-06-03T19:30:46Z"
+        }
+      ]
+    },
+    {
+      "number": 113,
+      "id": "I_kwDOMB0Qas65n5-y",
+      "title": "Missing threat - someone being tracked with a GPS + cellular/sattelite enabled tracker",
+      "url": "https://github.com/ietf-wg-dult/threat-model/issues/113",
+      "state": "OPEN",
+      "author": "cstapl",
+      "authorAssociation": "NONE",
+      "assignees": [
+        "cstapl"
+      ],
+      "labels": [],
+      "body": "Threat actors are able to use GPS only trackers to circumvent protections.  While development of a standard unique to GPS is out of scope for this workgroup, the standard can certainly encourage GPS + cellular/satellite tracker companies to include bluetooth functionality in their trackers so that they can implement the anti-stalking protocol that is in scope. \n\nWould be good to add a threat scenario detailing the unique threats faced by victims related to GPS / cellular tracker misuse (e.g. realtime tracking, increased precision via precise coordinates rather than last known location), and pointing to incorporating bluetooth so that these victims have the benefit of the alerts as well.",
+      "createdAt": "2025-06-03T14:33:42Z",
+      "updatedAt": "2025-06-04T15:38:55Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I think this is a good idea. Would you be willing to take the first attempt at incorporating this? There are a lot of different places where we could mention it. Here's how I think we should go about it:\n\n- Mention in 3.2.2 that GPS can be used and would have different affordances (such as increased precision), but is out of scope unless manufacturers add bluetooth\n- Add an \"attack\" to section 3.3 (probably at the end?) and the threat matrix table that talks about using GPS instead of bluetooth\n- Add GPS as out of scope to 3.5.1, but also mention what we said in 3.2.2 or otherwise refer to 3.2.2",
+          "createdAt": "2025-06-04T15:38:48Z",
+          "updatedAt": "2025-06-04T15:38:48Z"
+        }
+      ]
+    },
+    {
+      "number": 114,
+      "id": "I_kwDOMB0Qas65oglU",
+      "title": "Design considerations section: Finding",
+      "url": "https://github.com/ietf-wg-dult/threat-model/issues/114",
+      "state": "OPEN",
+      "author": "cstapl",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Can we make mention of ultra-wideband as a more accessible form of finding in the Design Considerations section? It can help a person narrow in to where a support person (e.g. mechanic, law enforcement officer) could focus, even if the tracker is out of reach due to being taped or embedded in a hard to reach area. While it's not a requirement, it points to the importance of adopting emerging technologies that improve user safety experience. ",
+      "createdAt": "2025-06-03T15:12:51Z",
+      "updatedAt": "2025-06-04T15:46:40Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Absolutely, I think we have some text on this already (emphasis mine), but let me know if we should elaborate:\n\n> Even after a location tracker is detected through passive or active scanning, a user may have difficulty in locating it. For example, a tag may be buried under a vehicle cushion. Platforms should allow users who have discovered a tracker through passive or active scanning to request that the tracker signal its presence. This assistance should be done in a way that is accessible to users with sensory or other impairments by using multimodal signals as described in [Section 4.1.1.3](https://file+.vscode-resource.vscode-cdn.net/Users/mdelano1/Documents/GitHub/threat-model/draft-ietf-dult-threat-model.html#tracking-tag-alerts). **Platforms may also implement other methods to assist in locating trackers, such as precision finding using Ultra-wideband.**",
+          "createdAt": "2025-06-04T15:46:39Z",
+          "updatedAt": "2025-06-04T15:46:39Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -3633,18 +3716,26 @@
       "labels": [],
       "body": "Closes #105.",
       "createdAt": "2025-05-23T20:33:33Z",
-      "updatedAt": "2025-05-29T16:44:48Z",
+      "updatedAt": "2025-06-03T17:50:03Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
       "baseRefOid": "9996e603b43a9b3f3e4a01832ab74aa6002a00f8",
       "headRepository": "ietf-wg-dult/threat-model",
       "headRefName": "delano-logging",
-      "headRefOid": "d88716c50d7e7e95345fa2bd8dd5467db6a84037",
+      "headRefOid": "53a3b53334439122b2e8bf5e6008069c72cb1989",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Yes, this is a good point. I added a clarification: \"should not be able to be easily deleted by accessory owners, who might do so as a way to hide evidence of unwanted location tracking.\" I didn't include anything explicit about GPDR or other privacy laws since I think it is OK to be a bit vague there, but let me know if you disagree.",
+          "createdAt": "2025-06-03T17:50:02Z",
+          "updatedAt": "2025-06-03T17:50:02Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDOMB0Qas6rmTv4",
@@ -3673,19 +3764,33 @@
       "labels": [],
       "body": "Addresses #62 . May also address #36 in part.",
       "createdAt": "2025-05-29T20:19:53Z",
-      "updatedAt": "2025-05-29T20:19:54Z",
+      "updatedAt": "2025-06-03T18:53:03Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
       "baseRefOid": "9996e603b43a9b3f3e4a01832ab74aa6002a00f8",
       "headRepository": "ietf-wg-dult/threat-model",
       "headRefName": "exploretechsafety-requirements-privacy-security",
-      "headRefOid": "e80ec6e9214a19ef288dc136db567cc8d342918d",
+      "headRefOid": "60c15e902ffe75fbaabe1bdbbc29eccad0d0eb8a",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOMB0Qas6sepHW",
+          "commit": {
+            "abbreviatedOid": "60c15e9"
+          },
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "Thanks! This is a great start. I realized where we had this section doesn't make as much sense anymore, so I moved it up and massaged things a bit to fit in in the new section.\r\n\r\nI also made some minor changes. For example, in \"Privacy for potential victims against the use of security measures for further surveillance\", I think we mean access through the web account right? \r\n\r\nAlso, for the \"Privacy for unassociated tag owners\" section: is this intended to be more background information or are there concrete recommendations we can make on how to do this? if it is more the former, I'd move it to the top of the section. If we have something for the latter, I'd add it there and maybe condense that section a bit.",
+          "createdAt": "2025-06-03T18:53:03Z",
+          "updatedAt": "2025-06-03T18:53:03Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 110,
@@ -3699,7 +3804,7 @@
       "labels": [],
       "body": "This commit addresses Issue #36 Discuss Possible Design Tradeoffs.",
       "createdAt": "2025-05-30T20:45:09Z",
-      "updatedAt": "2025-05-30T20:45:10Z",
+      "updatedAt": "2025-06-03T19:28:07Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
       "baseRefOid": "9996e603b43a9b3f3e4a01832ab74aa6002a00f8",
@@ -3711,7 +3816,82 @@
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOMB0Qas6sfDGn",
+          "commit": {
+            "abbreviatedOid": "106a6de"
+          },
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "A few thoughts on this:\r\n\r\n- We might want to wait until we figure out #109 before we merge this; I think there are a lot of overlaps. It might just be worth citing that section and then moving on.\r\n- We need to consider scope in terms of nation state level surveillance. This is what our out of scope section says right now: \"Attackers with nation-state level expertise and resources who deploy custom or altered tracking tags to bypass protocol safeguards or jailbreak a victim end-device (e.g. smartphone) are considered out of scope.\" This actually seems a bit too broad (as in, we have impersonation attacks in the attacks section), so we might want to strike that part of the out-of-scope sentence.\r\n- The sentence with 1), 2), 3) seems a bit meta / something for us to consider, but I'm not sure whether it needs to be in the document. Or if it is, maybe this isn't the right place for it.\r\n\r\nLet me know your thoughts.",
+          "createdAt": "2025-06-03T19:28:07Z",
+          "updatedAt": "2025-06-03T19:28:07Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 112,
+      "id": "PR_kwDOMB0Qas6Yv8XP",
+      "title": "Suggested edits to the threat-model draft",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/112",
+      "state": "OPEN",
+      "author": "dianaoa22",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Suggesting targeted updates to draft-ietf-dult-threat-model-01, with the goal to enhance the threat coverage and inform detection strategy design.\r\n\r\nKey additions include:\r\n\r\nSection 1 \u2013 Introduction:\r\nIdentified the threat of DoS attacks through spoofed tag reports flooding the central service, which could overwhelm it and impair legitimate operations.\r\n\r\nSection 1 \u2013 Introduction:\r\nEmphasized that frequent tag co-location may reveal social connections or group activities, posing unintended privacy concerns.\r\n\r\nSection 4.1.1.1. Active Scanning:\r\nOutlined potential negative scenarios and suggested implementing rate limiting as a mitigation strategy.\r\n\r\nSection 4.1.1.2.  Passive Scanning\r\nRecommended confidence scoring factors to help distinguish benign vs. malicious tag presence, reducing false positives and improving detection robustness.",
+      "createdAt": "2025-06-03T05:58:36Z",
+      "updatedAt": "2025-06-04T19:47:33Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "9996e603b43a9b3f3e4a01832ab74aa6002a00f8",
+      "headRepository": "dianaoa22/threat-model",
+      "headRefName": "thread-model-enhancements",
+      "headRefOid": "755be90d2ce9180757a5bdc715ec65a65d27d2a1",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "dianaoa22",
+          "authorAssociation": "NONE",
+          "body": "Thanks for your feedback. The updated PR will cover these.\r\n\r\nline 65: Please define DoS\r\n>>Updated to define DoS as \"Denial-of-Service (DoS)\" on first mention for clarity.\r\nline 381: I think 4) should be incorporated into 2) (e.g. help victims find tags that are tracking them while minimizing false positives)\r\n>>Revised point 2 to include the false positive concern (e.g., \u201chelp victims find tags that are tracking them while minimizing false positives\u201d). Removed separate point 4 accordingly.\r\nline 389: I am not sure that I agree with rate limiting active scanning. I understand this might make it easier to detect legitimate tags, but as a WG we have decided to try to prioritize detecting unwanted location tracking over theft prevention. I do think there are potential concerns with remote disablement that we are also discussing which is a separate issue. See e.g. https://github.com/ietf-wg-dult/accessory-protocol/pull/20, https://github.com/ietf-wg-dult/accessory-protocol/issues/23\r\n>>Acknowledged the WG's prioritization of unwanted tracking detection over theft prevention and removed this.\r\nline 397: For the confidence score: The section headers should be implemented using markdown headers (one # per level).\r\n>>Reformatted the confidence score section using appropriate Markdown header levels to align with the Passive Scanning section structure.\r\nAlso re: confidence score: I think it would be nice to list these as potential factors to consider, but there will be an entirely different document dedicated to the algorithm so I don't want to constrain what they are working on.\r\n>>Reworded the introductory paragraph to clarify that the listed factors are illustrative examples, not prescriptive requirements, leaving room for flexibility in future algorithm design.\r\nLine 493: I'd combine this into the below paragraph\r\n>>Combined the content into the following paragraph for improved flow and conciseness.\r\n\r\n",
+          "createdAt": "2025-06-04T06:19:38Z",
+          "updatedAt": "2025-06-04T06:19:38Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOMB0Qas6sfW0X",
+          "commit": {
+            "abbreviatedOid": "b3d8a37"
+          },
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "Thanks for your PR! Here are my comments and some requested changes.\r\n\r\n- line 65: Please define DoS\r\n- line 381: I think 4) should be incorporated into 2) (e.g. help victims find tags that are tracking them while minimizing false positives)\r\n- line 389: I am not sure that I agree with rate limiting active scanning. I understand this might make it easier to detect legitimate tags, but as a WG we have decided to try to prioritize detecting unwanted location tracking over theft prevention.  I do think there are potential concerns with remote disablement that we are also discussing which is a separate issue. See e.g. https://github.com/ietf-wg-dult/accessory-protocol/pull/20, https://github.com/ietf-wg-dult/accessory-protocol/issues/23\r\n- line 397: For the confidence score: The section headers should be implemented using markdown headers (one # per level). \r\n- Also re: confidence score: I think it would be nice to list these as potential factors to consider, but there will be an entirely different document dedicated to the algorithm so I don't want to constrain what they are working on.\r\n- Line 493: I'd combine this into the below paragraph",
+          "createdAt": "2025-06-03T19:50:12Z",
+          "updatedAt": "2025-06-03T19:50:12Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOMB0Qas6susOB",
+          "commit": {
+            "abbreviatedOid": "755be90"
+          },
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "Thanks for these changes! I think most other than the factors for assessing the likelihood of unwanted location tracking are good to go.\r\n\r\nRegarding that section (starting at 397):\r\n- line 417: Right now the [accessory protocol document](https://github.com/ietf-wg-dult/accessory-protocol/blob/main/draft-ietf-dult-accessory-protocol.md) is written in such a way that unwanted tracking alerts do not trigger except when the near owner bit is off (i.e. not near the owner). So I think that would handle this case. On the other hand, there are also scenarios where someone is actually being tracked with their own tag (i.e. it isn't benign). Not sure how to handle this; I might just remove lines 417-421.\r\n- line 423, line 429: Due to privacy concerns we might not have a lot of information about persistence and hardware identity. Right now the accessory protocol rotates identifiers every 24 hrs when away from the owner. I would check and see what information is likely to be available in the BT advertisement for the Hardware Identity section (I think vendor information and maybe even tracker model would be available, but the identifier will rotate at least once every 24 hrs if not more). I would also use the same terminology as the accessory protocol document where possible (we will be doing a full rewrite to update the terminology soon). So I wouldn't use e.g. MAC address.",
+          "createdAt": "2025-06-04T19:47:33Z",
+          "updatedAt": "2025-06-04T19:47:33Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
