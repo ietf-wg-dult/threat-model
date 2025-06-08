@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-05T01:21:32.574442+00:00",
+  "timestamp": "2025-06-08T01:37:16.760515+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -526,7 +526,7 @@
       "labels": [],
       "body": "Detecting unwanted location tracking is often discussed as a trade off between privacy of unassociated tag owners and security of tracking victims (see e.g. [this article](https://eprint.iacr.org/2023/1332.pdf)). However, victims could be threatened using either attacks related to [remote advertisement monitoring](https://github.com/ietf-wg-dult/threat-model/issues/17) as well as the \"standard\" tracking scenario. Update the document to discuss this, and how the protocol should prioritize different types of attacks, victims, etc.",
       "createdAt": "2025-01-29T20:36:41Z",
-      "updatedAt": "2025-04-11T18:24:45Z",
+      "updatedAt": "2025-06-07T02:53:24Z",
       "closedAt": null,
       "comments": [
         {
@@ -3837,31 +3837,40 @@
       "id": "PR_kwDOMB0Qas6Yv8XP",
       "title": "Suggested edits to the threat-model draft",
       "url": "https://github.com/ietf-wg-dult/threat-model/pull/112",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "dianaoa22",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Suggesting targeted updates to draft-ietf-dult-threat-model-01, with the goal to enhance the threat coverage and inform detection strategy design.\r\n\r\nKey additions include:\r\n\r\nSection 1 \u2013 Introduction:\r\nIdentified the threat of DoS attacks through spoofed tag reports flooding the central service, which could overwhelm it and impair legitimate operations.\r\n\r\nSection 1 \u2013 Introduction:\r\nEmphasized that frequent tag co-location may reveal social connections or group activities, posing unintended privacy concerns.\r\n\r\nSection 4.1.1.1. Active Scanning:\r\nOutlined potential negative scenarios and suggested implementing rate limiting as a mitigation strategy.\r\n\r\nSection 4.1.1.2.  Passive Scanning\r\nRecommended confidence scoring factors to help distinguish benign vs. malicious tag presence, reducing false positives and improving detection robustness.",
       "createdAt": "2025-06-03T05:58:36Z",
-      "updatedAt": "2025-06-04T19:47:33Z",
+      "updatedAt": "2025-06-05T14:55:53Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
       "baseRefOid": "9996e603b43a9b3f3e4a01832ab74aa6002a00f8",
       "headRepository": "dianaoa22/threat-model",
       "headRefName": "thread-model-enhancements",
-      "headRefOid": "755be90d2ce9180757a5bdc715ec65a65d27d2a1",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "4e4e9108a21c747810139c8119582c4888e33037",
+      "closedAt": "2025-06-05T14:55:52Z",
+      "mergedAt": "2025-06-05T14:55:52Z",
+      "mergedBy": "maggiedelano",
+      "mergeCommit": {
+        "oid": "61b0ee7535e2b55cc10019059bfc690f8506fb11"
+      },
       "comments": [
         {
           "author": "dianaoa22",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Thanks for your feedback. The updated PR will cover these.\r\n\r\nline 65: Please define DoS\r\n>>Updated to define DoS as \"Denial-of-Service (DoS)\" on first mention for clarity.\r\nline 381: I think 4) should be incorporated into 2) (e.g. help victims find tags that are tracking them while minimizing false positives)\r\n>>Revised point 2 to include the false positive concern (e.g., \u201chelp victims find tags that are tracking them while minimizing false positives\u201d). Removed separate point 4 accordingly.\r\nline 389: I am not sure that I agree with rate limiting active scanning. I understand this might make it easier to detect legitimate tags, but as a WG we have decided to try to prioritize detecting unwanted location tracking over theft prevention. I do think there are potential concerns with remote disablement that we are also discussing which is a separate issue. See e.g. https://github.com/ietf-wg-dult/accessory-protocol/pull/20, https://github.com/ietf-wg-dult/accessory-protocol/issues/23\r\n>>Acknowledged the WG's prioritization of unwanted tracking detection over theft prevention and removed this.\r\nline 397: For the confidence score: The section headers should be implemented using markdown headers (one # per level).\r\n>>Reformatted the confidence score section using appropriate Markdown header levels to align with the Passive Scanning section structure.\r\nAlso re: confidence score: I think it would be nice to list these as potential factors to consider, but there will be an entirely different document dedicated to the algorithm so I don't want to constrain what they are working on.\r\n>>Reworded the introductory paragraph to clarify that the listed factors are illustrative examples, not prescriptive requirements, leaving room for flexibility in future algorithm design.\r\nLine 493: I'd combine this into the below paragraph\r\n>>Combined the content into the following paragraph for improved flow and conciseness.\r\n\r\n",
           "createdAt": "2025-06-04T06:19:38Z",
           "updatedAt": "2025-06-04T06:19:38Z"
+        },
+        {
+          "author": "dianaoa22",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Thank you for the feedback.\r\n\r\nLines 417\u2013421: Agreed. Since the accessory protocol suppresses alerts when the \"near owner\" bit is set, the absence of a known owner is already implicitly handled. I've removed this section.\r\n\r\nLines 423 & 429: Good point regarding privacy limitations. I've revised the language to reflect the limited observability due to identifier rotation and randomization. The text now focuses on available Bluetooth advertisement metadata (e.g., vendor-specific fields or model indicators) without assuming stable identifiers. \r\n\r\nPlease feel free to remove or update further as needed.",
+          "createdAt": "2025-06-05T05:06:54Z",
+          "updatedAt": "2025-06-05T05:06:54Z"
         }
       ],
       "reviews": [
@@ -3889,6 +3898,19 @@
           "body": "Thanks for these changes! I think most other than the factors for assessing the likelihood of unwanted location tracking are good to go.\r\n\r\nRegarding that section (starting at 397):\r\n- line 417: Right now the [accessory protocol document](https://github.com/ietf-wg-dult/accessory-protocol/blob/main/draft-ietf-dult-accessory-protocol.md) is written in such a way that unwanted tracking alerts do not trigger except when the near owner bit is off (i.e. not near the owner). So I think that would handle this case. On the other hand, there are also scenarios where someone is actually being tracked with their own tag (i.e. it isn't benign). Not sure how to handle this; I might just remove lines 417-421.\r\n- line 423, line 429: Due to privacy concerns we might not have a lot of information about persistence and hardware identity. Right now the accessory protocol rotates identifiers every 24 hrs when away from the owner. I would check and see what information is likely to be available in the BT advertisement for the Hardware Identity section (I think vendor information and maybe even tracker model would be available, but the identifier will rotate at least once every 24 hrs if not more). I would also use the same terminology as the accessory protocol document where possible (we will be doing a full rewrite to update the terminology soon). So I wouldn't use e.g. MAC address.",
           "createdAt": "2025-06-04T19:47:33Z",
           "updatedAt": "2025-06-04T19:47:33Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOMB0Qas6s5Oa8",
+          "commit": {
+            "abbreviatedOid": "4728e77"
+          },
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Thanks for these updates, merging now!",
+          "createdAt": "2025-06-05T14:53:43Z",
+          "updatedAt": "2025-06-05T14:53:43Z",
           "comments": []
         }
       ]
