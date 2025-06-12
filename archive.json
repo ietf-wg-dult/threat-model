@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-08T01:37:16.760515+00:00",
+  "timestamp": "2025-06-12T01:21:54.114777+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -1488,7 +1488,7 @@
       "labels": [],
       "body": "Can we make mention of ultra-wideband as a more accessible form of finding in the Design Considerations section? It can help a person narrow in to where a support person (e.g. mechanic, law enforcement officer) could focus, even if the tracker is out of reach due to being taped or embedded in a hard to reach area. While it's not a requirement, it points to the importance of adopting emerging technologies that improve user safety experience. ",
       "createdAt": "2025-06-03T15:12:51Z",
-      "updatedAt": "2025-06-04T15:46:40Z",
+      "updatedAt": "2025-06-10T21:02:20Z",
       "closedAt": null,
       "comments": [
         {
@@ -1497,6 +1497,13 @@
           "body": "Absolutely, I think we have some text on this already (emphasis mine), but let me know if we should elaborate:\n\n> Even after a location tracker is detected through passive or active scanning, a user may have difficulty in locating it. For example, a tag may be buried under a vehicle cushion. Platforms should allow users who have discovered a tracker through passive or active scanning to request that the tracker signal its presence. This assistance should be done in a way that is accessible to users with sensory or other impairments by using multimodal signals as described in [Section 4.1.1.3](https://file+.vscode-resource.vscode-cdn.net/Users/mdelano1/Documents/GitHub/threat-model/draft-ietf-dult-threat-model.html#tracking-tag-alerts). **Platforms may also implement other methods to assist in locating trackers, such as precision finding using Ultra-wideband.**",
           "createdAt": "2025-06-04T15:46:39Z",
           "updatedAt": "2025-06-04T15:46:39Z"
+        },
+        {
+          "author": "cstapl",
+          "authorAssociation": "NONE",
+          "body": "Apologies - I meant for this comment to be related to the Tracking Tag Alerts section. This seems like an ideal place to discuss ultra wideband finding, as it's both more useful to victims, and it's a more accessible tool for users with disabilities, e.g. visual impairment or hearing loss. ",
+          "createdAt": "2025-06-10T21:02:20Z",
+          "updatedAt": "2025-06-10T21:02:20Z"
         }
       ]
     }
