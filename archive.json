@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-12T01:21:54.114777+00:00",
+  "timestamp": "2025-06-15T01:39:06.139222+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -1488,7 +1488,7 @@
       "labels": [],
       "body": "Can we make mention of ultra-wideband as a more accessible form of finding in the Design Considerations section? It can help a person narrow in to where a support person (e.g. mechanic, law enforcement officer) could focus, even if the tracker is out of reach due to being taped or embedded in a hard to reach area. While it's not a requirement, it points to the importance of adopting emerging technologies that improve user safety experience. ",
       "createdAt": "2025-06-03T15:12:51Z",
-      "updatedAt": "2025-06-10T21:02:20Z",
+      "updatedAt": "2025-06-12T19:35:36Z",
       "closedAt": null,
       "comments": [
         {
@@ -1504,6 +1504,13 @@
           "body": "Apologies - I meant for this comment to be related to the Tracking Tag Alerts section. This seems like an ideal place to discuss ultra wideband finding, as it's both more useful to victims, and it's a more accessible tool for users with disabilities, e.g. visual impairment or hearing loss. ",
           "createdAt": "2025-06-10T21:02:20Z",
           "updatedAt": "2025-06-10T21:02:20Z"
+        },
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "OK got it. Is there any particular text you have in mind? The Finding Tracking Tags section comes right after this one, so I want to avoid being redundant. Maybe we could refer to the Finding Tracking Tags section?\n\nRelevant text for convenience:\n\n> #### Tracking Tag Alerts\n> \n> Tracking tags may be difficult to locate, and users may not have a device that can actively or passively scan for tracking tags. The DULT protocol should be built with [accessibility in mind](https://cdt.org/insights/centering-disability-in-mitigating-harms-of-bluetooth-tracking-technology/) so that the most people can be protected by the protocol. In addition to push notifications on nearby devices, tracking tags themselves should be able to notify end users. This should include periodic sounds when away from an owner, along with lights and haptics so that people who are Deaf or hard of hearing can still locate them.\n> \n> ### Finding Tracking Tags\n> \n> Even after a location tracker is detected through passive or active scanning, a user may have difficulty in locating it. For example, a tag may be buried under a vehicle cushion. Platforms should allow users who have discovered a tracker through passive or active scanning to request that the tracker signal its presence. This assistance should be done in a way that is accessible to users with sensory or other impairments by using multimodal signals as described in {{tracking-tag-alerts}}. Platforms may also implement other methods to assist in locating trackers, such as precision finding using Ultra-wideband.",
+          "createdAt": "2025-06-12T19:35:36Z",
+          "updatedAt": "2025-06-12T19:35:36Z"
         }
       ]
     }
