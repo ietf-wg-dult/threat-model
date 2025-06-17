@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-15T01:39:06.139222+00:00",
+  "timestamp": "2025-06-17T01:23:25.462824+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -1393,9 +1393,17 @@
       "labels": [],
       "body": "In the current threat matrix, we have a separate category for feasibility and for likelihood. However, in practice they seem be mostly redundant because there is only one attack where they aren't perfectly aligned (i.e. easy feasibility = high likelihood, hard feasibility = low likelihood, or moderate feasibility = medium likelihood, see table below). Additionally, the definition of high likelihood includes a direct reference to feasibility (High: Frequently occurring or easily executed.) \n\nI propose we merge these categories into just likelihood. This would require updating the threat matrix and also any references to feasibility in the text (though we can use feasibility as a reason to justify likelihood). Shailesh, this was your original taxonomy, what do you think?\n\n![Image](https://github.com/user-attachments/assets/13ef54bc-5f69-4878-ae57-ece7599d12d8)",
       "createdAt": "2025-05-23T20:10:28Z",
-      "updatedAt": "2025-05-23T20:10:58Z",
+      "updatedAt": "2025-06-15T16:32:22Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "shaileshprabhu95",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@maggiedelano  - thanks for raising this. Yes, I agree with your valid observation. In the current draft, **Likelihood** and **Feasibility** map closely, forming a 1:1 correlation.\nI've raised a PR which removes **Feasibility** as a separate metric and merged it with **Likelihood** (using feasibility as a supporting explanation within the text instead of a standalone matrix column).\n\nKindly review: https://github.com/ietf-wg-dult/threat-model/pull/115\ncc: @exploretechsafety ",
+          "createdAt": "2025-06-15T16:32:22Z",
+          "updatedAt": "2025-06-15T16:32:22Z"
+        }
+      ]
     },
     {
       "number": 108,
@@ -3928,6 +3936,32 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 115,
+      "id": "PR_kwDOMB0Qas6ami1T",
+      "title": "Combining Likelihood and Feasibility into Likelihood",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/115",
+      "state": "OPEN",
+      "author": "shaileshprabhu95",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "This PR combines Likelihood and Feasibility into Likelihood, and updates the Threat Matrix and the corresponding Threats.\r\n\r\nResolves https://github.com/ietf-wg-dult/threat-model/issues/106",
+      "createdAt": "2025-06-15T16:26:56Z",
+      "updatedAt": "2025-06-15T16:26:57Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "61b0ee7535e2b55cc10019059bfc690f8506fb11",
+      "headRepository": "shaileshprabhu95/threat-model",
+      "headRefName": "threat_matrix_update",
+      "headRefOid": "2b673978aa3d419d7b5fe67ad512f878665748ff",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
