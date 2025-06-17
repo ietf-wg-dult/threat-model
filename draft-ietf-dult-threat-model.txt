@@ -5,10 +5,10 @@
 Detecting Unwanted Location Trackers                           M. Delano
 Internet-Draft                                        Swarthmore College
 Intended status: Informational                                 J. Lowell
-Expires: 7 December 2025       National Network to End Domestic Violence
+Expires: 19 December 2025      National Network to End Domestic Violence
                                                                S. Prabhu
                                                                    Nokia
-                                                             5 June 2025
+                                                            17 June 2025
 
 
                            DULT Threat Model
@@ -67,7 +67,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 7 December 2025.
+   This Internet-Draft will expire on 19 December 2025.
 
 Copyright Notice
 
@@ -689,21 +689,17 @@ Table of Contents
       -  High: Severe privacy violations or safety risks.
 
    *  Likelihood: The probability of encountering this threat in real-
-      world scenarios.
+      world scenarios.  This includes both the frequency of the attack
+      and how easy it is to execute.
 
-      -  Low: Rare or requires specific conditions.
+      -  Low: Rare or requires specific conditions and high technical
+         effort.
 
-      -  Medium: Possible under common scenarios.
+      -  Medium: Possible under common scenarios with moderate technical
+         requirements.
 
-      -  High: Frequently occurring or easily executed.
-
-   *  Feasibility: The difficulty for an attacker to execute the attack.
-
-      -  Easy: Requires minimal effort or common tools.
-
-      -  Moderate: Needs some technical expertise or resources.
-
-      -  Hard: Requires significant effort, expertise, or access.
+      -  High: Frequently occurring or easily executed using common
+         tools or skills.
 
    *  Risk Level: A qualitative assessment based on impact, likelihood,
       and feasibility.
@@ -730,54 +726,54 @@ Table of Contents
 
       -  No: No effective mitigation currently available.
 
-   +=============+======+==========+===========+======+========+==========+
-   |Threat       |Impact|Likelihood|Feasibility|Risk  |Affected|Mitigation|
-   |             |      |          |           |Level |Users   |Available?|
-   +=============+======+==========+===========+======+========+==========+
-   |Deploying    |High  |High      |Easy       |High  |Victims |Partial   |
-   |Multiple Tags|      |          |           |      |        |          |
-   +-------------+------+----------+-----------+------+--------+----------+
-   |Remote       |High  |High      |Easy       |High  |All     |No        |
-   |Advertisement|      |          |           |      |users   |          |
-   |Monitoring   |      |          |           |      |        |          |
-   +-------------+------+----------+-----------+------+--------+----------+
-   |Physically   |High  |Medium    |Moderate   |Medium|Victims |No        |
-   |Modifying    |      |          |           |      |        |          |
-   |Tags         |      |          |           |      |        |          |
-   +-------------+------+----------+-----------+------+--------+----------+
-   |Firmware     |High  |Low       |Hard       |Medium|Victims |Partial   |
-   |Modifications|      |          |           |      |        |          |
-   +-------------+------+----------+-----------+------+--------+----------+
-   |Attacker     |Medium|Medium    |Easy       |Medium|Victims |Partial   |
-   |Accessory    |      |          |           |      |        |          |
-   |Disablement  |      |          |           |      |        |          |
-   +-------------+------+----------+-----------+------+--------+----------+
-   |Disabling    |High  |Medium    |Moderate   |Medium|Victims |Partial   |
-   |Victim Tag   |      |          |           |      |        |          |
-   |Detection    |      |          |           |      |        |          |
-   +-------------+------+----------+-----------+------+--------+----------+
-   |Disabling    |Medium|Medium    |Moderate   |Medium|Victims |Partial   |
-   |Victim Tag   |      |          |           |      |        |          |
-   +-------------+------+----------+-----------+------+--------+----------+
-   |Misuse of    |Medium|Medium    |Moderate   |Medium|Victims |Partial   |
-   |Remote       |      |          |           |      |        |          |
-   |Disablement  |      |          |           |      |        |          |
-   +-------------+------+----------+-----------+------+--------+----------+
-   |Multi-Tag    |High  |Medium    |Moderate   |Medium|Victims |No        |
-   |Correlation  |      |          |           |      |        |          |
-   |Attack       |      |          |           |      |        |          |
-   +-------------+------+----------+-----------+------+--------+----------+
-   |Impersonation|High  |Medium    |Moderate   |High  |Victims |Partial   |
-   |Attack       |      |          |           |      |        |          |
-   +-------------+------+----------+-----------+------+--------+----------+
-   |Replay Attack|Medium|High      |Easy       |Medium|Victims |No        |
-   +-------------+------+----------+-----------+------+--------+----------+
-   |Heterogeneous|High  |Medium    |Hard       |Medium|Victims |No        |
-   |Tracker      |      |          |           |      |        |          |
-   |Networks     |      |          |           |      |        |          |
-   +-------------+------+----------+-----------+------+--------+----------+
+   +===============+======+============+======+==========+============+
+   | Threat        |Impact| Likelihood |Risk  | Affected | Mitigation |
+   |               |      |            |Level | Users    | Available? |
+   +===============+======+============+======+==========+============+
+   | Deploying     |High  | High       |High  | Victims  | Partial    |
+   | Multiple Tags |      |            |      |          |            |
+   +---------------+------+------------+------+----------+------------+
+   | Remote        |High  | High       |High  | All      | No         |
+   | Advertisement |      |            |      | users    |            |
+   | Monitoring    |      |            |      |          |            |
+   +---------------+------+------------+------+----------+------------+
+   | Physically    |High  | Medium     |Medium| Victims  | No         |
+   | Modifying     |      |            |      |          |            |
+   | Tags          |      |            |      |          |            |
+   +---------------+------+------------+------+----------+------------+
+   | Firmware      |High  | Low        |Medium| Victims  | Partial    |
+   | Modifications |      |            |      |          |            |
+   +---------------+------+------------+------+----------+------------+
+   | Attacker      |Medium| Medium     |Medium| Victims  | Partial    |
+   | Accessory     |      |            |      |          |            |
+   | Disablement   |      |            |      |          |            |
+   +---------------+------+------------+------+----------+------------+
+   | Disabling     |High  | Medium     |Medium| Victims  | Partial    |
+   | Victim Tag    |      |            |      |          |            |
+   | Detection     |      |            |      |          |            |
+   +---------------+------+------------+------+----------+------------+
+   | Disabling     |Medium| Medium     |Medium| Victims  | Partial    |
+   | Victim Tag    |      |            |      |          |            |
+   +---------------+------+------------+------+----------+------------+
+   | Misuse of     |Medium| Medium     |Medium| Victims  | Partial    |
+   | Remote        |      |            |      |          |            |
+   | Disablement   |      |            |      |          |            |
+   +---------------+------+------------+------+----------+------------+
+   | Multi-Tag     |High  | Medium     |Medium| Victims  | No         |
+   | Correlation   |      |            |      |          |            |
+   | Attack        |      |            |      |          |            |
+   +---------------+------+------------+------+----------+------------+
+   | Impersonation |High  | Medium     |High  | Victims  | Partial    |
+   | Attack        |      |            |      |          |            |
+   +---------------+------+------------+------+----------+------------+
+   | Replay Attack |Medium| High       |Medium| Victims  | No         |
+   +---------------+------+------------+------+----------+------------+
+   | Heterogeneous |High  | Medium     |Medium| Victims  | No         |
+   | Tracker       |      |            |      |          |            |
+   | Networks      |      |            |      |          |            |
+   +---------------+------+------------+------+----------+------------+
 
-                                  Table 10
+                                 Table 10
 
 3.3.3.  Deploying Multiple Tags
 
@@ -794,13 +790,14 @@ Table of Contents
    tracking, such as a busy train station or airport where tag owners
    may or may not be in proximity to their tracking tags.  This method
    prolongs unwanted tracking, making it a high-impact threat, as it
-   enables continuous monitoring even if some tags are discovered.
-   Since multiple low-cost tags can be easily deployed, the likelihood
-   is high, and the feasibility is easy, given the availability of
-   commercially accessible trackers.  As a result, the overall risk is
-   high, requiring robust countermeasures.  While scanning for multiple
-   tags offers partial mitigation, sophisticated attackers may still
-   evade detection by distributing tags strategically.
+   enables continuous monitoring even if some tags are discovered.  The
+   likelihood is high, as deploying multiple tags requires minimal
+   technical effort and can be done using inexpensive, commercially
+   available trackers, making the attack easily repeatable.  As a
+   result, the overall risk is high, requiring robust countermeasures.
+   While scanning for multiple tags offers partial mitigation,
+   sophisticated attackers may still evade detection by distributing
+   tags strategically.
 
 3.3.4.  Remote Advertisement Monitoring
 
@@ -820,9 +817,10 @@ Table of Contents
    robust this scheme is to the presence of multiple tags (see
    Section 3.3.3).  This attack has a high impact, as it allows
    persistent surveillance while circumventing built-in protections.
-   Given that capturing Bluetooth signals is trivial using common
-   scanning tools, the likelihood is high, and the feasibility is easy,
-   making it a high-risk attack.
+   The likelihood is high, as attackers can execute this using off-the-
+   shelf Bluetooth scanning tools or smartphone apps with minimal
+   technical knowledge.  As a result, this is classified as a high-risk
+   attack.
 
    While rotating identifiers provides partial mitigation, attackers can
    still use advanced correlation techniques, such as signal
@@ -843,10 +841,10 @@ Table of Contents
    include disabling the speaker or vibration alert or shielding and
    altering the antenna to reduce transmission range.  These
    modifications can make it more difficult for victims to discover
-   hidden trackers, leading to a high impact.  Hardware modifications
-   require some expertise, resulting in a medium likelihood and medium
-   feasibility.  Given this combination of factors, the overall risk
-   level is medium.
+   hidden trackers, leading to a high impact.  The likelihood is medium,
+   as such hardware modifications require moderate technical expertise
+   and physical access to the device.  Given this combination of
+   factors, the overall risk level is medium.
 
 3.3.6.  Accessory Firmware Modifications
 
@@ -859,8 +857,10 @@ Table of Contents
    opportunities, allowing the tag to evade tracking for extended
    periods, or rotate IDs rapidly, disrupting detection systems that
    rely on tracking unknown device persistence.  Firmware-based changes
-   would have high impact, but also have hard feasibility, which makes
-   their likelihood low and the overall risk level medium.
+   would have high impact.  The likelihood is low, as these attacks
+   require significant technical expertise to bypass firmware
+   verification and modify low-level accessory behavior.  As a result,
+   the overall risk level is medium.
 
 3.3.7.  Attacker Accessory Disablement
 
@@ -868,39 +868,40 @@ Table of Contents
    to make it harder for a victim to detect and/or locate the tag.  This
    could be done periodically or permanently and either remotely or
    using a physical device (https://undetectag.com/products/undetectag).
-   Feasibility of this attack is easy, though the likelihood is medium,
-   as it requires some specific knowledge (i.e. victim is searching for
-   tag) or specific hardware.  The impact is medium as the tag can still
-   be detected and physically located, though it may be more difficult
-   to do so.  The risk level is medium.  The impact of this attack can
-   be partially mitigated by minimizing the time needed to detect
-   unwanted location tracking and maintaining the same identifier on
-   reset.
+   The likelihood is medium, as this attack is relatively easy to
+   perform using commercially available tools, but it still requires
+   some attacker awareness of the victim’s actions (e.g., an ongoing
+   search).  The impact is medium as the tag can still be detected and
+   physically located, though it may be more difficult to do so.  The
+   risk level is medium.  The impact of this attack can be partially
+   mitigated by minimizing the time needed to detect unwanted location
+   tracking and maintaining the same identifier on reset.
 
 3.3.8.  Disabling Victim Tag Detection
 
    An attacker might intentionally disable passive unwanted location
    tracking detection on a victim's device.  The impact of this attack
    is high as it would prevent the victim from being notified about
-   possible unwanted location tracking.  The likelihood and is medium.
-   Feasibility and likelihood are moderate as it requires the attacker
-   physically or remotely disable settings on a victim's device.  The
-   risk level is high.  This attack can be partially mitigated by
-   notifying victims of potential location tracking using other means
-   e.g. sounds or haptics on location tracking tags.
+   possible unwanted location tracking.  The likelihood is medium, as
+   executing this attack requires the attacker to physically or remotely
+   alter settings on the victim’s device, which involves moderate effort
+   and access.  The risk level is high.  This attack can be partially
+   mitigated by notifying victims of potential location tracking using
+   other means e.g. sounds or haptics on location tracking tags.
 
 3.3.9.  Disabling Victim Tag
 
    An attacker might intentionally disable a victim's tag as a form of
    harassment.  This could be done with physical access to the tag,
    using a victim's own device to disable the tag, or with remote access
-   to disable the tag via the crowdsourced network.  The impact and
-   likelihood of this attack is medium.  The feasibility is moderate, as
-   it requires some access to victim's tag, device, or account.  The
-   risk level is therefore medium.  Physical disablement of a tag cannot
-   be mitigated, but other forms of disablement may be mitigated by
-   notifying users that a change has been made on their account, similar
-   to suspicious login notifications.
+   to disable the tag via the crowdsourced network.  The impact of this
+   attack is medium.  The likelihood is medium, as executing the attack
+   requires access to the victim’s tag, device, or account, which
+   involves a moderate level of access or effort.  The risk level is
+   therefore medium.  Physical disablement of a tag cannot be mitigated,
+   but other forms of disablement may be mitigated by notifying users
+   that a change has been made on their account, similar to suspicious
+   login notifications.
 
 3.3.10.  Multi-Tag Correlation Attack
 
@@ -910,11 +911,12 @@ Table of Contents
    prevention measures focus on individual devices, making this method
    difficult to counter.  Cross-tag correlation analysis could improve
    detection of recurring unknown trackers near a user.  The impact is
-   high, as it enables persistent monitoring, while the likelihood is
-   medium, since multiple devices are required.  Given that execution is
-   moderately complex, feasibility is moderate, leading to a medium-risk
-   attack.  While no effective mitigation exists, coordinated scanning
-   across devices could help detect recurring unknown trackers.
+   high, as it enables persistent monitoring.  The likelihood is medium,
+   since multiple devices are required and execution is moderately
+   complex, involving correlation logic and tracking infrastructure.
+   This leads to a medium-risk attack.  While no effective mitigation
+   exists, coordinated scanning across devices could help detect
+   recurring unknown trackers.
 
 3.3.11.  Impersonation Attack
 
@@ -951,15 +953,15 @@ Table of Contents
 
    The impact of this attack is high, as it enables real-time location
    tracking by exploiting the behavior of crowdsourced location
-   networks.  The likelihood is medium and the feasibility is moderate;
-   while examples have been demonstrated by researchers, attacks depend
-   on either deploying custom hardware or exploiting platform-specific
-   capabilities such as unrestricted Bluetooth broadcasting.  As a
-   result, the overall risk level is considered high.  Protocol-level
-   authentication is needed to validate tracker identities and prevent
-   these attacks.  Operating systems can partially mitigate software
-   impersonation attacks by restricting low-level BLE broadcasting
-   unless elevated privileges are granted.
+   networks.  The likelihood is medium, as the attack requires deploying
+   custom hardware or exploiting platform-specific capabilities like
+   unrestricted Bluetooth broadcasting, which have been demonstrated in
+   research but remain moderately complex to execute.  As a result, the
+   overall risk level is considered high.  Protocol-level authentication
+   is needed to validate tracker identities and prevent these attacks.
+   Operating systems can partially mitigate software impersonation
+   attacks by restricting low-level BLE broadcasting unless elevated
+   privileges are granted.
 
 3.3.12.  Replay Attack
 
@@ -972,13 +974,11 @@ Table of Contents
    party by making it appear as though they are carrying a tracker when
    they are not.  Unlike an impersonation attack, this approach does not
    require authentication, making it relatively easier to execute with
-   readily available tools.  Replay attacks do not require
-   authentication, making them easier to execute (high likelihood) but
-   with a medium impact, as they can only mislead location tracking but
-   do not compromise authentication itself.  These attacks are
-   relatively easy to carry out (easy feasibility) using off-the-shelf
-   Bluetooth scanning tools.  Replay attacks pose a medium risk owing to
-   their higher likelihood but medium impact.
+   readily available tools.  The likelihood is high, as replay attacks
+   require no authentication and can be executed using off-the-shelf
+   Bluetooth scanning tools with minimal technical expertise.  Replay
+   attacks pose a medium risk owing to their higher likelihood but
+   medium impact.
 
 3.3.13.  Heterogeneous Tracker Networks
 
@@ -989,9 +989,10 @@ Table of Contents
    tracker deployments.  The goal of the DULT protocol is to enable a
    cross-vendor framework; however, any slight differences in potential
    implementation could be exploited.  The impact is high, as it
-   circumvents traditional defenses, while the likelihood is medium,
-   since deploying multiple brands requires effort.  With feasibility at
-   a hard level, this remains a medium-risk attack.  This attack can be
+   circumvents traditional defenses.  The likelihood is medium, as
+   deploying multiple brands requires effort and coordination, and may
+   demand deeper knowledge of platform-specific behaviors and
+   limitations.  This remains a medium-risk attack.  This attack can be
    mitigated by manufacturers adopting the DULT protocol and ensuring
    that the DULT protocol is sufficiently clear to minimize gaps in
    vendor-specific tracking protections.
@@ -1521,9 +1522,8 @@ Table of Contents
    [I-D.draft-ietf-dult-finding]
               Fossaceca, C. and E. Rescorla, "Finding Tracking Tags",
               Work in Progress, Internet-Draft, draft-ietf-dult-finding-
-              00, 3 November 2024,
-              <https://datatracker.ietf.org/doc/html/draft-ietf-dult-
-              finding-00>.
+              01, 6 June 2025, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-dult-finding-01>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,

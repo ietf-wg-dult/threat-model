@@ -18,7 +18,7 @@
 <meta content="draft-ietf-dult-threat-model-latest" name="ietf.draft">
 <!-- Generator version information:
   xml2rfc 3.28.1
-    Python 3.12.10
+    Python 3.12.11
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
     intervaltree 3.1.0
@@ -27,7 +27,7 @@
     platformdirs 4.3.8
     pycountry 24.6.1
     PyYAML 6.0.2
-    requests 2.32.3
+    requests 2.32.4
     setuptools 80.9.0
     wcwidth 0.2.13
 -->
@@ -1052,7 +1052,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Delano, et al.</td>
-<td class="center">Expires 7 December 2025</td>
+<td class="center">Expires 19 December 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1065,12 +1065,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-dult-threat-model-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-06-05" class="published">5 June 2025</time>
+<time datetime="2025-06-17" class="published">17 June 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-12-07">7 December 2025</time></dd>
+<dd class="expires"><time datetime="2025-12-19">19 December 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1128,7 +1128,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 7 December 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 19 December 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1852,69 +1852,55 @@ Note that once a given attacker persona has been modeled, it could be recombined
               </ul>
 </li>
             <li class="normal" id="section-3.3.2-2.2">
-              <p id="section-3.3.2-2.2.1">Likelihood: The probability of encountering this threat in real-world scenarios.<a href="#section-3.3.2-2.2.1" class="pilcrow">¶</a></p>
+              <p id="section-3.3.2-2.2.1">Likelihood: The probability of encountering this threat in real-world scenarios. This includes both the frequency of the attack and how easy it is to execute.<a href="#section-3.3.2-2.2.1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.3.2-2.2.2.1">
-                  <p id="section-3.3.2-2.2.2.1.1">Low: Rare or requires specific conditions.<a href="#section-3.3.2-2.2.2.1.1" class="pilcrow">¶</a></p>
+                  <p id="section-3.3.2-2.2.2.1.1">Low: Rare or requires specific conditions and high technical effort.<a href="#section-3.3.2-2.2.2.1.1" class="pilcrow">¶</a></p>
 </li>
                 <li class="normal" id="section-3.3.2-2.2.2.2">
-                  <p id="section-3.3.2-2.2.2.2.1">Medium: Possible under common scenarios.<a href="#section-3.3.2-2.2.2.2.1" class="pilcrow">¶</a></p>
+                  <p id="section-3.3.2-2.2.2.2.1">Medium: Possible under common scenarios with moderate technical requirements.<a href="#section-3.3.2-2.2.2.2.1" class="pilcrow">¶</a></p>
 </li>
                 <li class="normal" id="section-3.3.2-2.2.2.3">
-                  <p id="section-3.3.2-2.2.2.3.1">High: Frequently occurring or easily executed.<a href="#section-3.3.2-2.2.2.3.1" class="pilcrow">¶</a></p>
+                  <p id="section-3.3.2-2.2.2.3.1">High: Frequently occurring or easily executed using common tools or skills.<a href="#section-3.3.2-2.2.2.3.1" class="pilcrow">¶</a></p>
 </li>
               </ul>
 </li>
             <li class="normal" id="section-3.3.2-2.3">
-              <p id="section-3.3.2-2.3.1">Feasibility: The difficulty for an attacker to execute the attack.<a href="#section-3.3.2-2.3.1" class="pilcrow">¶</a></p>
+              <p id="section-3.3.2-2.3.1">Risk Level: A qualitative assessment based on impact, likelihood, and feasibility.<a href="#section-3.3.2-2.3.1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.3.2-2.3.2.1">
-                  <p id="section-3.3.2-2.3.2.1.1">Easy: Requires minimal effort or common tools.<a href="#section-3.3.2-2.3.2.1.1" class="pilcrow">¶</a></p>
+                  <p id="section-3.3.2-2.3.2.1.1">Low: Limited risk requiring minimal mitigation.<a href="#section-3.3.2-2.3.2.1.1" class="pilcrow">¶</a></p>
 </li>
                 <li class="normal" id="section-3.3.2-2.3.2.2">
-                  <p id="section-3.3.2-2.3.2.2.1">Moderate: Needs some technical expertise or resources.<a href="#section-3.3.2-2.3.2.2.1" class="pilcrow">¶</a></p>
+                  <p id="section-3.3.2-2.3.2.2.1">Medium: Requires mitigation to prevent common attacks.<a href="#section-3.3.2-2.3.2.2.1" class="pilcrow">¶</a></p>
 </li>
                 <li class="normal" id="section-3.3.2-2.3.2.3">
-                  <p id="section-3.3.2-2.3.2.3.1">Hard: Requires significant effort, expertise, or access.<a href="#section-3.3.2-2.3.2.3.1" class="pilcrow">¶</a></p>
+                  <p id="section-3.3.2-2.3.2.3.1">High: Critical threat needing immediate mitigation.<a href="#section-3.3.2-2.3.2.3.1" class="pilcrow">¶</a></p>
 </li>
               </ul>
 </li>
             <li class="normal" id="section-3.3.2-2.4">
-              <p id="section-3.3.2-2.4.1">Risk Level: A qualitative assessment based on impact, likelihood, and feasibility.<a href="#section-3.3.2-2.4.1" class="pilcrow">¶</a></p>
+              <p id="section-3.3.2-2.4.1">Affected Users: These are categorized as either:<a href="#section-3.3.2-2.4.1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.3.2-2.4.2.1">
-                  <p id="section-3.3.2-2.4.2.1.1">Low: Limited risk requiring minimal mitigation.<a href="#section-3.3.2-2.4.2.1.1" class="pilcrow">¶</a></p>
+                  <p id="section-3.3.2-2.4.2.1.1">Victims: Individuals specifically targeted or affected by the attack.<a href="#section-3.3.2-2.4.2.1.1" class="pilcrow">¶</a></p>
 </li>
                 <li class="normal" id="section-3.3.2-2.4.2.2">
-                  <p id="section-3.3.2-2.4.2.2.1">Medium: Requires mitigation to prevent common attacks.<a href="#section-3.3.2-2.4.2.2.1" class="pilcrow">¶</a></p>
-</li>
-                <li class="normal" id="section-3.3.2-2.4.2.3">
-                  <p id="section-3.3.2-2.4.2.3.1">High: Critical threat needing immediate mitigation.<a href="#section-3.3.2-2.4.2.3.1" class="pilcrow">¶</a></p>
+                  <p id="section-3.3.2-2.4.2.2.1">All users: Anyone using the system, even if they are not directly targeted.<a href="#section-3.3.2-2.4.2.2.1" class="pilcrow">¶</a></p>
 </li>
               </ul>
 </li>
             <li class="normal" id="section-3.3.2-2.5">
-              <p id="section-3.3.2-2.5.1">Affected Users: These are categorized as either:<a href="#section-3.3.2-2.5.1" class="pilcrow">¶</a></p>
+              <p id="section-3.3.2-2.5.1">Mitigation Available?: Whether a known mitigation strategy exists.<a href="#section-3.3.2-2.5.1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.3.2-2.5.2.1">
-                  <p id="section-3.3.2-2.5.2.1.1">Victims: Individuals specifically targeted or affected by the attack.<a href="#section-3.3.2-2.5.2.1.1" class="pilcrow">¶</a></p>
+                  <p id="section-3.3.2-2.5.2.1.1">Yes: A viable mitigation exists.<a href="#section-3.3.2-2.5.2.1.1" class="pilcrow">¶</a></p>
 </li>
                 <li class="normal" id="section-3.3.2-2.5.2.2">
-                  <p id="section-3.3.2-2.5.2.2.1">All users: Anyone using the system, even if they are not directly targeted.<a href="#section-3.3.2-2.5.2.2.1" class="pilcrow">¶</a></p>
+                  <p id="section-3.3.2-2.5.2.2.1">Partial: Some mitigations exist but are not fully effective.<a href="#section-3.3.2-2.5.2.2.1" class="pilcrow">¶</a></p>
 </li>
-              </ul>
-</li>
-            <li class="normal" id="section-3.3.2-2.6">
-              <p id="section-3.3.2-2.6.1">Mitigation Available?: Whether a known mitigation strategy exists.<a href="#section-3.3.2-2.6.1" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-3.3.2-2.6.2.1">
-                  <p id="section-3.3.2-2.6.2.1.1">Yes: A viable mitigation exists.<a href="#section-3.3.2-2.6.2.1.1" class="pilcrow">¶</a></p>
-</li>
-                <li class="normal" id="section-3.3.2-2.6.2.2">
-                  <p id="section-3.3.2-2.6.2.2.1">Partial: Some mitigations exist but are not fully effective.<a href="#section-3.3.2-2.6.2.2.1" class="pilcrow">¶</a></p>
-</li>
-                <li class="normal" id="section-3.3.2-2.6.2.3">
-                  <p id="section-3.3.2-2.6.2.3.1">No: No effective mitigation currently available.<a href="#section-3.3.2-2.6.2.3.1" class="pilcrow">¶</a></p>
+                <li class="normal" id="section-3.3.2-2.5.2.3">
+                  <p id="section-3.3.2-2.5.2.3.1">No: No effective mitigation currently available.<a href="#section-3.3.2-2.5.2.3.1" class="pilcrow">¶</a></p>
 </li>
               </ul>
 </li>
@@ -1926,7 +1912,6 @@ Note that once a given attacker persona has been modeled, it could be recombined
                 <th class="text-left" rowspan="1" colspan="1">Threat</th>
                 <th class="text-left" rowspan="1" colspan="1">Impact</th>
                 <th class="text-left" rowspan="1" colspan="1">Likelihood</th>
-                <th class="text-left" rowspan="1" colspan="1">Feasibility</th>
                 <th class="text-left" rowspan="1" colspan="1">Risk Level</th>
                 <th class="text-left" rowspan="1" colspan="1">Affected Users</th>
                 <th class="text-left" rowspan="1" colspan="1">Mitigation Available?</th>
@@ -1937,7 +1922,6 @@ Note that once a given attacker persona has been modeled, it could be recombined
                 <td class="text-left" rowspan="1" colspan="1">Deploying Multiple Tags</td>
                 <td class="text-left" rowspan="1" colspan="1">High</td>
                 <td class="text-left" rowspan="1" colspan="1">High</td>
-                <td class="text-left" rowspan="1" colspan="1">Easy</td>
                 <td class="text-left" rowspan="1" colspan="1">High</td>
                 <td class="text-left" rowspan="1" colspan="1">Victims</td>
                 <td class="text-left" rowspan="1" colspan="1">Partial</td>
@@ -1946,7 +1930,6 @@ Note that once a given attacker persona has been modeled, it could be recombined
                 <td class="text-left" rowspan="1" colspan="1">Remote Advertisement Monitoring</td>
                 <td class="text-left" rowspan="1" colspan="1">High</td>
                 <td class="text-left" rowspan="1" colspan="1">High</td>
-                <td class="text-left" rowspan="1" colspan="1">Easy</td>
                 <td class="text-left" rowspan="1" colspan="1">High</td>
                 <td class="text-left" rowspan="1" colspan="1">All users</td>
                 <td class="text-left" rowspan="1" colspan="1">No</td>
@@ -1955,7 +1938,6 @@ Note that once a given attacker persona has been modeled, it could be recombined
                 <td class="text-left" rowspan="1" colspan="1">Physically Modifying Tags</td>
                 <td class="text-left" rowspan="1" colspan="1">High</td>
                 <td class="text-left" rowspan="1" colspan="1">Medium</td>
-                <td class="text-left" rowspan="1" colspan="1">Moderate</td>
                 <td class="text-left" rowspan="1" colspan="1">Medium</td>
                 <td class="text-left" rowspan="1" colspan="1">Victims</td>
                 <td class="text-left" rowspan="1" colspan="1">No</td>
@@ -1964,7 +1946,6 @@ Note that once a given attacker persona has been modeled, it could be recombined
                 <td class="text-left" rowspan="1" colspan="1">Firmware Modifications</td>
                 <td class="text-left" rowspan="1" colspan="1">High</td>
                 <td class="text-left" rowspan="1" colspan="1">Low</td>
-                <td class="text-left" rowspan="1" colspan="1">Hard</td>
                 <td class="text-left" rowspan="1" colspan="1">Medium</td>
                 <td class="text-left" rowspan="1" colspan="1">Victims</td>
                 <td class="text-left" rowspan="1" colspan="1">Partial</td>
@@ -1973,7 +1954,6 @@ Note that once a given attacker persona has been modeled, it could be recombined
                 <td class="text-left" rowspan="1" colspan="1">Attacker Accessory Disablement</td>
                 <td class="text-left" rowspan="1" colspan="1">Medium</td>
                 <td class="text-left" rowspan="1" colspan="1">Medium</td>
-                <td class="text-left" rowspan="1" colspan="1">Easy</td>
                 <td class="text-left" rowspan="1" colspan="1">Medium</td>
                 <td class="text-left" rowspan="1" colspan="1">Victims</td>
                 <td class="text-left" rowspan="1" colspan="1">Partial</td>
@@ -1982,7 +1962,6 @@ Note that once a given attacker persona has been modeled, it could be recombined
                 <td class="text-left" rowspan="1" colspan="1">Disabling Victim Tag Detection</td>
                 <td class="text-left" rowspan="1" colspan="1">High</td>
                 <td class="text-left" rowspan="1" colspan="1">Medium</td>
-                <td class="text-left" rowspan="1" colspan="1">Moderate</td>
                 <td class="text-left" rowspan="1" colspan="1">Medium</td>
                 <td class="text-left" rowspan="1" colspan="1">Victims</td>
                 <td class="text-left" rowspan="1" colspan="1">Partial</td>
@@ -1991,7 +1970,6 @@ Note that once a given attacker persona has been modeled, it could be recombined
                 <td class="text-left" rowspan="1" colspan="1">Disabling Victim Tag</td>
                 <td class="text-left" rowspan="1" colspan="1">Medium</td>
                 <td class="text-left" rowspan="1" colspan="1">Medium</td>
-                <td class="text-left" rowspan="1" colspan="1">Moderate</td>
                 <td class="text-left" rowspan="1" colspan="1">Medium</td>
                 <td class="text-left" rowspan="1" colspan="1">Victims</td>
                 <td class="text-left" rowspan="1" colspan="1">Partial</td>
@@ -2000,7 +1978,6 @@ Note that once a given attacker persona has been modeled, it could be recombined
                 <td class="text-left" rowspan="1" colspan="1">Misuse of Remote Disablement</td>
                 <td class="text-left" rowspan="1" colspan="1">Medium</td>
                 <td class="text-left" rowspan="1" colspan="1">Medium</td>
-                <td class="text-left" rowspan="1" colspan="1">Moderate</td>
                 <td class="text-left" rowspan="1" colspan="1">Medium</td>
                 <td class="text-left" rowspan="1" colspan="1">Victims</td>
                 <td class="text-left" rowspan="1" colspan="1">Partial</td>
@@ -2009,7 +1986,6 @@ Note that once a given attacker persona has been modeled, it could be recombined
                 <td class="text-left" rowspan="1" colspan="1">Multi-Tag Correlation Attack</td>
                 <td class="text-left" rowspan="1" colspan="1">High</td>
                 <td class="text-left" rowspan="1" colspan="1">Medium</td>
-                <td class="text-left" rowspan="1" colspan="1">Moderate</td>
                 <td class="text-left" rowspan="1" colspan="1">Medium</td>
                 <td class="text-left" rowspan="1" colspan="1">Victims</td>
                 <td class="text-left" rowspan="1" colspan="1">No</td>
@@ -2018,7 +1994,6 @@ Note that once a given attacker persona has been modeled, it could be recombined
                 <td class="text-left" rowspan="1" colspan="1">Impersonation Attack</td>
                 <td class="text-left" rowspan="1" colspan="1">High</td>
                 <td class="text-left" rowspan="1" colspan="1">Medium</td>
-                <td class="text-left" rowspan="1" colspan="1">Moderate</td>
                 <td class="text-left" rowspan="1" colspan="1">High</td>
                 <td class="text-left" rowspan="1" colspan="1">Victims</td>
                 <td class="text-left" rowspan="1" colspan="1">Partial</td>
@@ -2027,7 +2002,6 @@ Note that once a given attacker persona has been modeled, it could be recombined
                 <td class="text-left" rowspan="1" colspan="1">Replay Attack</td>
                 <td class="text-left" rowspan="1" colspan="1">Medium</td>
                 <td class="text-left" rowspan="1" colspan="1">High</td>
-                <td class="text-left" rowspan="1" colspan="1">Easy</td>
                 <td class="text-left" rowspan="1" colspan="1">Medium</td>
                 <td class="text-left" rowspan="1" colspan="1">Victims</td>
                 <td class="text-left" rowspan="1" colspan="1">No</td>
@@ -2036,7 +2010,6 @@ Note that once a given attacker persona has been modeled, it could be recombined
                 <td class="text-left" rowspan="1" colspan="1">Heterogeneous Tracker Networks</td>
                 <td class="text-left" rowspan="1" colspan="1">High</td>
                 <td class="text-left" rowspan="1" colspan="1">Medium</td>
-                <td class="text-left" rowspan="1" colspan="1">Hard</td>
                 <td class="text-left" rowspan="1" colspan="1">Medium</td>
                 <td class="text-left" rowspan="1" colspan="1">Victims</td>
                 <td class="text-left" rowspan="1" colspan="1">No</td>
@@ -2050,7 +2023,7 @@ Note that once a given attacker persona has been modeled, it could be recombined
           <h4 id="name-deploying-multiple-tags">
 <a href="#section-3.3.3" class="section-number selfRef">3.3.3. </a><a href="#name-deploying-multiple-tags" class="section-name selfRef">Deploying Multiple Tags</a>
           </h4>
-<p id="section-3.3.3-1">When an attacker deploys tracking tags to follow a victim, they may deploy more than one tag. For example, if planting a tracking tag in a car, the attacker might place one tag inside the car, and another affixed on the outside of the car. The DULT protocol must be robust to this scenario. This means that scans, whether passive or active, need to be able to return more than one result if a device is suspected of being used for unwanted tracking, and the time to do so must not be significantly impeded by the presence of multiple trackers. This also applies to situations where many tags are present, even if they are not being used for unwanted location tracking, such as a busy train station or airport where tag owners may or may not be in proximity to their tracking tags. This method prolongs unwanted tracking, making it a high-impact threat, as it enables continuous monitoring even if some tags are discovered. Since multiple low-cost tags can be easily deployed, the likelihood is high, and the feasibility is easy, given the availability of commercially accessible trackers. As a result, the overall risk is high, requiring robust countermeasures. While scanning for multiple tags offers partial mitigation, sophisticated attackers may still evade detection by distributing tags strategically.<a href="#section-3.3.3-1" class="pilcrow">¶</a></p>
+<p id="section-3.3.3-1">When an attacker deploys tracking tags to follow a victim, they may deploy more than one tag. For example, if planting a tracking tag in a car, the attacker might place one tag inside the car, and another affixed on the outside of the car. The DULT protocol must be robust to this scenario. This means that scans, whether passive or active, need to be able to return more than one result if a device is suspected of being used for unwanted tracking, and the time to do so must not be significantly impeded by the presence of multiple trackers. This also applies to situations where many tags are present, even if they are not being used for unwanted location tracking, such as a busy train station or airport where tag owners may or may not be in proximity to their tracking tags. This method prolongs unwanted tracking, making it a high-impact threat, as it enables continuous monitoring even if some tags are discovered. The likelihood is high, as deploying multiple tags requires minimal technical effort and can be done using inexpensive, commercially available trackers, making the attack easily repeatable. As a result, the overall risk is high, requiring robust countermeasures. While scanning for multiple tags offers partial mitigation, sophisticated attackers may still evade detection by distributing tags strategically.<a href="#section-3.3.3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="remote-advertisement-monitoring">
@@ -2058,7 +2031,7 @@ Note that once a given attacker persona has been modeled, it could be recombined
           <h4 id="name-remote-advertisement-monito">
 <a href="#section-3.3.4" class="section-number selfRef">3.3.4. </a><a href="#name-remote-advertisement-monito" class="section-name selfRef">Remote Advertisement Monitoring</a>
           </h4>
-<p id="section-3.3.4-1">Bluetooth advertisement packets are not encrypted, so any device with Bluetooth scanning capabilities in proximity to a location tracking tag can receive Bluetooth advertisement packets. If an attacker is able to link an identifier in an advertisement packet to a particular tag, they may be able to use this information to track the tag over time, and potentially by proxy the victim or other individual, without their consent. Tracking tags typically rotate any identifiers associated with the tag, but the duration with which they rotate could be up to 24 hours (see e.g. <span>[<a href="#I-D.detecting-unwanted-location-trackers" class="cite xref">I-D.detecting-unwanted-location-trackers</a>]</span>). Beck et al. have <a href="https://eprint.iacr.org/2023/1332.pdf">demonstrated</a> a technological solution that employs secret sharing and error correction coding that would reduce this to 60 seconds. However, work must investigate how robust this scheme is to the presence of multiple tags (see <a href="#deploying-multiple-tags" class="auto internal xref">Section 3.3.3</a>). This attack has a high impact, as it allows persistent surveillance while circumventing built-in protections. Given that capturing Bluetooth signals is trivial using common scanning tools, the likelihood is high, and the feasibility is easy, making it a high-risk attack.<a href="#section-3.3.4-1" class="pilcrow">¶</a></p>
+<p id="section-3.3.4-1">Bluetooth advertisement packets are not encrypted, so any device with Bluetooth scanning capabilities in proximity to a location tracking tag can receive Bluetooth advertisement packets. If an attacker is able to link an identifier in an advertisement packet to a particular tag, they may be able to use this information to track the tag over time, and potentially by proxy the victim or other individual, without their consent. Tracking tags typically rotate any identifiers associated with the tag, but the duration with which they rotate could be up to 24 hours (see e.g. <span>[<a href="#I-D.detecting-unwanted-location-trackers" class="cite xref">I-D.detecting-unwanted-location-trackers</a>]</span>). Beck et al. have <a href="https://eprint.iacr.org/2023/1332.pdf">demonstrated</a> a technological solution that employs secret sharing and error correction coding that would reduce this to 60 seconds. However, work must investigate how robust this scheme is to the presence of multiple tags (see <a href="#deploying-multiple-tags" class="auto internal xref">Section 3.3.3</a>). This attack has a high impact, as it allows persistent surveillance while circumventing built-in protections. The likelihood is high, as attackers can execute this using off-the-shelf Bluetooth scanning tools or smartphone apps with minimal technical knowledge. As a result, this is classified as a high-risk attack.<a href="#section-3.3.4-1" class="pilcrow">¶</a></p>
 <p id="section-3.3.4-2">While rotating identifiers provides partial mitigation, attackers can still use advanced correlation techniques, such as signal fingerprinting, timing analysis, and multi-sensor triangulation, to bypass this defense. These methods leverage unique transmission characteristics, RSSI (Received Signal Strength Indicator) variations, and environmental factors to probabilistically link rotating identifiers back to a single device over time. Prior research, such as Beck et al., has <a href="https://eprint.iacr.org/2023/1332.pdf">demonstrated</a> how statistical models can be used to correlate Bluetooth signals even when identifiers change frequently.<a href="#section-3.3.4-2" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -2067,7 +2040,7 @@ Note that once a given attacker persona has been modeled, it could be recombined
           <h4 id="name-physically-modifying-tags">
 <a href="#section-3.3.5" class="section-number selfRef">3.3.5. </a><a href="#name-physically-modifying-tags" class="section-name selfRef">Physically Modifying Tags</a>
           </h4>
-<p id="section-3.3.5-1">An attacker might physically modify a tag in ways that make it non-conformant with the DULT protocol. Physical modifications may include disabling the speaker or vibration alert or shielding and altering the antenna to reduce transmission range. These modifications can make it more difficult for victims to discover hidden trackers, leading to a high impact. Hardware modifications require some expertise, resulting in a medium likelihood and medium feasibility.  Given this combination of factors, the overall risk level is medium.<a href="#section-3.3.5-1" class="pilcrow">¶</a></p>
+<p id="section-3.3.5-1">An attacker might physically modify a tag in ways that make it non-conformant with the DULT protocol. Physical modifications may include disabling the speaker or vibration alert or shielding and altering the antenna to reduce transmission range. These modifications can make it more difficult for victims to discover hidden trackers, leading to a high impact. The likelihood is medium, as such hardware modifications require moderate technical expertise and physical access to the device.  Given this combination of factors, the overall risk level is medium.<a href="#section-3.3.5-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="accessory-firmware-modifications">
@@ -2075,7 +2048,7 @@ Note that once a given attacker persona has been modeled, it could be recombined
           <h4 id="name-accessory-firmware-modifica">
 <a href="#section-3.3.6" class="section-number selfRef">3.3.6. </a><a href="#name-accessory-firmware-modifica" class="section-name selfRef">Accessory Firmware Modifications</a>
           </h4>
-<p id="section-3.3.6-1">The DULT protocol (see <span>[<a href="#I-D.draft-ietf-dult-accessory-protocol" class="cite xref">I-D.draft-ietf-dult-accessory-protocol</a>]</span>) will specify that accessory firmware images <span class="bcp14">MUST</span> be authenticated, and that accessories <span class="bcp14">MUST</span> verify the integrity and origin of firmware. However, if these protections were to be bypassed, an accessory's software could be altered to deviate from standard behavior. Attackers may manipulate advertisement intervals to reduce detection opportunities, allowing the tag to evade tracking for extended periods, or rotate IDs rapidly, disrupting detection systems that rely on tracking unknown device persistence. Firmware-based changes would have high impact, but also have hard feasibility, which makes their likelihood low and the overall risk level medium.<a href="#section-3.3.6-1" class="pilcrow">¶</a></p>
+<p id="section-3.3.6-1">The DULT protocol (see <span>[<a href="#I-D.draft-ietf-dult-accessory-protocol" class="cite xref">I-D.draft-ietf-dult-accessory-protocol</a>]</span>) will specify that accessory firmware images <span class="bcp14">MUST</span> be authenticated, and that accessories <span class="bcp14">MUST</span> verify the integrity and origin of firmware. However, if these protections were to be bypassed, an accessory's software could be altered to deviate from standard behavior. Attackers may manipulate advertisement intervals to reduce detection opportunities, allowing the tag to evade tracking for extended periods, or rotate IDs rapidly, disrupting detection systems that rely on tracking unknown device persistence. Firmware-based changes would have high impact. The likelihood is low, as these attacks require significant technical expertise to bypass firmware verification and modify low-level accessory behavior. As a result, the overall risk level is medium.<a href="#section-3.3.6-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="attacker-accessory-disablement">
@@ -2083,7 +2056,7 @@ Note that once a given attacker persona has been modeled, it could be recombined
           <h4 id="name-attacker-accessory-disablem">
 <a href="#section-3.3.7" class="section-number selfRef">3.3.7. </a><a href="#name-attacker-accessory-disablem" class="section-name selfRef">Attacker Accessory Disablement</a>
           </h4>
-<p id="section-3.3.7-1">An attacker might intentionally disable their location tracking tag to make it harder for a victim to detect and/or locate the tag. This could be done periodically or permanently and either remotely or using a <a href="https://undetectag.com/products/undetectag">physical device</a>. Feasibility of this attack is easy, though the likelihood is medium, as it requires some specific knowledge (i.e. victim is searching for tag) or specific hardware.  The impact is medium as the tag can still be detected and physically located, though it may be more difficult to do so. The risk level is medium. The impact of this attack can be partially mitigated by minimizing the time needed to detect unwanted location tracking and maintaining the same identifier on reset.<a href="#section-3.3.7-1" class="pilcrow">¶</a></p>
+<p id="section-3.3.7-1">An attacker might intentionally disable their location tracking tag to make it harder for a victim to detect and/or locate the tag. This could be done periodically or permanently and either remotely or using a <a href="https://undetectag.com/products/undetectag">physical device</a>. The likelihood is medium, as this attack is relatively easy to perform using commercially available tools, but it still requires some attacker awareness of the victim’s actions (e.g., an ongoing search). The impact is medium as the tag can still be detected and physically located, though it may be more difficult to do so. The risk level is medium. The impact of this attack can be partially mitigated by minimizing the time needed to detect unwanted location tracking and maintaining the same identifier on reset.<a href="#section-3.3.7-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="disabling-victim-tag-detection">
@@ -2091,7 +2064,7 @@ Note that once a given attacker persona has been modeled, it could be recombined
           <h4 id="name-disabling-victim-tag-detect">
 <a href="#section-3.3.8" class="section-number selfRef">3.3.8. </a><a href="#name-disabling-victim-tag-detect" class="section-name selfRef">Disabling Victim Tag Detection</a>
           </h4>
-<p id="section-3.3.8-1">An attacker might intentionally disable passive unwanted location tracking detection on a victim's device. The impact of this attack is high as it would prevent the victim from being notified about possible unwanted location tracking. The likelihood and is medium. Feasibility and likelihood are moderate as it requires the attacker physically or remotely disable settings on a victim's device. The risk level is high. This attack can be partially mitigated by notifying victims of potential location tracking using other means e.g. sounds or haptics on location tracking tags.<a href="#section-3.3.8-1" class="pilcrow">¶</a></p>
+<p id="section-3.3.8-1">An attacker might intentionally disable passive unwanted location tracking detection on a victim's device. The impact of this attack is high as it would prevent the victim from being notified about possible unwanted location tracking. The likelihood is medium, as executing this attack requires the attacker to physically or remotely alter settings on the victim’s device, which involves moderate effort and access. The risk level is high. This attack can be partially mitigated by notifying victims of potential location tracking using other means e.g. sounds or haptics on location tracking tags.<a href="#section-3.3.8-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="disabling-victim-tag">
@@ -2099,7 +2072,7 @@ Note that once a given attacker persona has been modeled, it could be recombined
           <h4 id="name-disabling-victim-tag">
 <a href="#section-3.3.9" class="section-number selfRef">3.3.9. </a><a href="#name-disabling-victim-tag" class="section-name selfRef">Disabling Victim Tag</a>
           </h4>
-<p id="section-3.3.9-1">An attacker might intentionally disable a victim's tag as a form of harassment. This could be done with physical access to the tag, using a victim's own device to disable the tag, or with remote access to disable the tag via the crowdsourced network. The impact and likelihood of this attack is medium. The feasibility is moderate, as it requires some access to victim's tag, device, or account. The risk level is therefore medium. Physical disablement of a tag cannot be mitigated, but other forms of disablement may be mitigated by notifying users that a change has been made on their account, similar to suspicious login notifications.<a href="#section-3.3.9-1" class="pilcrow">¶</a></p>
+<p id="section-3.3.9-1">An attacker might intentionally disable a victim's tag as a form of harassment. This could be done with physical access to the tag, using a victim's own device to disable the tag, or with remote access to disable the tag via the crowdsourced network. The impact of this attack is medium. The likelihood is medium, as executing the attack requires access to the victim’s tag, device, or account, which involves a moderate level of access or effort. The risk level is therefore medium. Physical disablement of a tag cannot be mitigated, but other forms of disablement may be mitigated by notifying users that a change has been made on their account, similar to suspicious login notifications.<a href="#section-3.3.9-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="multi-tag-correlation-attack">
@@ -2107,7 +2080,7 @@ Note that once a given attacker persona has been modeled, it could be recombined
           <h4 id="name-multi-tag-correlation-attac">
 <a href="#section-3.3.10" class="section-number selfRef">3.3.10. </a><a href="#name-multi-tag-correlation-attac" class="section-name selfRef">Multi-Tag Correlation Attack</a>
           </h4>
-<p id="section-3.3.10-1">By distributing multiple tracking tags across locations frequently visited by a target (home, workplace, etc.), attackers can reconstruct movement patterns over time. Traditional tracking prevention measures focus on individual devices, making this method difficult to counter. Cross-tag correlation analysis could improve detection of recurring unknown trackers near a user. The impact is high, as it enables persistent monitoring, while the likelihood is medium, since multiple devices are required. Given that execution is moderately complex, feasibility is moderate, leading to a medium-risk attack. While no effective mitigation exists, coordinated scanning across devices could help detect recurring unknown trackers.<a href="#section-3.3.10-1" class="pilcrow">¶</a></p>
+<p id="section-3.3.10-1">By distributing multiple tracking tags across locations frequently visited by a target (home, workplace, etc.), attackers can reconstruct movement patterns over time. Traditional tracking prevention measures focus on individual devices, making this method difficult to counter. Cross-tag correlation analysis could improve detection of recurring unknown trackers near a user. The impact is high, as it enables persistent monitoring. The likelihood is medium, since multiple devices are required and execution is moderately complex, involving correlation logic and tracking infrastructure. This leads to a medium-risk attack. While no effective mitigation exists, coordinated scanning across devices could help detect recurring unknown trackers.<a href="#section-3.3.10-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="impersonation-attack">
@@ -2117,7 +2090,7 @@ Note that once a given attacker persona has been modeled, it could be recombined
           </h4>
 <p id="section-3.3.11-1">Attackers might be able to impersonate legitimate tracking devices and successfully authenticate within crowd-sourced location tracking networks, enabling tracking without complying with the DULT protocol. This can be done by <a href="https://www.hackster.io/news/fabian-braunlein-s-esp32-powered-find-you-tag-bypasses-apple-s-airtag-anti-stalking-protections-0f2c9ee7da74">deploying custom tags</a> or by using <a href="https://cec.gmu.edu/news/2025-02/find-my-hacker-how-apples-network-can-be-potential-tracking-tool">devices to mimic tags</a>. By impersonating an authorized tag, an attacker could inject false location data, misattribute tag ownership, or evade detection by appearing as a trusted device or rotating identifiers frequently to evade detection. This tactic increases the difficulty of accurately identifying unauthorized tracking attempts and undermines the reliability of the network. Currently, no fully effective mitigation exists. However, improvements in authentication mechanisms, such as cryptographic signing of broadcasts, and anomaly detection techniques may help reduce the risk.<a href="#section-3.3.11-1" class="pilcrow">¶</a></p>
 <p id="section-3.3.11-2">In addition to full impersonation, adversaries may exploit platform-specific assumptions to suppress alerts. For instance, Chen et al. <a href="https://www.usenix.org/system/files/conference/usenixsecurity25/sec25cycle1-prepub-1266-chen-junming.pdf">describe</a> a technique in which an attacker sets the status field of a broadcast message to 0x00 to emulate MacBook location beacons. Since such beacons are typically ignored by Apple’s unwanted tracking alerts, this evasion method allows the attacker to remain undetected. This demonstrates how attackers can exploit trust assumptions about certain device classes to bypass user protections, further complicating detection and mitigation.<a href="#section-3.3.11-2" class="pilcrow">¶</a></p>
-<p id="section-3.3.11-3">The impact of this attack is high, as it enables real-time location tracking by exploiting the behavior of crowdsourced location networks. The likelihood is medium and the feasibility is moderate; while examples have been demonstrated by researchers, attacks depend on either deploying custom hardware or exploiting platform-specific capabilities such as unrestricted Bluetooth broadcasting. As a result, the overall risk level is considered high. Protocol-level authentication is needed to validate tracker identities and prevent these attacks. Operating systems can partially mitigate software impersonation attacks by restricting low-level BLE broadcasting unless elevated privileges are granted.<a href="#section-3.3.11-3" class="pilcrow">¶</a></p>
+<p id="section-3.3.11-3">The impact of this attack is high, as it enables real-time location tracking by exploiting the behavior of crowdsourced location networks. The likelihood is medium, as the attack requires deploying custom hardware or exploiting platform-specific capabilities like unrestricted Bluetooth broadcasting, which have been demonstrated in research but remain moderately complex to execute. As a result, the overall risk level is considered high. Protocol-level authentication is needed to validate tracker identities and prevent these attacks. Operating systems can partially mitigate software impersonation attacks by restricting low-level BLE broadcasting unless elevated privileges are granted.<a href="#section-3.3.11-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="replay-attack">
@@ -2125,7 +2098,7 @@ Note that once a given attacker persona has been modeled, it could be recombined
           <h4 id="name-replay-attack">
 <a href="#section-3.3.12" class="section-number selfRef">3.3.12. </a><a href="#name-replay-attack" class="section-name selfRef">Replay Attack</a>
           </h4>
-<p id="section-3.3.12-1">In addition to impersonating legitimate tracking devices (see <a href="#impersonation-attack" class="auto internal xref">Section 3.3.11</a>), attackers can record and replay Bluetooth advertisements from a legitimate tracker. For example, an attacker could capture a tracker's broadcast and retransmit it elsewhere, creating confusion about its actual location. This could be used to mislead users, interfere with tracking accuracy, or frame an innocent party by making it appear as though they are carrying a tracker when they are not. Unlike an impersonation attack, this approach does not require authentication, making it relatively easier to execute with readily available tools. Replay attacks do not require authentication, making them easier to execute (high likelihood) but with a medium impact, as they can only mislead location tracking but do not compromise authentication itself. These attacks are relatively easy to carry out (easy feasibility) using off-the-shelf Bluetooth scanning tools. Replay attacks pose a medium risk owing to their higher likelihood but medium impact.<a href="#section-3.3.12-1" class="pilcrow">¶</a></p>
+<p id="section-3.3.12-1">In addition to impersonating legitimate tracking devices (see <a href="#impersonation-attack" class="auto internal xref">Section 3.3.11</a>), attackers can record and replay Bluetooth advertisements from a legitimate tracker. For example, an attacker could capture a tracker's broadcast and retransmit it elsewhere, creating confusion about its actual location. This could be used to mislead users, interfere with tracking accuracy, or frame an innocent party by making it appear as though they are carrying a tracker when they are not. Unlike an impersonation attack, this approach does not require authentication, making it relatively easier to execute with readily available tools. The likelihood is high, as replay attacks require no authentication and can be executed using off-the-shelf Bluetooth scanning tools with minimal technical expertise. Replay attacks pose a medium risk owing to their higher likelihood but medium impact.<a href="#section-3.3.12-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="heterogeneous-tracker-networks">
@@ -2133,7 +2106,7 @@ Note that once a given attacker persona has been modeled, it could be recombined
           <h4 id="name-heterogeneous-tracker-netwo">
 <a href="#section-3.3.13" class="section-number selfRef">3.3.13. </a><a href="#name-heterogeneous-tracker-netwo" class="section-name selfRef">Heterogeneous Tracker Networks</a>
           </h4>
-<p id="section-3.3.13-1">Attackers may use a mix of tracking devices from different manufacturers (e.g., Apple AirTags, Tile, Samsung SmartTags) to exploit gaps in vendor-specific tracking protections. Many detection systems are brand-dependent, making them ineffective against mixed tracker deployments. The goal of the DULT protocol is to enable a cross-vendor framework; however, any slight differences in potential implementation could be exploited. The impact is high, as it circumvents traditional defenses, while the likelihood is medium, since deploying multiple brands requires effort. With feasibility at a hard level, this remains a medium-risk attack. This attack can be mitigated by manufacturers adopting the DULT protocol and ensuring that the DULT protocol is sufficiently clear to minimize gaps in vendor-specific tracking protections.<a href="#section-3.3.13-1" class="pilcrow">¶</a></p>
+<p id="section-3.3.13-1">Attackers may use a mix of tracking devices from different manufacturers (e.g., Apple AirTags, Tile, Samsung SmartTags) to exploit gaps in vendor-specific tracking protections. Many detection systems are brand-dependent, making them ineffective against mixed tracker deployments. The goal of the DULT protocol is to enable a cross-vendor framework; however, any slight differences in potential implementation could be exploited. The impact is high, as it circumvents traditional defenses. The likelihood is medium, as deploying multiple brands requires effort and coordination, and may demand deeper knowledge of platform-specific behaviors and limitations. This remains a medium-risk attack. This attack can be mitigated by manufacturers adopting the DULT protocol and ensuring that the DULT protocol is sufficiently clear to minimize gaps in vendor-specific tracking protections.<a href="#section-3.3.13-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2471,7 +2444,7 @@ Note that once a given attacker persona has been modeled, it could be recombined
 <dd class="break"></dd>
 <dt id="I-D.draft-ietf-dult-finding">[I-D.draft-ietf-dult-finding]</dt>
       <dd>
-<span class="refAuthor">Fossaceca, C.</span> and <span class="refAuthor">E. Rescorla</span>, <span class="refTitle">"Finding Tracking Tags"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-dult-finding-00</span>, <time datetime="2024-11-03" class="refDate">3 November 2024</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-dult-finding-00">https://datatracker.ietf.org/doc/html/draft-ietf-dult-finding-00</a>&gt;</span>. </dd>
+<span class="refAuthor">Fossaceca, C.</span> and <span class="refAuthor">E. Rescorla</span>, <span class="refTitle">"Finding Tracking Tags"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-dult-finding-01</span>, <time datetime="2025-06-06" class="refDate">6 June 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-dult-finding-01">https://datatracker.ietf.org/doc/html/draft-ietf-dult-finding-01</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC2119">[RFC2119]</dt>
       <dd>
