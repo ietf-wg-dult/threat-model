@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-17T01:23:25.462824+00:00",
+  "timestamp": "2025-06-19T01:23:12.983280+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -1384,7 +1384,7 @@
       "id": "I_kwDOMB0Qas64Bn1z",
       "title": "Combine likelihood and feasibility into the same metric",
       "url": "https://github.com/ietf-wg-dult/threat-model/issues/106",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -1393,8 +1393,8 @@
       "labels": [],
       "body": "In the current threat matrix, we have a separate category for feasibility and for likelihood. However, in practice they seem be mostly redundant because there is only one attack where they aren't perfectly aligned (i.e. easy feasibility = high likelihood, hard feasibility = low likelihood, or moderate feasibility = medium likelihood, see table below). Additionally, the definition of high likelihood includes a direct reference to feasibility (High: Frequently occurring or easily executed.) \n\nI propose we merge these categories into just likelihood. This would require updating the threat matrix and also any references to feasibility in the text (though we can use feasibility as a reason to justify likelihood). Shailesh, this was your original taxonomy, what do you think?\n\n![Image](https://github.com/user-attachments/assets/13ef54bc-5f69-4878-ae57-ece7599d12d8)",
       "createdAt": "2025-05-23T20:10:28Z",
-      "updatedAt": "2025-06-15T16:32:22Z",
-      "closedAt": null,
+      "updatedAt": "2025-06-17T15:55:53Z",
+      "closedAt": "2025-06-17T15:55:53Z",
       "comments": [
         {
           "author": "shaileshprabhu95",
@@ -3662,7 +3662,7 @@
       "labels": [],
       "body": "See especially the updated definitions section starting on line 79 of the threat model markdown file. This combines definitions from the [accessory protocol document ](https://github.com/ietf-wg-dult/accessory-protocol/blob/d579f69dfbf2a63942b28964aa1d67773a51dfb0/draft-ietf-dult-accessory-protocol.md?plain=1#L84) along with those used in the threat model document and the finding document. I tried to focus on definitions that are likely to be common to all documents. Each individual document may also have other definitions relevant to that document or a subset of documents.\r\n\r\nThe threat model text has not been fully updated to reflect the new text; once the draft definitions are agreed upon, the PR will be updated accordingly and changed from a draft to a regular PR.\r\n\r\nSee discussion also as an issue on the [accessory protocol repo](https://github.com/ietf-wg-dult/accessory-protocol/issues/8).\r\n\r\nCloses #33, closes #34.\r\n\r\n",
       "createdAt": "2025-05-22T18:02:09Z",
-      "updatedAt": "2025-05-22T18:18:43Z",
+      "updatedAt": "2025-06-18T18:31:50Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
       "baseRefOid": "0eb5afe9227408f2d7e1e0159a184112dffcd4f9",
@@ -3673,7 +3673,15 @@
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Also created a pull request on the accessory protocol repo: https://github.com/ietf-wg-dult/accessory-protocol/pull/24",
+          "createdAt": "2025-06-18T18:31:49Z",
+          "updatedAt": "2025-06-18T18:31:49Z"
+        }
+      ],
       "reviews": []
     },
     {
@@ -3942,26 +3950,50 @@
       "id": "PR_kwDOMB0Qas6ami1T",
       "title": "Combining Likelihood and Feasibility into Likelihood",
       "url": "https://github.com/ietf-wg-dult/threat-model/pull/115",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "shaileshprabhu95",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "This PR combines Likelihood and Feasibility into Likelihood, and updates the Threat Matrix and the corresponding Threats.\r\n\r\nResolves https://github.com/ietf-wg-dult/threat-model/issues/106",
       "createdAt": "2025-06-15T16:26:56Z",
-      "updatedAt": "2025-06-15T16:26:57Z",
+      "updatedAt": "2025-06-18T04:42:17Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
       "baseRefOid": "61b0ee7535e2b55cc10019059bfc690f8506fb11",
       "headRepository": "shaileshprabhu95/threat-model",
       "headRefName": "threat_matrix_update",
       "headRefOid": "2b673978aa3d419d7b5fe67ad512f878665748ff",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
-      "comments": [],
-      "reviews": []
+      "closedAt": "2025-06-17T15:55:52Z",
+      "mergedAt": "2025-06-17T15:55:52Z",
+      "mergedBy": "maggiedelano",
+      "mergeCommit": {
+        "oid": "2784433f17bbacf31512a6d1b5ab0fa056e47948"
+      },
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "This looks great, thanks Shailesh!",
+          "createdAt": "2025-06-17T15:55:45Z",
+          "updatedAt": "2025-06-17T15:55:45Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOMB0Qas6vA3_h",
+          "commit": {
+            "abbreviatedOid": "2b67397"
+          },
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-06-17T15:55:26Z",
+          "updatedAt": "2025-06-17T15:55:26Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
