@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-19T01:23:12.983280+00:00",
+  "timestamp": "2025-06-22T01:38:24.020603+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -1420,7 +1420,7 @@
       "labels": [],
       "body": "We have a new section about attacker access to victim account (under security considerations), but I am wondering if we also need to include it as a threat against the DULT protocol.\n\nA user will not be notified of potential unwanted location tracking if they are being tracked by their own tag.\n\nI think the step here would be to take some of the language from the aforementioned section and create an attack for it.",
       "createdAt": "2025-05-23T20:36:27Z",
-      "updatedAt": "2025-06-03T15:17:26Z",
+      "updatedAt": "2025-06-19T06:32:04Z",
       "closedAt": null,
       "comments": [
         {
@@ -1429,6 +1429,13 @@
           "body": "Agree. Multi-user access is an important safety consideration - both via surreptitious account access, and surreptitious shared trackers. ",
           "createdAt": "2025-06-03T15:17:25Z",
           "updatedAt": "2025-06-03T15:17:25Z"
+        },
+        {
+          "author": "shaileshprabhu95",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@maggiedelano @cstapl  - I've added a new attack named \"Abuse via Victim's Own Tag\". Please review: https://github.com/ietf-wg-dult/threat-model/pull/116",
+          "createdAt": "2025-06-19T06:32:04Z",
+          "updatedAt": "2025-06-19T06:32:04Z"
         }
       ]
     },
@@ -3994,6 +4001,32 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 116,
+      "id": "PR_kwDOMB0Qas6bMizX",
+      "title": "Adding new attack: Abuse via Victim's Own Tag (Account Compromise)",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/116",
+      "state": "OPEN",
+      "author": "shaileshprabhu95",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Resolves https://github.com/ietf-wg-dult/threat-model/issues/108",
+      "createdAt": "2025-06-19T06:30:38Z",
+      "updatedAt": "2025-06-19T06:30:39Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "2784433f17bbacf31512a6d1b5ab0fa056e47948",
+      "headRepository": "shaileshprabhu95/threat-model",
+      "headRefName": "new_attack",
+      "headRefOid": "7e205d8970d16990c2ec813a36225c4829cdf54a",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
