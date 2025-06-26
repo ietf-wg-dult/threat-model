@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-22T01:38:24.020603+00:00",
+  "timestamp": "2025-06-26T01:22:58.940713+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -1410,7 +1410,7 @@
       "id": "I_kwDOMB0Qas64B0Pe",
       "title": "Attack: access to victim account",
       "url": "https://github.com/ietf-wg-dult/threat-model/issues/108",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -1420,8 +1420,8 @@
       "labels": [],
       "body": "We have a new section about attacker access to victim account (under security considerations), but I am wondering if we also need to include it as a threat against the DULT protocol.\n\nA user will not be notified of potential unwanted location tracking if they are being tracked by their own tag.\n\nI think the step here would be to take some of the language from the aforementioned section and create an attack for it.",
       "createdAt": "2025-05-23T20:36:27Z",
-      "updatedAt": "2025-06-19T06:32:04Z",
-      "closedAt": null,
+      "updatedAt": "2025-06-24T18:49:21Z",
+      "closedAt": "2025-06-24T18:49:21Z",
       "comments": [
         {
           "author": "cstapl",
@@ -1528,6 +1528,22 @@
           "updatedAt": "2025-06-12T19:35:36Z"
         }
       ]
+    },
+    {
+      "number": 117,
+      "id": "I_kwDOMB0Qas69InT4",
+      "title": "Consider designing a \"lost mode\" function",
+      "url": "https://github.com/ietf-wg-dult/threat-model/issues/117",
+      "state": "OPEN",
+      "author": "maggiedelano",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Platforms often support a specific \"lost mode\" function ([Apple](https://support.apple.com/guide/iphone/mark-an-item-as-lost-iph1b451b75f/ios)). Tile includes an [anti-theft mode](https://www.life360.com/blog/how-does-tile-anti-theft-mode-work), but this requires passing a 3-stage ID verification process.\n\nWe should think through what the implications of lost/theft modes are and see if we should discuss them in the Threat Model document. \n\nI think the lost mode functionality of displaying a message is probably benign (though could be used to share defamatory or harassing messages?), but we probably don't want to recommend the implementation of an anti-theft mode like Tile does.\n\n",
+      "createdAt": "2025-06-24T20:08:31Z",
+      "updatedAt": "2025-06-25T20:04:25Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -4007,26 +4023,42 @@
       "id": "PR_kwDOMB0Qas6bMizX",
       "title": "Adding new attack: Abuse via Victim's Own Tag (Account Compromise)",
       "url": "https://github.com/ietf-wg-dult/threat-model/pull/116",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "shaileshprabhu95",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Resolves https://github.com/ietf-wg-dult/threat-model/issues/108",
       "createdAt": "2025-06-19T06:30:38Z",
-      "updatedAt": "2025-06-19T06:30:39Z",
+      "updatedAt": "2025-06-24T18:49:20Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
       "baseRefOid": "2784433f17bbacf31512a6d1b5ab0fa056e47948",
       "headRepository": "shaileshprabhu95/threat-model",
       "headRefName": "new_attack",
-      "headRefOid": "7e205d8970d16990c2ec813a36225c4829cdf54a",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "dfba69af4b7c3440e82f28785869e850303810e8",
+      "closedAt": "2025-06-24T18:49:20Z",
+      "mergedAt": "2025-06-24T18:49:20Z",
+      "mergedBy": "maggiedelano",
+      "mergeCommit": {
+        "oid": "132603b687a999842ed31cfc4b26c6d94aa01dfc"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOMB0Qas6wIRUH",
+          "commit": {
+            "abbreviatedOid": "dfba69a"
+          },
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "This looks great! I just moved the attack up and renamed it and added some section references to make the text consistent with the rest of the document. Merging now.",
+          "createdAt": "2025-06-24T18:48:53Z",
+          "updatedAt": "2025-06-24T18:48:53Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
