@@ -5,10 +5,10 @@
 Detecting Unwanted Location Trackers                           M. Delano
 Internet-Draft                                        Swarthmore College
 Intended status: Informational                                 J. Lowell
-Expires: 26 December 2025      National Network to End Domestic Violence
+Expires: 2 January 2026        National Network to End Domestic Violence
                                                                S. Prabhu
                                                                    Nokia
-                                                            24 June 2025
+                                                             1 July 2025
 
 
                            DULT Threat Model
@@ -67,7 +67,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 26 December 2025.
+   This Internet-Draft will expire on 2 January 2026.
 
 Copyright Notice
 
@@ -742,7 +742,8 @@ Table of Contents
    | Modifying      |      |            |      |          |            |
    | Tags           |      |            |      |          |            |
    +----------------+------+------------+------+----------+------------+
-   | Firmware       |High  | Low        |Medium| Victims  | Partial    |
+   | Accessory      |High  | Low        |Medium| Victims  | Partial    |
+   | Firmware       |      |            |      |          |            |
    | Modifications  |      |            |      |          |            |
    +----------------+------+------------+------+----------+------------+
    | Attacker       |Medium| Medium     |Medium| Victims  | Partial    |
@@ -760,10 +761,6 @@ Table of Contents
    +----------------+------+------------+------+----------+------------+
    | Disabling      |Medium| Medium     |Medium| Victims  | Partial    |
    | Victim Tag     |      |            |      |          |            |
-   +----------------+------+------------+------+----------+------------+
-   | Misuse of      |Medium| Medium     |Medium| Victims  | Partial    |
-   | Remote         |      |            |      |          |            |
-   | Disablement    |      |            |      |          |            |
    +----------------+------+------------+------+----------+------------+
    | Multi-Tag      |High  | Medium     |Medium| Victims  | No         |
    | Correlation    |      |            |      |          |            |
