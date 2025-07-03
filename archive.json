@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-29T01:40:18.295685+00:00",
+  "timestamp": "2025-07-03T01:23:38.691686+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -1550,16 +1550,24 @@
       "id": "I_kwDOMB0Qas69ZVlK",
       "title": "Taxonomy of unwanted tracking -- protocols overly deprioritize...",
       "url": "https://github.com/ietf-wg-dult/threat-model/issues/118",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "bledvina",
       "authorAssociation": "NONE",
       "assignees": [],
       "labels": [],
       "body": "I'm curious about the background on this statement: \"This is because protocols overly deprioritize the piracy of tracking tags' users.\" in the Taxonomy of unwanted tracking section. I'm a bit surprised by this statement, so curious about the thought process behind it?",
       "createdAt": "2025-06-26T02:45:23Z",
-      "updatedAt": "2025-06-26T02:45:23Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2025-07-01T18:31:21Z",
+      "closedAt": "2025-07-01T18:31:21Z",
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Hi Brent, I think this might just be a misreading of the sentence. Assuming you are referring to this sentence (emphasis mine): \"This is because **if** protocols overly deprioritize the privacy of tracking tags\u2019 users, an attacker could use a victim\u2019s own tag to track them.\" \n\nThe sentence is not saying that the protocols do overly deprioritize tracking tag users, just what could happen **if** they do.",
+          "createdAt": "2025-07-01T17:59:48Z",
+          "updatedAt": "2025-07-01T17:59:48Z"
+        }
+      ]
     },
     {
       "number": 119,
@@ -1569,13 +1577,23 @@
       "state": "OPEN",
       "author": "bledvina",
       "authorAssociation": "NONE",
-      "assignees": [],
+      "assignees": [
+        "shaileshprabhu95"
+      ],
       "labels": [],
       "body": "I'm a bit surprised about the impact of deploying multiple tags being high. Seems like as long as the multiple number of tags is not in the many 10s or 100s, this is maybe moderate impact as there as straightforward ways to identify via active and passive scanning tags. In other words, there seems to a big difference in impact deploying 2-3 tags vs 20-30.",
       "createdAt": "2025-06-26T02:47:35Z",
-      "updatedAt": "2025-06-26T02:47:35Z",
+      "updatedAt": "2025-07-01T18:07:03Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I think I'm OK reducing this to moderate. It's a big issue if we were to take the MDSS approach (which can be negatively impacted by many tags nearby), but it is more moderate in other scenarios.\n\nTagging @shaileshprabhu95 on this one as well as I believe he wrote that section.",
+          "createdAt": "2025-07-01T18:04:57Z",
+          "updatedAt": "2025-07-01T18:04:57Z"
+        }
+      ]
     },
     {
       "number": 120,
@@ -1585,61 +1603,111 @@
       "state": "OPEN",
       "author": "bledvina",
       "authorAssociation": "NONE",
-      "assignees": [],
+      "assignees": [
+        "shaileshprabhu95"
+      ],
       "labels": [],
       "body": "I'm curious about the motivation for saying remote advertisement monitoring has a high impact. In particular, this statement in section 3.2.4. \"tracking tags typically rotate their identifiers associated with the tag, but the duration with which they rotate could be up to 24 hours.\" although this is true, the rotation interval when the tag is with its owner's device(s) is 15-30 min. Only when it is not near any of its owner devices is it 24 hours. This distinction is important, as many cases you could be tracking a tag for 24 hours, but it's not likely the owner is with it if its payload is rotating every 24 hours.\n\nAdditionally, the call out to advanced correlation techniques in this paragraph needs a reference. ",
       "createdAt": "2025-06-26T02:51:38Z",
-      "updatedAt": "2025-06-26T02:51:38Z",
+      "updatedAt": "2025-07-01T18:09:06Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "This is a good point, if in the separated state then the someone could track the tag and whatever it is attached to but not the person. I'm OK downgrading this to moderate. \n\nTagging @shaileshprabhu95 again on this and also to add a reference for the advanced correlation techniques.",
+          "createdAt": "2025-07-01T18:08:59Z",
+          "updatedAt": "2025-07-01T18:08:59Z"
+        }
+      ]
     },
     {
       "number": 121,
       "id": "I_kwDOMB0Qas69ZYbk",
       "title": "Section 3.2.6 Misuse of remote disablement",
       "url": "https://github.com/ietf-wg-dult/threat-model/issues/121",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "bledvina",
       "authorAssociation": "NONE",
-      "assignees": [],
+      "assignees": [
+        "maggiedelano"
+      ],
       "labels": [],
       "body": "I'm not following the concern about misusing remote disablement. If an attacker can remotely disable a tag, then it won't work as a tracking device for the attacker. Maybe I'm missing something. ",
       "createdAt": "2025-06-26T02:53:45Z",
-      "updatedAt": "2025-06-26T02:53:45Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2025-07-01T18:45:19Z",
+      "closedAt": "2025-07-01T18:45:19Z",
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "It's true that the attacker can no longer use the tag as a tracking device, but there are a few things that can happen:\n\n- Attacker selectively disables **their** tracker to try to avoid detection of unwanted tracking (e.g. trying hiding evidence of unwanted location tracking)\n- Attacker disables **victim's tracker** as a form of harassment, to steal shared property, kidnap children, etc.\n\nLet me know if that still doesn't make sense.\n\nI will work on clarifying this, I also am noticing that we have a line in the threat matrix but a missing section in the attacks section so will fix that too.",
+          "createdAt": "2025-07-01T18:18:23Z",
+          "updatedAt": "2025-07-01T18:18:23Z"
+        },
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "For this one, this section also doesn't exist in the latest document. I would check the new sections 3.3.7 through 3.3.10 and see if that addresses this. ",
+          "createdAt": "2025-07-01T18:28:02Z",
+          "updatedAt": "2025-07-01T18:28:02Z"
+        },
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Closing this with latest PR, but please feel free to open this or other issues if there are outstanding concerns.",
+          "createdAt": "2025-07-01T18:44:51Z",
+          "updatedAt": "2025-07-01T18:44:51Z"
+        }
+      ]
     },
     {
       "number": 122,
       "id": "I_kwDOMB0Qas69ZZDC",
       "title": "Section 3.2.7 clarification needed",
       "url": "https://github.com/ietf-wg-dult/threat-model/issues/122",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "bledvina",
       "authorAssociation": "NONE",
       "assignees": [],
       "labels": [],
       "body": "Section 3.2.7 needs a bit more clarification. It's not that rotating tracker IDs is inherently a problem, it's rotating too fast that's an issue. For example, if a BT identifier in the BT adv rotated every 1 min, it'd be essentially impossible to reliably passively detect it and would be difficult to reliably actively detect it and locate it in a timely fashion.",
       "createdAt": "2025-06-26T02:55:51Z",
-      "updatedAt": "2025-06-26T02:55:51Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2025-07-01T18:27:04Z",
+      "closedAt": "2025-07-01T18:27:04Z",
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I just realized why I was having a hard time finding some of your section references. It looks like you read the March 1 document; there's been a lot of changes but we haven't pushed v02 yet. Please check the md file in the repository for all the attacks. This one got removed/consolidated elsewhere.",
+          "createdAt": "2025-07-01T18:26:45Z",
+          "updatedAt": "2025-07-01T18:26:45Z"
+        }
+      ]
     },
     {
       "number": 123,
       "id": "I_kwDOMB0Qas69ZZk6",
       "title": "Section 3.2.11 -- spoofing legitimate devices",
       "url": "https://github.com/ietf-wg-dult/threat-model/issues/123",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "bledvina",
       "authorAssociation": "NONE",
       "assignees": [],
       "labels": [],
       "body": "Spoofing legitimate devices does not appear to be an attack one needs to be concerned with as they would not have a BT packet format that would be recognized by crowd-sourcing services. However, spoofing a legitimate tag is a valid concern as a legitimate tag could be paired to another person who is not the victim nor the attacker.",
       "createdAt": "2025-06-26T02:57:32Z",
-      "updatedAt": "2025-06-26T02:57:32Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2025-07-01T18:29:31Z",
+      "closedAt": "2025-07-01T18:29:31Z",
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "We now have sections 3.3.12 Impersonation Attack and 3.3.13 Replay Attack to address this. ",
+          "createdAt": "2025-07-01T18:29:21Z",
+          "updatedAt": "2025-07-01T18:29:21Z"
+        }
+      ]
     },
     {
       "number": 124,
@@ -4173,6 +4241,60 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 125,
+      "id": "PR_kwDOMB0Qas6c8MSt",
+      "title": "Account for multiple tag owners in threat model document",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/125",
+      "state": "OPEN",
+      "author": "maggiedelano",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Closes #71.",
+      "createdAt": "2025-07-01T16:29:04Z",
+      "updatedAt": "2025-07-01T16:29:05Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "132603b687a999842ed31cfc4b26c6d94aa01dfc",
+      "headRepository": "ietf-wg-dult/threat-model",
+      "headRefName": "delano-multiple-accounts",
+      "headRefOid": "6827f547f707fe146610a41731e3b3b7dda48962",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 126,
+      "id": "PR_kwDOMB0Qas6c9cu3",
+      "title": "fix threat matrix table titles to match section titles",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/126",
+      "state": "MERGED",
+      "author": "maggiedelano",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Closes #121.",
+      "createdAt": "2025-07-01T18:45:04Z",
+      "updatedAt": "2025-07-01T18:45:19Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "132603b687a999842ed31cfc4b26c6d94aa01dfc",
+      "headRepository": "ietf-wg-dult/threat-model",
+      "headRefName": "delano-fix-threat-matrix",
+      "headRefOid": "657929caa511733d9cddde45707e913c46398965",
+      "closedAt": "2025-07-01T18:45:18Z",
+      "mergedAt": "2025-07-01T18:45:18Z",
+      "mergedBy": "maggiedelano",
+      "mergeCommit": {
+        "oid": "00e94c15c05f9b86783d4a6f4d66dc9f05c624e2"
+      },
+      "comments": [],
+      "reviews": []
     }
   ]
 }
