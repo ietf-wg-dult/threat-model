@@ -5,10 +5,10 @@
 Detecting Unwanted Location Trackers                           M. Delano
 Internet-Draft                                        Swarthmore College
 Intended status: Informational                                 J. Lowell
-Expires: 2 January 2026        National Network to End Domestic Violence
+Expires: 25 January 2026       National Network to End Domestic Violence
                                                                S. Prabhu
                                                                    Nokia
-                                                             1 July 2025
+                                                            24 July 2025
 
 
                            DULT Threat Model
@@ -67,7 +67,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 2 January 2026.
+   This Internet-Draft will expire on 25 January 2026.
 
 Copyright Notice
 
@@ -731,7 +731,7 @@ Table of Contents
    | Threat         |Impact| Likelihood |Risk  | Affected | Mitigation |
    |                |      |            |Level | Users    | Available? |
    +================+======+============+======+==========+============+
-   | Deploying      |High  | High       |High  | Victims  | Partial    |
+   | Deploying      |Medium| High       |High  | Victims  | Partial    |
    | Multiple Tags  |      |            |      |          |            |
    +----------------+------+------------+------+----------+------------+
    | Remote         |High  | High       |High  | All      | No         |
@@ -791,16 +791,17 @@ Table of Contents
    trackers.  This also applies to situations where many tags are
    present, even if they are not being used for unwanted location
    tracking, such as a busy train station or airport where tag owners
-   may or may not be in proximity to their tracking tags.  This method
-   prolongs unwanted tracking, making it a high-impact threat, as it
-   enables continuous monitoring even if some tags are discovered.  The
-   likelihood is high, as deploying multiple tags requires minimal
-   technical effort and can be done using inexpensive, commercially
-   available trackers, making the attack easily repeatable.  As a
-   result, the overall risk is high, requiring robust countermeasures.
-   While scanning for multiple tags offers partial mitigation,
-   sophisticated attackers may still evade detection by distributing
-   tags strategically.
+   may or may not be in proximity to their tracking tags.  The impact of
+   this attack is moderate for typical cases involving a small number of
+   tags, as detection systems can usually identify multiple devices,
+   though the impact could escalate if an attacker deploys dozens of
+   tags.  The likelihood is high, as deploying multiple tags requires
+   minimal technical effort and can be done using inexpensive,
+   commercially available trackers, making the attack easily repeatable.
+   As a result, the overall risk is high, requiring robust
+   countermeasures.  While scanning for multiple tags offers partial
+   mitigation, sophisticated attackers may still evade detection by
+   distributing tags strategically.
 
 3.3.4.  Remote Advertisement Monitoring
 

@@ -11,13 +11,13 @@
 <meta content="
        Lightweight location tracking tags are in wide use to allow users to locate items. These tags function as a component of a crowdsourced tracking network in which devices belonging to other network users (e.g., phones) report which tags they see and their location, thus allowing the owner of the tag to determine where their tag was most recently seen. While there are many legitimate uses of these tags, they are also susceptible to misuse for the purpose of stalking and abuse. A protocol that allows others to detect unwanted location trackers must incorporate an understanding of the unwanted tracking landscape today. This document provides a threat analysis for this purpose, including a taxonomy of unwanted tracking and potential attacks against detection of unwanted location tracking (DULT) protocols. The document defines what is in and out of scope for the unwanted location tracking protocols, and provides design requirements, constraints, and considerations for implementation of protocols to detect unwanted location tracking. 
     " name="description">
-<meta content="xml2rfc 3.29.0" name="generator">
+<meta content="xml2rfc 3.30.0" name="generator">
 <meta content="Internet-Draft" name="keyword">
 <meta content="detecting unwanted location trackers" name="keyword">
 <meta content="threat model" name="keyword">
 <meta content="draft-ietf-dult-threat-model-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.29.0
+  xml2rfc 3.30.0
     Python 3.12.11
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
@@ -1052,7 +1052,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Delano, et al.</td>
-<td class="center">Expires 2 January 2026</td>
+<td class="center">Expires 25 January 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1065,12 +1065,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-dult-threat-model-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-07-01" class="published">1 July 2025</time>
+<time datetime="2025-07-24" class="published">24 July 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-01-02">2 January 2026</time></dd>
+<dd class="expires"><time datetime="2026-01-25">25 January 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1128,7 +1128,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 2 January 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 25 January 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1923,7 +1923,7 @@ Note that once a given attacker persona has been modeled, it could be recombined
             <tbody>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">Deploying Multiple Tags</td>
-                <td class="text-left" rowspan="1" colspan="1">High</td>
+                <td class="text-left" rowspan="1" colspan="1">Medium</td>
                 <td class="text-left" rowspan="1" colspan="1">High</td>
                 <td class="text-left" rowspan="1" colspan="1">High</td>
                 <td class="text-left" rowspan="1" colspan="1">Victims</td>
@@ -2026,7 +2026,7 @@ Note that once a given attacker persona has been modeled, it could be recombined
           <h4 id="name-deploying-multiple-tags">
 <a href="#section-3.3.3" class="section-number selfRef">3.3.3. </a><a href="#name-deploying-multiple-tags" class="section-name selfRef">Deploying Multiple Tags</a>
           </h4>
-<p id="section-3.3.3-1">When an attacker deploys tracking tags to follow a victim, they may deploy more than one tag. For example, if planting a tracking tag in a car, the attacker might place one tag inside the car, and another affixed on the outside of the car. The DULT protocol must be robust to this scenario. This means that scans, whether passive or active, need to be able to return more than one result if a device is suspected of being used for unwanted tracking, and the time to do so must not be significantly impeded by the presence of multiple trackers. This also applies to situations where many tags are present, even if they are not being used for unwanted location tracking, such as a busy train station or airport where tag owners may or may not be in proximity to their tracking tags. This method prolongs unwanted tracking, making it a high-impact threat, as it enables continuous monitoring even if some tags are discovered. The likelihood is high, as deploying multiple tags requires minimal technical effort and can be done using inexpensive, commercially available trackers, making the attack easily repeatable. As a result, the overall risk is high, requiring robust countermeasures. While scanning for multiple tags offers partial mitigation, sophisticated attackers may still evade detection by distributing tags strategically.<a href="#section-3.3.3-1" class="pilcrow">¶</a></p>
+<p id="section-3.3.3-1">When an attacker deploys tracking tags to follow a victim, they may deploy more than one tag. For example, if planting a tracking tag in a car, the attacker might place one tag inside the car, and another affixed on the outside of the car. The DULT protocol must be robust to this scenario. This means that scans, whether passive or active, need to be able to return more than one result if a device is suspected of being used for unwanted tracking, and the time to do so must not be significantly impeded by the presence of multiple trackers. This also applies to situations where many tags are present, even if they are not being used for unwanted location tracking, such as a busy train station or airport where tag owners may or may not be in proximity to their tracking tags. The impact of this attack is moderate for typical cases involving a small number of tags, as detection systems can usually identify multiple devices, though the impact could escalate if an attacker deploys dozens of tags. The likelihood is high, as deploying multiple tags requires minimal technical effort and can be done using inexpensive, commercially available trackers, making the attack easily repeatable. As a result, the overall risk is high, requiring robust countermeasures. While scanning for multiple tags offers partial mitigation, sophisticated attackers may still evade detection by distributing tags strategically.<a href="#section-3.3.3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="remote-advertisement-monitoring">
