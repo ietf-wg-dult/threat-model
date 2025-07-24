@@ -329,6 +329,19 @@ In addition to full impersonation, adversaries may exploit platform-specific ass
 
 The impact of this attack is high, as it enables real-time location tracking by exploiting the behavior of crowdsourced location networks. The likelihood is medium, as the attack requires deploying custom hardware or exploiting platform-specific capabilities like unrestricted Bluetooth broadcasting, which have been demonstrated in research but remain moderately complex to execute. As a result, the overall risk level is considered high. Protocol-level authentication is needed to validate tracker identities and prevent these attacks. Operating systems can partially mitigate software impersonation attacks by restricting low-level BLE broadcasting unless elevated privileges are granted.
 
+### Impersonation Attack (Device)
+
+In addition to impersonating a tag, an attacker could also impersonate a device. This affords attacks against both tracking accessories and against the crowdsourced network.
+
+#### Attacks on accessories
+
+An impersonated device could send commands to accessories, such as a "play sound" command or a remote disablement command. Accessory firmware should either attempt to verify the authenticity of commands from devices or otherwise limit how accessories respond to commands from devices. For example, accessories that receive a "play sound" command should only execute the command if the accessory is away from its owner. Similarly, accessories should only respond to remote disablement commands if the accessory can reasonably be expected to be used for unwanted location tracking and the accessory can confirm that a device has used other finding techniques to locate the device.  (TODO remote disablement requirements section)
+
+The impact of a device impersonation attack is high if it is able to send arbitrary commands to accessories. The likelihood of such an attack is medium as it can be done by any device able to transmit BTLE packets but requires some familiarity with the DULT protocol. The affected users are all users. Mitigation is partial; while devices cannot be prevented from transmitting packets, certain rules can be enforced by accessories.
+
+#### Attacks on crowdsourced network
+
+
 ### Replay Attack
 
 In addition to impersonating legitimate tracking devices (see {{impersonation-attack-tag}}), attackers can record and replay Bluetooth advertisements from a legitimate tracker. For example, an attacker could capture a tracker's broadcast and retransmit it elsewhere, creating confusion about its actual location. This could be used to mislead users, interfere with tracking accuracy, or frame an innocent party by making it appear as though they are carrying a tracker when they are not. Unlike an impersonation attack, this approach does not require authentication, making it relatively easier to execute with readily available tools. The likelihood is high, as replay attacks require no authentication and can be executed using off-the-shelf Bluetooth scanning tools with minimal technical expertise. Replay attacks pose a medium risk owing to their higher likelihood but medium impact.
