@@ -5,10 +5,10 @@
 Detecting Unwanted Location Trackers                           M. Delano
 Internet-Draft                                        Swarthmore College
 Intended status: Informational                                 J. Lowell
-Expires: 25 January 2026       National Network to End Domestic Violence
+Expires: 26 January 2026       National Network to End Domestic Violence
                                                                S. Prabhu
                                                                    Nokia
-                                                            24 July 2025
+                                                            25 July 2025
 
 
                            DULT Threat Model
@@ -67,7 +67,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 25 January 2026.
+   This Internet-Draft will expire on 26 January 2026.
 
 Copyright Notice
 
@@ -734,7 +734,7 @@ Table of Contents
    | Deploying      |Medium| High       |High  | Victims  | Partial    |
    | Multiple Tags  |      |            |      |          |            |
    +----------------+------+------------+------+----------+------------+
-   | Remote         |High  | High       |High  | All      | No         |
+   | Remote         |Medium| High       |High  | All      | No         |
    | Advertisement  |      |            |      | users    |            |
    | Monitoring     |      |            |      |          |            |
    +----------------+------+------------+------+----------+------------+
@@ -812,15 +812,18 @@ Table of Contents
    tag, they may be able to use this information to track the tag over
    time, and potentially by proxy the victim or other individual,
    without their consent.  Tracking tags typically rotate any
-   identifiers associated with the tag, but the duration with which they
-   rotate could be up to 24 hours (see e.g.
+   identifiers associated with the tag, but the interval depends on
+   context: when near the owner’s device, identifiers rotate every 15–30
+   minutes, while in a separated state (e.g., when the tag is away from
+   its owner), rotation may occur only once every 24 hour (see e.g.
    [I-D.detecting-unwanted-location-trackers]).  Beck et al. have
    demonstrated (https://eprint.iacr.org/2023/1332.pdf) a technological
    solution that employs secret sharing and error correction coding that
    would reduce this to 60 seconds.  However, work must investigate how
    robust this scheme is to the presence of multiple tags (see
-   Section 3.3.3).  This attack has a high impact, as it allows
-   persistent surveillance while circumventing built-in protections.
+   Section 3.3.3).  The impact is moderate, as tracking generally
+   compromises privacy but, in many cases, prolonged observation
+   primarily reveals the location of the object rather than the person.
    The likelihood is high, as attackers can execute this using off-the-
    shelf Bluetooth scanning tools or smartphone apps with minimal
    technical knowledge.  As a result, this is classified as a high-risk
@@ -836,7 +839,10 @@ Table of Contents
    research, such as Beck et al., has demonstrated
    (https://eprint.iacr.org/2023/1332.pdf) how statistical models can be
    used to correlate Bluetooth signals even when identifiers change
-   frequently.
+   frequently.  Additional work by Despres et al. further demonstrates
+   (https://people.eecs.berkeley.edu/~daw/papers/detagtive-snip23.pdf)
+   that BLE devices using rotating identifiers can be deanonymized
+   through RSSI-based correlation techniques.
 
 3.3.5.  Physically Modifying Tags
 
