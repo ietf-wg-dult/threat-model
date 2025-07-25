@@ -1052,7 +1052,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Delano, et al.</td>
-<td class="center">Expires 25 January 2026</td>
+<td class="center">Expires 26 January 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1065,12 +1065,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-dult-threat-model-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-07-24" class="published">24 July 2025</time>
+<time datetime="2025-07-25" class="published">25 July 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-01-25">25 January 2026</time></dd>
+<dd class="expires"><time datetime="2026-01-26">26 January 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1128,7 +1128,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 25 January 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 26 January 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1997,11 +1997,27 @@ Note that once a given attacker persona has been modeled, it could be recombined
                 <td class="text-left" rowspan="1" colspan="1">No</td>
               </tr>
               <tr>
-                <td class="text-left" rowspan="1" colspan="1">Impersonation Attack</td>
+                <td class="text-left" rowspan="1" colspan="1">Impersonation Attack (Tag)</td>
                 <td class="text-left" rowspan="1" colspan="1">High</td>
                 <td class="text-left" rowspan="1" colspan="1">Medium</td>
                 <td class="text-left" rowspan="1" colspan="1">High</td>
                 <td class="text-left" rowspan="1" colspan="1">Victims</td>
+                <td class="text-left" rowspan="1" colspan="1">Partial</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Impersonation Attack (Device/Tag)</td>
+                <td class="text-left" rowspan="1" colspan="1">High</td>
+                <td class="text-left" rowspan="1" colspan="1">Medium</td>
+                <td class="text-left" rowspan="1" colspan="1">High</td>
+                <td class="text-left" rowspan="1" colspan="1">All users</td>
+                <td class="text-left" rowspan="1" colspan="1">Partial</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Impersonation Attack (Device/Network)</td>
+                <td class="text-left" rowspan="1" colspan="1">Medium</td>
+                <td class="text-left" rowspan="1" colspan="1">Low</td>
+                <td class="text-left" rowspan="1" colspan="1">Low</td>
+                <td class="text-left" rowspan="1" colspan="1">All users</td>
                 <td class="text-left" rowspan="1" colspan="1">Partial</td>
               </tr>
               <tr>
@@ -2121,14 +2137,15 @@ Note that once a given attacker persona has been modeled, it could be recombined
 <a href="#section-3.3.13.1" class="section-number selfRef">3.3.13.1. </a><a href="#name-attacks-on-accessories" class="section-name selfRef">Attacks on accessories</a>
             </h5>
 <p id="section-3.3.13.1-1">An impersonated device could send commands to accessories, such as a "play sound" command or a remote disablement command. Accessory firmware should either attempt to verify the authenticity of commands from devices or otherwise limit how accessories respond to commands from devices. For example, accessories that receive a "play sound" command should only execute the command if the accessory is away from its owner. Similarly, accessories should only respond to remote disablement commands if the accessory can reasonably be expected to be used for unwanted location tracking and the accessory can confirm that a device has used other finding techniques to locate the device.  (TODO remote disablement requirements section)<a href="#section-3.3.13.1-1" class="pilcrow">¶</a></p>
-<p id="section-3.3.13.1-2">The impact of a device impersonation attack is high if it is able to send arbitrary commands to accessories. The likelihood of such an attack is medium as it can be done by any device able to transmit BTLE packets but requires some familiarity with the DULT protocol. The affected users are all users. Mitigation is partial; while devices cannot be prevented from transmitting packets, certain rules can be enforced by accessories.<a href="#section-3.3.13.1-2" class="pilcrow">¶</a></p>
+<p id="section-3.3.13.1-2">The impact of a device impersonation attack is high if it is able to send arbitrary commands to accessories. The likelihood of such an attack is medium as it can be done by any device able to transmit BTLE packets but requires some familiarity with the DULT protocol. Therefore, the overall risk level is high. The affected users are all users. Mitigation is partial; while devices cannot be prevented from transmitting packets, certain rules can be enforced by accessories.<a href="#section-3.3.13.1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="attacks-on-crowdsourced-network">
 <section id="section-3.3.13.2">
             <h5 id="name-attacks-on-crowdsourced-net">
 <a href="#section-3.3.13.2" class="section-number selfRef">3.3.13.2. </a><a href="#name-attacks-on-crowdsourced-net" class="section-name selfRef">Attacks on crowdsourced network</a>
-          </h5>
+            </h5>
+<p id="section-3.3.13.2-1">An impersonated device could send false location reports to the crowdsourced network, or selectively not report to the crowdsourced network. The likelihood of this attack is low, as it would require the impersonated device to authenticate with the crowdsourced network. The impact is medium, as not reporting would have no impact and false location reports are a nuisance but can be mitigated. The overall risk level for this attack is low. The affected users are all users.  Mitigations include requiring authentication to send reports to the crowdsourced network and only trusting reports when they can be verified by multiple devices.<a href="#section-3.3.13.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
