@@ -337,9 +337,11 @@ In addition to impersonating a tag, an attacker could also impersonate a device.
 
 An impersonated device could send commands to accessories, such as a "play sound" command or a remote disablement command. Accessory firmware should either attempt to verify the authenticity of commands from devices or otherwise limit how accessories respond to commands from devices. For example, accessories that receive a "play sound" command should only execute the command if the accessory is away from its owner. Similarly, accessories should only respond to remote disablement commands if the accessory can reasonably be expected to be used for unwanted location tracking and the accessory can confirm that a device has used other finding techniques to locate the device.  (TODO remote disablement requirements section)
 
-The impact of a device impersonation attack is high if it is able to send arbitrary commands to accessories. The likelihood of such an attack is medium as it can be done by any device able to transmit BTLE packets but requires some familiarity with the DULT protocol. The affected users are all users. Mitigation is partial; while devices cannot be prevented from transmitting packets, certain rules can be enforced by accessories.
+The impact of a device impersonation attack is high if it is able to send arbitrary commands to accessories. The likelihood of such an attack is medium as it can be done by any device able to transmit BTLE packets but requires some familiarity with the DULT protocol. Therefore, the overall risk level is high. The affected users are all users. Mitigation is partial; while devices cannot be prevented from transmitting packets, certain rules can be enforced by accessories.
 
 #### Attacks on crowdsourced network
+
+An impersonated device could send false location reports to the crowdsourced network, or selectively not report to the crowdsourced network. The likelihood of this attack is low, as it would require the impersonated device to authenticate with the crowdsourced network. The impact is medium, as not reporting would have no impact and false location reports are a nuisance but can be mitigated. The overall risk level for this attack is low. The affected users are all users.  Mitigations include requiring authentication to send reports to the crowdsourced network and only trusting reports when they can be verified by multiple devices.
 
 
 ### Replay Attack
