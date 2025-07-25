@@ -275,7 +275,9 @@ To systematically assess the risks associated with different threats, we introdu
 | Disabling Victim Tag Detection | High | Medium | Medium | Victims | Partial |
 | Disabling Victim Tag | Medium | Medium | Medium | Victims | Partial |
 | Multi-Tag Correlation Attack | High | Medium | Medium | Victims | No |
-| Impersonation Attack | High | Medium | High | Victims | Partial |
+| Impersonation Attack (Tag) | High | Medium | High | Victims | Partial |
+| Impersonation Attack (Device/Tag) | High | Medium | High | All users | Partial |
+| Impersonation Attack (Device/Network) | Medium | Low | Low | All users | Partial |
 | Replay Attack | Medium | High | Medium | Victims | No |
 | Heterogeneous Tracker Networks | High | Medium | Medium | Victims | No |
 
