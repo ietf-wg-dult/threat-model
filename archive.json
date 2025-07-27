@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-07-03T01:23:38.691686+00:00",
+  "timestamp": "2025-07-27T01:44:48.542724+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -1574,7 +1574,7 @@
       "id": "I_kwDOMB0Qas69ZWaf",
       "title": "Deploying Multiple Tags -- impact = high",
       "url": "https://github.com/ietf-wg-dult/threat-model/issues/119",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "bledvina",
       "authorAssociation": "NONE",
       "assignees": [
@@ -1583,8 +1583,8 @@
       "labels": [],
       "body": "I'm a bit surprised about the impact of deploying multiple tags being high. Seems like as long as the multiple number of tags is not in the many 10s or 100s, this is maybe moderate impact as there as straightforward ways to identify via active and passive scanning tags. In other words, there seems to a big difference in impact deploying 2-3 tags vs 20-30.",
       "createdAt": "2025-06-26T02:47:35Z",
-      "updatedAt": "2025-07-01T18:07:03Z",
-      "closedAt": null,
+      "updatedAt": "2025-07-24T18:25:29Z",
+      "closedAt": "2025-07-24T18:25:29Z",
       "comments": [
         {
           "author": "maggiedelano",
@@ -1592,6 +1592,13 @@
           "body": "I think I'm OK reducing this to moderate. It's a big issue if we were to take the MDSS approach (which can be negatively impacted by many tags nearby), but it is more moderate in other scenarios.\n\nTagging @shaileshprabhu95 on this one as well as I believe he wrote that section.",
           "createdAt": "2025-07-01T18:04:57Z",
           "updatedAt": "2025-07-01T18:04:57Z"
+        },
+        {
+          "author": "shaileshprabhu95",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@bledvina - thanks for bringing this up. Yes, I agree that the impact could be moderate for a smaller scale of tags.\n\n@maggiedelano  - I've raised a PR for reducing the impact of this attack to Medium. Kindly review: https://github.com/ietf-wg-dult/threat-model/pull/127",
+          "createdAt": "2025-07-24T09:18:00Z",
+          "updatedAt": "2025-07-24T09:18:00Z"
         }
       ]
     },
@@ -1600,7 +1607,7 @@
       "id": "I_kwDOMB0Qas69ZXqh",
       "title": "Remote advertisement monitoring -- impact = high",
       "url": "https://github.com/ietf-wg-dult/threat-model/issues/120",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "bledvina",
       "authorAssociation": "NONE",
       "assignees": [
@@ -1609,8 +1616,8 @@
       "labels": [],
       "body": "I'm curious about the motivation for saying remote advertisement monitoring has a high impact. In particular, this statement in section 3.2.4. \"tracking tags typically rotate their identifiers associated with the tag, but the duration with which they rotate could be up to 24 hours.\" although this is true, the rotation interval when the tag is with its owner's device(s) is 15-30 min. Only when it is not near any of its owner devices is it 24 hours. This distinction is important, as many cases you could be tracking a tag for 24 hours, but it's not likely the owner is with it if its payload is rotating every 24 hours.\n\nAdditionally, the call out to advanced correlation techniques in this paragraph needs a reference. ",
       "createdAt": "2025-06-26T02:51:38Z",
-      "updatedAt": "2025-07-01T18:09:06Z",
-      "closedAt": null,
+      "updatedAt": "2025-07-25T18:16:52Z",
+      "closedAt": "2025-07-25T18:16:52Z",
       "comments": [
         {
           "author": "maggiedelano",
@@ -1618,6 +1625,13 @@
           "body": "This is a good point, if in the separated state then the someone could track the tag and whatever it is attached to but not the person. I'm OK downgrading this to moderate. \n\nTagging @shaileshprabhu95 again on this and also to add a reference for the advanced correlation techniques.",
           "createdAt": "2025-07-01T18:08:59Z",
           "updatedAt": "2025-07-01T18:08:59Z"
+        },
+        {
+          "author": "shaileshprabhu95",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@bledvina @maggiedelano  - thanks for your input. I've incorporated your suggestions in this PR: https://github.com/ietf-wg-dult/threat-model/pull/128\nKindly review, thanks!",
+          "createdAt": "2025-07-25T10:33:48Z",
+          "updatedAt": "2025-07-25T10:33:48Z"
         }
       ]
     },
@@ -4295,6 +4309,146 @@
       },
       "comments": [],
       "reviews": []
+    },
+    {
+      "number": 127,
+      "id": "PR_kwDOMB0Qas6gaoaM",
+      "title": "Reducing the Impact of Deploying Multiple Tags threat to Medium",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/127",
+      "state": "MERGED",
+      "author": "shaileshprabhu95",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Resolves https://github.com/ietf-wg-dult/threat-model/issues/119",
+      "createdAt": "2025-07-24T09:16:33Z",
+      "updatedAt": "2025-07-25T08:34:18Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "00e94c15c05f9b86783d4a6f4d66dc9f05c624e2",
+      "headRepository": "shaileshprabhu95/threat-model",
+      "headRefName": "threat_matrix_update",
+      "headRefOid": "8ed8fcd62350e129731d08b22a789eee69f0b53a",
+      "closedAt": "2025-07-24T18:25:28Z",
+      "mergedAt": "2025-07-24T18:25:28Z",
+      "mergedBy": "maggiedelano",
+      "mergeCommit": {
+        "oid": "7fe496bcbfddf890eb9146434683e409f82aa096"
+      },
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "looks good, thank you!",
+          "createdAt": "2025-07-24T18:25:45Z",
+          "updatedAt": "2025-07-24T18:25:45Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOMB0Qas619TF-",
+          "commit": {
+            "abbreviatedOid": "8ed8fcd"
+          },
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-07-24T18:25:13Z",
+          "updatedAt": "2025-07-24T18:25:13Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 128,
+      "id": "PR_kwDOMB0Qas6gm5MO",
+      "title": "Update to the Threat Matrix Impact parameter of Remote Advertisement Monitoring Attack",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/128",
+      "state": "MERGED",
+      "author": "shaileshprabhu95",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Resolves https://github.com/ietf-wg-dult/threat-model/issues/120",
+      "createdAt": "2025-07-25T10:31:33Z",
+      "updatedAt": "2025-07-25T22:39:29Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "7fe496bcbfddf890eb9146434683e409f82aa096",
+      "headRepository": "shaileshprabhu95/threat-model",
+      "headRefName": "remote_ad_update",
+      "headRefOid": "8d436436c80af9c3268f3d9c209c11140cf36d95",
+      "closedAt": "2025-07-25T18:16:51Z",
+      "mergedAt": "2025-07-25T18:16:51Z",
+      "mergedBy": "maggiedelano",
+      "mergeCommit": {
+        "oid": "7311fc6cf1c35bea93db073811a47c3f98fa9f32"
+      },
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "approved, just made a minor change (removing a first name from a citation)",
+          "createdAt": "2025-07-25T18:16:47Z",
+          "updatedAt": "2025-07-25T18:16:47Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOMB0Qas62LQ8O",
+          "commit": {
+            "abbreviatedOid": "8d43643"
+          },
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-07-25T18:16:25Z",
+          "updatedAt": "2025-07-25T18:16:25Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 129,
+      "id": "PR_kwDOMB0Qas6grZaW",
+      "title": "Add attack for impersonating devices",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/129",
+      "state": "OPEN",
+      "author": "maggiedelano",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Also makes minor updates to disambiguate from the impersonation attack for tags.\r\n\r\n@shaileshprabhu95, let me know if you have thoughts especially on the implications of an impersonation attack on the crowdsourced network. It seems minor to me but I could be wrong.\r\n\r\nCloses #124.",
+      "createdAt": "2025-07-25T18:51:35Z",
+      "updatedAt": "2025-07-26T21:19:32Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "7311fc6cf1c35bea93db073811a47c3f98fa9f32",
+      "headRepository": "ietf-wg-dult/threat-model",
+      "headRefName": "delano-impersonation-device",
+      "headRefOid": "6eb0ee9c3eac5ee5783df4a5aae99f26f6064f01",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOMB0Qas62TWRF",
+          "commit": {
+            "abbreviatedOid": "6eb0ee9"
+          },
+          "author": "shaileshprabhu95",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Looks good to me, @maggiedelano , thanks!",
+          "createdAt": "2025-07-26T21:19:32Z",
+          "updatedAt": "2025-07-26T21:19:32Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
