@@ -1052,7 +1052,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Delano, et al.</td>
-<td class="center">Expires 26 January 2026</td>
+<td class="center">Expires 29 January 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1065,12 +1065,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-dult-threat-model-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-07-25" class="published">25 July 2025</time>
+<time datetime="2025-07-28" class="published">28 July 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-01-26">26 January 2026</time></dd>
+<dd class="expires"><time datetime="2026-01-29">29 January 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1128,7 +1128,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 26 January 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 29 January 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1225,13 +1225,16 @@ svg :is([fill="white"], [fill^="#fff"]) {
                     <p id="section-toc.1-1.3.2.3.2.11.1"><a href="#section-3.3.11" class="auto internal xref">3.3.11</a>. <a href="#name-multi-tag-correlation-attac" class="internal xref">Multi-Tag Correlation Attack</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3.2.12">
-                    <p id="section-toc.1-1.3.2.3.2.12.1"><a href="#section-3.3.12" class="auto internal xref">3.3.12</a>. <a href="#name-impersonation-attack" class="internal xref">Impersonation Attack</a></p>
+                    <p id="section-toc.1-1.3.2.3.2.12.1"><a href="#section-3.3.12" class="auto internal xref">3.3.12</a>. <a href="#name-impersonation-attack-tag" class="internal xref">Impersonation Attack (Tag)</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3.2.13">
-                    <p id="section-toc.1-1.3.2.3.2.13.1"><a href="#section-3.3.13" class="auto internal xref">3.3.13</a>. <a href="#name-replay-attack" class="internal xref">Replay Attack</a></p>
+                    <p id="section-toc.1-1.3.2.3.2.13.1"><a href="#section-3.3.13" class="auto internal xref">3.3.13</a>. <a href="#name-impersonation-attack-device" class="internal xref">Impersonation Attack (Device)</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3.2.14">
-                    <p id="section-toc.1-1.3.2.3.2.14.1"><a href="#section-3.3.14" class="auto internal xref">3.3.14</a>. <a href="#name-heterogeneous-tracker-netwo" class="internal xref">Heterogeneous Tracker Networks</a></p>
+                    <p id="section-toc.1-1.3.2.3.2.14.1"><a href="#section-3.3.14" class="auto internal xref">3.3.14</a>. <a href="#name-replay-attack" class="internal xref">Replay Attack</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3.2.15">
+                    <p id="section-toc.1-1.3.2.3.2.15.1"><a href="#section-3.3.15" class="auto internal xref">3.3.15</a>. <a href="#name-heterogeneous-tracker-netwo" class="internal xref">Heterogeneous Tracker Networks</a></p>
 </li>
                 </ul>
 </li>
@@ -1994,11 +1997,27 @@ Note that once a given attacker persona has been modeled, it could be recombined
                 <td class="text-left" rowspan="1" colspan="1">No</td>
               </tr>
               <tr>
-                <td class="text-left" rowspan="1" colspan="1">Impersonation Attack</td>
+                <td class="text-left" rowspan="1" colspan="1">Impersonation Attack (Tag)</td>
                 <td class="text-left" rowspan="1" colspan="1">High</td>
                 <td class="text-left" rowspan="1" colspan="1">Medium</td>
                 <td class="text-left" rowspan="1" colspan="1">High</td>
                 <td class="text-left" rowspan="1" colspan="1">Victims</td>
+                <td class="text-left" rowspan="1" colspan="1">Partial</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Impersonation Attack (Device/Tag)</td>
+                <td class="text-left" rowspan="1" colspan="1">High</td>
+                <td class="text-left" rowspan="1" colspan="1">Medium</td>
+                <td class="text-left" rowspan="1" colspan="1">High</td>
+                <td class="text-left" rowspan="1" colspan="1">All users</td>
+                <td class="text-left" rowspan="1" colspan="1">Partial</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Impersonation Attack (Device/Network)</td>
+                <td class="text-left" rowspan="1" colspan="1">Medium</td>
+                <td class="text-left" rowspan="1" colspan="1">Low</td>
+                <td class="text-left" rowspan="1" colspan="1">Low</td>
+                <td class="text-left" rowspan="1" colspan="1">All users</td>
                 <td class="text-left" rowspan="1" colspan="1">Partial</td>
               </tr>
               <tr>
@@ -2068,7 +2087,7 @@ Note that once a given attacker persona has been modeled, it could be recombined
 <a href="#section-3.3.8" class="section-number selfRef">3.3.8. </a><a href="#name-tracking-using-victims-own-" class="section-name selfRef">Tracking Using Victim's Own Tag</a>
           </h4>
 <p id="section-3.3.8-1">Attackers with access to a victim’s account, either through password reuse, phishing, social engineering, or credential theft, can exploit DULT’s ownership model by using the victim’s own tracker to monitor their location. Since the tracker is registered to the victim, the system assumes the user is the legitimate owner and suppresses any unwanted tracking alerts. This creates a significant blind spot, as the victim is effectively tracked by their own device without any warning.<a href="#section-3.3.8-1" class="pilcrow">¶</a></p>
-<p id="section-3.3.8-2">This threat differs from impersonation or replay attacks (see <a href="#impersonation-attack" class="auto internal xref">Section 3.3.12</a> and <a href="#replay-attack" class="auto internal xref">Section 3.3.13</a>) because it does not rely on breaking cryptographic protections or evading detection algorithms. Instead, it leverages the legitimate trust relationship encoded in the protocol. The impact of this attack is high, as it results in silent tracking with no alert mechanism. The likelihood is medium, as account compromise is a relatively common occurrence in real-world settings, though it still requires some attacker effort or opportunity. Overall, the risk level is high due to the complete circumvention of core notification systems.<a href="#section-3.3.8-2" class="pilcrow">¶</a></p>
+<p id="section-3.3.8-2">This threat differs from impersonation or replay attacks (see <a href="#impersonation-attack-tag" class="auto internal xref">Section 3.3.12</a> and <a href="#replay-attack" class="auto internal xref">Section 3.3.14</a>) because it does not rely on breaking cryptographic protections or evading detection algorithms. Instead, it leverages the legitimate trust relationship encoded in the protocol. The impact of this attack is high, as it results in silent tracking with no alert mechanism. The likelihood is medium, as account compromise is a relatively common occurrence in real-world settings, though it still requires some attacker effort or opportunity. Overall, the risk level is high due to the complete circumvention of core notification systems.<a href="#section-3.3.8-2" class="pilcrow">¶</a></p>
 <p id="section-3.3.8-3">Partial mitigation may be possible through account activity monitoring, anomaly detection (e.g., login from unfamiliar location or device), and notifications of significant account events (such as tag access or tag movement linked to a different device). However, these features depend on platform implementation and may not be uniformly enforced.<a href="#section-3.3.8-3" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -2096,30 +2115,55 @@ Note that once a given attacker persona has been modeled, it could be recombined
 <p id="section-3.3.11-1">By distributing multiple tracking tags across locations frequently visited by a target (home, workplace, etc.), attackers can reconstruct movement patterns over time. Traditional tracking prevention measures focus on individual devices, making this method difficult to counter. Cross-tag correlation analysis could improve detection of recurring unknown trackers near a user. The impact is high, as it enables persistent monitoring. The likelihood is medium, since multiple devices are required and execution is moderately complex, involving correlation logic and tracking infrastructure. This leads to a medium-risk attack. While no effective mitigation exists, coordinated scanning across devices could help detect recurring unknown trackers.<a href="#section-3.3.11-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="impersonation-attack">
+<div id="impersonation-attack-tag">
 <section id="section-3.3.12">
-          <h4 id="name-impersonation-attack">
-<a href="#section-3.3.12" class="section-number selfRef">3.3.12. </a><a href="#name-impersonation-attack" class="section-name selfRef">Impersonation Attack</a>
+          <h4 id="name-impersonation-attack-tag">
+<a href="#section-3.3.12" class="section-number selfRef">3.3.12. </a><a href="#name-impersonation-attack-tag" class="section-name selfRef">Impersonation Attack (Tag)</a>
           </h4>
-<p id="section-3.3.12-1">Attackers might be able to impersonate legitimate tracking devices and successfully authenticate within crowd-sourced location tracking networks, enabling tracking without complying with the DULT protocol. This can be done by <a href="https://www.hackster.io/news/fabian-braunlein-s-esp32-powered-find-you-tag-bypasses-apple-s-airtag-anti-stalking-protections-0f2c9ee7da74">deploying custom tags</a> or by using <a href="https://cec.gmu.edu/news/2025-02/find-my-hacker-how-apples-network-can-be-potential-tracking-tool">devices to mimic tags</a>. By impersonating an authorized tag, an attacker could inject false location data, misattribute tag ownership, or evade detection by appearing as a trusted device or rotating identifiers frequently to evade detection. This tactic increases the difficulty of accurately identifying unauthorized tracking attempts and undermines the reliability of the network. Currently, no fully effective mitigation exists. However, improvements in authentication mechanisms, such as cryptographic signing of broadcasts, and anomaly detection techniques may help reduce the risk.<a href="#section-3.3.12-1" class="pilcrow">¶</a></p>
+<p id="section-3.3.12-1">Attackers might be able to impersonate legitimate tracking accessories, enabling tracking without complying with the DULT protocol. This can be done by <a href="https://www.hackster.io/news/fabian-braunlein-s-esp32-powered-find-you-tag-bypasses-apple-s-airtag-anti-stalking-protections-0f2c9ee7da74">deploying custom tags</a> or by using <a href="https://cec.gmu.edu/news/2025-02/find-my-hacker-how-apples-network-can-be-potential-tracking-tool">devices to mimic tags</a>. By impersonating an authorized tag, an attacker could inject false location data, misattribute tag ownership, or evade detection by appearing as a trusted accessory or rotating identifiers frequently to evade detection. This tactic increases the difficulty of accurately identifying unauthorized tracking attempts and undermines the reliability of the network. Currently, no fully effective mitigation exists. However, improvements in authentication mechanisms, such as cryptographic signing of broadcasts, and anomaly detection techniques may help reduce the risk.<a href="#section-3.3.12-1" class="pilcrow">¶</a></p>
 <p id="section-3.3.12-2">In addition to full impersonation, adversaries may exploit platform-specific assumptions to suppress alerts. For instance, Chen et al. <a href="https://www.usenix.org/system/files/conference/usenixsecurity25/sec25cycle1-prepub-1266-chen-junming.pdf">describe</a> a technique in which an attacker sets the status field of a broadcast message to 0x00 to emulate MacBook location beacons. Since such beacons are typically ignored by Apple’s unwanted tracking alerts, this evasion method allows the attacker to remain undetected. This demonstrates how attackers can exploit trust assumptions about certain device classes to bypass user protections, further complicating detection and mitigation.<a href="#section-3.3.12-2" class="pilcrow">¶</a></p>
 <p id="section-3.3.12-3">The impact of this attack is high, as it enables real-time location tracking by exploiting the behavior of crowdsourced location networks. The likelihood is medium, as the attack requires deploying custom hardware or exploiting platform-specific capabilities like unrestricted Bluetooth broadcasting, which have been demonstrated in research but remain moderately complex to execute. As a result, the overall risk level is considered high. Protocol-level authentication is needed to validate tracker identities and prevent these attacks. Operating systems can partially mitigate software impersonation attacks by restricting low-level BLE broadcasting unless elevated privileges are granted.<a href="#section-3.3.12-3" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="replay-attack">
+<div id="impersonation-attack-device">
 <section id="section-3.3.13">
-          <h4 id="name-replay-attack">
-<a href="#section-3.3.13" class="section-number selfRef">3.3.13. </a><a href="#name-replay-attack" class="section-name selfRef">Replay Attack</a>
+          <h4 id="name-impersonation-attack-device">
+<a href="#section-3.3.13" class="section-number selfRef">3.3.13. </a><a href="#name-impersonation-attack-device" class="section-name selfRef">Impersonation Attack (Device)</a>
           </h4>
-<p id="section-3.3.13-1">In addition to impersonating legitimate tracking devices (see <a href="#impersonation-attack" class="auto internal xref">Section 3.3.12</a>), attackers can record and replay Bluetooth advertisements from a legitimate tracker. For example, an attacker could capture a tracker's broadcast and retransmit it elsewhere, creating confusion about its actual location. This could be used to mislead users, interfere with tracking accuracy, or frame an innocent party by making it appear as though they are carrying a tracker when they are not. Unlike an impersonation attack, this approach does not require authentication, making it relatively easier to execute with readily available tools. The likelihood is high, as replay attacks require no authentication and can be executed using off-the-shelf Bluetooth scanning tools with minimal technical expertise. Replay attacks pose a medium risk owing to their higher likelihood but medium impact.<a href="#section-3.3.13-1" class="pilcrow">¶</a></p>
+<p id="section-3.3.13-1">In addition to impersonating a tag, an attacker could also impersonate a device. This affords attacks against both tracking accessories and against the crowdsourced network.<a href="#section-3.3.13-1" class="pilcrow">¶</a></p>
+<div id="attacks-on-accessories">
+<section id="section-3.3.13.1">
+            <h5 id="name-attacks-on-accessories">
+<a href="#section-3.3.13.1" class="section-number selfRef">3.3.13.1. </a><a href="#name-attacks-on-accessories" class="section-name selfRef">Attacks on accessories</a>
+            </h5>
+<p id="section-3.3.13.1-1">An impersonated device could send commands to accessories, such as a "play sound" command or a remote disablement command. Accessory firmware should either attempt to verify the authenticity of commands from devices or otherwise limit how accessories respond to commands from devices. For example, accessories that receive a "play sound" command should only execute the command if the accessory is away from its owner. Similarly, accessories should only respond to remote disablement commands if the accessory can reasonably be expected to be used for unwanted location tracking and the accessory can confirm that a device has used other finding techniques to locate the device.  (TODO remote disablement requirements section)<a href="#section-3.3.13.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.3.13.1-2">The impact of a device impersonation attack is high if it is able to send arbitrary commands to accessories. The likelihood of such an attack is medium as it can be done by any device able to transmit BTLE packets but requires some familiarity with the DULT protocol. Therefore, the overall risk level is high. The affected users are all users. Mitigation is partial; while devices cannot be prevented from transmitting packets, certain rules can be enforced by accessories.<a href="#section-3.3.13.1-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="attacks-on-crowdsourced-network">
+<section id="section-3.3.13.2">
+            <h5 id="name-attacks-on-crowdsourced-net">
+<a href="#section-3.3.13.2" class="section-number selfRef">3.3.13.2. </a><a href="#name-attacks-on-crowdsourced-net" class="section-name selfRef">Attacks on crowdsourced network</a>
+            </h5>
+<p id="section-3.3.13.2-1">An impersonated device could send false location reports to the crowdsourced network, or selectively not report to the crowdsourced network. The likelihood of this attack is low, as it would require the impersonated device to authenticate with the crowdsourced network. The impact is medium, as not reporting would have no impact and false location reports are a nuisance but can be mitigated. The overall risk level for this attack is low. The affected users are all users.  Mitigations include requiring authentication to send reports to the crowdsourced network and only trusting reports when they can be verified by multiple devices.<a href="#section-3.3.13.2-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="replay-attack">
+<section id="section-3.3.14">
+          <h4 id="name-replay-attack">
+<a href="#section-3.3.14" class="section-number selfRef">3.3.14. </a><a href="#name-replay-attack" class="section-name selfRef">Replay Attack</a>
+          </h4>
+<p id="section-3.3.14-1">In addition to impersonating legitimate tracking devices (see <a href="#impersonation-attack-tag" class="auto internal xref">Section 3.3.12</a>), attackers can record and replay Bluetooth advertisements from a legitimate tracker. For example, an attacker could capture a tracker's broadcast and retransmit it elsewhere, creating confusion about its actual location. This could be used to mislead users, interfere with tracking accuracy, or frame an innocent party by making it appear as though they are carrying a tracker when they are not. Unlike an impersonation attack, this approach does not require authentication, making it relatively easier to execute with readily available tools. The likelihood is high, as replay attacks require no authentication and can be executed using off-the-shelf Bluetooth scanning tools with minimal technical expertise. Replay attacks pose a medium risk owing to their higher likelihood but medium impact.<a href="#section-3.3.14-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="heterogeneous-tracker-networks">
-<section id="section-3.3.14">
+<section id="section-3.3.15">
           <h4 id="name-heterogeneous-tracker-netwo">
-<a href="#section-3.3.14" class="section-number selfRef">3.3.14. </a><a href="#name-heterogeneous-tracker-netwo" class="section-name selfRef">Heterogeneous Tracker Networks</a>
+<a href="#section-3.3.15" class="section-number selfRef">3.3.15. </a><a href="#name-heterogeneous-tracker-netwo" class="section-name selfRef">Heterogeneous Tracker Networks</a>
           </h4>
-<p id="section-3.3.14-1">Attackers may use a mix of tracking devices from different manufacturers (e.g., Apple AirTags, Tile, Samsung SmartTags) to exploit gaps in vendor-specific tracking protections. Many detection systems are brand-dependent, making them ineffective against mixed tracker deployments. The goal of the DULT protocol is to enable a cross-vendor framework; however, any slight differences in potential implementation could be exploited. The impact is high, as it circumvents traditional defenses. The likelihood is medium, as deploying multiple brands requires effort and coordination, and may demand deeper knowledge of platform-specific behaviors and limitations. This remains a medium-risk attack. This attack can be mitigated by manufacturers adopting the DULT protocol and ensuring that the DULT protocol is sufficiently clear to minimize gaps in vendor-specific tracking protections.<a href="#section-3.3.14-1" class="pilcrow">¶</a></p>
+<p id="section-3.3.15-1">Attackers may use a mix of tracking devices from different manufacturers (e.g., Apple AirTags, Tile, Samsung SmartTags) to exploit gaps in vendor-specific tracking protections. Many detection systems are brand-dependent, making them ineffective against mixed tracker deployments. The goal of the DULT protocol is to enable a cross-vendor framework; however, any slight differences in potential implementation could be exploited. The impact is high, as it circumvents traditional defenses. The likelihood is medium, as deploying multiple brands requires effort and coordination, and may demand deeper knowledge of platform-specific behaviors and limitations. This remains a medium-risk attack. This attack can be mitigated by manufacturers adopting the DULT protocol and ensuring that the DULT protocol is sufficiently clear to minimize gaps in vendor-specific tracking protections.<a href="#section-3.3.15-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>

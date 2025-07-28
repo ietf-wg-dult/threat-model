@@ -5,10 +5,10 @@
 Detecting Unwanted Location Trackers                           M. Delano
 Internet-Draft                                        Swarthmore College
 Intended status: Informational                                 J. Lowell
-Expires: 26 January 2026       National Network to End Domestic Violence
+Expires: 29 January 2026       National Network to End Domestic Violence
                                                                S. Prabhu
                                                                    Nokia
-                                                            25 July 2025
+                                                            28 July 2025
 
 
                            DULT Threat Model
@@ -67,7 +67,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 26 January 2026.
+   This Internet-Draft will expire on 29 January 2026.
 
 Copyright Notice
 
@@ -107,9 +107,10 @@ Table of Contents
        3.3.9.  Disabling Victim Tag Detection
        3.3.10. Disabling Victim Tag
        3.3.11. Multi-Tag Correlation Attack
-       3.3.12. Impersonation Attack
-       3.3.13. Replay Attack
-       3.3.14. Heterogeneous Tracker Networks
+       3.3.12. Impersonation Attack (Tag)
+       3.3.13. Impersonation Attack (Device)
+       3.3.14. Replay Attack
+       3.3.15. Heterogeneous Tracker Networks
      3.4.  What is in scope
        3.4.1.  Technologies
        3.4.2.  Attacker Profiles
@@ -767,7 +768,16 @@ Table of Contents
    | Attack         |      |            |      |          |            |
    +----------------+------+------------+------+----------+------------+
    | Impersonation  |High  | Medium     |High  | Victims  | Partial    |
-   | Attack         |      |            |      |          |            |
+   | Attack (Tag)   |      |            |      |          |            |
+   +----------------+------+------------+------+----------+------------+
+   | Impersonation  |High  | Medium     |High  | All      | Partial    |
+   | Attack         |      |            |      | users    |            |
+   | (Device/Tag)   |      |            |      |          |            |
+   +----------------+------+------------+------+----------+------------+
+   | Impersonation  |Medium| Low        |Low   | All      | Partial    |
+   | Attack         |      |            |      | users    |            |
+   | (Device/       |      |            |      |          |            |
+   | Network)       |      |            |      |          |            |
    +----------------+------+------------+------+----------+------------+
    | Replay Attack  |Medium| High       |Medium| Victims  | No         |
    +----------------+------+------------+------+----------+------------+
@@ -899,7 +909,7 @@ Table of Contents
    warning.
 
    This threat differs from impersonation or replay attacks (see
-   Section 3.3.12 and Section 3.3.13) because it does not rely on
+   Section 3.3.12 and Section 3.3.14) because it does not rely on
    breaking cryptographic protections or evading detection algorithms.
    Instead, it leverages the legitimate trust relationship encoded in
    the protocol.  The impact of this attack is high, as it results in
@@ -957,19 +967,18 @@ Table of Contents
    exists, coordinated scanning across devices could help detect
    recurring unknown trackers.
 
-3.3.12.  Impersonation Attack
+3.3.12.  Impersonation Attack (Tag)
 
-   Attackers might be able to impersonate legitimate tracking devices
-   and successfully authenticate within crowd-sourced location tracking
-   networks, enabling tracking without complying with the DULT protocol.
-   This can be done by deploying custom tags
+   Attackers might be able to impersonate legitimate tracking
+   accessories, enabling tracking without complying with the DULT
+   protocol.  This can be done by deploying custom tags
    (https://www.hackster.io/news/fabian-braunlein-s-esp32-powered-find-
    you-tag-bypasses-apple-s-airtag-anti-stalking-protections-
    0f2c9ee7da74) or by using devices to mimic tags (https://cec.gmu.edu/
    news/2025-02/find-my-hacker-how-apples-network-can-be-potential-
    tracking-tool).  By impersonating an authorized tag, an attacker
    could inject false location data, misattribute tag ownership, or
-   evade detection by appearing as a trusted device or rotating
+   evade detection by appearing as a trusted accessory or rotating
    identifiers frequently to evade detection.  This tactic increases the
    difficulty of accurately identifying unauthorized tracking attempts
    and undermines the reliability of the network.  Currently, no fully
@@ -1002,7 +1011,49 @@ Table of Contents
    attacks by restricting low-level BLE broadcasting unless elevated
    privileges are granted.
 
-3.3.13.  Replay Attack
+3.3.13.  Impersonation Attack (Device)
+
+   In addition to impersonating a tag, an attacker could also
+   impersonate a device.  This affords attacks against both tracking
+   accessories and against the crowdsourced network.
+
+3.3.13.1.  Attacks on accessories
+
+   An impersonated device could send commands to accessories, such as a
+   "play sound" command or a remote disablement command.  Accessory
+   firmware should either attempt to verify the authenticity of commands
+   from devices or otherwise limit how accessories respond to commands
+   from devices.  For example, accessories that receive a "play sound"
+   command should only execute the command if the accessory is away from
+   its owner.  Similarly, accessories should only respond to remote
+   disablement commands if the accessory can reasonably be expected to
+   be used for unwanted location tracking and the accessory can confirm
+   that a device has used other finding techniques to locate the device.
+   (TODO remote disablement requirements section)
+
+   The impact of a device impersonation attack is high if it is able to
+   send arbitrary commands to accessories.  The likelihood of such an
+   attack is medium as it can be done by any device able to transmit
+   BTLE packets but requires some familiarity with the DULT protocol.
+   Therefore, the overall risk level is high.  The affected users are
+   all users.  Mitigation is partial; while devices cannot be prevented
+   from transmitting packets, certain rules can be enforced by
+   accessories.
+
+3.3.13.2.  Attacks on crowdsourced network
+
+   An impersonated device could send false location reports to the
+   crowdsourced network, or selectively not report to the crowdsourced
+   network.  The likelihood of this attack is low, as it would require
+   the impersonated device to authenticate with the crowdsourced
+   network.  The impact is medium, as not reporting would have no impact
+   and false location reports are a nuisance but can be mitigated.  The
+   overall risk level for this attack is low.  The affected users are
+   all users.  Mitigations include requiring authentication to send
+   reports to the crowdsourced network and only trusting reports when
+   they can be verified by multiple devices.
+
+3.3.14.  Replay Attack
 
    In addition to impersonating legitimate tracking devices (see
    Section 3.3.12), attackers can record and replay Bluetooth
@@ -1019,7 +1070,7 @@ Table of Contents
    attacks pose a medium risk owing to their higher likelihood but
    medium impact.
 
-3.3.14.  Heterogeneous Tracker Networks
+3.3.15.  Heterogeneous Tracker Networks
 
    Attackers may use a mix of tracking devices from different
    manufacturers (e.g., Apple AirTags, Tile, Samsung SmartTags) to
