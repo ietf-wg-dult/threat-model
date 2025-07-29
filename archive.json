@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-07-27T01:44:48.542724+00:00",
+  "timestamp": "2025-07-29T01:48:45.127086+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -1728,7 +1728,7 @@
       "id": "I_kwDOMB0Qas69jU-O",
       "title": "Attack: non-conformant device",
       "url": "https://github.com/ietf-wg-dult/threat-model/issues/124",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -1737,8 +1737,8 @@
       "labels": [],
       "body": "We should consider scenarios where devices are non-conformant and not just scenarios where accessories are non-conformant. This is most relevant in the case of remote disablement, where if a non-conformant device is able to send a disable instruction, the accessory could be disabled without appropriate guardrails, bypassing restrictions on remote disablement.",
       "createdAt": "2025-06-26T19:28:22Z",
-      "updatedAt": "2025-06-26T19:28:56Z",
-      "closedAt": null,
+      "updatedAt": "2025-07-28T18:52:24Z",
+      "closedAt": "2025-07-28T18:52:24Z",
       "comments": []
     }
   ],
@@ -4415,24 +4415,26 @@
       "id": "PR_kwDOMB0Qas6grZaW",
       "title": "Add attack for impersonating devices",
       "url": "https://github.com/ietf-wg-dult/threat-model/pull/129",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Also makes minor updates to disambiguate from the impersonation attack for tags.\r\n\r\n@shaileshprabhu95, let me know if you have thoughts especially on the implications of an impersonation attack on the crowdsourced network. It seems minor to me but I could be wrong.\r\n\r\nCloses #124.",
       "createdAt": "2025-07-25T18:51:35Z",
-      "updatedAt": "2025-07-26T21:19:32Z",
+      "updatedAt": "2025-07-28T18:52:23Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
       "baseRefOid": "7311fc6cf1c35bea93db073811a47c3f98fa9f32",
       "headRepository": "ietf-wg-dult/threat-model",
       "headRefName": "delano-impersonation-device",
       "headRefOid": "6eb0ee9c3eac5ee5783df4a5aae99f26f6064f01",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-07-28T18:52:23Z",
+      "mergedAt": "2025-07-28T18:52:23Z",
+      "mergedBy": "maggiedelano",
+      "mergeCommit": {
+        "oid": "759516c73c9432b2660923b02b2c31797197d45f"
+      },
       "comments": [],
       "reviews": [
         {
