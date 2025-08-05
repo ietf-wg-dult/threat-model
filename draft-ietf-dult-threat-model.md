@@ -277,7 +277,7 @@ To systematically assess the risks associated with different threats, we introdu
 | Impersonation Attack (Tag) | High | Medium | High | Victims | Partial |
 | Impersonation Attack (Device/Tag) | High | Medium | High | All users | Partial |
 | Impersonation Attack (Device/Network) | Medium | Low | Low | All users | Partial |
-| Replay Attack | Medium | High | Medium | Victims | No |
+| Replay Attack | Medium | High | Medium | Victims | Partial |
 | Heterogeneous Tracker Networks | High | Medium | Medium | Victims | No |
 
 ### Deploying Multiple Tags
@@ -358,7 +358,9 @@ The likelihood of this attack is low, as it would require the impersonated devic
 
 ### Replay Attack
 
-In addition to impersonating legitimate tracking devices (see {{impersonation-attack-tag}}), attackers can record and replay Bluetooth advertisements from a legitimate tracker. For example, an attacker could capture a tracker's broadcast and retransmit it elsewhere, creating confusion about its actual location. This could be used to mislead users, interfere with tracking accuracy, or frame an innocent party by making it appear as though they are carrying a tracker when they are not. Unlike an impersonation attack, this approach does not require authentication, making it relatively easier to execute with readily available tools. The likelihood is high, as replay attacks require no authentication and can be executed using off-the-shelf Bluetooth scanning tools with minimal technical expertise. Replay attacks pose a medium risk owing to their higher likelihood but medium impact.
+In addition to impersonating legitimate tracking devices (see {{impersonation-attack-tag}}), attackers can record and replay Bluetooth advertisements from a legitimate tracker. For example, an attacker could capture a tracker's broadcast and retransmit it elsewhere, creating confusion about its actual location. This could be used to mislead users, interfere with tracking accuracy, or frame an innocent party by making it appear as though they are carrying a tracker when they are not.
+
+The impact of this attack is medium. The likelihood is high, as replay attacks require no authentication and can be executed using off-the-shelf Bluetooth scanning tools with minimal technical expertise. Replay attacks pose a medium risk owing to their higher likelihood but medium impact. Replay attacks are particularly difficult to mitigate as they may involve different combinations of accessories and devices. Partial mitigation may be possible by authenticating messages from accessories in a time varying manner.
 
 ### Heterogeneous Tracker Networks
 
