@@ -45,7 +45,7 @@ informative:
 
 --- abstract
 
-Lightweight location tracking tags are in wide use to allow users to locate items. These tags function as a component of a crowdsourced tracking network in which devices belonging to other network users (e.g., phones) report which tags they see and their location, thus allowing the owner of the tag to determine where their tag was most recently seen. While there are many legitimate uses of these tags, they are also susceptible to misuse for the purpose of stalking and abuse. A protocol that allows others to detect unwanted location trackers must incorporate an understanding of the unwanted tracking landscape today. This document provides a threat analysis for this purpose, including a taxonomy of unwanted tracking and potential attacks against detection of unwanted location tracking (DULT) protocols. The document defines what is in and out of scope for the unwanted location tracking protocols, and provides design requirements, constraints, and considerations for implementation of protocols to detect unwanted location tracking.
+Lightweight location tracking tags are in wide use to allow users to locate items. These tags function as a component of a crowdsourced tracking network in which devices belonging to other network users (e.g., phones) report which tags they see and their location, thus allowing the owner(s) of the tag to determine where their tag was most recently seen. While there are many legitimate uses of these tags, they are also susceptible to misuse for the purpose of stalking and abuse. A protocol that allows others to detect unwanted location trackers must incorporate an understanding of the unwanted tracking landscape today. This document provides a threat analysis for this purpose, including a taxonomy of unwanted tracking and potential attacks against detection of unwanted location tracking (DULT) protocols. The document defines what is in and out of scope for the unwanted location tracking protocols, and provides design requirements, constraints, and considerations for implementation of protocols to detect unwanted location tracking.
 
 --- middle
 
@@ -53,9 +53,9 @@ Lightweight location tracking tags are in wide use to allow users to locate item
 
 Location tracking tags are devices that allow users to locate items. These tags function as a component of a crowdsourced tracking network in which devices belonging to other network users (e.g., phones) report on the location of tags they have seen. At a high level, this works as follows:
 
-  - Tags ("accessories") transmit an advertisement payload containing accessory-specific information. The payload indicates whether the accessory is separated from its owner and thus potentially lost.
+  - Tags ("accessories") transmit an advertisement payload containing accessory-specific information. The payload indicates whether the accessory is separated from its owner(s) and thus potentially lost.
   - Devices belonging to other users ("non-owner devices") observe those payloads and if the payload is in a separated mode, reports its location to some central service.
-  - The owner queries the central service for the location of their accessory.
+  - The owner(s) queries the central service for the location of their accessory.
 
 A naive implementation of this design exposes both a tag's user and anyone who might be targeted for location tracking by a tag's user, to considerable privacy risk. In particular:
 
@@ -86,7 +86,7 @@ In order to standardize a protocol for detecting unwanted location tracking, thu
 
 # Security Considerations
 
-Incorporation of this threat analysis into the DULT protocol does not introduce any security risks not already inherent in the underlying Bluetooth tracking tag protocols. Existing attempts to prevent unwanted tracking by the owner of a tag have been criticized as potentially making it easier to engage in unwanted tracking of the owner of a tag. However, Beck et al. have [demonstrated](https://eprint.iacr.org/2023/1332.pdf) a technological solution that employs secret sharing and error correction coding.
+Incorporation of this threat analysis into the DULT protocol does not introduce any security risks not already inherent in the underlying Bluetooth tracking tag protocols. Existing attempts to prevent unwanted tracking by the owner(s) of a tag have been criticized as potentially making it easier to engage in unwanted tracking of the owner(s) of a tag. However, Beck et al. have [demonstrated](https://eprint.iacr.org/2023/1332.pdf) a technological solution that employs secret sharing and error correction coding.
 
 ## Attacker access to victim account
 
@@ -395,7 +395,7 @@ As discussed in {{security-considerations}}, unwanted location tracking can invo
 - Include a variety of approaches to address different scenarios, including active and passive scanning and notifications or sounds
 - Account for scenarios in which the attacker has high expertise, proximity, and/or access to resources within the scope defined in {{what-is-in-scope}} and {{what-is-out-of-scope}}
 - Account for scenarios in which the victim has low expertise, access to resources, and/or access to technological safeguards within the scope defined in {{what-is-in-scope}} and {{what-is-out-of-scope}}
-- Avoid privacy compromises for the tag owner when protecting against unwanted location tracking using tracking tags
+- Avoid privacy compromises for the tag owner(s) when protecting against unwanted location tracking using tracking tags
 
 ## Design Requirements
 
@@ -411,7 +411,7 @@ There may be scenarios where a victim suspects that they are being tracked witho
 
 #### Passive Scanning
 
-The platform should passively scan for devices suspected of unwanted location tracking and notify the user. This will involve implementing one or more algorithms to use to flag trackers and determine when to notify the user. (A dedicated DULT WG document will address tracking algorithms, and will be linked when it is available.) The user could be notified through a push notification or through Sounds and Haptics (see {{tracking-tag-alerts}}). When a tag has been identified as potentially being used for unwanted location tracking, the user should be able to view the serial number of the device along with obfuscated owner information (e.g. last four digits of phone number, obfuscated email address) and instructions on how to find and/or disable the device (see {{finding-tracking-tags}} and {{disabling-tracking-tags}}). There will be tradeoffs between detecting potential unwanted location tracking promptly and alerting the potential victim prematurely. One way to handle these tradeoffs is to allow users to set the sensitivity of these alerts. For example, the [AirGuard](https://github.com/seemoo-lab/AirGuard) app includes three different "Security Level" settings that users can customize.
+The platform should passively scan for devices suspected of unwanted location tracking and notify the user. This will involve implementing one or more algorithms to use to flag trackers and determine when to notify the user. (A dedicated DULT WG document will address tracking algorithms, and will be linked when it is available.) The user could be notified through a push notification or through Sounds and Haptics (see {{tracking-tag-alerts}}). When a tag has been identified as potentially being used for unwanted location tracking, the user should be able to view the serial number of the device along with obfuscated owner information (e.g. last four digits of phone number, obfuscated email address) for all accounts linked to the tag and instructions on how to find and/or disable the tag (see {{finding-tracking-tags}} and {{disabling-tracking-tags}}). There will be tradeoffs between detecting potential unwanted location tracking promptly and alerting the potential victim prematurely. One way to handle these tradeoffs is to allow users to set the sensitivity of these alerts. For example, the [AirGuard](https://github.com/seemoo-lab/AirGuard) app includes three different "Security Level" settings that users can customize.
 
 To improve the accuracy of unwanted tracking detection, a confidence scoring mechanism can be used. Instead of issuing binary alerts for all detected tracking devices, the system assigns a confidence score based on multiple factors, helping distinguish between genuine tracking threats and benign scenarios.
 
@@ -466,7 +466,7 @@ This approach ensures that users receive actionable and meaningful alerts, reduc
 
 #### Tracking Tag Alerts
 
-Tracking tags may be difficult to locate, and users may not have a device that can actively or passively scan for tracking tags. The DULT protocol should be built with [accessibility in mind](https://cdt.org/insights/centering-disability-in-mitigating-harms-of-bluetooth-tracking-technology/) so that the most people can be protected by the protocol. In addition to push notifications on nearby devices, tracking tags themselves should be able to notify end users. This should include periodic sounds when away from an owner, along with lights and haptics so that people who are Deaf or hard of hearing can still locate them.
+Tracking tags may be difficult to locate, and users may not have a device that can actively or passively scan for tracking tags. The DULT protocol should be built with [accessibility in mind](https://cdt.org/insights/centering-disability-in-mitigating-harms-of-bluetooth-tracking-technology/) so that the most people can be protected by the protocol. In addition to push notifications on nearby devices, tracking tags themselves should be able to notify end users. This should include periodic sounds when away from all tag owners, along with lights and haptics so that people who are Deaf or hard of hearing can still locate them.
 
 #### Crowdsourced Network Activities Logs
 
@@ -485,7 +485,7 @@ In order to effectively prevent unwanted location tracking, users should be able
 Beyond simple deactivation, users should also receive guidance on additional steps they may take, depending on their specific situation:
 
   - Advice on destruction or preservation: In some cases, destroying a tracker may eliminate the risk of further tracking. However, users should be made aware that doing so may result in the loss of evidence that could otherwise be used to prove tracking or identify an abuser. Destroying the device might also lead to escalation in abusive contexts. Guidance should help users weigh these risks and determine the most appropriate course of action.
-  - Serial number access and use: Platforms should inform users how to retrieve the serial number or unique identifier of the tracker, even if the tag is not from the same platform. Serial numbers may be used to report the device, verify its origin, or, in cooperation with manufacturers or authorities, identify the registered owner of the tag.
+  - Serial number access and use: Platforms should inform users how to retrieve the serial number or unique identifier of the tracker, even if the tag is not from the same platform. Serial numbers may be used to report the device, verify its origin, or, in cooperation with manufacturers or authorities, identify the registered owner(s) of the tag.
 
 It is important to consider where educational and disabling guidance is hosted. For instance, information about disabling trackers should be publicly accessible, possibly from neutral, decentralized, or international organizations, to mitigate the risk of government censorship or politically motivated takedowns. This ensures access for vulnerable users, including those in high-risk environments or authoritarian regions.
 
@@ -495,7 +495,7 @@ To reduce alert fatigue and improve user experience, implementations should allo
 
 Such snoozed tags may also be de-prioritized or grouped separately during active scans, helping users focus on unfamiliar or potentially malicious trackers. Platforms should make it easy to manage snoozed devices and review or revoke trust status as needed. It is also advisable to implement revalidation mechanisms, for example, resuming notifications after a period of time to prevent long-term blind spots.
 
-Some platforms may wish to implement family sharing or shared ownership models, where multiple users can be associated with a single tracker. However, this introduces the risk of abuse (e.g., an attacker adding a victim to the shared list in order to avoid triggering passive notifications), and therefore should be approached with caution and abuse mitigation in mind. These features are optional and may vary by platform.
+Some platforms may wish to implement family sharing or shared ownership models, where multiple users can be associated with a single tracker. However, this introduces the risk of abuse (e.g., an attacker adding a victim to the shared list in order to avoid triggering passive notifications), and therefore should be approached with caution and abuse mitigation in mind. These features are optional and may vary by platform. Whenever shared ownership is used, information about all owners should be made available when a tag is suspected of unwanted location tracking (see {{passive-scanning}}).
 
 ### Privacy and Security Requirements (TODO)
 
