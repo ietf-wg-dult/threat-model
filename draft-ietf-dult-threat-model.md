@@ -267,7 +267,7 @@ To systematically assess the risks associated with different threats, we introdu
 | Threat | Impact | Likelihood | Risk Level | Affected Users | Mitigation Available? |
 | ------ | --------------------- | ------------------------- | ------------------------- | -------------- | ------------------------------ |
 | Deploying Multiple Tags | Medium | High	| High | Victims | Full |
-| Remote Advertisement Monitoring | Medium | High | High | All users | No |
+| Remote Advertisement Monitoring | Medium | High | High | All users | Partial |
 | Physically Modifying Tags | High | Medium | Medium | Victims | No |
 | Accessory Firmware Modifications | High | Low | Medium | Victims | Partial |
 | Attacker Accessory Disablement | Medium | Medium | Medium | Victims | Partial |
