@@ -267,8 +267,8 @@ To systematically assess the risks associated with different threats, we introdu
 | Threat | Impact | Likelihood | Risk Level | Affected Users | Mitigation Available? |
 | ------ | --------------------- | ------------------------- | ------------------------- | -------------- | ------------------------------ |
 | Deploying Multiple Tags | Medium | High	| High | Victims | Full |
-| Remote Advertisement Monitoring | Medium | High | High | All users | Partial |
-| Physically Modifying Tags | High | Medium | Medium | Victims | No |
+| Remote Advertisement Monitoring | Medium | High | Medium | All users | Partial |
+| Physically Modifying Tags | High | Medium | Medium | Victims | Partial |
 | Accessory Firmware Modifications | High | Low | Medium | Victims | Partial |
 | Attacker Accessory Disablement | Medium | Medium | Medium | Victims | Partial |
 | Tracking Using Victim's Own Tag | High | Medium | High | Victims | Partial |
@@ -291,7 +291,7 @@ The impact of this attack is medium for typical cases involving a small number o
 
 Any device with Bluetooth scanning capabilities in proximity to a location tracking tag can receive Bluetooth advertisement packets. If an attacker is able to link an identifier in an advertisement packet to a particular tag, they may be able to use this information to track the tag over time, and by proxy the victim or other individual, without their consent.
 
-The impact of remote advertisement monitoring is moderate, as tracking generally compromises privacy but, in many cases, prolonged observation primarily reveals the location of the object rather than of the person. The likelihood is high, as attackers can execute this using off-the-shelf Bluetooth scanning tools or smartphone apps with minimal technical knowledge. As a result, this is classified as a high-risk attack. This attack can be partially mitigated by rotating tracking identifiers.
+The impact of remote advertisement monitoring is moderate, as tracking generally compromises privacy but, in many cases, prolonged observation primarily reveals the location of the object rather than of the person. The likelihood is high, as attackers can execute this using off-the-shelf Bluetooth scanning tools or smartphone apps with minimal technical knowledge. As a result, this is classified as a medium risk attack. This attack can be partially mitigated by rotating tracking identifiers.
 
 Tracking tags typically rotate any identifiers associated with the tag, with the interval depending on context: when near the owner's device, identifiers rotate frequently (every 15–30 minutes), while in a separated state, rotation may occur only once every 24 hours (see {{!I-D.detecting-unwanted-location-trackers}}). Beck et al. have [demonstrated](https://eprint.iacr.org/2023/1332.pdf) a technological solution that employs secret sharing and error correction coding that would reduce this to 60 seconds. However, work must investigate how robust this scheme is to the presence of multiple tags (see {{deploying-multiple-tags}}).
 
@@ -299,7 +299,9 @@ While rotating identifiers provides partial mitigation, attackers can still use 
 
 ### Physically Modifying Tags
 
-An attacker might physically modify a tag in ways that make it non-conformant with the DULT protocol. Physical modifications may include disabling the speaker or vibration alert or shielding and altering the antenna to reduce transmission range. These modifications can make it more difficult for victims to discover hidden trackers, leading to a high impact. The likelihood is medium, as such hardware modifications require moderate technical expertise and physical access to the device.  Given this combination of factors, the overall risk level is medium.
+An attacker might physically modify a tag in ways that make it non-conformant with the DULT protocol. Physical modifications may include disabling a speaker or other haptics, or shielding and altering the antenna to reduce transmission range. These modifications can make it more difficult for victims to discover hidden trackers, leading to a high impact.
+
+The likelihood is medium, as such hardware modifications require moderate technical expertise and physical access to the device.  Given this combination of factors, the overall risk level is medium. Partial mitigation is available, such as monitoring the impedance of the speaker, but these mitigations are limited as attackers have physical access to the tags.
 
 ### Accessory Firmware Modifications
 
