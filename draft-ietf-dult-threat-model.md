@@ -331,7 +331,7 @@ The likelihood is medium, as executing this attack requires the attacker to phys
 
 ### Disabling Victim Tag
 
-An attacker might intentionally disable a victim's tag as a form of harassment. This could be done with physical access to the tag, using a victim's own device to disable the tag, or with remote access to disable the tag via the crowdsourced network. The impact of this attack is medium. The likelihood is medium, as executing the attack requires access to the victim’s tag, device, or account, which involves a moderate level of access or effort. The risk level is therefore medium. Physical disablement of a tag cannot be mitigated, but other forms of disablement may be mitigated by notifying users that a change has been made on their account, similar to suspicious login notifications.
+An attacker might intentionally disable a victim's tag as a form of harassment. This could be done with physical access to the tag, using a victim's own device to disable the tag, or with remote access to disable the tag via the crowdsourced network. The impact of this attack is medium as it is a nuisance but most likely does not involve a security threat, unless the tag is being used to track a valuable item or child. The likelihood is medium, as executing the attack requires access to the victim’s tag, device, or account, which involves a moderate level of access or effort. The risk level is therefore medium. Physical disablement of a tag cannot be mitigated, but other forms of disablement may be mitigated by notifying users that a change has been made on their account, similar to suspicious login notifications.
 
 ### Multi-Tag Correlation Attack
 
