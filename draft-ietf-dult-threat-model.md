@@ -393,10 +393,6 @@ There are many types of technology that can be used for location tracking. In ma
   - Connected cars.
   - User accounts for cloud services or social media.
 
-### Attack Profiles
-
-Attackers with nation-state level expertise and resources who deploy custom or altered tracking tags to bypass protocol safeguards or jailbreak a victim end-device (e.g. smartphone) are considered out of scope.
-
 ### Victim Profiles
 
 N/A
