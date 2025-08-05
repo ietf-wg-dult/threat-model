@@ -232,9 +232,9 @@ This is a case involving a high-skill attacker, with a large skill difference be
 
 The above taxonomy and threat analysis focus on location tracking tags. They are protocol-independent; if a tag were designed for crowd-sourced location tracking using a technology other than Bluetooth, they would still apply. The key attributes are the functionalities and physical properties of the accessory from the user’s perspective. The accessory must be small, not easily discoverable, and able to participate in a crowd-sourced location tracking network.
 
-## Possible Methods to Circumvent DULT Protocol
+## Possible Attacks on the DULT Protocol
 
-There are several different ways an attacker could attempt to circumvent the DULT protocol in order to track a victim without their consent. These include deploying multiple tags to follow a single victim and using a non-conformant tag (e.g. speaker disabled, altered firmware, spoofed tag). There are also other potential concerns of abuse of the DULT Protocol, such as remotely disabling a victim's tracking tag.
+There are several different ways an attacker could attempt to circumvent the DULT protocol in order to track a victim without their consent or otherwise take advantage of the crowdsourced network. These include deploying multiple tags to follow a single victim, using non-conformant accessories and/or devices, and taking advantage of possible differences between crowdsourced network implementations. This section includes a threat prioritization framework that assesses the risk of these attacks and how these risks may be mitigated.
 
 ### Threat Prioritization Framework for DULT Threat Model
 
