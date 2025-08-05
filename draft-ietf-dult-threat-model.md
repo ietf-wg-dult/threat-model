@@ -352,8 +352,9 @@ The impact of a device impersonation attack is high if it is able to send arbitr
 
 #### Attacks on crowdsourced network
 
-An impersonated device could send false location reports to the crowdsourced network, or selectively not report to the crowdsourced network. The likelihood of this attack is low, as it would require the impersonated device to authenticate with the crowdsourced network. The impact is medium, as not reporting would have no impact and false location reports are a nuisance but can be mitigated. The overall risk level for this attack is low. The affected users are all users.  Mitigations include requiring authentication to send reports to the crowdsourced network and only trusting reports when they can be verified by multiple devices.
+An impersonated device could send false location reports to the crowdsourced network, or selectively not report to the crowdsourced network.
 
+The likelihood of this attack is low, as it would require the impersonated device to authenticate with the crowdsourced network. The impact is medium, as not reporting would have no impact and false location reports are a nuisance but can be mitigated. The overall risk level for this attack is low. The affected users are all users.  Mitigations include requiring authentication to send reports to the crowdsourced network and only trusting reports when they can be verified by multiple devices.
 
 ### Replay Attack
 
