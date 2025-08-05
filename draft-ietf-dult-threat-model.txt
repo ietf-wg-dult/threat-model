@@ -20,10 +20,10 @@ Abstract
    locate items.  These tags function as a component of a crowdsourced
    tracking network in which devices belonging to other network users
    (e.g., phones) report which tags they see and their location, thus
-   allowing the owner of the tag to determine where their tag was most
-   recently seen.  While there are many legitimate uses of these tags,
-   they are also susceptible to misuse for the purpose of stalking and
-   abuse.  A protocol that allows others to detect unwanted location
+   allowing the owner(s) of the tag to determine where their tag was
+   most recently seen.  While there are many legitimate uses of these
+   tags, they are also susceptible to misuse for the purpose of stalking
+   and abuse.  A protocol that allows others to detect unwanted location
    trackers must incorporate an understanding of the unwanted tracking
    landscape today.  This document provides a threat analysis for this
    purpose, including a taxonomy of unwanted tracking and potential
@@ -145,13 +145,14 @@ Table of Contents
 
    *  Tags ("accessories") transmit an advertisement payload containing
       accessory-specific information.  The payload indicates whether the
-      accessory is separated from its owner and thus potentially lost.
+      accessory is separated from its owner(s) and thus potentially
+      lost.
 
    *  Devices belonging to other users ("non-owner devices") observe
       those payloads and if the payload is in a separated mode, reports
       its location to some central service.
 
-   *  The owner queries the central service for the location of their
+   *  The owner(s) queries the central service for the location of their
       accessory.
 
    A naive implementation of this design exposes both a tag's user and
@@ -249,9 +250,9 @@ Table of Contents
    Incorporation of this threat analysis into the DULT protocol does not
    introduce any security risks not already inherent in the underlying
    Bluetooth tracking tag protocols.  Existing attempts to prevent
-   unwanted tracking by the owner of a tag have been criticized as
+   unwanted tracking by the owner(s) of a tag have been criticized as
    potentially making it easier to engage in unwanted tracking of the
-   owner of a tag.  However, Beck et al. have demonstrated
+   owner(s) of a tag.  However, Beck et al. have demonstrated
    (https://eprint.iacr.org/2023/1332.pdf) a technological solution that
    employs secret sharing and error correction coding.
 
@@ -1167,7 +1168,7 @@ Table of Contents
       access to resources, and/or access to technological safeguards
       within the scope defined in Section 3.4 and Section 3.5
 
-   *  Avoid privacy compromises for the tag owner when protecting
+   *  Avoid privacy compromises for the tag owner(s) when protecting
       against unwanted location tracking using tracking tags
 
 4.1.  Design Requirements
@@ -1213,14 +1214,15 @@ Table of Contents
    been identified as potentially being used for unwanted location
    tracking, the user should be able to view the serial number of the
    device along with obfuscated owner information (e.g. last four digits
-   of phone number, obfuscated email address) and instructions on how to
-   find and/or disable the device (see Section 4.1.2 and Section 4.1.3).
-   There will be tradeoffs between detecting potential unwanted location
-   tracking promptly and alerting the potential victim prematurely.  One
-   way to handle these tradeoffs is to allow users to set the
-   sensitivity of these alerts.  For example, the AirGuard
-   (https://github.com/seemoo-lab/AirGuard) app includes three different
-   "Security Level" settings that users can customize.
+   of phone number, obfuscated email address) for all accounts linked to
+   the tag and instructions on how to find and/or disable the tag (see
+   Section 4.1.2 and Section 4.1.3).  There will be tradeoffs between
+   detecting potential unwanted location tracking promptly and alerting
+   the potential victim prematurely.  One way to handle these tradeoffs
+   is to allow users to set the sensitivity of these alerts.  For
+   example, the AirGuard (https://github.com/seemoo-lab/AirGuard) app
+   includes three different "Security Level" settings that users can
+   customize.
 
    To improve the accuracy of unwanted tracking detection, a confidence
    scoring mechanism can be used.  Instead of issuing binary alerts for
@@ -1339,9 +1341,9 @@ Table of Contents
    of-bluetooth-tracking-technology/) so that the most people can be
    protected by the protocol.  In addition to push notifications on
    nearby devices, tracking tags themselves should be able to notify end
-   users.  This should include periodic sounds when away from an owner,
-   along with lights and haptics so that people who are Deaf or hard of
-   hearing can still locate them.
+   users.  This should include periodic sounds when away from all tag
+   owners, along with lights and haptics so that people who are Deaf or
+   hard of hearing can still locate them.
 
 4.1.1.4.  Crowdsourced Network Activities Logs
 
@@ -1403,7 +1405,7 @@ Table of Contents
       even if the tag is not from the same platform.  Serial numbers may
       be used to report the device, verify its origin, or, in
       cooperation with manufacturers or authorities, identify the
-      registered owner of the tag.
+      registered owner(s) of the tag.
 
    It is important to consider where educational and disabling guidance
    is hosted.  For instance, information about disabling trackers should
@@ -1435,7 +1437,9 @@ Table of Contents
    attacker adding a victim to the shared list in order to avoid
    triggering passive notifications), and therefore should be approached
    with caution and abuse mitigation in mind.  These features are
-   optional and may vary by platform.
+   optional and may vary by platform.  Whenever shared ownership is
+   used, information about all owners should be made available when a
+   tag is suspected of unwanted location tracking (see Section 4.1.1.2).
 
 4.1.5.  Privacy and Security Requirements (TODO)
 
