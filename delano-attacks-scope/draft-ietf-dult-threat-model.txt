@@ -734,7 +734,7 @@ Table of Contents
    | Threat         |Impact| Likelihood |Risk  | Affected | Mitigation |
    |                |      |            |Level | Users    | Available? |
    +================+======+============+======+==========+============+
-   | Deploying      |Medium| High       |High  | Victims  | Partial    |
+   | Deploying      |Medium| High       |High  | Victims  | Full       |
    | Multiple Tags  |      |            |      |          |            |
    +----------------+------+------------+------+----------+------------+
    | Remote         |Medium| High       |High  | All      | No         |
@@ -803,43 +803,48 @@ Table of Contents
    trackers.  This also applies to situations where many tags are
    present, even if they are not being used for unwanted location
    tracking, such as a busy train station or airport where tag owners
-   may or may not be in proximity to their tracking tags.  The impact of
-   this attack is moderate for typical cases involving a small number of
-   tags, as detection systems can usually identify multiple devices,
-   though the impact could escalate if an attacker deploys dozens of
-   tags.  The likelihood is high, as deploying multiple tags requires
-   minimal technical effort and can be done using inexpensive,
-   commercially available trackers, making the attack easily repeatable.
-   As a result, the overall risk is high, requiring robust
-   countermeasures.  While scanning for multiple tags offers partial
-   mitigation, sophisticated attackers may still evade detection by
-   distributing tags strategically.
+   may or may not be in proximity to their tracking tags.
+
+   The impact of this attack is medium for typical cases involving a
+   small number of tags, though the impact could escalate if an attacker
+   deploys dozens of tags.  The likelihood is high, as deploying
+   multiple tags requires minimal technical effort and can be done using
+   inexpensive, commercially available trackers, making the attack
+   easily repeatable.  As a result, the overall risk is high, requiring
+   robust countermeasures.  The impact of multiple tags can be fully
+   mitigated by scanning for multiple tags, though a sophisticated
+   attacker might deploy other techniques such as modifying tag firmware
+   (Section 3.3.6) or periodically disabling a tag (Section 3.3.7) to
+   evade detection.
 
 3.3.4.  Remote Advertisement Monitoring
 
-   Bluetooth advertisement packets are not encrypted, so any device with
-   Bluetooth scanning capabilities in proximity to a location tracking
-   tag can receive Bluetooth advertisement packets.  If an attacker is
-   able to link an identifier in an advertisement packet to a particular
-   tag, they may be able to use this information to track the tag over
-   time, and potentially by proxy the victim or other individual,
-   without their consent.  Tracking tags typically rotate any
-   identifiers associated with the tag, but the interval depends on
-   context: when near the owner’s device, identifiers rotate every 15–30
-   minutes, while in a separated state (e.g., when the tag is away from
-   its owner), rotation may occur only once every 24 hour (see e.g.
+   Any device with Bluetooth scanning capabilities in proximity to a
+   location tracking tag can receive Bluetooth advertisement packets.
+   If an attacker is able to link an identifier in an advertisement
+   packet to a particular tag, they may be able to use this information
+   to track the tag over time, and by proxy the victim or other
+   individual, without their consent.
+
+   The impact of remote advertisement monitoring is moderate, as
+   tracking generally compromises privacy but, in many cases, prolonged
+   observation primarily reveals the location of the object rather than
+   of the person.  The likelihood is high, as attackers can execute this
+   using off-the-shelf Bluetooth scanning tools or smartphone apps with
+   minimal technical knowledge.  As a result, this is classified as a
+   high-risk attack.  This attack can be partially mitigated by rotating
+   tracking identifiers.
+
+   Tracking tags typically rotate any identifiers associated with the
+   tag, with the interval depending on context: when near the owner's
+   device, identifiers rotate frequently (every 15–30 minutes), while in
+   a separated state, rotation may occur only once every 24 hours (see
    [I-D.detecting-unwanted-location-trackers]).  Beck et al. have
    demonstrated (https://eprint.iacr.org/2023/1332.pdf) a technological
    solution that employs secret sharing and error correction coding that
    would reduce this to 60 seconds.  However, work must investigate how
    robust this scheme is to the presence of multiple tags (see
-   Section 3.3.3).  The impact is moderate, as tracking generally
-   compromises privacy but, in many cases, prolonged observation
-   primarily reveals the location of the object rather than the person.
-   The likelihood is high, as attackers can execute this using off-the-
-   shelf Bluetooth scanning tools or smartphone apps with minimal
-   technical knowledge.  As a result, this is classified as a high-risk
-   attack.
+   Section 3.3.3).
 
    While rotating identifiers provides partial mitigation, attackers can
    still use advanced correlation techniques, such as signal
