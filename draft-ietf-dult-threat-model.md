@@ -242,9 +242,9 @@ Threats in the DULT ecosystem vary in severity, feasibility, and likelihood, aff
 
 ### Threat Matrix
 
-To systematically assess the risks associated with different threats, we introduce the following threat matrix. This categorization considers key risk factors:
+To systematically assess the risks associated with different threats, we introduce the following threat matrix. This categorization considers the following factors:
 
-  - Impact: The potential consequences of the threat if successfully exploited.
+  - Impact: The potential consequences of the threat if successfully executed.
     - Low: Minimal effect on privacy and security.
     - Medium: Moderate effect on user privacy or tracking protection.
     - High: Severe privacy violations or safety risks.
@@ -252,16 +252,16 @@ To systematically assess the risks associated with different threats, we introdu
     - Low: Rare or requires specific conditions and high technical effort.
     - Medium: Possible under common scenarios with moderate technical requirements.
     - High: Frequently occurring or easily executed using common tools or skills.
-  - Risk Level: A qualitative assessment based on impact, likelihood, and feasibility.
+  - Risk Level: A qualitative assessment based on impact and likelihood.
     - Low: Limited risk requiring minimal mitigation.
     - Medium: Requires mitigation to prevent common attacks.
-    - High: Critical threat needing immediate mitigation.
+    - High: Critical threat must be addressed.
   - Affected Users: These are categorized as either:
     - Victims: Individuals specifically targeted or affected by the attack.
     - All users: Anyone using the system, even if they are not directly targeted.
   - Mitigation Available?: Whether a known mitigation strategy exists.
     - Yes: A viable mitigation exists.
-    - Partial: Some mitigations exist but are not fully effective.
+    - Partial: Some mitigations exist, but are not fully effective.
     - No: No effective mitigation currently available.
 
 | Threat | Impact | Likelihood | Risk Level | Affected Users | Mitigation Available? |
