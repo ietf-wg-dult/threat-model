@@ -311,7 +311,9 @@ Firmware-based changes would have high impact. The likelihood is low, as these a
 
 ### Attacker Accessory Disablement
 
-An attacker might intentionally disable their location tracking tag to make it harder for a victim to detect and/or locate the tag. This could be done periodically or permanently and either remotely or using a [physical device](https://undetectag.com/products/undetectag). The likelihood is medium, as this attack is relatively easy to perform using commercially available tools, but it still requires some attacker awareness of the victim’s actions (e.g., an ongoing search). The impact is medium as the tag can still be detected and physically located, though it may be more difficult to do so. The risk level is medium. The impact of this attack can be partially mitigated by minimizing the time needed to detect unwanted location tracking and maintaining the same identifier on reset.
+An attacker might intentionally disable their location tracking tag to make it harder for a victim to detect and/or locate the tag. This could be done periodically or permanently and either remotely or using a [physical device](https://undetectag.com/products/undetectag).
+
+The likelihood is medium, as this attack is relatively easy to perform using commercially available tools, but it still requires some attacker awareness of the victim’s actions (e.g., an ongoing search). The impact is medium as the tag can still be detected and physically located, though it may be more difficult to do so. The risk level is medium. The impact of this attack can be partially mitigated by minimizing the time needed to detect unwanted location tracking and maintaining the same identifier on reset.
 
 ### Tracking Using Victim's Own Tag
 
