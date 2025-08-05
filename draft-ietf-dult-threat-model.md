@@ -274,7 +274,6 @@ To systematically assess the risks associated with different threats, we introdu
 | Tracking Using Victim's Own Tag | High | Medium | High | Victims | Partial |
 | Disabling Victim Tag Detection | High | Medium | Medium | Victims | Partial |
 | Disabling Victim Tag | Medium | Medium | Medium | Victims | Partial |
-| Multi-Tag Correlation Attack | High | Medium | Medium | Victims | No |
 | Impersonation Attack (Tag) | High | Medium | High | Victims | Partial |
 | Impersonation Attack (Device/Tag) | High | Medium | High | All users | Partial |
 | Impersonation Attack (Device/Network) | Medium | Low | Low | All users | Partial |
@@ -283,7 +282,7 @@ To systematically assess the risks associated with different threats, we introdu
 
 ### Deploying Multiple Tags
 
-When an attacker deploys tracking tags to follow a victim, they may deploy more than one tag. For example, if planting a tracking tag in a car, the attacker might place one tag inside the car, and another affixed on the outside of the car. The DULT protocol must be robust to this scenario. This means that scans, whether passive or active, need to be able to return more than one result if a device is suspected of being used for unwanted tracking, and the time to do so must not be significantly impeded by the presence of multiple trackers. This also applies to situations where many tags are present, even if they are not being used for unwanted location tracking, such as a busy train station or airport where tag owners may or may not be in proximity to their tracking tags.
+When an attacker deploys tracking tags to follow a victim, they may deploy more than one tag. For example, if planting a tracking tag in a car, the attacker might place one tag inside the car, and another affixed on the outside of the car. The DULT protocol must be robust to this scenario. This means that scans, whether passive or active, need to be able to return more than one result if a device is suspected of being used for unwanted tracking, and the time to do so must not be significantly impeded by the presence of multiple trackers. This also applies to situations where many tags are present, even if they are not being used for unwanted location tracking, such as a busy train station or airport where tag owners may or may not be in proximity to their tracking tags. Instead of distributing multiple tags in the same location, an attacker could also distribute multiple tracking tags across locations frequently visited by a victim (home, workplace, etc.).
 
 The impact of this attack is medium for typical cases involving a small number of tags, though the impact could escalate if an attacker deploys dozens of tags. The likelihood is high, as deploying multiple tags requires minimal technical effort and can be done using inexpensive, commercially available trackers, making the attack easily repeatable. As a result, the overall risk is high, requiring robust countermeasures. The impact of multiple tags can be fully mitigated by scanning for multiple tags, though a sophisticated attacker might deploy other techniques such as modifying tag firmware ({{accessory-firmware-modifications}}) or periodically disabling a tag ({{attacker-accessory-disablement}}) to evade detection.
 
@@ -332,10 +331,6 @@ The likelihood is medium, as executing this attack requires the attacker to phys
 ### Disabling Victim Tag
 
 An attacker might intentionally disable a victim's tag as a form of harassment. This could be done with physical access to the tag, using a victim's own device to disable the tag, or with remote access to disable the tag via the crowdsourced network. The impact of this attack is medium as it is a nuisance but most likely does not involve a security threat, unless the tag is being used to track a valuable item or child. The likelihood is medium, as executing the attack requires access to the victim’s tag, device, or account, which involves a moderate level of access or effort. The risk level is therefore medium. Physical disablement of a tag cannot be mitigated, but other forms of disablement may be mitigated by notifying users that a change has been made on their account, similar to suspicious login notifications.
-
-### Multi-Tag Correlation Attack
-
-By distributing multiple tracking tags across locations frequently visited by a target (home, workplace, etc.), attackers can reconstruct movement patterns over time. Traditional tracking prevention measures focus on individual devices, making this method difficult to counter. Cross-tag correlation analysis could improve detection of recurring unknown trackers near a user. The impact is high, as it enables persistent monitoring. The likelihood is medium, since multiple devices are required and execution is moderately complex, involving correlation logic and tracking infrastructure. This leads to a medium-risk attack. While no effective mitigation exists, coordinated scanning across devices could help detect recurring unknown trackers.
 
 ### Impersonation Attack (Tag)
 
