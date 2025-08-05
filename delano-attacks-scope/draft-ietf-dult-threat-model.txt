@@ -106,11 +106,10 @@ Table of Contents
        3.3.8.  Tracking Using Victim's Own Tag
        3.3.9.  Disabling Victim Tag Detection
        3.3.10. Disabling Victim Tag
-       3.3.11. Multi-Tag Correlation Attack
-       3.3.12. Impersonation Attack (Tag)
-       3.3.13. Impersonation Attack (Device)
-       3.3.14. Replay Attack
-       3.3.15. Heterogeneous Tracker Networks
+       3.3.11. Impersonation Attack (Tag)
+       3.3.12. Impersonation Attack (Device)
+       3.3.13. Replay Attack
+       3.3.14. Heterogeneous Tracker Networks
      3.4.  What is in scope
        3.4.1.  Technologies
        3.4.2.  Attacker Profiles
@@ -737,11 +736,11 @@ Table of Contents
    | Deploying      |Medium| High       |High  | Victims  | Full       |
    | Multiple Tags  |      |            |      |          |            |
    +----------------+------+------------+------+----------+------------+
-   | Remote         |Medium| High       |High  | All      | No         |
+   | Remote         |Medium| High       |Medium| All      | Partial    |
    | Advertisement  |      |            |      | users    |            |
    | Monitoring     |      |            |      |          |            |
    +----------------+------+------------+------+----------+------------+
-   | Physically     |High  | Medium     |Medium| Victims  | No         |
+   | Physically     |High  | Medium     |Medium| Victims  | Partial    |
    | Modifying      |      |            |      |          |            |
    | Tags           |      |            |      |          |            |
    +----------------+------+------------+------+----------+------------+
@@ -765,10 +764,6 @@ Table of Contents
    | Disabling      |Medium| Medium     |Medium| Victims  | Partial    |
    | Victim Tag     |      |            |      |          |            |
    +----------------+------+------------+------+----------+------------+
-   | Multi-Tag      |High  | Medium     |Medium| Victims  | No         |
-   | Correlation    |      |            |      |          |            |
-   | Attack         |      |            |      |          |            |
-   +----------------+------+------------+------+----------+------------+
    | Impersonation  |High  | Medium     |High  | Victims  | Partial    |
    | Attack (Tag)   |      |            |      |          |            |
    +----------------+------+------------+------+----------+------------+
@@ -781,7 +776,7 @@ Table of Contents
    | (Device/       |      |            |      |          |            |
    | Network)       |      |            |      |          |            |
    +----------------+------+------------+------+----------+------------+
-   | Replay Attack  |Medium| High       |Medium| Victims  | No         |
+   | Replay Attack  |Medium| High       |Medium| Victims  | Partial    |
    +----------------+------+------------+------+----------+------------+
    | Heterogeneous  |High  | Medium     |Medium| Victims  | No         |
    | Tracker        |      |            |      |          |            |
@@ -803,7 +798,10 @@ Table of Contents
    trackers.  This also applies to situations where many tags are
    present, even if they are not being used for unwanted location
    tracking, such as a busy train station or airport where tag owners
-   may or may not be in proximity to their tracking tags.
+   may or may not be in proximity to their tracking tags.  Instead of
+   distributing multiple tags in the same location, an attacker could
+   also distribute multiple tracking tags across locations frequently
+   visited by a victim (home, workplace, etc.).
 
    The impact of this attack is medium for typical cases involving a
    small number of tags, though the impact could escalate if an attacker
@@ -832,8 +830,8 @@ Table of Contents
    of the person.  The likelihood is high, as attackers can execute this
    using off-the-shelf Bluetooth scanning tools or smartphone apps with
    minimal technical knowledge.  As a result, this is classified as a
-   high-risk attack.  This attack can be partially mitigated by rotating
-   tracking identifiers.
+   medium risk attack.  This attack can be partially mitigated by
+   rotating tracking identifiers.
 
    Tracking tags typically rotate any identifiers associated with the
    tag, with the interval depending on context: when near the owner's
@@ -865,13 +863,17 @@ Table of Contents
 
    An attacker might physically modify a tag in ways that make it non-
    conformant with the DULT protocol.  Physical modifications may
-   include disabling the speaker or vibration alert or shielding and
+   include disabling a speaker or other haptics, or shielding and
    altering the antenna to reduce transmission range.  These
    modifications can make it more difficult for victims to discover
-   hidden trackers, leading to a high impact.  The likelihood is medium,
-   as such hardware modifications require moderate technical expertise
-   and physical access to the device.  Given this combination of
-   factors, the overall risk level is medium.
+   hidden trackers, leading to a high impact.
+
+   The likelihood is medium, as such hardware modifications require
+   moderate technical expertise and physical access to the device.
+   Given this combination of factors, the overall risk level is medium.
+   Partial mitigation is available, such as monitoring the impedance of
+   the speaker, but these mitigations are limited as attackers have
+   physical access to the tags.
 
 3.3.6.  Accessory Firmware Modifications
 
@@ -879,15 +881,18 @@ Table of Contents
    specify that accessory firmware images MUST be authenticated, and
    that accessories MUST verify the integrity and origin of firmware.
    However, if these protections were to be bypassed, an accessory's
-   software could be altered to deviate from standard behavior.
+   firmware could be altered to deviate from standard behavior.
    Attackers may manipulate advertisement intervals to reduce detection
    opportunities, allowing the tag to evade tracking for extended
    periods, or rotate IDs rapidly, disrupting detection systems that
-   rely on tracking unknown device persistence.  Firmware-based changes
-   would have high impact.  The likelihood is low, as these attacks
-   require significant technical expertise to bypass firmware
-   verification and modify low-level accessory behavior.  As a result,
-   the overall risk level is medium.
+   rely on tracking unknown device persistence.
+
+   Firmware-based changes would have high impact.  The likelihood is
+   low, as these attacks require significant technical expertise to
+   bypass firmware verification and modify low-level accessory behavior.
+   As a result, the overall risk level is medium.  Partial mitigation of
+   this attack is possible by requiring accessories to verify the
+   integrity and origin of firmware.
 
 3.3.7.  Attacker Accessory Disablement
 
@@ -895,6 +900,7 @@ Table of Contents
    to make it harder for a victim to detect and/or locate the tag.  This
    could be done periodically or permanently and either remotely or
    using a physical device (https://undetectag.com/products/undetectag).
+
    The likelihood is medium, as this attack is relatively easy to
    perform using commercially available tools, but it still requires
    some attacker awareness of the victim’s actions (e.g., an ongoing
@@ -916,7 +922,7 @@ Table of Contents
    warning.
 
    This threat differs from impersonation or replay attacks (see
-   Section 3.3.12 and Section 3.3.14) because it does not rely on
+   Section 3.3.11 and Section 3.3.13) because it does not rely on
    breaking cryptographic protections or evading detection algorithms.
    Instead, it leverages the legitimate trust relationship encoded in
    the protocol.  The impact of this attack is high, as it results in
@@ -938,12 +944,14 @@ Table of Contents
    An attacker might intentionally disable passive unwanted location
    tracking detection on a victim's device.  The impact of this attack
    is high as it would prevent the victim from being notified about
-   possible unwanted location tracking.  The likelihood is medium, as
-   executing this attack requires the attacker to physically or remotely
-   alter settings on the victim’s device, which involves moderate effort
-   and access.  The risk level is high.  This attack can be partially
-   mitigated by notifying victims of potential location tracking using
-   other means e.g. sounds or haptics on location tracking tags.
+   possible unwanted location tracking.
+
+   The likelihood is medium, as executing this attack requires the
+   attacker to physically or remotely alter settings on the victim’s
+   device, which involves moderate effort and access.  The risk level is
+   high.  This attack can be partially mitigated by notifying victims of
+   potential location tracking using other means e.g. sounds or haptics
+   on location tracking tags.
 
 3.3.10.  Disabling Victim Tag
 
@@ -951,7 +959,9 @@ Table of Contents
    harassment.  This could be done with physical access to the tag,
    using a victim's own device to disable the tag, or with remote access
    to disable the tag via the crowdsourced network.  The impact of this
-   attack is medium.  The likelihood is medium, as executing the attack
+   attack is medium as it is a nuisance but most likely does not involve
+   a security threat, unless the tag is being used to track a valuable
+   item or child.  The likelihood is medium, as executing the attack
    requires access to the victim’s tag, device, or account, which
    involves a moderate level of access or effort.  The risk level is
    therefore medium.  Physical disablement of a tag cannot be mitigated,
@@ -959,22 +969,7 @@ Table of Contents
    that a change has been made on their account, similar to suspicious
    login notifications.
 
-3.3.11.  Multi-Tag Correlation Attack
-
-   By distributing multiple tracking tags across locations frequently
-   visited by a target (home, workplace, etc.), attackers can
-   reconstruct movement patterns over time.  Traditional tracking
-   prevention measures focus on individual devices, making this method
-   difficult to counter.  Cross-tag correlation analysis could improve
-   detection of recurring unknown trackers near a user.  The impact is
-   high, as it enables persistent monitoring.  The likelihood is medium,
-   since multiple devices are required and execution is moderately
-   complex, involving correlation logic and tracking infrastructure.
-   This leads to a medium-risk attack.  While no effective mitigation
-   exists, coordinated scanning across devices could help detect
-   recurring unknown trackers.
-
-3.3.12.  Impersonation Attack (Tag)
+3.3.11.  Impersonation Attack (Tag)
 
    Attackers might be able to impersonate legitimate tracking
    accessories, enabling tracking without complying with the DULT
@@ -986,12 +981,9 @@ Table of Contents
    tracking-tool).  By impersonating an authorized tag, an attacker
    could inject false location data, misattribute tag ownership, or
    evade detection by appearing as a trusted accessory or rotating
-   identifiers frequently to evade detection.  This tactic increases the
-   difficulty of accurately identifying unauthorized tracking attempts
-   and undermines the reliability of the network.  Currently, no fully
-   effective mitigation exists.  However, improvements in authentication
-   mechanisms, such as cryptographic signing of broadcasts, and anomaly
-   detection techniques may help reduce the risk.
+   identifiers frequently.  This tactic increases the difficulty of
+   accurately identifying unauthorized tracking attempts and undermines
+   the reliability of the network.
 
    In addition to full impersonation, adversaries may exploit platform-
    specific assumptions to suppress alerts.  For instance, Chen et al.
@@ -1012,19 +1004,22 @@ Table of Contents
    custom hardware or exploiting platform-specific capabilities like
    unrestricted Bluetooth broadcasting, which have been demonstrated in
    research but remain moderately complex to execute.  As a result, the
-   overall risk level is considered high.  Protocol-level authentication
-   is needed to validate tracker identities and prevent these attacks.
-   Operating systems can partially mitigate software impersonation
-   attacks by restricting low-level BLE broadcasting unless elevated
-   privileges are granted.
+   overall risk level is considered high.  Currently, no fully effective
+   mitigation exists.  However, improvements in authentication
+   mechanisms, such as cryptographic signing of broadcasts, and anomaly
+   detection techniques may help reduce the risk.Protocol-level
+   authentication is needed to validate tracker identities and prevent
+   these attacks.  Operating systems can partially mitigate software
+   impersonation attacks by restricting low-level BLE broadcasting
+   unless elevated privileges are granted.
 
-3.3.13.  Impersonation Attack (Device)
+3.3.12.  Impersonation Attack (Device)
 
    In addition to impersonating a tag, an attacker could also
    impersonate a device.  This affords attacks against both tracking
    accessories and against the crowdsourced network.
 
-3.3.13.1.  Attacks on accessories
+3.3.12.1.  Attacks on accessories
 
    An impersonated device could send commands to accessories, such as a
    "play sound" command or a remote disablement command.  Accessory
@@ -1047,52 +1042,58 @@ Table of Contents
    from transmitting packets, certain rules can be enforced by
    accessories.
 
-3.3.13.2.  Attacks on crowdsourced network
+3.3.12.2.  Attacks on crowdsourced network
 
    An impersonated device could send false location reports to the
    crowdsourced network, or selectively not report to the crowdsourced
-   network.  The likelihood of this attack is low, as it would require
-   the impersonated device to authenticate with the crowdsourced
-   network.  The impact is medium, as not reporting would have no impact
-   and false location reports are a nuisance but can be mitigated.  The
-   overall risk level for this attack is low.  The affected users are
-   all users.  Mitigations include requiring authentication to send
-   reports to the crowdsourced network and only trusting reports when
-   they can be verified by multiple devices.
+   network.
 
-3.3.14.  Replay Attack
+   The likelihood of this attack is low, as it would require the
+   impersonated device to authenticate with the crowdsourced network.
+   The impact is medium, as not reporting would have no impact and false
+   location reports are a nuisance but can be mitigated.  The overall
+   risk level for this attack is low.  The affected users are all users.
+   Mitigations include requiring authentication to send reports to the
+   crowdsourced network and only trusting reports when they can be
+   verified by multiple devices.
+
+3.3.13.  Replay Attack
 
    In addition to impersonating legitimate tracking devices (see
-   Section 3.3.12), attackers can record and replay Bluetooth
+   Section 3.3.11), attackers can record and replay Bluetooth
    advertisements from a legitimate tracker.  For example, an attacker
    could capture a tracker's broadcast and retransmit it elsewhere,
    creating confusion about its actual location.  This could be used to
    mislead users, interfere with tracking accuracy, or frame an innocent
    party by making it appear as though they are carrying a tracker when
-   they are not.  Unlike an impersonation attack, this approach does not
-   require authentication, making it relatively easier to execute with
-   readily available tools.  The likelihood is high, as replay attacks
-   require no authentication and can be executed using off-the-shelf
-   Bluetooth scanning tools with minimal technical expertise.  Replay
-   attacks pose a medium risk owing to their higher likelihood but
-   medium impact.
+   they are not.
 
-3.3.15.  Heterogeneous Tracker Networks
+   The impact of this attack is medium.  The likelihood is high, as
+   replay attacks require no authentication and can be executed using
+   off-the-shelf Bluetooth scanning tools with minimal technical
+   expertise.  Replay attacks pose a medium risk owing to their higher
+   likelihood but medium impact.  Replay attacks are particularly
+   difficult to mitigate as they may involve different combinations of
+   accessories and devices.  Partial mitigation may be possible by
+   authenticating messages from accessories in a time varying manner.
+
+3.3.14.  Heterogeneous Tracker Networks
 
    Attackers may use a mix of tracking devices from different
    manufacturers (e.g., Apple AirTags, Tile, Samsung SmartTags) to
    exploit gaps in vendor-specific tracking protections.  Many detection
    systems are brand-dependent, making them ineffective against mixed
    tracker deployments.  The goal of the DULT protocol is to enable a
-   cross-vendor framework; however, any slight differences in potential
-   implementation could be exploited.  The impact is high, as it
-   circumvents traditional defenses.  The likelihood is medium, as
-   deploying multiple brands requires effort and coordination, and may
-   demand deeper knowledge of platform-specific behaviors and
-   limitations.  This remains a medium-risk attack.  This attack can be
-   mitigated by manufacturers adopting the DULT protocol and ensuring
-   that the DULT protocol is sufficiently clear to minimize gaps in
-   vendor-specific tracking protections.
+   cross-vendor framework; however, any slight differences in
+   implementation could be exploited.
+
+   The impact is high, as it circumvents traditional defenses.  The
+   likelihood is medium, as deploying or selecting from multiple brands
+   requires effort and coordination, and may demand deeper knowledge of
+   platform-specific behaviors and limitations.  Overall, this is medium
+   risk attack.  This attack can be mitigated by manufacturers adopting
+   the DULT protocol and ensuring that the DULT protocol is sufficiently
+   clear to minimize gaps in vendor-specific tracking protections.
 
 3.4.  What is in scope
 
