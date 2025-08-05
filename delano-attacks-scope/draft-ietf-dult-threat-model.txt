@@ -116,8 +116,7 @@ Table of Contents
        3.4.3.  Victim Profiles
      3.5.  What is out of scope
        3.5.1.  Technologies
-       3.5.2.  Attack Profiles
-       3.5.3.  Victim Profiles
+       3.5.2.  Victim Profiles
    4.  Design Considerations
      4.1.  Design Requirements
        4.1.1.  Detecting Unwanted Location Tracking
@@ -1147,14 +1146,7 @@ Table of Contents
 
    *  User accounts for cloud services or social media.
 
-3.5.2.  Attack Profiles
-
-   Attackers with nation-state level expertise and resources who deploy
-   custom or altered tracking tags to bypass protocol safeguards or
-   jailbreak a victim end-device (e.g. smartphone) are considered out of
-   scope.
-
-3.5.3.  Victim Profiles
+3.5.2.  Victim Profiles
 
    N/A
 
