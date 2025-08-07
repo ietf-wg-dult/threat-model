@@ -230,7 +230,11 @@ This is a case involving a high-skill attacker, with a large skill difference be
 
 ### Bluetooth vs. other technologies
 
-The above taxonomy and threat analysis focus on location tracking tags. They are protocol-independent; if a tag were designed for crowd-sourced location tracking using a technology other than Bluetooth, they would still apply. The key attributes are the functionalities and physical properties of the accessory from the user’s perspective. The accessory must be small, not easily discoverable, and able to participate in a crowd-sourced location tracking network.
+The above taxonomy and threat analysis focus on location tracking tags. They are protocol-independent; if a tag were designed for crowd-sourced location tracking using a technology other than Bluetooth, they would still apply. 
+
+The key attributes are the functionalities and physical properties of the accessory from the user’s perspective. The accessory must be small, not easily discoverable, and able to participate in a crowd-sourced location tracking network.
+
+While many GPS based location trackers are not explicitely designed for crowd-sourced location tracking, relying instead on cellular or satellite transmission, they offer different affordances that can have a critical impact on safety, including increased location precision and real-time tracking. Manufacturers of these trackers are strongly encouraged to add bluetooth crowd-sourced functionality so that DULT protocols can be enabled on the devices. 
 
 ## Possible Attacks on the DULT Protocol
 
@@ -279,6 +283,7 @@ To systematically assess the risks associated with different threats, we introdu
 | Impersonation Attack (Device/Network) | Medium | Low | Low | All users | Partial |
 | Replay Attack | Medium | High | Medium | Victims | Partial |
 | Heterogeneous Tracker Networks | High | Medium | Medium | Victims | No |
+| Deploying GPS Tracker | High | Medium | High | Victims | No |
 
 ### Deploying Multiple Tags
 
@@ -368,6 +373,13 @@ Attackers may use a mix of tracking devices from different manufacturers (e.g., 
 
 The impact is high, as it circumvents traditional defenses. The likelihood is medium, as deploying or selecting from multiple brands requires effort and coordination, and may demand deeper knowledge of platform-specific behaviors and limitations. Overall, this is medium risk attack. This attack can be mitigated by manufacturers adopting the DULT protocol and ensuring that the DULT protocol is sufficiently clear to minimize gaps in vendor-specific tracking protections.
 
+### Deploying GPS Tracker
+
+When an attacker deploys a GPS tracker to stalk a victim, they have access to greater location precision, real-time tracking, and some offer global coverage through sattelite connection. Attackers in rural areas and areas with low crowd-sourced network saturation who are unable to deploy bluetooth trackers saturation, and attackers looking for more advanced precision or for devices that do not offer safety protections, are able to deploy these in one off attacks. 
+
+The impact of this attack is high for typical cases, due to the increased location precision and real time tracking functionality. The likelihood is medium, as these trackers are currently nominally more expensive than bluetooth based trackers, and not as readily available. As a result, the overall risk is high, requiring robust countermeasures. The impact of GPS trackers  can be fully mitigated by adding bluetooth crowd-sourced tracking functionality to GPS trackers and adopting the DULT protocol.
+
+
 ## What is in scope
 
 ### Technologies
@@ -392,6 +404,8 @@ There are many types of technology that can be used for location tracking. In ma
   - Other Internet of Things (IoT) devices.
   - Connected cars.
   - User accounts for cloud services or social media.
+
+See 3.2.2 for information and recommendation related to GPS trackers. 
 
 ### Victim Profiles
 
