@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-07-29T01:48:45.127086+00:00",
+  "timestamp": "2025-08-07T01:40:22.289539+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -133,7 +133,7 @@
       "id": "I_kwDOMB0Qas6oCPnt",
       "title": "Attack: What is out of scope?",
       "url": "https://github.com/ietf-wg-dult/threat-model/issues/18",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -142,8 +142,8 @@
       "labels": [],
       "body": "Discuss attacks that are out of scope.",
       "createdAt": "2025-01-29T20:06:46Z",
-      "updatedAt": "2025-04-11T18:27:41Z",
-      "closedAt": null,
+      "updatedAt": "2025-08-06T21:30:06Z",
+      "closedAt": "2025-08-06T21:30:06Z",
       "comments": []
     },
     {
@@ -456,7 +456,7 @@
       "labels": [],
       "body": "Update terminology in threat model document to be consistent with other documents.",
       "createdAt": "2025-01-29T20:29:34Z",
-      "updatedAt": "2025-04-11T17:44:46Z",
+      "updatedAt": "2025-08-05T14:51:29Z",
       "closedAt": null,
       "comments": [
         {
@@ -482,7 +482,7 @@
       "labels": [],
       "body": "Update terminology to match [accessory protocol document](https://github.com/ietf-wg-dult/accessory-protocol). (N.B. we discussed at IETF that the terminology in that document should likely serve as a reference, but if changes are needed, they can be made as well. This issue may therefore be lower priority while all groups work on their terminology.) ",
       "createdAt": "2025-01-29T20:31:08Z",
-      "updatedAt": "2025-04-11T18:27:41Z",
+      "updatedAt": "2025-08-05T14:51:30Z",
       "closedAt": null,
       "comments": []
     },
@@ -526,7 +526,7 @@
       "labels": [],
       "body": "Detecting unwanted location tracking is often discussed as a trade off between privacy of unassociated tag owners and security of tracking victims (see e.g. [this article](https://eprint.iacr.org/2023/1332.pdf)). However, victims could be threatened using either attacks related to [remote advertisement monitoring](https://github.com/ietf-wg-dult/threat-model/issues/17) as well as the \"standard\" tracking scenario. Update the document to discuss this, and how the protocol should prioritize different types of attacks, victims, etc.",
       "createdAt": "2025-01-29T20:36:41Z",
-      "updatedAt": "2025-06-07T02:53:24Z",
+      "updatedAt": "2025-08-05T14:51:30Z",
       "closedAt": null,
       "comments": [
         {
@@ -747,7 +747,7 @@
       "labels": [],
       "body": "Fill out the acknowledgements section.",
       "createdAt": "2025-03-01T08:25:12Z",
-      "updatedAt": "2025-04-11T18:27:42Z",
+      "updatedAt": "2025-08-05T14:51:31Z",
       "closedAt": null,
       "comments": []
     },
@@ -765,7 +765,7 @@
       "labels": [],
       "body": "Update scenarios based on expanded taxonomy in version -01.",
       "createdAt": "2025-03-01T08:25:49Z",
-      "updatedAt": "2025-04-11T18:24:46Z",
+      "updatedAt": "2025-08-05T14:44:22Z",
       "closedAt": null,
       "comments": []
     },
@@ -783,7 +783,7 @@
       "labels": [],
       "body": "Consider adding specific requirements related to privacy and security in the design requirements section. We will need to think about what should go in this document versus some of the other documents, and also how to consider design tradeoffs (see also #36).",
       "createdAt": "2025-03-01T08:26:52Z",
-      "updatedAt": "2025-04-11T18:27:07Z",
+      "updatedAt": "2025-08-05T14:51:31Z",
       "closedAt": null,
       "comments": []
     },
@@ -1039,7 +1039,7 @@
       "id": "I_kwDOMB0Qas6sj2Ze",
       "title": "Paired to multiple accounts/devices",
       "url": "https://github.com/ietf-wg-dult/threat-model/issues/71",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "bledvina",
       "authorAssociation": "NONE",
       "assignees": [
@@ -1048,8 +1048,8 @@
       "labels": [],
       "body": "Adding this issue on behalf of Eva Galperin's email on 10/18/2024. In that email she stated:\n\n\"I also support adoption, with the caveats that the TODO sections still need to be filled in and that if the behavior of trackers that are paired to multiple devices is outside of the scope of this document, then we need to make sure to cover it somewhere else. Many trackers currently have this capabilitiy and I want to make sure that if a person finds an unwanted tracker that they are able to find out about all of the devices that it is paired to, not just the primary one.\"\n\nNot sure if this has been addressed or not, but when I just read through the threat model document, I don't think this issue has been addressed yet.",
       "createdAt": "2025-03-04T18:18:05Z",
-      "updatedAt": "2025-06-04T15:54:04Z",
-      "closedAt": null,
+      "updatedAt": "2025-08-05T13:14:45Z",
+      "closedAt": "2025-08-05T13:14:44Z",
       "comments": [
         {
           "author": "maggiedelano",
@@ -1366,7 +1366,7 @@
       "id": "I_kwDOMB0Qas64Bdgn",
       "title": "User activity logging to facilitate detection of unwanted tracking",
       "url": "https://github.com/ietf-wg-dult/threat-model/issues/105",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -1375,8 +1375,8 @@
       "labels": [],
       "body": "[Stephenson et al.](https://www.usenix.org/system/files/usenixsecurity23-stephenson-lessons.pdf) discuss how IoT abuse can be detected using detailed logs of user activities: \n\n> Towards (2), IoT devices should have detailed logs of user activities like viewing a camera feed, checking the security system status, or changing the temperature. Importantly, these logs should also contain information on who is doing these actions (e.g., \u201cUser A changed the temperature at [time]\u201d or \u201cUser B viewed the location of device X at [time]\u201d).\n\nHowever, these logs need to be designed carefully:\n\n> When designing these logs, researchers must carefully consider the potential drawbacks. For example, the same logs that provide transparency to a victim-survivor may at the same time provide another vector for surveillance. This is especially concerning given that we have identified real-world examples of abusers using activity logs maliciously (Section 4).\n\nWe should consider including a suggestion for platforms to log certain user activities when engaging with the crowdsourced network. For example \u201cUser B viewed the location of device X at [time]\u201d like shown above. This would also address at least part of #71 about knowing which accounts have access to location information for which tags, but also when they view that location. It would also give an indicator of whether the victim's account or device itself has been compromised or if an attacker is accessing information about the tag from their own account. \n\nI think this makes most sense to add to 4.1 Design requirements, likely after 4.1.1.3 (so 4.1.1.4).",
       "createdAt": "2025-05-23T19:52:00Z",
-      "updatedAt": "2025-05-23T20:11:07Z",
-      "closedAt": null,
+      "updatedAt": "2025-08-05T13:12:05Z",
+      "closedAt": "2025-08-05T13:12:05Z",
       "comments": []
     },
     {
@@ -1453,7 +1453,7 @@
       "labels": [],
       "body": "Example scenarios currently focus on threat actors known to the victim. We should consider including threat actors not known to the victim, as there have been a number of examples of this type of stalking at bars and other nightlife activities. In these circumstances it may be more challenging for the victim to identify the attacker, since they will not be able to recognize obfuscated phone number or email. ",
       "createdAt": "2025-06-02T18:12:25Z",
-      "updatedAt": "2025-06-03T19:30:54Z",
+      "updatedAt": "2025-08-05T14:44:22Z",
       "closedAt": null,
       "comments": [
         {
@@ -1479,7 +1479,7 @@
       "labels": [],
       "body": "Threat actors are able to use GPS only trackers to circumvent protections.  While development of a standard unique to GPS is out of scope for this workgroup, the standard can certainly encourage GPS + cellular/satellite tracker companies to include bluetooth functionality in their trackers so that they can implement the anti-stalking protocol that is in scope. \n\nWould be good to add a threat scenario detailing the unique threats faced by victims related to GPS / cellular tracker misuse (e.g. realtime tracking, increased precision via precise coordinates rather than last known location), and pointing to incorporating bluetooth so that these victims have the benefit of the alerts as well.",
       "createdAt": "2025-06-03T14:33:42Z",
-      "updatedAt": "2025-06-04T15:38:55Z",
+      "updatedAt": "2025-08-05T14:43:52Z",
       "closedAt": null,
       "comments": [
         {
@@ -1503,7 +1503,7 @@
       "labels": [],
       "body": "Can we make mention of ultra-wideband as a more accessible form of finding in the Design Considerations section? It can help a person narrow in to where a support person (e.g. mechanic, law enforcement officer) could focus, even if the tracker is out of reach due to being taped or embedded in a hard to reach area. While it's not a requirement, it points to the importance of adopting emerging technologies that improve user safety experience. ",
       "createdAt": "2025-06-03T15:12:51Z",
-      "updatedAt": "2025-06-12T19:35:36Z",
+      "updatedAt": "2025-08-05T14:51:32Z",
       "closedAt": null,
       "comments": [
         {
@@ -1541,7 +1541,7 @@
       "labels": [],
       "body": "Platforms often support a specific \"lost mode\" function ([Apple](https://support.apple.com/guide/iphone/mark-an-item-as-lost-iph1b451b75f/ios)). Tile includes an [anti-theft mode](https://www.life360.com/blog/how-does-tile-anti-theft-mode-work), but this requires passing a 3-stage ID verification process.\n\nWe should think through what the implications of lost/theft modes are and see if we should discuss them in the Threat Model document. \n\nI think the lost mode functionality of displaying a message is probably benign (though could be used to share defamatory or harassing messages?), but we probably don't want to recommend the implementation of an anti-theft mode like Tile does.\n\n",
       "createdAt": "2025-06-24T20:08:31Z",
-      "updatedAt": "2025-06-25T20:04:25Z",
+      "updatedAt": "2025-08-05T14:51:32Z",
       "closedAt": null,
       "comments": []
     },
@@ -3958,24 +3958,26 @@
       "id": "PR_kwDOMB0Qas6XcnqT",
       "title": "Add crowdsourced network logging to detect unwanted location tracking",
       "url": "https://github.com/ietf-wg-dult/threat-model/pull/107",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Closes #105.",
       "createdAt": "2025-05-23T20:33:33Z",
-      "updatedAt": "2025-06-03T17:50:03Z",
+      "updatedAt": "2025-08-05T13:12:04Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
       "baseRefOid": "9996e603b43a9b3f3e4a01832ab74aa6002a00f8",
       "headRepository": "ietf-wg-dult/threat-model",
       "headRefName": "delano-logging",
       "headRefOid": "53a3b53334439122b2e8bf5e6008069c72cb1989",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-08-05T13:12:04Z",
+      "mergedAt": "2025-08-05T13:12:04Z",
+      "mergedBy": "exploretechsafety",
+      "mergeCommit": {
+        "oid": "effce789a7640a0aaedcff60347aea1d596f7517"
+      },
       "comments": [
         {
           "author": "maggiedelano",
@@ -3997,6 +3999,19 @@
           "body": "I like having something about crowdsourced network activities logs. I'm a little concerned on principle about the idea that the logs can _never_ be deleted (and is that compliant with European privacy laws? it might be, I'm just not sure). Maybe I'm overthinking it/thinking of scenarios that are too unlikely. But would it make more sense to say something like, logs should be kept for 30 days after a deletion request, or indefinitely in response to a court order or subpoena? What do you think?",
           "createdAt": "2025-05-29T16:44:48Z",
           "updatedAt": "2025-05-29T16:44:48Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOMB0Qas64EnxR",
+          "commit": {
+            "abbreviatedOid": "53a3b53"
+          },
+          "author": "exploretechsafety",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "I think it's fine to not mention specific laws, like you said - especially since they may change.",
+          "createdAt": "2025-08-05T13:11:39Z",
+          "updatedAt": "2025-08-05T13:11:39Z",
           "comments": []
         }
       ]
@@ -4261,26 +4276,42 @@
       "id": "PR_kwDOMB0Qas6c8MSt",
       "title": "Account for multiple tag owners in threat model document",
       "url": "https://github.com/ietf-wg-dult/threat-model/pull/125",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Closes #71.",
       "createdAt": "2025-07-01T16:29:04Z",
-      "updatedAt": "2025-07-01T16:29:05Z",
+      "updatedAt": "2025-08-05T13:14:43Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
       "baseRefOid": "132603b687a999842ed31cfc4b26c6d94aa01dfc",
       "headRepository": "ietf-wg-dult/threat-model",
       "headRefName": "delano-multiple-accounts",
       "headRefOid": "6827f547f707fe146610a41731e3b3b7dda48962",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-08-05T13:14:43Z",
+      "mergedAt": "2025-08-05T13:14:43Z",
+      "mergedBy": "exploretechsafety",
+      "mergeCommit": {
+        "oid": "0b06732d6dca6f78035d766f0c8d1697ee19e77b"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOMB0Qas64EqXw",
+          "commit": {
+            "abbreviatedOid": "6827f54"
+          },
+          "author": "exploretechsafety",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-08-05T13:14:27Z",
+          "updatedAt": "2025-08-05T13:14:27Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 126,
@@ -4451,6 +4482,34 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 130,
+      "id": "PR_kwDOMB0Qas6iQsl7",
+      "title": "Clean up attacks section",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/130",
+      "state": "MERGED",
+      "author": "maggiedelano",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Makes a bunch of updates to the attacks section:\r\n\r\n- updates language of threat matrix terminology to be consistent\r\n- updates each attack to be consistent in wording and spacing\r\n- minor updates to threat matrix \r\n- removes attack profiles as out of scope\r\n\r\nCloses #18.\r\n\r\nAfter this one, the last attack left is #113.",
+      "createdAt": "2025-08-05T20:07:43Z",
+      "updatedAt": "2025-08-06T21:30:05Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "0b06732d6dca6f78035d766f0c8d1697ee19e77b",
+      "headRepository": "ietf-wg-dult/threat-model",
+      "headRefName": "delano-attacks-scope",
+      "headRefOid": "5ce97ac8b300e2388bae1f0209acda33ce244318",
+      "closedAt": "2025-08-06T21:30:05Z",
+      "mergedAt": "2025-08-06T21:30:05Z",
+      "mergedBy": "maggiedelano",
+      "mergeCommit": {
+        "oid": "a97b00fe4e32c48e97a2ca16e8ae3e7c2e7287d3"
+      },
+      "comments": [],
+      "reviews": []
     }
   ]
 }
