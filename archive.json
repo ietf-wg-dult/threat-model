@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-08-07T01:40:22.289539+00:00",
+  "timestamp": "2025-08-10T01:43:27.766908+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -4508,6 +4508,32 @@
       "mergeCommit": {
         "oid": "a97b00fe4e32c48e97a2ca16e8ae3e7c2e7287d3"
       },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 131,
+      "id": "PR_kwDOMB0Qas6ip8cd",
+      "title": "Update draft-ietf-dult-threat-model.md",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/131",
+      "state": "OPEN",
+      "author": "exploretechsafety",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Adds stranger stalking scenario. Addresses #111 ",
+      "createdAt": "2025-08-07T20:36:15Z",
+      "updatedAt": "2025-08-07T20:36:15Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "a97b00fe4e32c48e97a2ca16e8ae3e7c2e7287d3",
+      "headRepository": "ietf-wg-dult/threat-model",
+      "headRefName": "exploretechsafety-stranger-scenario",
+      "headRefOid": "402de598a59af8925301034dfe5caeea1d91507b",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
       "comments": [],
       "reviews": []
     }
