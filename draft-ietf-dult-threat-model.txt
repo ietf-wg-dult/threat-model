@@ -5,10 +5,10 @@
 Detecting Unwanted Location Trackers                           M. Delano
 Internet-Draft                                        Swarthmore College
 Intended status: Informational                                 J. Lowell
-Expires: 7 February 2026       National Network to End Domestic Violence
+Expires: 13 February 2026      National Network to End Domestic Violence
                                                                S. Prabhu
                                                                    Nokia
-                                                           6 August 2025
+                                                          12 August 2025
 
 
                            DULT Threat Model
@@ -67,7 +67,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 7 February 2026.
+   This Internet-Draft will expire on 13 February 2026.
 
 Copyright Notice
 
@@ -110,6 +110,7 @@ Table of Contents
        3.3.12. Impersonation Attack (Device)
        3.3.13. Replay Attack
        3.3.14. Heterogeneous Tracker Networks
+       3.3.15. Deploying GPS Tracker
      3.4.  What is in scope
        3.4.1.  Technologies
        3.4.2.  Attacker Profiles
@@ -647,9 +648,16 @@ Table of Contents
    crowd-sourced location tracking using a technology other than
    Bluetooth, they would still apply.  The key attributes are the
    functionalities and physical properties of the accessory from the
-   user’s perspective.  The accessory must be small, not easily
+   user’s perspective: the accessory must be small, not easily
    discoverable, and able to participate in a crowd-sourced location
-   tracking network.
+   tracking network.  While many GPS based location trackers are not
+   explicitly designed for crowd-sourced location tracking, relying
+   instead on cellular or satellite transmission, they offer different
+   affordances that can have a critical impact on safety, including
+   increased location precision and real-time tracking.  Manufacturers
+   of these trackers are strongly encouraged to add bluetooth crowd-
+   sourced functionality so that DULT protocols can be supported by GPS
+   trackers.
 
 3.3.  Possible Attacks on the DULT Protocol
 
@@ -780,6 +788,9 @@ Table of Contents
    | Heterogeneous  |High  | Medium     |Medium| Victims  | No         |
    | Tracker        |      |            |      |          |            |
    | Networks       |      |            |      |          |            |
+   +----------------+------+------------+------+----------+------------+
+   | Deploying GPS  |High  | Medium     |High  | Victims  | Partial    |
+   | Tracker        |      |            |      |          |            |
    +----------------+------+------------+------+----------+------------+
 
                                   Table 10
@@ -1094,6 +1105,27 @@ Table of Contents
    the DULT protocol and ensuring that the DULT protocol is sufficiently
    clear to minimize gaps in vendor-specific tracking protections.
 
+3.3.15.  Deploying GPS Tracker
+
+   When an attacker deploys a GPS tracker to stalk a victim, they have
+   access to greater location precision, real-time tracking, and even
+   global coverage through satellite connection for some trackers.
+   Attackers are especially likely to use GPS trackers in rural areas
+   and areas with low crowd-sourced network saturation, or when looking
+   for more advanced precision or for devices that do not offer safety
+   protections.
+
+   The impact of this attack is high due to the increased location
+   precision and real-time tracking functionality.  The likelihood is
+   medium, as these trackers are currently more expensive than Bluetooth
+   based trackers, and not as readily available.  As a result, the
+   overall risk is high, requiring robust countermeasures.  The impact
+   of GPS trackers can be mitigated by adding bluetooth crowd-sourced
+   tracking functionality to GPS trackers and adopting the DULT
+   protocol.  However, the adoption of the DULT protocol by GPS tracker
+   manufacturers is of course optional, so this is considered a partial
+   mitigation.
+
 3.4.  What is in scope
 
 3.4.1.  Technologies
@@ -1109,7 +1141,7 @@ Table of Contents
    An attacker who deploys any of the attacks described in Section 3.3.1
    is considered in scope.  This includes attempts to track a victim
    using a tracking tag and applications readily available for end-users
-   (e.g. native tracking application) is in scope.  Additonally, an
+   (e.g. native tracking application) is in scope.  Additionally, an
    attacker who physically modifies a tracking tag (e.g. to disable a
    speaker) is in scope.  An attacker who makes non-nation-state level
    alterations to the firmware of an existing tracking tag or creates a
@@ -1145,6 +1177,9 @@ Table of Contents
    *  Connected cars.
 
    *  User accounts for cloud services or social media.
+
+   See Section 3.2.2 for information and recommendation related to GPS
+   trackers.
 
 3.5.2.  Victim Profiles
 

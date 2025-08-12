@@ -1052,7 +1052,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Delano, et al.</td>
-<td class="center">Expires 7 February 2026</td>
+<td class="center">Expires 13 February 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1065,12 +1065,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-dult-threat-model-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-08-06" class="published">6 August 2025</time>
+<time datetime="2025-08-12" class="published">12 August 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-02-07">7 February 2026</time></dd>
+<dd class="expires"><time datetime="2026-02-13">13 February 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1128,7 +1128,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 7 February 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 13 February 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1232,6 +1232,9 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3.2.14">
                     <p id="section-toc.1-1.3.2.3.2.14.1"><a href="#section-3.3.14" class="auto internal xref">3.3.14</a>. <a href="#name-heterogeneous-tracker-netwo" class="internal xref">Heterogeneous Tracker Networks</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3.2.15">
+                    <p id="section-toc.1-1.3.2.3.2.15.1"><a href="#section-3.3.15" class="auto internal xref">3.3.15</a>. <a href="#name-deploying-gps-tracker" class="internal xref">Deploying GPS Tracker</a></p>
 </li>
                 </ul>
 </li>
@@ -1811,7 +1814,7 @@ Note that once a given attacker persona has been modeled, it could be recombined
           <h4 id="name-bluetooth-vs-other-technolo">
 <a href="#section-3.2.2" class="section-number selfRef">3.2.2. </a><a href="#name-bluetooth-vs-other-technolo" class="section-name selfRef">Bluetooth vs. other technologies</a>
           </h4>
-<p id="section-3.2.2-1">The above taxonomy and threat analysis focus on location tracking tags. They are protocol-independent; if a tag were designed for crowd-sourced location tracking using a technology other than Bluetooth, they would still apply. The key attributes are the functionalities and physical properties of the accessory from the user’s perspective. The accessory must be small, not easily discoverable, and able to participate in a crowd-sourced location tracking network.<a href="#section-3.2.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.2-1">The above taxonomy and threat analysis focus on location tracking tags. They are protocol-independent; if a tag were designed for crowd-sourced location tracking using a technology other than Bluetooth, they would still apply. The key attributes are the functionalities and physical properties of the accessory from the user’s perspective: the accessory must be small, not easily discoverable, and able to participate in a crowd-sourced location tracking network. While many GPS based location trackers are not explicitly designed for crowd-sourced location tracking, relying instead on cellular or satellite transmission, they offer different affordances that can have a critical impact on safety, including increased location precision and real-time tracking. Manufacturers of these trackers are strongly encouraged to add bluetooth crowd-sourced functionality so that DULT protocols can be supported by GPS trackers.<a href="#section-3.2.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2022,6 +2025,14 @@ Note that once a given attacker persona has been modeled, it could be recombined
                 <td class="text-left" rowspan="1" colspan="1">Victims</td>
                 <td class="text-left" rowspan="1" colspan="1">No</td>
               </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Deploying GPS Tracker</td>
+                <td class="text-left" rowspan="1" colspan="1">High</td>
+                <td class="text-left" rowspan="1" colspan="1">Medium</td>
+                <td class="text-left" rowspan="1" colspan="1">High</td>
+                <td class="text-left" rowspan="1" colspan="1">Victims</td>
+                <td class="text-left" rowspan="1" colspan="1">Partial</td>
+              </tr>
             </tbody>
           </table>
 </section>
@@ -2154,6 +2165,15 @@ Note that once a given attacker persona has been modeled, it could be recombined
 <p id="section-3.3.14-2">The impact is high, as it circumvents traditional defenses. The likelihood is medium, as deploying or selecting from multiple brands requires effort and coordination, and may demand deeper knowledge of platform-specific behaviors and limitations. Overall, this is medium risk attack. This attack can be mitigated by manufacturers adopting the DULT protocol and ensuring that the DULT protocol is sufficiently clear to minimize gaps in vendor-specific tracking protections.<a href="#section-3.3.14-2" class="pilcrow">¶</a></p>
 </section>
 </div>
+<div id="deploying-gps-tracker">
+<section id="section-3.3.15">
+          <h4 id="name-deploying-gps-tracker">
+<a href="#section-3.3.15" class="section-number selfRef">3.3.15. </a><a href="#name-deploying-gps-tracker" class="section-name selfRef">Deploying GPS Tracker</a>
+          </h4>
+<p id="section-3.3.15-1">When an attacker deploys a GPS tracker to stalk a victim, they have access to greater location precision, real-time tracking, and even global coverage through satellite connection for some trackers. Attackers are especially likely to use GPS trackers in rural areas and areas with low crowd-sourced network saturation, or when looking for more advanced precision or for devices that do not offer safety protections.<a href="#section-3.3.15-1" class="pilcrow">¶</a></p>
+<p id="section-3.3.15-2">The impact of this attack is high due to the increased location precision and real-time tracking functionality. The likelihood is medium, as these trackers are currently more expensive than Bluetooth based trackers, and not as readily available. As a result, the overall risk is high, requiring robust countermeasures. The impact of GPS trackers can be mitigated by adding bluetooth crowd-sourced tracking functionality to GPS trackers and adopting the DULT protocol. However, the adoption of the DULT protocol by GPS tracker manufacturers is of course optional, so this is considered a partial mitigation.<a href="#section-3.3.15-2" class="pilcrow">¶</a></p>
+</section>
+</div>
 </section>
 </div>
 <div id="what-is-in-scope">
@@ -2174,7 +2194,7 @@ Note that once a given attacker persona has been modeled, it could be recombined
           <h4 id="name-attacker-profiles">
 <a href="#section-3.4.2" class="section-number selfRef">3.4.2. </a><a href="#name-attacker-profiles" class="section-name selfRef">Attacker Profiles</a>
           </h4>
-<p id="section-3.4.2-1">An attacker who deploys any of the attacks described in <a href="#threat-prioritization-framework-for-dult-threat-model" class="auto internal xref">Section 3.3.1</a> is considered in scope. This includes attempts to track a victim using a tracking tag and applications readily available for end-users (e.g. native tracking application) is in scope. Additonally, an attacker who physically modifies a tracking tag (e.g. to disable a speaker) is in scope. An attacker who makes non-nation-state level alterations to the firmware of an existing tracking tag or creates a custom device that leverages the crowdsourced tracking network is in scope.<a href="#section-3.4.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.4.2-1">An attacker who deploys any of the attacks described in <a href="#threat-prioritization-framework-for-dult-threat-model" class="auto internal xref">Section 3.3.1</a> is considered in scope. This includes attempts to track a victim using a tracking tag and applications readily available for end-users (e.g. native tracking application) is in scope. Additionally, an attacker who physically modifies a tracking tag (e.g. to disable a speaker) is in scope. An attacker who makes non-nation-state level alterations to the firmware of an existing tracking tag or creates a custom device that leverages the crowdsourced tracking network is in scope.<a href="#section-3.4.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="victim-profiles">
@@ -2212,6 +2232,7 @@ Note that once a given attacker persona has been modeled, it could be recombined
               <p id="section-3.5.1-2.4.1">User accounts for cloud services or social media.<a href="#section-3.5.1-2.4.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
+<p id="section-3.5.1-3">See <a href="#bluetooth-vs-other-technologies" class="auto internal xref">Section 3.2.2</a>  for information and recommendation related to GPS trackers.<a href="#section-3.5.1-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="victim-profiles-1">
