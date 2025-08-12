@@ -279,7 +279,7 @@ To systematically assess the risks associated with different threats, we introdu
 | Impersonation Attack (Device/Network) | Medium | Low | Low | All users | Partial |
 | Replay Attack | Medium | High | Medium | Victims | Partial |
 | Heterogeneous Tracker Networks | High | Medium | Medium | Victims | No |
-| Deploying GPS Tracker | High | Medium | High | Victims | No |
+| Deploying GPS Tracker | High | Medium | High | Victims | Partial |
 
 ### Deploying Multiple Tags
 
@@ -371,9 +371,9 @@ The impact is high, as it circumvents traditional defenses. The likelihood is me
 
 ### Deploying GPS Tracker
 
-When an attacker deploys a GPS tracker to stalk a victim, they have access to greater location precision, real-time tracking, and some offer global coverage through sattelite connection. Attackers in rural areas and areas with low crowd-sourced network saturation who are unable to deploy bluetooth trackers saturation, and attackers looking for more advanced precision or for devices that do not offer safety protections, are able to deploy these in one off attacks. 
+When an attacker deploys a GPS tracker to stalk a victim, they have access to greater location precision, real-time tracking, and even global coverage through satellite connection for some trackers. Attackers are especially likely to use GPS trackers in rural areas and areas with low crowd-sourced network saturation, or when looking for more advanced precision or for devices that do not offer safety protections.
 
-The impact of this attack is high for typical cases, due to the increased location precision and real time tracking functionality. The likelihood is medium, as these trackers are currently nominally more expensive than bluetooth based trackers, and not as readily available. As a result, the overall risk is high, requiring robust countermeasures. The impact of GPS trackers  can be fully mitigated by adding bluetooth crowd-sourced tracking functionality to GPS trackers and adopting the DULT protocol.
+The impact of this attack is high due to the increased location precision and real-time tracking functionality. The likelihood is medium, as these trackers are currently more expensive than Bluetooth based trackers, and not as readily available. As a result, the overall risk is high, requiring robust countermeasures. The impact of GPS trackers can be mitigated by adding bluetooth crowd-sourced tracking functionality to GPS trackers and adopting the DULT protocol. However, the adoption of the DULT protocol by GPS tracker manufacturers is of course optional, so this is considered a partial mitigation.
 
 
 ## What is in scope
