@@ -230,11 +230,7 @@ This is a case involving a high-skill attacker, with a large skill difference be
 
 ### Bluetooth vs. other technologies
 
-The above taxonomy and threat analysis focus on location tracking tags. They are protocol-independent; if a tag were designed for crowd-sourced location tracking using a technology other than Bluetooth, they would still apply. 
-
-The key attributes are the functionalities and physical properties of the accessory from the user’s perspective. The accessory must be small, not easily discoverable, and able to participate in a crowd-sourced location tracking network.
-
-While many GPS based location trackers are not explicitely designed for crowd-sourced location tracking, relying instead on cellular or satellite transmission, they offer different affordances that can have a critical impact on safety, including increased location precision and real-time tracking. Manufacturers of these trackers are strongly encouraged to add bluetooth crowd-sourced functionality so that DULT protocols can be enabled on the devices. 
+The above taxonomy and threat analysis focus on location tracking tags. They are protocol-independent; if a tag were designed for crowd-sourced location tracking using a technology other than Bluetooth, they would still apply. The key attributes are the functionalities and physical properties of the accessory from the user’s perspective: the accessory must be small, not easily discoverable, and able to participate in a crowd-sourced location tracking network. While many GPS based location trackers are not explicitly designed for crowd-sourced location tracking, relying instead on cellular or satellite transmission, they offer different affordances that can have a critical impact on safety, including increased location precision and real-time tracking. Manufacturers of these trackers are strongly encouraged to add bluetooth crowd-sourced functionality so that DULT protocols can be supported by GPS trackers.
 
 ## Possible Attacks on the DULT Protocol
 
