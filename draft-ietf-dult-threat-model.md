@@ -401,7 +401,7 @@ There are many types of technology that can be used for location tracking. In ma
   - Connected cars.
   - User accounts for cloud services or social media.
 
-See 3.2.2 for information and recommendation related to GPS trackers. 
+See {{bluetooth-vs-other-technologies}}  for information and recommendation related to GPS trackers.
 
 ### Victim Profiles
 
