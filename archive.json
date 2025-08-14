@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-08-10T01:43:27.766908+00:00",
+  "timestamp": "2025-08-14T01:24:09.422782+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -1470,17 +1470,17 @@
       "id": "I_kwDOMB0Qas65n5-y",
       "title": "Missing threat - someone being tracked with a GPS + cellular/sattelite enabled tracker",
       "url": "https://github.com/ietf-wg-dult/threat-model/issues/113",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "cstapl",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [
         "cstapl"
       ],
       "labels": [],
       "body": "Threat actors are able to use GPS only trackers to circumvent protections.  While development of a standard unique to GPS is out of scope for this workgroup, the standard can certainly encourage GPS + cellular/satellite tracker companies to include bluetooth functionality in their trackers so that they can implement the anti-stalking protocol that is in scope. \n\nWould be good to add a threat scenario detailing the unique threats faced by victims related to GPS / cellular tracker misuse (e.g. realtime tracking, increased precision via precise coordinates rather than last known location), and pointing to incorporating bluetooth so that these victims have the benefit of the alerts as well.",
       "createdAt": "2025-06-03T14:33:42Z",
-      "updatedAt": "2025-08-05T14:43:52Z",
-      "closedAt": null,
+      "updatedAt": "2025-08-12T19:52:17Z",
+      "closedAt": "2025-08-12T19:52:17Z",
       "comments": [
         {
           "author": "maggiedelano",
@@ -1739,6 +1739,22 @@
       "createdAt": "2025-06-26T19:28:22Z",
       "updatedAt": "2025-07-28T18:52:24Z",
       "closedAt": "2025-07-28T18:52:24Z",
+      "comments": []
+    },
+    {
+      "number": 132,
+      "id": "I_kwDOMB0Qas7FndAG",
+      "title": "Reconsider how to address attack scope in the attacks section",
+      "url": "https://github.com/ietf-wg-dult/threat-model/issues/132",
+      "state": "OPEN",
+      "author": "maggiedelano",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "[Michael Ricardson wrote](https://mailarchive.ietf.org/arch/msg/unwanted-trackers/Ls6zZmMmJkISPRZ8PdAjadQ4GTw/)\n> I think that it would be easier to read if each attack indicated whether or\n> not it was in scope rather than leaving that for section 3.5.\n> Section 3.5.1 seems to mark entire *market* areas as out-of-scope.\n> I call that Applicability, not in/out of scope.\n\nWe should be clear about which attacks in the attack section are in/out of scope and which aspects of the DULT protocol they apply to. For example, some need to be addressed by platforms, where others are addressed by the DULT protocol between tags and devices. We should also consider whether to rename the market areas described above to Applicability rather than in/out of scope.",
+      "createdAt": "2025-08-12T18:52:26Z",
+      "updatedAt": "2025-08-12T18:59:54Z",
+      "closedAt": null,
       "comments": []
     }
   ],
@@ -4534,6 +4550,62 @@
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 133,
+      "id": "PR_kwDOMB0Qas6jVddt",
+      "title": "Addresses #113 - GPS location tracker.",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/133",
+      "state": "MERGED",
+      "author": "maggiedelano",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Added threat and recommendations to address GPS tracker misuse. Closes #113.",
+      "createdAt": "2025-08-12T19:17:47Z",
+      "updatedAt": "2025-08-12T19:52:18Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "a97b00fe4e32c48e97a2ca16e8ae3e7c2e7287d3",
+      "headRepository": "cstapl/threat-model",
+      "headRefName": "patch-2",
+      "headRefOid": "9679295fa2ac89a2a52bdd21b6125f0a185362f3",
+      "closedAt": "2025-08-12T19:52:18Z",
+      "mergedAt": "2025-08-12T19:52:18Z",
+      "mergedBy": "maggiedelano",
+      "mergeCommit": {
+        "oid": "9679295fa2ac89a2a52bdd21b6125f0a185362f3"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 134,
+      "id": "PR_kwDOMB0Qas6jVx_v",
+      "title": "Delano gps tracker",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/134",
+      "state": "MERGED",
+      "author": "maggiedelano",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "New PR because of permissions issues with old one. Closes #113, closes #133.",
+      "createdAt": "2025-08-12T19:46:57Z",
+      "updatedAt": "2025-08-12T19:52:16Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "a97b00fe4e32c48e97a2ca16e8ae3e7c2e7287d3",
+      "headRepository": "ietf-wg-dult/threat-model",
+      "headRefName": "delano-gps-tracker",
+      "headRefOid": "09d6fced9ff13e4390e42db3a0c85c90bacc98ff",
+      "closedAt": "2025-08-12T19:52:16Z",
+      "mergedAt": "2025-08-12T19:52:16Z",
+      "mergedBy": "maggiedelano",
+      "mergeCommit": {
+        "oid": "e5d75c5ecc0e7edd681c378acebc7941fc9dcc1f"
+      },
       "comments": [],
       "reviews": []
     }
