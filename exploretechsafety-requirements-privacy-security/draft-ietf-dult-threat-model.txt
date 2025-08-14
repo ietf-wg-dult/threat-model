@@ -97,6 +97,9 @@ Table of Contents
      3.2.  Balancing Privacy and Security
        3.2.1.  Security against unwanted tracking for potential
                victims
+       3.2.2.  Privacy for potential victims against the use of
+               security measures for further surveillance
+       3.2.3.  Privacy for unassociated tag owners
      3.3.  Taxonomy of unwanted tracking
        3.3.1.  Example scenarios with analyses TODO: expand scenarios
                to incorporate expanded taxonomy
@@ -306,8 +309,8 @@ Table of Contents
    obfuscation, such as showing a partially redacted email address or
    phone number (see Section 4.1.1.1).
 
-3.2.1.1.  Privacy for potential victims against the use of security
-          measures for further surveillance
+3.2.2.  Privacy for potential victims against the use of security
+        measures for further surveillance
 
    The DULT protocol must consider the threat vector of an attacker with
    access to a victim's tag-associated account.  In one study of how
@@ -322,7 +325,7 @@ Table of Contents
    minimize information that can be accessed from a web interface
    associated with a user's tag-linked account.
 
-3.2.1.2.  Privacy for unassociated tag owners
+3.2.3.  Privacy for unassociated tag owners
 
    Any unassociated tag owner, whether an abuse/stalking survivor or
    not, could potentially be the victim of an attack leveraging the
