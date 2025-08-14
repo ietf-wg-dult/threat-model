@@ -228,6 +228,32 @@ This is a case involving a high-skill attacker, with a large skill difference be
 | ------------- | ------------- |
 | Accessory Usage  | Attacker Only  |
 
+#### Scenario 4
+
+##### Narrative
+
+Banana is a social media influencer. Fig is one of Banana's followers, and has become increasingly obsessed with Banana. Banana has no technical background. Fig has no formal technical background, but does read some online forums. Banana keeps a tracking accessory on their keyring to prevent loss or theft of their home and car keys. Fig learns, from reading an online forum, how to find leaked passwords in data breaches, and is able to find the password to the account associated with Banana's accessory. Using the crowdsourced network, Fig is able to find Banana's home address and track their location. Fig makes a plan to travel to Banana's home and approach them in person.
+
+##### Analysis
+
+This scenario differs from the previous ones in three major ways. First, it requires no physical proximity between the attacker and the victim. Second, the attacker, like nearly one in five stalkers [(SPARC - Stalking Infographic, 2022)](https://www.stalkingawareness.org/wp-content/uploads/2022/04/General-Stalking-Infographic.pdf), is a stranger. Third, in this scenario the accessory belongs to the victim rather than the attacker. The attacker was able to use OSINT learned from an online forum in order to gain remote access to the victim's accessory.
+
+| Attacker Profile | Fig        |
+| ------------- |------------|
+| Expertise Level  | Non-Expert |
+| Proximity to Victim  | Low        |
+| Access to Resources  | Unknown    |
+
+|Victim Profile | Banana     |
+| ------------- |------------|
+| Expertise Level  | Non-Expert |
+| Access to Resources  | Unknown    |
+| Access to Technological Safeguards  | Unknown    |
+
+|Other Characteristics | Fig and Banana |
+| ------------- |----------------|
+| Accessory Usage  | Victim Only    |
+
 ### Bluetooth vs. other technologies
 
 The above taxonomy and threat analysis focus on location tracking tags. They are protocol-independent; if a tag were designed for crowd-sourced location tracking using a technology other than Bluetooth, they would still apply. The key attributes are the functionalities and physical properties of the accessory from the user’s perspective: the accessory must be small, not easily discoverable, and able to participate in a crowd-sourced location tracking network. While many GPS based location trackers are not explicitly designed for crowd-sourced location tracking, relying instead on cellular or satellite transmission, they offer different affordances that can have a critical impact on safety, including increased location precision and real-time tracking. Manufacturers of these trackers are strongly encouraged to add bluetooth crowd-sourced functionality so that DULT protocols can be supported by GPS trackers.
