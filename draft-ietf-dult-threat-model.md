@@ -250,7 +250,7 @@ This scenario differs from the previous ones in three major ways. First, it requ
 | Access to Resources  | Unknown    |
 | Access to Technological Safeguards  | Unknown    |
 
-|Other Characteristics | Lemon and Lime |
+|Other Characteristics | Fig and Banana |
 | ------------- |----------------|
 | Accessory Usage  | Victim Only    |
 
