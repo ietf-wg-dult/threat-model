@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-08-14T01:24:09.422782+00:00",
+  "timestamp": "2025-08-17T01:37:53.333210+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -774,7 +774,7 @@
       "id": "I_kwDOMB0Qas6sLoW1",
       "title": "Requirement: Privacy and Security",
       "url": "https://github.com/ietf-wg-dult/threat-model/issues/62",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -783,8 +783,8 @@
       "labels": [],
       "body": "Consider adding specific requirements related to privacy and security in the design requirements section. We will need to think about what should go in this document versus some of the other documents, and also how to consider design tradeoffs (see also #36).",
       "createdAt": "2025-03-01T08:26:52Z",
-      "updatedAt": "2025-08-05T14:51:31Z",
-      "closedAt": null,
+      "updatedAt": "2025-08-14T20:49:57Z",
+      "closedAt": "2025-08-14T20:49:57Z",
       "comments": []
     },
     {
@@ -1444,17 +1444,17 @@
       "id": "I_kwDOMB0Qas65cFZQ",
       "title": "Missing Stranger Stalking Example Scenario",
       "url": "https://github.com/ietf-wg-dult/threat-model/issues/111",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "cstapl",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [
         "exploretechsafety"
       ],
       "labels": [],
       "body": "Example scenarios currently focus on threat actors known to the victim. We should consider including threat actors not known to the victim, as there have been a number of examples of this type of stalking at bars and other nightlife activities. In these circumstances it may be more challenging for the victim to identify the attacker, since they will not be able to recognize obfuscated phone number or email. ",
       "createdAt": "2025-06-02T18:12:25Z",
-      "updatedAt": "2025-08-05T14:44:22Z",
-      "closedAt": null,
+      "updatedAt": "2025-08-14T17:24:47Z",
+      "closedAt": "2025-08-14T17:24:47Z",
       "comments": [
         {
           "author": "maggiedelano",
@@ -4037,24 +4037,26 @@
       "id": "PR_kwDOMB0Qas6YLfVT",
       "title": "Privacy and safety requirements #62",
       "url": "https://github.com/ietf-wg-dult/threat-model/pull/109",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "exploretechsafety",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Addresses #62 . May also address #36 in part.",
       "createdAt": "2025-05-29T20:19:53Z",
-      "updatedAt": "2025-06-03T18:53:03Z",
+      "updatedAt": "2025-08-14T20:49:57Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
-      "baseRefOid": "9996e603b43a9b3f3e4a01832ab74aa6002a00f8",
+      "baseRefOid": "e5d75c5ecc0e7edd681c378acebc7941fc9dcc1f",
       "headRepository": "ietf-wg-dult/threat-model",
       "headRefName": "exploretechsafety-requirements-privacy-security",
-      "headRefOid": "60c15e902ffe75fbaabe1bdbbc29eccad0d0eb8a",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "8436f5a4dc1c71394a9a90bd93abee5df8e2452d",
+      "closedAt": "2025-08-14T20:49:56Z",
+      "mergedAt": "2025-08-14T20:49:56Z",
+      "mergedBy": "maggiedelano",
+      "mergeCommit": {
+        "oid": "9429d19800c8e3ad0c5197f7b5ff36c72e1094e5"
+      },
       "comments": [],
       "reviews": [
         {
@@ -4068,6 +4070,19 @@
           "body": "Thanks! This is a great start. I realized where we had this section doesn't make as much sense anymore, so I moved it up and massaged things a bit to fit in in the new section.\r\n\r\nI also made some minor changes. For example, in \"Privacy for potential victims against the use of security measures for further surveillance\", I think we mean access through the web account right? \r\n\r\nAlso, for the \"Privacy for unassociated tag owners\" section: is this intended to be more background information or are there concrete recommendations we can make on how to do this? if it is more the former, I'd move it to the top of the section. If we have something for the latter, I'd add it there and maybe condense that section a bit.",
           "createdAt": "2025-06-03T18:53:03Z",
           "updatedAt": "2025-06-03T18:53:03Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOMB0Qas66Fx-4",
+          "commit": {
+            "abbreviatedOid": "a835c10"
+          },
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-08-14T20:46:46Z",
+          "updatedAt": "2025-08-14T20:46:46Z",
           "comments": []
         }
       ]
@@ -4532,26 +4547,42 @@
       "id": "PR_kwDOMB0Qas6ip8cd",
       "title": "Update draft-ietf-dult-threat-model.md",
       "url": "https://github.com/ietf-wg-dult/threat-model/pull/131",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "exploretechsafety",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Adds stranger stalking scenario. Addresses #111 ",
       "createdAt": "2025-08-07T20:36:15Z",
-      "updatedAt": "2025-08-07T20:36:15Z",
+      "updatedAt": "2025-08-14T20:33:46Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
       "baseRefOid": "a97b00fe4e32c48e97a2ca16e8ae3e7c2e7287d3",
       "headRepository": "ietf-wg-dult/threat-model",
       "headRefName": "exploretechsafety-stranger-scenario",
-      "headRefOid": "402de598a59af8925301034dfe5caeea1d91507b",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "f116168872a79b61d9c09f360aedc8960ab89e6d",
+      "closedAt": "2025-08-14T20:33:46Z",
+      "mergedAt": "2025-08-14T20:33:46Z",
+      "mergedBy": "maggiedelano",
+      "mergeCommit": {
+        "oid": "944c4a8f0fd830e275d1f4eddc0cb7a27cb41b04"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOMB0Qas66FqXn",
+          "commit": {
+            "abbreviatedOid": "f116168"
+          },
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-08-14T20:33:10Z",
+          "updatedAt": "2025-08-14T20:33:10Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 133,
