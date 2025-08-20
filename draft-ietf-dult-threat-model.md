@@ -329,9 +329,9 @@ Threats in the DULT ecosystem vary in severity, feasibility, and likelihood, aff
 To systematically assess the risks associated with different threats, we introduce the following threat matrix. This categorization considers the following factors:
 
   - Scope: The DULT WG document(s) most relevant to the attack.
-    - Accessory: The accessory protocol document.
-    - Finding: The finding algorithm document.
-    - Network: The crowd-sourced network document, which includes guidance for platforms and devices.
+    - Accessory: The accessory protocol document, which describes the DULT non-owner device protocol and other requirements for accessories.
+    - Finding: The finding algorithm document, which describes the unwanted location tracking detection algorithm(s) to be implemented by platforms/devices.
+    - Network: The crowd-sourced network document, which describes the architecture of the crowd-sourced network and includes guidance for platforms/devices.
   - Impact: The potential consequences of the threat if successfully executed.
     - Low: Minimal effect on privacy and security.
     - Medium: Moderate effect on user privacy or tracking protection.
@@ -355,18 +355,18 @@ To systematically assess the risks associated with different threats, we introdu
 | Threat | Scope | Impact | Likelihood | Risk Level | Affected Users | Mitigation Available? |
 | ------ | --------------------- | ------------------------- | ------------------------- | -------------- | ------------------------------ |
 | Deploying Multiple Tags | Finding | Medium | High	| High | Victims | Full |
-| Remote Advertisement Monitoring | Accessory | Medium | High | Medium | All users | Partial |
+| Remote Advertisement Monitoring | Accessory, Network | Medium | High | Medium | All users | Partial |
 | Physically Modifying Tags | Accessory | High | Medium | Medium | Victims | Partial |
 | Accessory Firmware Modifications | Accessory | High | Low | Medium | Victims | Partial |
-| Attacker Accessory Disablement | Finding, Accessory | Medium | Medium | Medium | Victims | Partial |
+| Attacker Accessory Disablement | Accessory, Finding | Medium | Medium | Medium | Victims | Partial |
 | Tracking Using Victim's Own Tag | Network | High | Medium | High | Victims | Partial |
 | Disabling Victim Tag Detection | Network | High | Medium | Medium | Victims | Partial |
-| Disabling Victim Tag | Network | Medium | Medium | Medium | Victims | Partial |
-| Impersonation Attack (Tag) | Accessory | High | Medium | High | Victims | Partial |
+| Disabling Victim Tag | Accessory, Network | Medium | Medium | Medium | Victims | Partial |
+| Impersonation Attack (Tag) | Accessory, Finding | High | Medium | High | Victims | Partial |
 | Impersonation Attack (Device/Tag) | Accessory | High | Medium | High | All users | Partial |
 | Impersonation Attack (Device/Network) | Network | Medium | Low | Low | All users | Partial |
-| Replay Attack | Network, Accessory | Medium | High | Medium | Victims | Partial |
-| Heterogeneous Tracker Networks | Network, Accessory | High | Medium | Medium | Victims | No |
+| Replay Attack | Accessory, Network | Medium | High | Medium | Victims | Partial |
+| Heterogeneous Tracker Networks | Accessory, Network, Finding | High | Medium | Medium | Victims | No |
 | Deploying GPS Tracker | Accessory | High | Medium | High | Victims | Partial |
 
 ### Deploying Multiple Tags
