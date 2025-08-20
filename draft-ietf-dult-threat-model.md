@@ -364,8 +364,8 @@ To systematically assess the risks associated with different threats, we introdu
 | Tracking Using Victim's Own Tag | Network | High | Medium | High | Victims | Partial |
 | Disabling Victim Tag Detection | Network | High | Medium | Medium | Victims | Partial |
 | Disabling Victim Tag | Accessory, Network | Medium | Medium | Medium | Victims | Partial |
-| Impersonation Attack (Tag) | Accessory, Finding | High | Medium | High | Victims | Partial |
-| Impersonation Attack (Device/Tag) | Accessory | High | Medium | High | All users | Partial |
+| Impersonation Attack (Tag) | Accessory, Finding, Network | High | Medium | High | Victims | Partial |
+| Impersonation Attack (Device/Tag) | Accessory, Network | High | Medium | High | All users | Partial |
 | Impersonation Attack (Device/Network) | Network | Medium | Low | Low | All users | Partial |
 | Replay Attack | Accessory, Network | Medium | High | Medium | Victims | Partial |
 | Heterogeneous Tracker Networks | Accessory, Network, Finding | High | Medium | Medium | Victims | No |
@@ -464,7 +464,6 @@ The impact is high, as it circumvents traditional defenses. The likelihood is me
 When an attacker deploys a GPS tracker to stalk a victim, they have access to greater location precision, real-time tracking, and even global coverage through satellite connection for some trackers. Attackers are especially likely to use GPS trackers in rural areas and areas with low crowd-sourced network saturation, or when looking for more advanced precision or for devices that do not offer safety protections.
 
 The impact of this attack is high due to the increased location precision and real-time tracking functionality. The likelihood is medium, as these trackers are currently more expensive than Bluetooth based trackers, and not as readily available. As a result, the overall risk is high, requiring robust countermeasures. The impact of GPS trackers can be mitigated by adding bluetooth crowd-sourced tracking functionality to GPS trackers and adopting the DULT protocol. However, the adoption of the DULT protocol by GPS tracker manufacturers is of course optional, so this is considered a partial mitigation.
-
 
 ## What is in scope
 
