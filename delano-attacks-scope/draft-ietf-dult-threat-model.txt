@@ -5,10 +5,10 @@
 Detecting Unwanted Location Trackers                           M. Delano
 Internet-Draft                                        Swarthmore College
 Intended status: Informational                                 J. Lowell
-Expires: 6 February 2026       National Network to End Domestic Violence
+Expires: 21 February 2026      National Network to End Domestic Violence
                                                                S. Prabhu
                                                                    Nokia
-                                                           5 August 2025
+                                                          20 August 2025
 
 
                            DULT Threat Model
@@ -67,7 +67,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 6 February 2026.
+   This Internet-Draft will expire on 21 February 2026.
 
 Copyright Notice
 
@@ -90,40 +90,49 @@ Table of Contents
      2.1.  Conventions
      2.2.  Definitions
    3.  Security Considerations
-     3.1.  Attacker access to victim account
-     3.2.  Taxonomy of unwanted tracking
-       3.2.1.  Example scenarios with analyses TODO: expand scenarios
+     3.1.  Security Considerations Unique To Unwanted Location
+           Tracking
+       3.1.1.  Attacker access to victim account
+       3.1.2.  TODO: Other considerations
+     3.2.  Balancing Privacy and Security
+       3.2.1.  Security against unwanted tracking for potential
+               victims
+       3.2.2.  Privacy for potential victims against the use of
+               security measures for further surveillance
+       3.2.3.  Privacy for unassociated tag owners
+     3.3.  Taxonomy of unwanted tracking
+       3.3.1.  Example scenarios with analyses TODO: expand scenarios
                to incorporate expanded taxonomy
-       3.2.2.  Bluetooth vs. other technologies
-     3.3.  Possible Attacks on the DULT Protocol
-       3.3.1.  Threat Prioritization Framework for DULT Threat Model
-       3.3.2.  Threat Matrix
-       3.3.3.  Deploying Multiple Tags
-       3.3.4.  Remote Advertisement Monitoring
-       3.3.5.  Physically Modifying Tags
-       3.3.6.  Accessory Firmware Modifications
-       3.3.7.  Attacker Accessory Disablement
-       3.3.8.  Tracking Using Victim's Own Tag
-       3.3.9.  Disabling Victim Tag Detection
-       3.3.10. Disabling Victim Tag
-       3.3.11. Impersonation Attack (Tag)
-       3.3.12. Impersonation Attack (Device)
-       3.3.13. Replay Attack
-       3.3.14. Heterogeneous Tracker Networks
-     3.4.  What is in scope
-       3.4.1.  Technologies
-       3.4.2.  Attacker Profiles
-       3.4.3.  Victim Profiles
-     3.5.  What is out of scope
+       3.3.2.  Bluetooth vs. other technologies
+     3.4.  Possible Attacks on the DULT Protocol
+       3.4.1.  Threat Prioritization Framework for DULT Threat Model
+       3.4.2.  Threat Matrix
+       3.4.3.  Deploying Multiple Tags
+       3.4.4.  Remote Advertisement Monitoring
+       3.4.5.  Physically Modifying Tags
+       3.4.6.  Accessory Firmware Modifications
+       3.4.7.  Attacker Accessory Disablement
+       3.4.8.  Tracking Using Victim's Own Tag
+       3.4.9.  Disabling Victim Tag Detection
+       3.4.10. Disabling Victim Tag
+       3.4.11. Impersonation Attack (Tag)
+       3.4.12. Impersonation Attack (Device)
+       3.4.13. Replay Attack
+       3.4.14. Heterogeneous Tracker Networks
+       3.4.15. Deploying GPS Tracker
+     3.5.  What is in scope
        3.5.1.  Technologies
-       3.5.2.  Victim Profiles
+       3.5.2.  Attacker Profiles
+       3.5.3.  Victim Profiles
+     3.6.  What is out of scope
+       3.6.1.  Technologies
+       3.6.2.  Victim Profiles
    4.  Design Considerations
      4.1.  Design Requirements
        4.1.1.  Detecting Unwanted Location Tracking
        4.1.2.  Finding Tracking Tags
        4.1.3.  Disabling Tracking Tags
        4.1.4.  Notification Management for Trusted Devices
-       4.1.5.  Privacy and Security Requirements (TODO)
      4.2.  Design Constraints
        4.2.1.  Bluetooth constraints
        4.2.2.  Power constraints
@@ -254,7 +263,9 @@ Table of Contents
    (https://eprint.iacr.org/2023/1332.pdf) a technological solution that
    employs secret sharing and error correction coding.
 
-3.1.  Attacker access to victim account
+3.1.  Security Considerations Unique To Unwanted Location Tracking
+
+3.1.1.  Attacker access to victim account
 
    In a situation involving interpersonal control, an attacker may have
    access to a victim's tracking account (e.g. Apple FindMy).  The
@@ -276,7 +287,72 @@ Table of Contents
    illustrates the need to consider web app security as part of support
    for detecting unwanted location trackers.
 
-3.2.  Taxonomy of unwanted tracking
+3.1.2.  TODO: Other considerations
+
+3.2.  Balancing Privacy and Security
+
+   In order to avoid pitting the privacy of tag owners not engaged in
+   unwanted tracking against the security/safety of victims, the DULT
+   protocol must consider and balance the privacy and safety of
+   different users of the crowdsourced network.
+
+3.2.1.  Security against unwanted tracking for potential victims
+
+   The DULT protocol must make it possible for potential victims to
+   discover unwanted trackers across accessory hardware and platforms
+   within a reasonable amount of time.  It should aid the victim in
+   determining the location and owner of the accessory while not
+   providing a full name or contact information on demand (as the tag
+   may merely have been lost or otherwise coincidentally in proximity,
+   and providing excessive information would violate the privacy of a
+   non-malicious tag owner).  This could potentially be done with
+   obfuscation, such as showing a partially redacted email address or
+   phone number (see Section 4.1.1.1).
+
+3.2.2.  Privacy for potential victims against the use of security
+        measures for further surveillance
+
+   The DULT protocol must consider the threat vector of an attacker with
+   access to a victim's tag-associated account.  In one study of how
+   intimate partners misuse technology Freed et al, 2018
+   (https://dl.acm.org/doi/pdf/10.1145/3173574.3174241), 72% of
+   survivors reported being forced or coerced to share passwords with an
+   abuser. 41% reported that a cohabiting abuser "went through" their
+   device while they were not looking, allowing the abuser to obtain
+   saved account passwords in many cases. 67% reported that an abuser
+   was able to "hack" into their accounts remotely.  To prevent use of a
+   victim's own tag as a means of surveillance, the protocol should
+   minimize information that can be accessed from a web interface
+   associated with a user's tag-linked account.
+
+3.2.3.  Privacy for unassociated tag owners
+
+   Any unassociated tag owner, whether an abuse/stalking survivor or
+   not, could potentially be the victim of an attack leveraging the
+   victim's own tags.  Survivors and activists for women's and LGBTQIA+
+   rights, and/or against intimate interpersonal violence, may face
+   severe government surveillance, repression, and even imprisonment
+   Amnesty International, 2025
+   (https://www.amnesty.org/en/latest/news/2025/03/iran-authorities-
+   target-womens-rights-activists-with-arbitrary-arrest-flogging-and-
+   death-penalty/), Human Rights Watch, 2020
+   (https://www.hrw.org/news/2020/03/18/kazakhstan-womens-day-activists-
+   convicted), Ruiz-Navarro, 2015 (https://www.theguardian.com/global-
+   development/2015/mar/18/honduras-women-gladys-lanza-feminism-human-
+   rights).  Broad issues of technological privacy, including privacy
+   against government and corporate surveillance, affect many
+   populations, including but not limited to human rights defenders,
+   children, migrants, and LGBTQIA+ people.  Some people in these
+   categories may _also_ be survivors of abuse or stalking.  The DULT
+   protocol must not eschew legitimate privacy interests of tag owners
+   in the name of safety and security for victims of unwanted tracking.
+
+   The same person may be a victim of both unwanted tracking via an
+   attacker's tag, and surveillance via their own tag, either at
+   different times or simultaneously.  The DULT protocol should account
+   for this scenario.
+
+3.3.  Taxonomy of unwanted tracking
 
    To create a taxonomy of threat actors, we can borrow from Dev et
    al.’s Models of Applied Privacy (MAP) framework
@@ -424,7 +500,7 @@ Table of Contents
          precise location, monitoring a child's routine, monitoring car
          usage).
 
-3.2.1.  Example scenarios with analyses TODO: expand scenarios to
+3.3.1.  Example scenarios with analyses TODO: expand scenarios to
         incorporate expanded taxonomy
 
    The following scenarios are composite cases based upon reports from
@@ -446,9 +522,9 @@ Table of Contents
    victim persona could be combined with both non-expert and expert
    attacker personas.
 
-3.2.1.1.  Scenario 1
+3.3.1.1.  Scenario 1
 
-3.2.1.1.1.  Narrative
+3.3.1.1.1.  Narrative
 
    Mango and Avocado have two young children.  Mango, Avocado, and the
    children all use smartphones, but have no specialized technical
@@ -463,7 +539,7 @@ Table of Contents
    later, Avocado shows up at Mango’s door, pounding on the door and
    shouting.
 
-3.2.1.1.2.  Analysis
+3.3.1.1.2.  Analysis
 
    In this case, the attacker has planted a tag on a child.  Co-
    parenting after separation is common in cases of intimate partner
@@ -489,6 +565,8 @@ Table of Contents
             +====================================+============+
             | Expertise Level                    | Non-Expert |
             +------------------------------------+------------+
+            | Expectation of Unwanted Tracking   | Suspecting |
+            +------------------------------------+------------+
             | Access to Resources                | Low        |
             +------------------------------------+------------+
             | Access to Technological Safeguards | Normal     |
@@ -496,17 +574,19 @@ Table of Contents
 
                                   Table 2
 
-               +=======================+===================+
-               | Other Characteristics | Avocado and Mango |
-               +=======================+===================+
-               | Accessory Usage       | Attacker Only     |
-               +-----------------------+-------------------+
+            +=======================+=========================+
+            | Other Characteristics | Avocado and Mango       |
+            +=======================+=========================+
+            | Accessory Usage       | Attacker Only           |
+            +-----------------------+-------------------------+
+            | Tag Placement         | In Proximity (on child) |
+            +-----------------------+-------------------------+
 
                                   Table 3
 
-3.2.1.2.  Scenario 2
+3.3.1.2.  Scenario 2
 
-3.2.1.2.1.  Narrative
+3.3.1.2.1.  Narrative
 
    Strawberry and Elderberry live together.  Neither has any specialized
    technological knowledge.  Strawberry has noticed that Elderberry has
@@ -521,7 +601,7 @@ Table of Contents
    the “family” money, so their cannot take the car to the mechanic
    without Elderberry knowing.
 
-3.2.1.2.2.  Analysis
+3.3.1.2.2.  Analysis
 
    Here, the attacker and the victim are still cohabiting, and the
    attacker is monitoring the victim’s independent activities.  This
@@ -556,6 +636,8 @@ Table of Contents
         +====================================+===================+
         | Expertise Level                    | Non-Expert        |
         +------------------------------------+-------------------+
+        | Expectation of Unwanted Tracking   | Suspecting        |
+        +------------------------------------+-------------------+
         | Access to Resources                | Low               |
         +------------------------------------+-------------------+
         | Access to Technological Safeguards | Impaired (cannot  |
@@ -569,12 +651,14 @@ Table of Contents
            +=======================+===========================+
            | Accessory Usage       | Attacker Only             |
            +-----------------------+---------------------------+
+           | Tag Placement         | In Proximity (car)        |
+           +-----------------------+---------------------------+
 
                                   Table 6
 
-3.2.1.3.  Scenario 3
+3.3.1.3.  Scenario 3
 
-3.2.1.3.1.  Narrative
+3.3.1.3.1.  Narrative
 
    Lime and Lemon have been dating for two years.  Lemon works for a
    tech company and often emphasizes how much more they know about
@@ -593,7 +677,7 @@ Table of Contents
    to be at work until late to make sure that Lemon did not follow them,
    but when Lemon got home from work they knew where Lime had been.
 
-3.2.1.3.2.  Analysis
+3.3.1.3.2.  Analysis
 
    This is a case involving a high-skill attacker, with a large skill
    difference between attacker and victim.  This situation often arises
@@ -625,6 +709,8 @@ Table of Contents
             +====================================+============+
             | Expertise Level                    | Non-Expert |
             +------------------------------------+------------+
+            | Expectation of Unwanted Tracking   | Suspecting |
+            +------------------------------------+------------+
             | Access to Resources                | Low        |
             +------------------------------------+------------+
             | Access to Technological Safeguards | Low        |
@@ -637,21 +723,159 @@ Table of Contents
                 +=======================+================+
                 | Accessory Usage       | Attacker Only  |
                 +-----------------------+----------------+
+                | Tag Placement         | Unclear        |
+                +-----------------------+----------------+
 
                                  Table 9
 
-3.2.2.  Bluetooth vs. other technologies
+3.3.1.4.  Scenario 4
+
+3.3.1.4.1.  Narrative
+
+   Banana is a social media influencer.  Fig is one of Banana's
+   followers, and has become increasingly obsessed with Banana.  Banana
+   has no technical background.  Fig has no formal technical background,
+   but does read some online forums.  Banana keeps a tracking accessory
+   on their keyring to prevent loss or theft of their home and car keys.
+   Fig learns, from reading an online forum, how to find leaked
+   passwords in data breaches, and is able to find the password to the
+   account associated with Banana's accessory.  Using the crowdsourced
+   network, Fig is able to find Banana's home address and track their
+   location.  Fig makes a plan to travel to Banana's home and approach
+   them in person.
+
+3.3.1.4.2.  Analysis
+
+   This scenario differs from the previous ones in three major ways.
+   First, it requires no physical proximity between the attacker and the
+   victim.  Second, the attacker, like nearly one in five stalkers
+   (SPARC - Stalking Infographic, 2022)
+   (https://www.stalkingawareness.org/wp-content/uploads/2022/04/
+   General-Stalking-Infographic.pdf), is a stranger.  Third, in this
+   scenario the accessory belongs to the victim rather than the
+   attacker.  The attacker was able to use OSINT learned from an online
+   forum in order to gain remote access to the victim's accessory.
+
+                   +=====================+============+
+                   | Attacker Profile    | Fig        |
+                   +=====================+============+
+                   | Expertise Level     | Non-Expert |
+                   +---------------------+------------+
+                   | Proximity to Victim | Low        |
+                   +---------------------+------------+
+                   | Access to Resources | Unknown    |
+                   +---------------------+------------+
+
+                                 Table 10
+
+           +====================================+==============+
+           | Victim Profile                     | Banana       |
+           +====================================+==============+
+           | Expertise Level                    | Non-Expert   |
+           +------------------------------------+--------------+
+           | Expectation of Unwanted Tracking   | Unsuspecting |
+           +------------------------------------+--------------+
+           | Access to Resources                | Unknown      |
+           +------------------------------------+--------------+
+           | Access to Technological Safeguards | Unknown      |
+           +------------------------------------+--------------+
+
+                                  Table 11
+
+                +=======================+================+
+                | Other Characteristics | Fig and Banana |
+                +=======================+================+
+                | Accessory Usage       | Victim Only    |
+                +-----------------------+----------------+
+                | Tag Placement         | On Victim      |
+                +-----------------------+----------------+
+
+                                 Table 12
+
+3.3.1.5.  Scenario 5
+
+3.3.1.5.1.  Narrative
+
+   Orange and Grapefruit are university students in computer science.
+   They attend multiple classes together, and are acquainted but do not
+   regularly socialize or live in the same dormitory.  Both use tracking
+   accessories to avoid losing items, as do many students at the
+   university.  Grapefruit has become increasingly obsessed with Orange,
+   though Orange does not realize it.  Grapefruit places tracking
+   accessories in Orange's backpack and car.  Orange found the one in
+   their backpack after receiving a notification, but was not suspicious
+   when Grapefruit said that they had dropped it.  Orange has not used
+   their car in a week and is unaware of the well-hidden tracking
+   accessory there.  Grapefruit has created a new account to associate
+   with their backup phone and plans to associate multiple tracking
+   accessories with it, in order to place them on other possessions of
+   Orange's.
+
+3.3.1.5.2.  Analysis
+
+   In this scenario involving two technical students, the attacker, like
+   over 40% of stalkers (SPARC - Stalking Infographic, 2022)
+   (https://www.stalkingawareness.org/wp-content/uploads/2022/04/
+   General-Stalking-Infographic.pdf), is an acquaintance.  Both attacker
+   and victim are familiar with and use tracking accessories.  The
+   attacker is using multiple accessories with a plan to incorporate
+   more into their strategy.
+
+                   +=====================+============+
+                   | Attacker Profile    | Grapefruit |
+                   +=====================+============+
+                   | Expertise Level     | Expert     |
+                   +---------------------+------------+
+                   | Proximity to Victim | Medium     |
+                   +---------------------+------------+
+                   | Access to Resources | High       |
+                   +---------------------+------------+
+
+                                 Table 13
+
+           +====================================+==============+
+           | Victim Profile                     | Orange       |
+           +====================================+==============+
+           | Expertise Level                    | Expert       |
+           +------------------------------------+--------------+
+           | Expectation of Unwanted Tracking   | Unsuspecting |
+           +------------------------------------+--------------+
+           | Access to Resources                | High         |
+           +------------------------------------+--------------+
+           | Access to Technological Safeguards | High         |
+           +------------------------------------+--------------+
+
+                                  Table 14
+
+              +=======================+=====================+
+              | Other Characteristics | Fig and Banana      |
+              +=======================+=====================+
+              | Accessory Usage       | Attacker and Victim |
+              +-----------------------+---------------------+
+              | Tag Placement         | Multiple Types      |
+              +-----------------------+---------------------+
+
+                                  Table 15
+
+3.3.2.  Bluetooth vs. other technologies
 
    The above taxonomy and threat analysis focus on location tracking
    tags.  They are protocol-independent; if a tag were designed for
    crowd-sourced location tracking using a technology other than
    Bluetooth, they would still apply.  The key attributes are the
    functionalities and physical properties of the accessory from the
-   user’s perspective.  The accessory must be small, not easily
+   user’s perspective: the accessory must be small, not easily
    discoverable, and able to participate in a crowd-sourced location
-   tracking network.
+   tracking network.  While many GPS based location trackers are not
+   explicitly designed for crowd-sourced location tracking, relying
+   instead on cellular or satellite transmission, they offer different
+   affordances that can have a critical impact on safety, including
+   increased location precision and real-time tracking.  Manufacturers
+   of these trackers are strongly encouraged to add bluetooth crowd-
+   sourced functionality so that DULT protocols can be supported by GPS
+   trackers.
 
-3.3.  Possible Attacks on the DULT Protocol
+3.4.  Possible Attacks on the DULT Protocol
 
    There are several different ways an attacker could attempt to
    circumvent the DULT protocol in order to track a victim without their
@@ -662,7 +886,7 @@ Table of Contents
    This section includes a threat prioritization framework that assesses
    the risk of these attacks and how these risks may be mitigated.
 
-3.3.1.  Threat Prioritization Framework for DULT Threat Model
+3.4.1.  Threat Prioritization Framework for DULT Threat Model
 
    Threats in the DULT ecosystem vary in severity, feasibility, and
    likelihood, affecting users in different ways.  Some threats enable
@@ -675,7 +899,7 @@ Table of Contents
    This categorization helps in understanding the challenges posed by
    different tracking techniques and their potential mitigations.
 
-3.3.2.  Threat Matrix
+3.4.2.  Threat Matrix
 
    To systematically assess the risks associated with different threats,
    we introduce the following threat matrix.  This categorization
@@ -781,10 +1005,13 @@ Table of Contents
    | Tracker        |      |            |      |          |            |
    | Networks       |      |            |      |          |            |
    +----------------+------+------------+------+----------+------------+
+   | Deploying GPS  |High  | Medium     |High  | Victims  | Partial    |
+   | Tracker        |      |            |      |          |            |
+   +----------------+------+------------+------+----------+------------+
 
-                                  Table 10
+                                  Table 16
 
-3.3.3.  Deploying Multiple Tags
+3.4.3.  Deploying Multiple Tags
 
    When an attacker deploys tracking tags to follow a victim, they may
    deploy more than one tag.  For example, if planting a tracking tag in
@@ -811,10 +1038,10 @@ Table of Contents
    robust countermeasures.  The impact of multiple tags can be fully
    mitigated by scanning for multiple tags, though a sophisticated
    attacker might deploy other techniques such as modifying tag firmware
-   (Section 3.3.6) or periodically disabling a tag (Section 3.3.7) to
+   (Section 3.4.6) or periodically disabling a tag (Section 3.4.7) to
    evade detection.
 
-3.3.4.  Remote Advertisement Monitoring
+3.4.4.  Remote Advertisement Monitoring
 
    Any device with Bluetooth scanning capabilities in proximity to a
    location tracking tag can receive Bluetooth advertisement packets.
@@ -841,7 +1068,7 @@ Table of Contents
    solution that employs secret sharing and error correction coding that
    would reduce this to 60 seconds.  However, work must investigate how
    robust this scheme is to the presence of multiple tags (see
-   Section 3.3.3).
+   Section 3.4.3).
 
    While rotating identifiers provides partial mitigation, attackers can
    still use advanced correlation techniques, such as signal
@@ -858,7 +1085,7 @@ Table of Contents
    that BLE devices using rotating identifiers can be deanonymized
    through RSSI-based correlation techniques.
 
-3.3.5.  Physically Modifying Tags
+3.4.5.  Physically Modifying Tags
 
    An attacker might physically modify a tag in ways that make it non-
    conformant with the DULT protocol.  Physical modifications may
@@ -874,7 +1101,7 @@ Table of Contents
    the speaker, but these mitigations are limited as attackers have
    physical access to the tags.
 
-3.3.6.  Accessory Firmware Modifications
+3.4.6.  Accessory Firmware Modifications
 
    The DULT protocol (see [I-D.draft-ietf-dult-accessory-protocol]) will
    specify that accessory firmware images MUST be authenticated, and
@@ -893,7 +1120,7 @@ Table of Contents
    this attack is possible by requiring accessories to verify the
    integrity and origin of firmware.
 
-3.3.7.  Attacker Accessory Disablement
+3.4.7.  Attacker Accessory Disablement
 
    An attacker might intentionally disable their location tracking tag
    to make it harder for a victim to detect and/or locate the tag.  This
@@ -909,7 +1136,7 @@ Table of Contents
    mitigated by minimizing the time needed to detect unwanted location
    tracking and maintaining the same identifier on reset.
 
-3.3.8.  Tracking Using Victim's Own Tag
+3.4.8.  Tracking Using Victim's Own Tag
 
    Attackers with access to a victim’s account, either through password
    reuse, phishing, social engineering, or credential theft, can exploit
@@ -921,7 +1148,7 @@ Table of Contents
    warning.
 
    This threat differs from impersonation or replay attacks (see
-   Section 3.3.11 and Section 3.3.13) because it does not rely on
+   Section 3.4.11 and Section 3.4.13) because it does not rely on
    breaking cryptographic protections or evading detection algorithms.
    Instead, it leverages the legitimate trust relationship encoded in
    the protocol.  The impact of this attack is high, as it results in
@@ -938,7 +1165,7 @@ Table of Contents
    these features depend on platform implementation and may not be
    uniformly enforced.
 
-3.3.9.  Disabling Victim Tag Detection
+3.4.9.  Disabling Victim Tag Detection
 
    An attacker might intentionally disable passive unwanted location
    tracking detection on a victim's device.  The impact of this attack
@@ -952,7 +1179,7 @@ Table of Contents
    potential location tracking using other means e.g. sounds or haptics
    on location tracking tags.
 
-3.3.10.  Disabling Victim Tag
+3.4.10.  Disabling Victim Tag
 
    An attacker might intentionally disable a victim's tag as a form of
    harassment.  This could be done with physical access to the tag,
@@ -968,7 +1195,7 @@ Table of Contents
    that a change has been made on their account, similar to suspicious
    login notifications.
 
-3.3.11.  Impersonation Attack (Tag)
+3.4.11.  Impersonation Attack (Tag)
 
    Attackers might be able to impersonate legitimate tracking
    accessories, enabling tracking without complying with the DULT
@@ -1012,13 +1239,13 @@ Table of Contents
    impersonation attacks by restricting low-level BLE broadcasting
    unless elevated privileges are granted.
 
-3.3.12.  Impersonation Attack (Device)
+3.4.12.  Impersonation Attack (Device)
 
    In addition to impersonating a tag, an attacker could also
    impersonate a device.  This affords attacks against both tracking
    accessories and against the crowdsourced network.
 
-3.3.12.1.  Attacks on accessories
+3.4.12.1.  Attacks on accessories
 
    An impersonated device could send commands to accessories, such as a
    "play sound" command or a remote disablement command.  Accessory
@@ -1041,7 +1268,7 @@ Table of Contents
    from transmitting packets, certain rules can be enforced by
    accessories.
 
-3.3.12.2.  Attacks on crowdsourced network
+3.4.12.2.  Attacks on crowdsourced network
 
    An impersonated device could send false location reports to the
    crowdsourced network, or selectively not report to the crowdsourced
@@ -1056,10 +1283,10 @@ Table of Contents
    crowdsourced network and only trusting reports when they can be
    verified by multiple devices.
 
-3.3.13.  Replay Attack
+3.4.13.  Replay Attack
 
    In addition to impersonating legitimate tracking devices (see
-   Section 3.3.11), attackers can record and replay Bluetooth
+   Section 3.4.11), attackers can record and replay Bluetooth
    advertisements from a legitimate tracker.  For example, an attacker
    could capture a tracker's broadcast and retransmit it elsewhere,
    creating confusion about its actual location.  This could be used to
@@ -1076,7 +1303,7 @@ Table of Contents
    accessories and devices.  Partial mitigation may be possible by
    authenticating messages from accessories in a time varying manner.
 
-3.3.14.  Heterogeneous Tracker Networks
+3.4.14.  Heterogeneous Tracker Networks
 
    Attackers may use a mix of tracking devices from different
    manufacturers (e.g., Apple AirTags, Tile, Samsung SmartTags) to
@@ -1094,9 +1321,30 @@ Table of Contents
    the DULT protocol and ensuring that the DULT protocol is sufficiently
    clear to minimize gaps in vendor-specific tracking protections.
 
-3.4.  What is in scope
+3.4.15.  Deploying GPS Tracker
 
-3.4.1.  Technologies
+   When an attacker deploys a GPS tracker to stalk a victim, they have
+   access to greater location precision, real-time tracking, and even
+   global coverage through satellite connection for some trackers.
+   Attackers are especially likely to use GPS trackers in rural areas
+   and areas with low crowd-sourced network saturation, or when looking
+   for more advanced precision or for devices that do not offer safety
+   protections.
+
+   The impact of this attack is high due to the increased location
+   precision and real-time tracking functionality.  The likelihood is
+   medium, as these trackers are currently more expensive than Bluetooth
+   based trackers, and not as readily available.  As a result, the
+   overall risk is high, requiring robust countermeasures.  The impact
+   of GPS trackers can be mitigated by adding bluetooth crowd-sourced
+   tracking functionality to GPS trackers and adopting the DULT
+   protocol.  However, the adoption of the DULT protocol by GPS tracker
+   manufacturers is of course optional, so this is considered a partial
+   mitigation.
+
+3.5.  What is in scope
+
+3.5.1.  Technologies
 
    The scope of this threat analysis includes any accessory that is
    small and not easily discoverable and able to transmit its location
@@ -1104,19 +1352,19 @@ Table of Contents
    such as laptops with tracking tag integrations may also choose to
    implement the protocol.
 
-3.4.2.  Attacker Profiles
+3.5.2.  Attacker Profiles
 
-   An attacker who deploys any of the attacks described in Section 3.3.1
+   An attacker who deploys any of the attacks described in Section 3.4.1
    is considered in scope.  This includes attempts to track a victim
    using a tracking tag and applications readily available for end-users
-   (e.g. native tracking application) is in scope.  Additonally, an
+   (e.g. native tracking application) is in scope.  Additionally, an
    attacker who physically modifies a tracking tag (e.g. to disable a
    speaker) is in scope.  An attacker who makes non-nation-state level
    alterations to the firmware of an existing tracking tag or creates a
    custom device that leverages the crowdsourced tracking network is in
    scope.
 
-3.4.3.  Victim Profiles
+3.5.3.  Victim Profiles
 
    All victims profiles are in scope regardless of their expertise,
    access to resources, or access to technological safeguards.  For
@@ -1124,9 +1372,9 @@ Table of Contents
    smartphone, and scenarios in which victims cannot install separate
    software.
 
-3.5.  What is out of scope
+3.6.  What is out of scope
 
-3.5.1.  Technologies
+3.6.1.  Technologies
 
    There are many types of technology that can be used for location
    tracking.  In many cases, the threat analysis would be similar, as
@@ -1146,7 +1394,10 @@ Table of Contents
 
    *  User accounts for cloud services or social media.
 
-3.5.2.  Victim Profiles
+   See Section 3.3.2 for information and recommendation related to GPS
+   trackers.
+
+3.6.2.  Victim Profiles
 
    N/A
 
@@ -1161,11 +1412,11 @@ Table of Contents
 
    *  Account for scenarios in which the attacker has high expertise,
       proximity, and/or access to resources within the scope defined in
-      Section 3.4 and Section 3.5
+      Section 3.5 and Section 3.6
 
    *  Account for scenarios in which the victim has low expertise,
       access to resources, and/or access to technological safeguards
-      within the scope defined in Section 3.4 and Section 3.5
+      within the scope defined in Section 3.5 and Section 3.6
 
    *  Avoid privacy compromises for the tag owner(s) when protecting
       against unwanted location tracking using tracking tags
@@ -1192,14 +1443,19 @@ Table of Contents
    There may be scenarios where a victim suspects that they are being
    tracked without their consent.  Active scanning should allow a user
    to use a native application on their device to search for tracking
-   tags that are separated from their owners.  Additional information
-   about when that tag has been previously encountered within a
-   designated time window (e.g. the last 12 hours) should also be
-   included if available (see Section 4.1.5).  Allowing users to
-   "snooze" or ignore tags known to be safe (e.g. tags from a family
-   member) could also be implemented.  Tracking tags that are near their
-   owners should not be shared to avoid abuse of the active scanning
-   feature.
+   tags that are separated from their owners.  When a tag has been
+   identified as potentially being used for unwanted location tracking,
+   the user should be able to view the serial number of the device along
+   with obfuscated owner information (e.g. last four digits of phone
+   number, obfuscated email address) and instructions on how to find
+   and/or disable the device (see Section 4.1.2 and Section 4.1.3).
+   Additional information about when that tag has been previously
+   encountered within a designated time window (e.g. the last 12 hours)
+   should also be included if available (see Section 3.2).  Allowing
+   users to "snooze" or ignore tags known to be safe (e.g. tags from a
+   family member) could also be implemented.  Tracking tags that are
+   near their owners should not be shared to avoid abuse of the active
+   scanning feature.
 
 4.1.1.2.  Passive Scanning
 
@@ -1439,8 +1695,6 @@ Table of Contents
    optional and may vary by platform.  Whenever shared ownership is
    used, information about all owners should be made available when a
    tag is suspected of unwanted location tracking (see Section 4.1.1.2).
-
-4.1.5.  Privacy and Security Requirements (TODO)
 
 4.2.  Design Constraints
 
