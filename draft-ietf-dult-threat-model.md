@@ -328,6 +328,10 @@ Threats in the DULT ecosystem vary in severity, feasibility, and likelihood, aff
 
 To systematically assess the risks associated with different threats, we introduce the following threat matrix. This categorization considers the following factors:
 
+  - Scope: The DULT WG document(s) most relevant to the attack.
+    - Accessory: The accessory protocol document.
+    - Finding: The finding algorithm document.
+    - Network: The crowd-sourced network document, which includes guidance for platforms and devices.
   - Impact: The potential consequences of the threat if successfully executed.
     - Low: Minimal effect on privacy and security.
     - Medium: Moderate effect on user privacy or tracking protection.
@@ -348,22 +352,22 @@ To systematically assess the risks associated with different threats, we introdu
     - Partial: Some mitigations exist, but are not fully effective.
     - No: No effective mitigation currently available.
 
-| Threat | Impact | Likelihood | Risk Level | Affected Users | Mitigation Available? |
+| Threat | Scope | Impact | Likelihood | Risk Level | Affected Users | Mitigation Available? |
 | ------ | --------------------- | ------------------------- | ------------------------- | -------------- | ------------------------------ |
-| Deploying Multiple Tags | Medium | High	| High | Victims | Full |
-| Remote Advertisement Monitoring | Medium | High | Medium | All users | Partial |
-| Physically Modifying Tags | High | Medium | Medium | Victims | Partial |
-| Accessory Firmware Modifications | High | Low | Medium | Victims | Partial |
-| Attacker Accessory Disablement | Medium | Medium | Medium | Victims | Partial |
-| Tracking Using Victim's Own Tag | High | Medium | High | Victims | Partial |
-| Disabling Victim Tag Detection | High | Medium | Medium | Victims | Partial |
-| Disabling Victim Tag | Medium | Medium | Medium | Victims | Partial |
-| Impersonation Attack (Tag) | High | Medium | High | Victims | Partial |
-| Impersonation Attack (Device/Tag) | High | Medium | High | All users | Partial |
-| Impersonation Attack (Device/Network) | Medium | Low | Low | All users | Partial |
-| Replay Attack | Medium | High | Medium | Victims | Partial |
-| Heterogeneous Tracker Networks | High | Medium | Medium | Victims | No |
-| Deploying GPS Tracker | High | Medium | High | Victims | Partial |
+| Deploying Multiple Tags | Finding | Medium | High	| High | Victims | Full |
+| Remote Advertisement Monitoring | Accessory | Medium | High | Medium | All users | Partial |
+| Physically Modifying Tags | Accessory | High | Medium | Medium | Victims | Partial |
+| Accessory Firmware Modifications | Accessory | High | Low | Medium | Victims | Partial |
+| Attacker Accessory Disablement | Finding, Accessory | Medium | Medium | Medium | Victims | Partial |
+| Tracking Using Victim's Own Tag | Network | High | Medium | High | Victims | Partial |
+| Disabling Victim Tag Detection | Network | High | Medium | Medium | Victims | Partial |
+| Disabling Victim Tag | Network | Medium | Medium | Medium | Victims | Partial |
+| Impersonation Attack (Tag) | Accessory | High | Medium | High | Victims | Partial |
+| Impersonation Attack (Device/Tag) | Accessory | High | Medium | High | All users | Partial |
+| Impersonation Attack (Device/Network) | Network | Medium | Low | Low | All users | Partial |
+| Replay Attack | Network, Accessory | Medium | High | Medium | Victims | Partial |
+| Heterogeneous Tracker Networks | Network, Accessory | High | Medium | Medium | Victims | No |
+| Deploying GPS Tracker | Accessory | High | Medium | High | Victims | Partial |
 
 ### Deploying Multiple Tags
 
