@@ -124,9 +124,6 @@ Table of Contents
        3.5.1.  Technologies
        3.5.2.  Attacker Profiles
        3.5.3.  Victim Profiles
-     3.6.  What is out of scope
-       3.6.1.  Technologies
-       3.6.2.  Victim Profiles
    4.  Design Considerations
      4.1.  Design Requirements
        4.1.1.  Detecting Unwanted Location Tracking
@@ -226,6 +223,17 @@ Table of Contents
    of the implementation of the DULT protocol as described in
    [I-D.draft-ietf-dult-accessory-protocol] and
    [I-D.draft-ietf-dult-finding].
+
+   There are many types of technology that can be used for location
+   tracking that have similarities to unwanted location tracking using
+   tracking tags.  It is infeasible to attempt to describe a threat
+   analysis for each possible technology in this document.  The threat
+   model described here is likely not applicable to the following areas:
+   app-based technologies such as parental monitoring apps, Internet of
+   Things (IoT) devices that are easily discoverable, connected cars, or
+   user accounts for cloud services or social media.  A notable
+   exception to this is GPS trackers; see Section 3.3.2 for relevant
+   information and recommendations.
 
 2.  Conventions and Definitions
 
@@ -905,6 +913,20 @@ Table of Contents
    we introduce the following threat matrix.  This categorization
    considers the following factors:
 
+   *  Scope: The DULT WG document(s) most relevant to the attack.
+
+      -  Accessory: The accessory protocol document, which describes the
+         DULT non-owner device protocol and other requirements for
+         accessories.
+
+      -  Finding: The finding algorithm document, which describes the
+         unwanted location tracking detection algorithm(s) to be
+         implemented by platforms/devices.
+
+      -  Network: The crowd-sourced network document, which describes
+         the architecture of the crowd-sourced network and includes
+         guidance for platforms/devices.
+
    *  Impact: The potential consequences of the threat if successfully
       executed.
 
@@ -952,62 +974,64 @@ Table of Contents
 
       -  No: No effective mitigation currently available.
 
-   +================+======+============+======+==========+============+
-   | Threat         |Impact| Likelihood |Risk  | Affected | Mitigation |
-   |                |      |            |Level | Users    | Available? |
-   +================+======+============+======+==========+============+
-   | Deploying      |Medium| High       |High  | Victims  | Full       |
-   | Multiple Tags  |      |            |      |          |            |
-   +----------------+------+------------+------+----------+------------+
-   | Remote         |Medium| High       |Medium| All      | Partial    |
-   | Advertisement  |      |            |      | users    |            |
-   | Monitoring     |      |            |      |          |            |
-   +----------------+------+------------+------+----------+------------+
-   | Physically     |High  | Medium     |Medium| Victims  | Partial    |
-   | Modifying      |      |            |      |          |            |
-   | Tags           |      |            |      |          |            |
-   +----------------+------+------------+------+----------+------------+
-   | Accessory      |High  | Low        |Medium| Victims  | Partial    |
-   | Firmware       |      |            |      |          |            |
-   | Modifications  |      |            |      |          |            |
-   +----------------+------+------------+------+----------+------------+
-   | Attacker       |Medium| Medium     |Medium| Victims  | Partial    |
-   | Accessory      |      |            |      |          |            |
-   | Disablement    |      |            |      |          |            |
-   +----------------+------+------------+------+----------+------------+
-   | Tracking       |High  | Medium     |High  | Victims  | Partial    |
-   | Using          |      |            |      |          |            |
-   | Victim's Own   |      |            |      |          |            |
-   | Tag            |      |            |      |          |            |
-   +----------------+------+------------+------+----------+------------+
-   | Disabling      |High  | Medium     |Medium| Victims  | Partial    |
-   | Victim Tag     |      |            |      |          |            |
-   | Detection      |      |            |      |          |            |
-   +----------------+------+------------+------+----------+------------+
-   | Disabling      |Medium| Medium     |Medium| Victims  | Partial    |
-   | Victim Tag     |      |            |      |          |            |
-   +----------------+------+------------+------+----------+------------+
-   | Impersonation  |High  | Medium     |High  | Victims  | Partial    |
-   | Attack (Tag)   |      |            |      |          |            |
-   +----------------+------+------------+------+----------+------------+
-   | Impersonation  |High  | Medium     |High  | All      | Partial    |
-   | Attack         |      |            |      | users    |            |
-   | (Device/Tag)   |      |            |      |          |            |
-   +----------------+------+------------+------+----------+------------+
-   | Impersonation  |Medium| Low        |Low   | All      | Partial    |
-   | Attack         |      |            |      | users    |            |
-   | (Device/       |      |            |      |          |            |
-   | Network)       |      |            |      |          |            |
-   +----------------+------+------------+------+----------+------------+
-   | Replay Attack  |Medium| High       |Medium| Victims  | Partial    |
-   +----------------+------+------------+------+----------+------------+
-   | Heterogeneous  |High  | Medium     |Medium| Victims  | No         |
-   | Tracker        |      |            |      |          |            |
-   | Networks       |      |            |      |          |            |
-   +----------------+------+------------+------+----------+------------+
-   | Deploying GPS  |High  | Medium     |High  | Victims  | Partial    |
-   | Tracker        |      |            |      |          |            |
-   +----------------+------+------------+------+----------+------------+
+   +=============+==========+======+==========+======+========+==========+
+   |Threat       |Scope     |Impact|Likelihood|Risk  |Affected|Mitigation|
+   |             |          |      |          |Level |Users   |Available?|
+   +=============+==========+======+==========+======+========+==========+
+   |Deploying    |Finding   |Medium|High      |High  |Victims |Full      |
+   |Multiple Tags|          |      |          |      |        |          |
+   +-------------+----------+------+----------+------+--------+----------+
+   |Remote       |Accessory,|Medium|High      |Medium|All     |Partial   |
+   |Advertisement|Network   |      |          |      |users   |          |
+   |Monitoring   |          |      |          |      |        |          |
+   +-------------+----------+------+----------+------+--------+----------+
+   |Physically   |Accessory |High  |Medium    |Medium|Victims |Partial   |
+   |Modifying    |          |      |          |      |        |          |
+   |Tags         |          |      |          |      |        |          |
+   +-------------+----------+------+----------+------+--------+----------+
+   |Accessory    |Accessory |High  |Low       |Medium|Victims |Partial   |
+   |Firmware     |          |      |          |      |        |          |
+   |Modifications|          |      |          |      |        |          |
+   +-------------+----------+------+----------+------+--------+----------+
+   |Attacker     |Accessory,|Medium|Medium    |Medium|Victims |Partial   |
+   |Accessory    |Finding   |      |          |      |        |          |
+   |Disablement  |          |      |          |      |        |          |
+   +-------------+----------+------+----------+------+--------+----------+
+   |Tracking     |Network   |High  |Medium    |High  |Victims |Partial   |
+   |Using        |          |      |          |      |        |          |
+   |Victim's Own |          |      |          |      |        |          |
+   |Tag          |          |      |          |      |        |          |
+   +-------------+----------+------+----------+------+--------+----------+
+   |Disabling    |Network   |High  |Medium    |Medium|Victims |Partial   |
+   |Victim Tag   |          |      |          |      |        |          |
+   |Detection    |          |      |          |      |        |          |
+   +-------------+----------+------+----------+------+--------+----------+
+   |Disabling    |Accessory,|Medium|Medium    |Medium|Victims |Partial   |
+   |Victim Tag   |Network   |      |          |      |        |          |
+   +-------------+----------+------+----------+------+--------+----------+
+   |Impersonation|Accessory,|High  |Medium    |High  |Victims |Partial   |
+   |Attack (Tag) |Finding,  |      |          |      |        |          |
+   |             |Network   |      |          |      |        |          |
+   +-------------+----------+------+----------+------+--------+----------+
+   |Impersonation|Accessory,|High  |Medium    |High  |All     |Partial   |
+   |Attack       |Network   |      |          |      |users   |          |
+   |(Device/Tag) |          |      |          |      |        |          |
+   +-------------+----------+------+----------+------+--------+----------+
+   |Impersonation|Network   |Medium|Low       |Low   |All     |Partial   |
+   |Attack       |          |      |          |      |users   |          |
+   |(Device/     |          |      |          |      |        |          |
+   |Network)     |          |      |          |      |        |          |
+   +-------------+----------+------+----------+------+--------+----------+
+   |Replay Attack|Accessory,|Medium|High      |Medium|Victims |Partial   |
+   |             |Network   |      |          |      |        |          |
+   +-------------+----------+------+----------+------+--------+----------+
+   |Heterogeneous|Accessory,|High  |Medium    |Medium|Victims |No        |
+   |Tracker      |Network,  |      |          |      |        |          |
+   |Networks     |Finding   |      |          |      |        |          |
+   +-------------+----------+------+----------+------+--------+----------+
+   |Deploying GPS|Accessory |High  |Medium    |High  |Victims |Partial   |
+   |Tracker      |          |      |          |      |        |          |
+   +-------------+----------+------+----------+------+--------+----------+
 
                                   Table 16
 
@@ -1348,21 +1372,20 @@ Table of Contents
 
    The scope of this threat analysis includes any accessory that is
    small and not easily discoverable and able to transmit its location
-   to other consumer devices.  Larger and/or easily discoverable devices
-   such as laptops with tracking tag integrations may also choose to
-   implement the protocol.
+   to other consumer devices using Bluetooth.  Larger and/or easily
+   discoverable devices such as laptops with tracking tag integrations
+   may also choose to implement the protocol.
 
 3.5.2.  Attacker Profiles
 
    An attacker who deploys any of the attacks described in Section 3.4.1
-   is considered in scope.  This includes attempts to track a victim
+   is considered in scope.  This includes: attackers who track victims
    using a tracking tag and applications readily available for end-users
-   (e.g. native tracking application) is in scope.  Additionally, an
-   attacker who physically modifies a tracking tag (e.g. to disable a
-   speaker) is in scope.  An attacker who makes non-nation-state level
-   alterations to the firmware of an existing tracking tag or creates a
-   custom device that leverages the crowdsourced tracking network is in
-   scope.
+   (e.g. native tracking application), attackers who physically modify
+   tracking tags (e.g. to disable a speaker), and attackers who make
+   alterations to the firmware of an existing tracking tag or create
+   custom devices that successfully connect to the crowdsourced tracking
+   network.
 
 3.5.3.  Victim Profiles
 
@@ -1371,35 +1394,6 @@ Table of Contents
    example, protocols should account for a victim's lack of access to a
    smartphone, and scenarios in which victims cannot install separate
    software.
-
-3.6.  What is out of scope
-
-3.6.1.  Technologies
-
-   There are many types of technology that can be used for location
-   tracking.  In many cases, the threat analysis would be similar, as
-   the contexts in which potential attackers and victims exist and use
-   the technology are similar.  However, it would be infeasible to
-   attempt to describe a threat analysis for each possible technology in
-   this document.  We have therefore limited its scope to location-
-   tracking accessories that are small and not easily discoverable and
-   able to transmit their locations to other devices.  The following are
-   out of scope for this document:
-
-   *  App-based technologies such as parental monitoring apps.
-
-   *  Other Internet of Things (IoT) devices.
-
-   *  Connected cars.
-
-   *  User accounts for cloud services or social media.
-
-   See Section 3.3.2 for information and recommendation related to GPS
-   trackers.
-
-3.6.2.  Victim Profiles
-
-   N/A
 
 4.  Design Considerations
 
@@ -1412,11 +1406,11 @@ Table of Contents
 
    *  Account for scenarios in which the attacker has high expertise,
       proximity, and/or access to resources within the scope defined in
-      Section 3.5 and Section 3.6
+      Section 3.5
 
    *  Account for scenarios in which the victim has low expertise,
       access to resources, and/or access to technological safeguards
-      within the scope defined in Section 3.5 and Section 3.6
+      within the scope defined in Section 3.5
 
    *  Avoid privacy compromises for the tag owner(s) when protecting
       against unwanted location tracking using tracking tags
