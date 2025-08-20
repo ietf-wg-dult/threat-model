@@ -470,11 +470,11 @@ The impact of this attack is high due to the increased location precision and re
 
 ### Technologies
 
-The scope of this threat analysis includes any accessory that is small and not easily discoverable and able to transmit its location to other consumer devices. Larger and/or easily discoverable devices such as laptops with tracking tag integrations may also choose to implement the protocol.
+The scope of this threat analysis includes any accessory that is small and not easily discoverable and able to transmit its location to other consumer devices using Bluetooth. Larger and/or easily discoverable devices such as laptops with tracking tag integrations may also choose to implement the protocol.
 
 ### Attacker Profiles
 
-An attacker who deploys any of the attacks described in {{threat-prioritization-framework-for-dult-threat-model}} is considered in scope. This includes attempts to track a victim using a tracking tag and applications readily available for end-users (e.g. native tracking application) is in scope. Additionally, an attacker who physically modifies a tracking tag (e.g. to disable a speaker) is in scope. An attacker who makes non-nation-state level alterations to the firmware of an existing tracking tag or creates a custom device that leverages the crowdsourced tracking network is in scope.
+An attacker who deploys any of the attacks described in {{threat-prioritization-framework-for-dult-threat-model}} is considered in scope. This includes: attackers who track victims using a tracking tag and applications readily available for end-users (e.g. native tracking application), attackers who physically modify tracking tags (e.g. to disable a speaker), and attackers who make alterations to the firmware of an existing tracking tag or create custom devices that successfully connect to the crowdsourced tracking network.
 
 ### Victim Profiles
 
