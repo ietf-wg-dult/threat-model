@@ -188,15 +188,17 @@ In this case, the attacker has planted a tag on a child. Co-parenting after sepa
 | Proximity to Victim  | Medium  |
 | Access to Resources  | Unknown, but can be presumed higher than Mango’s due to Mango’s recent homelessness  |
 
-|Victim Profile | Mango |
-| ------------- | ------------- |
-| Expertise Level  | Non-Expert  |
-| Access to Resources  | Low  |
-| Access to Technological Safeguards  | Normal  |
+|Victim Profile | Mango      |
+| ------------- |------------|
+| Expertise Level  | Non-Expert |
+| Expectation of Unwanted Tracking| Suspecting |
+| Access to Resources  | Low        |
+| Access to Technological Safeguards  | Normal     |
 
-|Other Characteristics | Avocado and Mango |
-| ------------- | ------------- |
-| Accessory Usage  | Attacker Only  |
+| Other Characteristics | Avocado and Mango       |
+|-----------------------|-------------------------|
+| Accessory Usage       | Attacker Only           |
+| Tag Placement         | In Proximity (on child) |
 
 #### Scenario 2
 
@@ -215,14 +217,16 @@ Here, the attacker and the victim are still cohabiting, and the attacker is moni
 | Access to Resources  | High  |
 
 |Victim Profile | Strawberry |
-| ------------- | ------------- |
-| Expertise Level  | Non-Expert  |
-| Access to Resources  | Low  |
-| Access to Technological Safeguards  | Impaired (cannot hear alert sound)  |
+| ------------- |------------|
+| Expertise Level  | Non-Expert |
+| Expectation of Unwanted Tracking| Suspecting |
+| Access to Resources  | Low        |
+| Access to Technological Safeguards  | Impaired (cannot hear alert sound) |
 
-|Other Characteristics | Elderberry and Strawberry |
-| ------------- | ------------- |
-| Accessory Usage  | Attacker Only  |
+| Other Characteristics | Elderberry and Strawberry |
+|-----------------------|---------------------------|
+| Accessory Usage       | Attacker Only             |
+| Tag Placement         | In Proximity (car)        |
 
 #### Scenario 3
 
@@ -240,15 +244,17 @@ This is a case involving a high-skill attacker, with a large skill difference be
 | Proximity to Victim  | High  |
 | Access to Resources  | High  |
 
-|Victim Profile | Lime |
-| ------------- | ------------- |
-| Expertise Level  | Non-Expert  |
-| Access to Resources  | Low  |
-| Access to Technological Safeguards  | Low  |
+|Victim Profile | Lime       |
+| ------------- |------------|
+| Expertise Level  | Non-Expert |
+| Expectation of Unwanted Tracking| Suspecting |
+| Access to Resources  | Low        |
+| Access to Technological Safeguards  | Low        |
 
-|Other Characteristics | Lemon and Lime |
-| ------------- | ------------- |
-| Accessory Usage  | Attacker Only  |
+| Other Characteristics | Lemon and Lime                            |
+|-----------------------|-------------------------------------------|
+| Accessory Usage       | Attacker Only                             |
+| Tag Placement         | Unclear |
 
 #### Scenario 4
 
@@ -266,15 +272,45 @@ This scenario differs from the previous ones in three major ways. First, it requ
 | Proximity to Victim  | Low        |
 | Access to Resources  | Unknown    |
 
-|Victim Profile | Banana     |
-| ------------- |------------|
-| Expertise Level  | Non-Expert |
-| Access to Resources  | Unknown    |
-| Access to Technological Safeguards  | Unknown    |
+|Victim Profile | Banana       |
+| ------------- |--------------|
+| Expertise Level  | Non-Expert   |
+| Expectation of Unwanted Tracking| Unsuspecting |
+| Access to Resources  | Unknown      |
+| Access to Technological Safeguards  | Unknown      |
 
-|Other Characteristics | Fig and Banana |
-| ------------- |----------------|
-| Accessory Usage  | Victim Only    |
+| Other Characteristics | Fig and Banana |
+|-----------------------|----------------|
+| Accessory Usage       | Victim Only    |
+| Tag Placement         | On Victim      |
+
+#### Scenario 5
+
+##### Narrative
+
+Orange and Grapefruit are university students in computer science. They attend multiple classes together, and are acquainted but do not regularly socialize or live in the same dormitory. Both use tracking accessories to avoid losing items, as do many students at the university. Grapefruit has become increasingly obsessed with Orange, though Orange does not realize it. Grapefruit places tracking accessories in Orange's backpack and car. Orange found the one in their backpack after receiving a notification, but was not suspicious when Grapefruit said that they had dropped it. Orange has not used their car in a week and is unaware of the well-hidden tracking accessory there. Grapefruit has created a new account to associate with their backup phone and plans to associate multiple tracking accessories with it, in order to place them on other possessions of Orange's.
+
+##### Analysis
+
+In this scenario involving two technical students, the attacker, like over 40% of stalkers [(SPARC - Stalking Infographic, 2022)](https://www.stalkingawareness.org/wp-content/uploads/2022/04/General-Stalking-Infographic.pdf), is an acquaintance. Both attacker and victim are familiar with and use tracking accessories. The attacker is using multiple accessories with a plan to incorporate more into their strategy.
+
+| Attacker Profile | Grapefruit |
+| ------------- |------------|
+| Expertise Level  | Expert     |
+| Proximity to Victim  | Medium     |
+| Access to Resources  | High       |
+
+|Victim Profile | Orange       |
+| ------------- |--------------|
+| Expertise Level  | Expert       |
+| Expectation of Unwanted Tracking| Unsuspecting |
+| Access to Resources  | High         |
+| Access to Technological Safeguards  | High         |
+
+| Other Characteristics | Fig and Banana      |
+|-----------------------|---------------------|
+| Accessory Usage       | Attacker and Victim |
+| Tag Placement         | Multiple Types      |
 
 ### Bluetooth vs. other technologies
 
