@@ -368,7 +368,7 @@ To systematically assess the risks associated with different threats, we introdu
 | Impersonation Attack (Device/Tag) | Accessory, Network | High | Medium | High | All users | Partial |
 | Impersonation Attack (Device/Network) | Network | Medium | Low | Low | All users | Partial |
 | Replay Attack | Accessory, Network | Medium | High | Medium | Victims | Partial |
-| Heterogeneous Tracker Networks | Accessory, Network, Finding | High | Medium | Medium | Victims | No |
+| Heterogeneous Tracker Networks | Accessory, Finding, Network | High | Medium | Medium | Victims | No |
 | Deploying GPS Tracker | Accessory | High | Medium | High | Victims | Partial |
 
 ### Deploying Multiple Tags (Finding)
