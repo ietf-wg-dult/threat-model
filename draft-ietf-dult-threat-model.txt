@@ -5,10 +5,10 @@
 Detecting Unwanted Location Trackers                           M. Delano
 Internet-Draft                                        Swarthmore College
 Intended status: Informational                                 J. Lowell
-Expires: 15 February 2026      National Network to End Domestic Violence
+Expires: 21 February 2026      National Network to End Domestic Violence
                                                                S. Prabhu
                                                                    Nokia
-                                                          14 August 2025
+                                                          20 August 2025
 
 
                            DULT Threat Model
@@ -67,7 +67,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 15 February 2026.
+   This Internet-Draft will expire on 21 February 2026.
 
 Copyright Notice
 
@@ -565,6 +565,8 @@ Table of Contents
             +====================================+============+
             | Expertise Level                    | Non-Expert |
             +------------------------------------+------------+
+            | Expectation of Unwanted Tracking   | Suspecting |
+            +------------------------------------+------------+
             | Access to Resources                | Low        |
             +------------------------------------+------------+
             | Access to Technological Safeguards | Normal     |
@@ -572,11 +574,13 @@ Table of Contents
 
                                   Table 2
 
-               +=======================+===================+
-               | Other Characteristics | Avocado and Mango |
-               +=======================+===================+
-               | Accessory Usage       | Attacker Only     |
-               +-----------------------+-------------------+
+            +=======================+=========================+
+            | Other Characteristics | Avocado and Mango       |
+            +=======================+=========================+
+            | Accessory Usage       | Attacker Only           |
+            +-----------------------+-------------------------+
+            | Tag Placement         | In Proximity (on child) |
+            +-----------------------+-------------------------+
 
                                   Table 3
 
@@ -632,6 +636,8 @@ Table of Contents
         +====================================+===================+
         | Expertise Level                    | Non-Expert        |
         +------------------------------------+-------------------+
+        | Expectation of Unwanted Tracking   | Suspecting        |
+        +------------------------------------+-------------------+
         | Access to Resources                | Low               |
         +------------------------------------+-------------------+
         | Access to Technological Safeguards | Impaired (cannot  |
@@ -644,6 +650,8 @@ Table of Contents
            | Other Characteristics | Elderberry and Strawberry |
            +=======================+===========================+
            | Accessory Usage       | Attacker Only             |
+           +-----------------------+---------------------------+
+           | Tag Placement         | In Proximity (car)        |
            +-----------------------+---------------------------+
 
                                   Table 6
@@ -701,6 +709,8 @@ Table of Contents
             +====================================+============+
             | Expertise Level                    | Non-Expert |
             +------------------------------------+------------+
+            | Expectation of Unwanted Tracking   | Suspecting |
+            +------------------------------------+------------+
             | Access to Resources                | Low        |
             +------------------------------------+------------+
             | Access to Technological Safeguards | Low        |
@@ -712,6 +722,8 @@ Table of Contents
                 | Other Characteristics | Lemon and Lime |
                 +=======================+================+
                 | Accessory Usage       | Attacker Only  |
+                +-----------------------+----------------+
+                | Tag Placement         | Unclear        |
                 +-----------------------+----------------+
 
                                  Table 9
@@ -756,15 +768,17 @@ Table of Contents
 
                                  Table 10
 
-            +====================================+============+
-            | Victim Profile                     | Banana     |
-            +====================================+============+
-            | Expertise Level                    | Non-Expert |
-            +------------------------------------+------------+
-            | Access to Resources                | Unknown    |
-            +------------------------------------+------------+
-            | Access to Technological Safeguards | Unknown    |
-            +------------------------------------+------------+
+           +====================================+==============+
+           | Victim Profile                     | Banana       |
+           +====================================+==============+
+           | Expertise Level                    | Non-Expert   |
+           +------------------------------------+--------------+
+           | Expectation of Unwanted Tracking   | Unsuspecting |
+           +------------------------------------+--------------+
+           | Access to Resources                | Unknown      |
+           +------------------------------------+--------------+
+           | Access to Technological Safeguards | Unknown      |
+           +------------------------------------+--------------+
 
                                   Table 11
 
@@ -773,8 +787,75 @@ Table of Contents
                 +=======================+================+
                 | Accessory Usage       | Victim Only    |
                 +-----------------------+----------------+
+                | Tag Placement         | On Victim      |
+                +-----------------------+----------------+
 
                                  Table 12
+
+3.3.1.5.  Scenario 5
+
+3.3.1.5.1.  Narrative
+
+   Orange and Grapefruit are university students in computer science.
+   They attend multiple classes together, and are acquainted but do not
+   regularly socialize or live in the same dormitory.  Both use tracking
+   accessories to avoid losing items, as do many students at the
+   university.  Grapefruit has become increasingly obsessed with Orange,
+   though Orange does not realize it.  Grapefruit places tracking
+   accessories in Orange's backpack and car.  Orange found the one in
+   their backpack after receiving a notification, but was not suspicious
+   when Grapefruit said that they had dropped it.  Orange has not used
+   their car in a week and is unaware of the well-hidden tracking
+   accessory there.  Grapefruit has created a new account to associate
+   with their backup phone and plans to associate multiple tracking
+   accessories with it, in order to place them on other possessions of
+   Orange's.
+
+3.3.1.5.2.  Analysis
+
+   In this scenario involving two technical students, the attacker, like
+   over 40% of stalkers (SPARC - Stalking Infographic, 2022)
+   (https://www.stalkingawareness.org/wp-content/uploads/2022/04/
+   General-Stalking-Infographic.pdf), is an acquaintance.  Both attacker
+   and victim are familiar with and use tracking accessories.  The
+   attacker is using multiple accessories with a plan to incorporate
+   more into their strategy.
+
+                   +=====================+============+
+                   | Attacker Profile    | Grapefruit |
+                   +=====================+============+
+                   | Expertise Level     | Expert     |
+                   +---------------------+------------+
+                   | Proximity to Victim | Medium     |
+                   +---------------------+------------+
+                   | Access to Resources | High       |
+                   +---------------------+------------+
+
+                                 Table 13
+
+           +====================================+==============+
+           | Victim Profile                     | Orange       |
+           +====================================+==============+
+           | Expertise Level                    | Expert       |
+           +------------------------------------+--------------+
+           | Expectation of Unwanted Tracking   | Unsuspecting |
+           +------------------------------------+--------------+
+           | Access to Resources                | High         |
+           +------------------------------------+--------------+
+           | Access to Technological Safeguards | High         |
+           +------------------------------------+--------------+
+
+                                  Table 14
+
+              +=======================+=====================+
+              | Other Characteristics | Fig and Banana      |
+              +=======================+=====================+
+              | Accessory Usage       | Attacker and Victim |
+              +-----------------------+---------------------+
+              | Tag Placement         | Multiple Types      |
+              +-----------------------+---------------------+
+
+                                  Table 15
 
 3.3.2.  Bluetooth vs. other technologies
 
@@ -928,7 +1009,7 @@ Table of Contents
    | Tracker        |      |            |      |          |            |
    +----------------+------+------------+------+----------+------------+
 
-                                  Table 13
+                                  Table 16
 
 3.4.3.  Deploying Multiple Tags
 
