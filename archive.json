@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-08-17T01:37:53.333210+00:00",
+  "timestamp": "2025-08-21T01:17:56.568233+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -756,7 +756,7 @@
       "id": "I_kwDOMB0Qas6sLoO1",
       "title": "Expand scenarios to incorporate expanded taxonomy",
       "url": "https://github.com/ietf-wg-dult/threat-model/issues/61",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -765,8 +765,8 @@
       "labels": [],
       "body": "Update scenarios based on expanded taxonomy in version -01.",
       "createdAt": "2025-03-01T08:25:49Z",
-      "updatedAt": "2025-08-05T14:44:22Z",
-      "closedAt": null,
+      "updatedAt": "2025-08-20T18:45:44Z",
+      "closedAt": "2025-08-20T18:45:44Z",
       "comments": []
     },
     {
@@ -4637,6 +4637,74 @@
       "mergeCommit": {
         "oid": "e5d75c5ecc0e7edd681c378acebc7941fc9dcc1f"
       },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 135,
+      "id": "PR_kwDOMB0Qas6kT_ZT",
+      "title": "Expands scenarios to incorporate expanded taxonomy",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/135",
+      "state": "MERGED",
+      "author": "exploretechsafety",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Expands scenarios to incorporate expanded taxonomy, adds acquaintance scenario. Addresses #61 ",
+      "createdAt": "2025-08-19T14:35:10Z",
+      "updatedAt": "2025-08-20T18:44:55Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "9429d19800c8e3ad0c5197f7b5ff36c72e1094e5",
+      "headRepository": "ietf-wg-dult/threat-model",
+      "headRefName": "exploretechsafety-expanded-scenarios",
+      "headRefOid": "ffd90ffdbc0daad8f6d669a16c7b799c57f757db",
+      "closedAt": "2025-08-20T18:44:54Z",
+      "mergedAt": "2025-08-20T18:44:54Z",
+      "mergedBy": "maggiedelano",
+      "mergeCommit": {
+        "oid": "369136e4f44e847df6db4832b527da31eb6af28f"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOMB0Qas67B1_g",
+          "commit": {
+            "abbreviatedOid": "ffd90ff"
+          },
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Looks good! I think we will want to have more analysis somewhere, but I think we can keep up with this format for now until we have a representative set of scenarios.",
+          "createdAt": "2025-08-20T18:44:45Z",
+          "updatedAt": "2025-08-20T18:44:45Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 136,
+      "id": "PR_kwDOMB0Qas6kkXsA",
+      "title": "Clarify scope of attacks in threat model",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/136",
+      "state": "OPEN",
+      "author": "maggiedelano",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "- Adds a dedicated column to the threat matrix describing which DULT WG document is relevant to the attack and updates attack section titles accordingly\r\n- Removes the \"What is out of scope\" section, moves the text to the introduction, and rephrases it as applicability\r\n- Makes minor wording updates to clarify what is in scope\r\n\r\nCloses #132. ",
+      "createdAt": "2025-08-20T20:30:01Z",
+      "updatedAt": "2025-08-20T20:31:21Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "369136e4f44e847df6db4832b527da31eb6af28f",
+      "headRepository": "ietf-wg-dult/threat-model",
+      "headRefName": "delano-attacks-scope",
+      "headRefOid": "9ef6daa776d9ee8ac74ebfc0f31654826784f9d1",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
       "comments": [],
       "reviews": []
     }
