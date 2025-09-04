@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-08-21T01:17:56.568233+00:00",
+  "timestamp": "2025-09-04T01:13:05.022658+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -1746,15 +1746,15 @@
       "id": "I_kwDOMB0Qas7FndAG",
       "title": "Reconsider how to address attack scope in the attacks section",
       "url": "https://github.com/ietf-wg-dult/threat-model/issues/132",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "[Michael Ricardson wrote](https://mailarchive.ietf.org/arch/msg/unwanted-trackers/Ls6zZmMmJkISPRZ8PdAjadQ4GTw/)\n> I think that it would be easier to read if each attack indicated whether or\n> not it was in scope rather than leaving that for section 3.5.\n> Section 3.5.1 seems to mark entire *market* areas as out-of-scope.\n> I call that Applicability, not in/out of scope.\n\nWe should be clear about which attacks in the attack section are in/out of scope and which aspects of the DULT protocol they apply to. For example, some need to be addressed by platforms, where others are addressed by the DULT protocol between tags and devices. We should also consider whether to rename the market areas described above to Applicability rather than in/out of scope.",
       "createdAt": "2025-08-12T18:52:26Z",
-      "updatedAt": "2025-08-12T18:59:54Z",
-      "closedAt": null,
+      "updatedAt": "2025-09-03T13:20:45Z",
+      "closedAt": "2025-09-03T13:20:45Z",
       "comments": []
     }
   ],
@@ -4687,26 +4687,42 @@
       "id": "PR_kwDOMB0Qas6kkXsA",
       "title": "Clarify scope of attacks in threat model",
       "url": "https://github.com/ietf-wg-dult/threat-model/pull/136",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "- Adds a dedicated column to the threat matrix describing which DULT WG document is relevant to the attack and updates attack section titles accordingly\r\n- Removes the \"What is out of scope\" section, moves the text to the introduction, and rephrases it as applicability\r\n- Makes minor wording updates to clarify what is in scope\r\n\r\nCloses #132. ",
       "createdAt": "2025-08-20T20:30:01Z",
-      "updatedAt": "2025-08-20T20:31:21Z",
+      "updatedAt": "2025-09-03T13:20:44Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
       "baseRefOid": "369136e4f44e847df6db4832b527da31eb6af28f",
       "headRepository": "ietf-wg-dult/threat-model",
       "headRefName": "delano-attacks-scope",
       "headRefOid": "9ef6daa776d9ee8ac74ebfc0f31654826784f9d1",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-09-03T13:20:44Z",
+      "mergedAt": "2025-09-03T13:20:44Z",
+      "mergedBy": "maggiedelano",
+      "mergeCommit": {
+        "oid": "9a2f1545348e4e0c95643811cd2bf69a61186ca2"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOMB0Qas69lKPf",
+          "commit": {
+            "abbreviatedOid": "9ef6daa"
+          },
+          "author": "exploretechsafety",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "These look good - thank you for working on them!",
+          "createdAt": "2025-09-03T13:16:54Z",
+          "updatedAt": "2025-09-03T13:16:54Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
