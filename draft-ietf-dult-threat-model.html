@@ -11,13 +11,13 @@
 <meta content="
        Lightweight location tracking tags are in wide use to allow users to locate items. These tags function as a component of a crowdsourced tracking network in which devices belonging to other network users (e.g., phones) report which tags they see and their location, thus allowing the owner(s) of the tag to determine where their tag was most recently seen. While there are many legitimate uses of these tags, they are also susceptible to misuse for the purpose of stalking and abuse. A protocol that allows others to detect unwanted location trackers must incorporate an understanding of the unwanted tracking landscape today. This document provides a threat analysis for this purpose, including a taxonomy of unwanted tracking and potential attacks against detection of unwanted location tracking (DULT) protocols. The document defines what is in and out of scope for the unwanted location tracking protocols, and provides design requirements, constraints, and considerations for implementation of protocols to detect unwanted location tracking. 
     " name="description">
-<meta content="xml2rfc 3.30.1" name="generator">
+<meta content="xml2rfc 3.30.2" name="generator">
 <meta content="Internet-Draft" name="keyword">
 <meta content="detecting unwanted location trackers" name="keyword">
 <meta content="threat model" name="keyword">
 <meta content="draft-ietf-dult-threat-model-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.30.1
+  xml2rfc 3.30.2
     Python 3.12.11
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
@@ -1052,7 +1052,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Delano, et al.</td>
-<td class="center">Expires 7 March 2026</td>
+<td class="center">Expires 2 April 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1065,12 +1065,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-dult-threat-model-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-09-03" class="published">3 September 2025</time>
+<time datetime="2025-09-29" class="published">29 September 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-03-07">7 March 2026</time></dd>
+<dd class="expires"><time datetime="2026-04-02">2 April 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1128,7 +1128,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 7 March 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 2 April 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1365,7 +1365,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
       </ul>
 <p id="section-1-5">While location tracking tags have existed for over a decade, they became especially widely-used in the Global North in the last several years as crowdsourced networks were deployed by major smart phone manufacturers. However, due to their reliance on a high density of non-owner devices for the network to be effective and the relative cost of location tracking tags, location tracker use in the Global South is typically limited to affluent communities. If the cost of non-owner devices and location tracking tags decrease, an uptick of unwanted location tracking could also occur in contexts where it is currently infeasible.<a href="#section-1-5" class="pilcrow">¶</a></p>
 <p id="section-1-6">Detecting unwanted location tracking is currently left to individual tracking tag manufacturers and software on non-owner devices. Each manufacturer and smartphone operating system has different implementations to prevent unwanted location tracking, which may or may not be compatible with other manufacturers or operating systems. The goal of the IETF Detecting Unwanted Location Tracking (DULT) working group is to standardize a protocol between location tracking tags and non-owner devices.<a href="#section-1-6" class="pilcrow">¶</a></p>
-<p id="section-1-7">In order to standardize a protocol for detecting unwanted location tracking, thus minimizing the privacy risks described above, it is necessary to analyze and be able to model different privacy threats. This document includes: 1) a taxonomy of unwanted location tracking, 2) methods attackers could use to circumvent unwanted location tracking protocols, and 3) design considerations for implementing unwanted location tracking protocols. The taxonomy of unwanted location tracking uses a flexible framework to provide analysis and modeling of different threat actors, as well as models of potential victims based on their threat context. It defines how these attacker and victim persona models can be combined into threat models. The section on methods to circumvent detection of unwanted location tracking includes a threat matrix and description of several different possible attack vectors. Finally, the design considerations section focuses on specific requirements and constraints for successfully detecting unwanted location tracking, alerting users, and providing guidance on disabling trackers (if desired). This threat model document is intended to inform the work of the implementation of the DULT protocol as described in <span>[<a href="#I-D.draft-ietf-dult-accessory-protocol" class="cite xref">I-D.draft-ietf-dult-accessory-protocol</a>]</span> and <span>[<a href="#I-D.draft-ietf-dult-finding" class="cite xref">I-D.draft-ietf-dult-finding</a>]</span>.<a href="#section-1-7" class="pilcrow">¶</a></p>
+<p id="section-1-7">In order to standardize a protocol for detecting unwanted location tracking, thus minimizing the privacy risks described above, it is necessary to analyze and be able to model different privacy threats. This document includes: 1) a taxonomy of unwanted location tracking, 2) methods attackers could use to circumvent unwanted location tracking protocols, and 3) design considerations for implementing unwanted location tracking protocols. The taxonomy of unwanted location tracking uses a flexible framework to provide analysis and modeling of different threat actors, as well as models of potential victims based on their threat context. It defines how these attacker and victim persona models can be combined into threat models. The section on methods to circumvent detection of unwanted location tracking includes a threat matrix and description of several different possible attack vectors. Finally, the design considerations section focuses on specific requirements and constraints for successfully detecting unwanted location tracking, alerting users, and providing guidance on disabling trackers (if desired). This threat model document is intended to inform the work of the implementation of the DULT protocol as described in <span>[<a href="#I-D.draft-ietf-dult-accessory-protocol" class="cite xref">I-D.draft-ietf-dult-accessory-protocol</a>]</span> and <span>[<a href="#I-D.draft-ietf-dult-finding" class="cite xref">I-D.draft-ietf-dult-finding</a>]</span>. The DULT protocol is based on an earlier Internet Draft; see <span>[<a href="#I-D.draft-ledvina-apple-google-unwanted-trackers" class="cite xref">I-D.draft-ledvina-apple-google-unwanted-trackers</a>]</span>.<a href="#section-1-7" class="pilcrow">¶</a></p>
 <p id="section-1-8">There are many types of technology that can be used for location tracking that have similarities to unwanted location tracking using tracking tags. It is infeasible to attempt to describe a threat analysis for each possible technology in this document. The threat model described here is likely not applicable to the following areas: app-based technologies such as parental monitoring apps, Internet of Things (IoT) devices that are easily discoverable, connected cars, or user accounts for cloud services or social media. A notable exception to this is GPS trackers; see <a href="#bluetooth-vs-other-technologies" class="auto internal xref">Section 3.3.2</a> for relevant information and recommendations.<a href="#section-1-8" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -2760,6 +2760,10 @@ Note that once a given attacker persona has been modeled, it could be recombined
 <dt id="I-D.draft-ietf-dult-finding">[I-D.draft-ietf-dult-finding]</dt>
       <dd>
 <span class="refAuthor">Fossaceca, C.</span> and <span class="refAuthor">E. Rescorla</span>, <span class="refTitle">"Finding Tracking Tags"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-dult-finding-01</span>, <time datetime="2025-06-06" class="refDate">6 June 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-dult-finding-01">https://datatracker.ietf.org/doc/html/draft-ietf-dult-finding-01</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.draft-ledvina-apple-google-unwanted-trackers">[I-D.draft-ledvina-apple-google-unwanted-trackers]</dt>
+      <dd>
+<span class="refAuthor">Ledvina, B.</span>, <span class="refAuthor">Eddinger, Z.</span>, <span class="refAuthor">Detwiler, B.</span>, and <span class="refAuthor">S. P. Polatkan</span>, <span class="refTitle">"Detecting Unwanted Location Trackers"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ledvina-apple-google-unwanted-trackers-01</span>, <time datetime="2025-05-29" class="refDate">29 May 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ledvina-apple-google-unwanted-trackers-01">https://datatracker.ietf.org/doc/html/draft-ledvina-apple-google-unwanted-trackers-01</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC2119">[RFC2119]</dt>
       <dd>

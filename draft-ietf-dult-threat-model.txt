@@ -5,10 +5,10 @@
 Detecting Unwanted Location Trackers                           M. Delano
 Internet-Draft                                        Swarthmore College
 Intended status: Informational                                 J. Lowell
-Expires: 7 March 2026          National Network to End Domestic Violence
+Expires: 2 April 2026          National Network to End Domestic Violence
                                                                S. Prabhu
                                                                    Nokia
-                                                        3 September 2025
+                                                       29 September 2025
 
 
                            DULT Threat Model
@@ -67,7 +67,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 7 March 2026.
+   This Internet-Draft will expire on 2 April 2026.
 
 Copyright Notice
 
@@ -223,7 +223,9 @@ Table of Contents
    desired).  This threat model document is intended to inform the work
    of the implementation of the DULT protocol as described in
    [I-D.draft-ietf-dult-accessory-protocol] and
-   [I-D.draft-ietf-dult-finding].
+   [I-D.draft-ietf-dult-finding].  The DULT protocol is based on an
+   earlier Internet Draft; see
+   [I-D.draft-ledvina-apple-google-unwanted-trackers].
 
    There are many types of technology that can be used for location
    tracking that have similarities to unwanted location tracking using
@@ -1888,6 +1890,14 @@ Table of Contents
               Work in Progress, Internet-Draft, draft-ietf-dult-finding-
               01, 6 June 2025, <https://datatracker.ietf.org/doc/html/
               draft-ietf-dult-finding-01>.
+
+   [I-D.draft-ledvina-apple-google-unwanted-trackers]
+              Ledvina, B., Eddinger, Z., Detwiler, B., and S. P.
+              Polatkan, "Detecting Unwanted Location Trackers", Work in
+              Progress, Internet-Draft, draft-ledvina-apple-google-
+              unwanted-trackers-01, 29 May 2025,
+              <https://datatracker.ietf.org/doc/html/draft-ledvina-
+              apple-google-unwanted-trackers-01>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
