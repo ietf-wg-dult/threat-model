@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-09-07T01:19:51.569658+00:00",
+  "timestamp": "2025-09-30T01:16:16.585884+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -1762,15 +1762,15 @@
       "id": "I_kwDOMB0Qas7JurjB",
       "title": "Add new threat type to physically modifying tags",
       "url": "https://github.com/ietf-wg-dult/threat-model/issues/137",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "bledvina",
       "authorAssociation": "NONE",
       "assignees": [],
       "labels": [],
       "body": "This product suggests we need another threat type that's similar to but different than \"Physically Modifying Tags.\" see for example: https://undetectag.com\n\nThis is a physical modification but in terms of how power is applied to a tag. ",
       "createdAt": "2025-09-04T16:15:49Z",
-      "updatedAt": "2025-09-04T16:17:37Z",
-      "closedAt": null,
+      "updatedAt": "2025-09-29T18:36:16Z",
+      "closedAt": "2025-09-29T18:36:16Z",
       "comments": [
         {
           "author": "bledvina",
@@ -1778,6 +1778,13 @@
           "body": "I guess this is also similar to a \"Disabling Victim Tag Detection\" threat, but given this requires new HW it's not clear if either of two existing threats cover something like undetectag. ",
           "createdAt": "2025-09-04T16:17:37Z",
           "updatedAt": "2025-09-04T16:17:37Z"
+        },
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Hi Brent,\n\nJust checking, are you looking at the [most recent version](https://ietf-wg-dult.github.io/threat-model/draft-ietf-dult-threat-model.html) of the document? We have a dedicated section called Attacker Accessory Disablement that includes discussion of undetectag: https://ietf-wg-dult.github.io/threat-model/draft-ietf-dult-threat-model.html#section-3.4.7\n\nI'm going to close this for now, but that section is pretty short so if you think there is something else we should add there please re-open.",
+          "createdAt": "2025-09-29T18:36:16Z",
+          "updatedAt": "2025-09-29T18:36:16Z"
         }
       ]
     },
@@ -1786,16 +1793,24 @@
       "id": "I_kwDOMB0Qas7JvBLH",
       "title": "Consider reference to existing industry specification in introduction section?",
       "url": "https://github.com/ietf-wg-dult/threat-model/issues/138",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "bledvina",
       "authorAssociation": "NONE",
       "assignees": [],
       "labels": [],
       "body": "In the introduction section paragraph that starts with \"Detecting unwanted location tracking is currently ...\" I think it would be helpful to consider adding a reference to the existing Apple + Google industry specification that was completed a couple years ago and has been implemented by Apple, Google, and a number of accessory makers. \n\nHere is the data tracker page for that industry specification: https://datatracker.ietf.org/doc/draft-ledvina-apple-google-unwanted-trackers/",
       "createdAt": "2025-09-04T16:46:35Z",
-      "updatedAt": "2025-09-04T16:46:35Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2025-09-29T18:48:25Z",
+      "closedAt": "2025-09-29T18:48:25Z",
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Absolutely. We had that in an earlier version but I took it out as we were moving toward relying on the new accessory protocol document, but there is certainly no harm in citing the earlier draft. Will do a PR for this now.",
+          "createdAt": "2025-09-29T18:43:21Z",
+          "updatedAt": "2025-09-29T18:43:21Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -4763,6 +4778,60 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 139,
+      "id": "PR_kwDOMB0Qas6rKkSL",
+      "title": "acknowledge earlier I-D",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/139",
+      "state": "MERGED",
+      "author": "maggiedelano",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Acknowledge earlier I-D. Closes #138.",
+      "createdAt": "2025-09-29T18:44:35Z",
+      "updatedAt": "2025-09-29T18:48:24Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "9a2f1545348e4e0c95643811cd2bf69a61186ca2",
+      "headRepository": "ietf-wg-dult/threat-model",
+      "headRefName": "delano-add-i-d",
+      "headRefOid": "e0e6b9b1aec0c383d91c07351e28c71f8d3b16ee",
+      "closedAt": "2025-09-29T18:48:24Z",
+      "mergedAt": "2025-09-29T18:48:24Z",
+      "mergedBy": "maggiedelano",
+      "mergeCommit": {
+        "oid": "e128326da707685bbf4879d5b91dae5f924ce6ee"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 140,
+      "id": "PR_kwDOMB0Qas6rLKv5",
+      "title": "Remove to dos and update terms",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/140",
+      "state": "OPEN",
+      "author": "maggiedelano",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Getting ready to push another version. Will also need to check to make sure terms are corrected in the text, but that doesn't need to happen urgently.",
+      "createdAt": "2025-09-29T19:37:55Z",
+      "updatedAt": "2025-09-29T19:37:56Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "e128326da707685bbf4879d5b91dae5f924ce6ee",
+      "headRepository": "ietf-wg-dult/threat-model",
+      "headRefName": "delano-remove-todos",
+      "headRefOid": "f5325c3e8f1453ecb00d8faa3060e7ffde5d3541",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
