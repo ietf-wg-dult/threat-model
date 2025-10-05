@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-09-30T01:16:16.585884+00:00",
+  "timestamp": "2025-10-05T01:21:35.748435+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -1541,9 +1541,17 @@
       "labels": [],
       "body": "Platforms often support a specific \"lost mode\" function ([Apple](https://support.apple.com/guide/iphone/mark-an-item-as-lost-iph1b451b75f/ios)). Tile includes an [anti-theft mode](https://www.life360.com/blog/how-does-tile-anti-theft-mode-work), but this requires passing a 3-stage ID verification process.\n\nWe should think through what the implications of lost/theft modes are and see if we should discuss them in the Threat Model document. \n\nI think the lost mode functionality of displaying a message is probably benign (though could be used to share defamatory or harassing messages?), but we probably don't want to recommend the implementation of an anti-theft mode like Tile does.\n\n",
       "createdAt": "2025-06-24T20:08:31Z",
-      "updatedAt": "2025-08-05T14:51:32Z",
+      "updatedAt": "2025-10-02T16:21:53Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "bledvina",
+          "authorAssociation": "NONE",
+          "body": "I agree this should be covered in the Threat Model document. I would recommend filing a separate issue for anti-theft features, as that's different than lost mode and could have very different implications. ",
+          "createdAt": "2025-10-02T16:21:53Z",
+          "updatedAt": "2025-10-02T16:21:53Z"
+        }
+      ]
     },
     {
       "number": 118,
