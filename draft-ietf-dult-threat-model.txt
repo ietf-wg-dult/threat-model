@@ -5,10 +5,10 @@
 Detecting Unwanted Location Trackers                           M. Delano
 Internet-Draft                                        Swarthmore College
 Intended status: Informational                                 J. Lowell
-Expires: 2 April 2026          National Network to End Domestic Violence
+Expires: 16 April 2026         National Network to End Domestic Violence
                                                                S. Prabhu
                                                                    Nokia
-                                                       29 September 2025
+                                                         13 October 2025
 
 
                            DULT Threat Model
@@ -67,7 +67,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 2 April 2026.
+   This Internet-Draft will expire on 16 April 2026.
 
 Copyright Notice
 
@@ -92,8 +92,6 @@ Table of Contents
    3.  Security Considerations
      3.1.  Security Considerations Unique To Unwanted Location
            Tracking
-       3.1.1.  Attacker access to victim account
-       3.1.2.  TODO: Other considerations
      3.2.  Balancing Privacy and Security
        3.2.1.  Security against unwanted tracking for potential
                victims
@@ -101,8 +99,7 @@ Table of Contents
                security measures for further surveillance
        3.2.3.  Privacy for unassociated tag owners
      3.3.  Taxonomy of unwanted tracking
-       3.3.1.  Example scenarios with analyses TODO: expand scenarios
-               to incorporate expanded taxonomy
+       3.3.1.  Example scenarios with analyses
        3.3.2.  Bluetooth vs. other technologies
      3.4.  Possible Attacks on the DULT Protocol
        3.4.1.  Threat Prioritization Framework for DULT Threat Model
@@ -250,18 +247,83 @@ Table of Contents
 
 2.2.  Definitions
 
-   *  *active scanning*: a search for location trackers manually
-      initiated by a user
+   *Accessory*:  any product intended to interface with a platform
+      through the means described in these documents.
 
-   *  *passive scanning*: a search for location trackers running in the
-      background, often accompanied by notifications for the user
+   *Location-tracking Accessory*:  any Accessory that has location-
+      tracking capabilities, including, but not limited to, crowd-
+      sourced location, GPS/GNSS location, WiFi location, cell location,
+      etc., and provides the location information back to the owner of
+      the Accessory via a crowdsourced network (see definition below)
+      using the internet, cellular connection, etc.  Location-tracking
+      Accessories that are Easily Discoverable (see definition below)
+      MUST adhere to the DULT protocol.
 
-   *  *tracking tag*: a small device that is not easily discoverable and
-      transmits location data to other devices.
+   *Easily Discoverable*:  an Accessory that is larger than 30 cm in at
+      least one dimension, larger than 18 cm x 13 cm in two of its
+      dimensions, and/or larger than 250 cm^3 in three-dimensional
+      space.
 
-   *  *easily discoverable*: a device that is larger than 30 cm in at
-      least one dimension, larger than 18 cm x 13 xm in two of its
-      dimensions, and/or larger than 250 cm^3 in three-dimensional space
+   *Crowdsourced Network*:  a service that Platforms (see definition
+      below) communicate with to share and retrieve location information
+      of Accessories.
+
+   *Platform*:  device hardware and associated operating systems that
+      communicate with Accessories.  Examples of devices are phones,
+      tablets, laptops, etc.
+
+   *Owner Device*:  a device that is associated with the Accessory and
+      can retrieve the Accessory's location by querying the Crowdsourced
+      Network.
+
+   *Non-owner Device*:  a device that may connect to an Accessory but is
+      not an Owner Device of that Accessory.
+
+   *Location-enabled State*:  the state an Accessory is in where its
+      location can be remotely viewed by its owner.
+
+   *Location-enabled Advertisement Payload*:  the Bluetooth (BT)
+      advertisement payload that is advertised when an Accessory has
+      recently, is currently, or will in the future provide location
+      updates to its owner.
+
+   *Unwanted Tracking (UT)*:  undesired tracking of a person, their
+      property, or their belongings by a Location-tracking Accessory.
+
+   *Unwanted Tracking Detection*:  algorithms that detect the presence
+      of an unknown Accessory traveling with a person over time.
+
+   *Unwanted Tracking Alert*:  an alert notifying the user of the
+      presence of an unrecognized Accessory that may be traveling with
+      them over time that allows them to take various actions, including
+      playing a sound on the Accessory if it's in Bluetooth Low Energy
+      (LE) range.
+
+   *Active Scanning*:  method(s) of Unwanted Tracking detection that
+      involves a user initiated scan for nearby Accessories.
+
+   *Passive Scanning*:  method(s) of Unwanted Tracking detection that
+      are running in the background on all devices and may trigger
+      Unwanted Tracking Alerts.
+
+   *Platform-compatible Method*:  a method of communication between the
+      Platform and the Accessory/accessory manufacturers to exchange
+      information, including, but not limited to, BT GATT protocol, BT
+      advertisement, HTTP, etc.
+
+   *Disablement*:  the process of preventing a specific Location-
+      tracking Accessory from communicating with the Crowdsourced
+      Network.  This could be through physical means (e.g. removing the
+      battery) or via a command sent by a Platform to an Accessory
+      (Remote Disablement, see definition below).
+
+   *Remote Disablement*:  the process of preventing a specific Location-
+      tracking Accessory from communicating with the Crowdsourced
+      Network via a command sent by a platform.
+
+   *Disablement Instructions*:  steps Non-owner Device users can take to
+      disable a Location-tracking Accessory suspected of Unwanted
+      Tracking.
 
 3.  Security Considerations
 
@@ -275,8 +337,6 @@ Table of Contents
    employs secret sharing and error correction coding.
 
 3.1.  Security Considerations Unique To Unwanted Location Tracking
-
-3.1.1.  Attacker access to victim account
 
    In a situation involving interpersonal control, an attacker may have
    access to a victim's tracking account (e.g. Apple FindMy).  The
@@ -297,8 +357,6 @@ Table of Contents
    The ability of a user to access a tracking account over a web portal
    illustrates the need to consider web app security as part of support
    for detecting unwanted location trackers.
-
-3.1.2.  TODO: Other considerations
 
 3.2.  Balancing Privacy and Security
 
@@ -464,9 +522,7 @@ Table of Contents
    possible technological solution
    (https://eprint.iacr.org/2023/1332.pdf) to the problem of user
    privacy vs privacy of other potential victims.  In designing the
-   protocol, these concerns should be weighed equally.  TODO: Is this
-   actually how we want to weigh them?  This warrants further
-   discussion.
+   protocol, these concerns should be weighed equally.
 
    *  Tracking tag usage
 
@@ -511,8 +567,7 @@ Table of Contents
          precise location, monitoring a child's routine, monitoring car
          usage).
 
-3.3.1.  Example scenarios with analyses TODO: expand scenarios to
-        incorporate expanded taxonomy
+3.3.1.  Example scenarios with analyses
 
    The following scenarios are composite cases based upon reports from
    the field.  They are intended to illustrate different angles of the
@@ -1284,7 +1339,6 @@ Table of Contents
    disablement commands if the accessory can reasonably be expected to
    be used for unwanted location tracking and the accessory can confirm
    that a device has used other finding techniques to locate the device.
-   (TODO remote disablement requirements section)
 
    The impact of a device impersonation attack is high if it is able to
    send arbitrary commands to accessories.  The likelihood of such an
@@ -1638,7 +1692,8 @@ Table of Contents
    non-owner user being tracked by a tag's owner, as well as an owner
    user who believes that an attacker is using their own tag to track
    them.  Platforms should provide instructions for disabling tracking
-   tags once they are located.
+   tags once they are located.  Platforms should also consider allowing
+   tracking tags to be disabled remotely.
 
    Beyond simple deactivation, users should also receive guidance on
    additional steps they may take, depending on their specific
