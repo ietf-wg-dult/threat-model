@@ -82,59 +82,70 @@ There are many types of technology that can be used for location tracking that h
 ## Definitions
 
 **Accessory**:
-: any product intended to interface with a platform through the means described in these documents.
-
-**Location-tracking Accessory**:
-: any Accessory that has location-tracking capabilities, including, but not limited to, crowd-sourced location, GPS/GNSS location, WiFi location, cell location, etc., and provides the location information back to the owner of the Accessory via a crowdsourced network (see definition below) using the internet, cellular connection, etc. Location-tracking Accessories that are Easily Discoverable (see definition below) MUST adhere to the DULT protocol.
-
-**Easily Discoverable**:
-: an Accessory that is larger than 30 cm in at least one dimension, larger than 18 cm x 13 cm in two of its dimensions, and/or larger than 250 cm<sup>3</sup> in three-dimensional space.
-
-**Crowdsourced Network**:
-: a service that Platforms (see definition below) communicate with to share and retrieve location information of Accessories.
-
-**Platform**:
-: device hardware and associated operating systems that communicate with Accessories. Examples of devices are phones, tablets, laptops, etc.
-
-**Owner Device**:
-: a device that is associated with the Accessory and can retrieve the Accessory's location by querying the Crowdsourced Network.
-
-**Non-owner Device**:
-: a device that may connect to an Accessory but is not an Owner Device of that Accessory.
-
-**Location-enabled State**:
-: the state an Accessory is in where its location can be remotely viewed by its owner.
-
-**Location-enabled Advertisement Payload**:
-: the Bluetooth (BT) advertisement payload that is advertised when an Accessory has recently, is currently, or will in the future provide location updates to its owner.
-
-**Unwanted Tracking (UT)**:
-: undesired tracking of a person, their property, or their belongings by a Location-tracking Accessory.
-
-**Unwanted Tracking Detection**:
-: algorithms that detect the presence of an unknown Accessory traveling with a person over time.
-
-**Unwanted Tracking Alert**:
-: an alert notifying the user of the presence of an unrecognized Accessory that may be traveling with them over time that allows them to take various actions, including playing a sound on the Accessory if it's in Bluetooth Low Energy (LE) range.
+: any product intended to interface with a Platform to connect to a Crowdsourced Network through the means described in these documents.
 
 **Active Scanning**:
-: method(s) of Unwanted Tracking detection that involves a user initiated scan for nearby Accessories.
+: method(s) of Unwanted Tracking detection that involves a user initiated scan for nearby Accessories. Contrast with Passive Scanning.
 
-**Passive Scanning**:
-: method(s) of Unwanted Tracking detection that are running in the background on all devices and may trigger Unwanted Tracking Alerts.
+**Attacker**:
+: any individual, group, or organization that is attempting to engage in Unwanted Tracking and/or circumvention of the DULT protocol.
 
-**Platform-compatible Method**:
-: a method of communication between the Platform and the Accessory/accessory manufacturers to exchange information, including, but not limited to, BT GATT protocol, BT advertisement, HTTP, etc.
+**Crowdsourced Network**:
+: a service that Platforms communicate with to share and retrieve location information of Accessories.
 
 **Disablement**:
-: the process of preventing a specific Location-tracking Accessory from communicating with the Crowdsourced Network. This could be through physical means (e.g. removing the battery) or via a command sent by a Platform to an Accessory (Remote Disablement, see definition below).
-
-**Remote Disablement**:
-: the process of preventing a specific Location-tracking Accessory from communicating with the Crowdsourced Network via a command sent by a platform.
+: the process of preventing a specific Location-tracking Accessory from communicating with the Crowdsourced Network. This could be through physical means (e.g. removing the battery) or via a command sent by a Platform to an Accessory (e.g. Remote Disablement).
 
 **Disablement Instructions**:
 : steps Non-owner Device users can take to disable a Location-tracking Accessory suspected of Unwanted Tracking.
 
+**Detecting Unwanted Location Tracking (DULT) Protocol**
+: the protocol under development by the IETF DULT working Group to prevent Unwanted Location Tracking. This includes protocols for accessories and the crowd sourced network, along with algorithms for detecting unwanted location tracking.
+
+**Easily Discoverable**:
+: an Accessory that is larger than 30 cm in at least one dimension, larger than 18 cm x 13 cm in two of its dimensions, and/or larger than 250 cm<sup>3</sup> in three-dimensional space.
+
+**Location-enabled Advertisement Payload**:
+: the Bluetooth (BT) advertisement payload that is advertised when an Accessory has recently, is currently, or will in the future provide location updates to its owner.
+
+**Location-enabled State**:
+: the state an Accessory is in where its location can be remotely viewed by its owner.
+
+**Location-tracking Accessory**:
+: any Accessory that has location-tracking capabilities, including, but not limited to, crowd-sourced location, GPS/GNSS location, WiFi location, cell location, etc., and provides the location information back to an Owner Device via a Crowdsourced Network using the internet, cellular connection, etc. Location-tracking Accessories that are Easily Discoverable MUST adhere to the DULT protocol. Location-tracking Accessories may also be referred to as Location-tracking Tags.
+
+**Location-tracking Tag**:
+: a term that may be used interchangeably with Location-tracking Accessory.
+
+**Non-owner Device**:
+: a device that may connect to an Accessory but is not an Owner Device of that Accessory.
+
+**Owner Device**:
+: a device that is associated with the Accessory and can retrieve the Accessory's location by querying the Crowdsourced Network.
+
+**Passive Scanning**:
+: method(s) of Unwanted Tracking detection that are running in the background on all devices and may trigger Unwanted Tracking Alerts. Contrast with Active Scanning.
+
+**Platform**:
+: device hardware and associated operating systems that communicate with Accessories. Examples of devices are phones, tablets, laptops, etc.
+
+**Platform-compatible Method**:
+: a method of communication between the Platform and the Accessory/accessory manufacturers to exchange information, including, but not limited to, BT GATT protocol, BT advertisement, HTTP, etc.
+
+**Remote Disablement**:
+: the process of preventing a specific Location-tracking Accessory from communicating with the Crowdsourced Network via a command sent by a platform.
+
+**Unwanted Tracking (UT)**:
+: undesired tracking of a person, their property, or their belongings by a Location-tracking Accessory.
+
+**Unwanted Tracking Alert**:
+: an alert notifying the user of the presence of an unrecognized Accessory that may be traveling with them over time that allows them to take various actions, including playing a sound on the Accessory if the Accessory is in Bluetooth Low Energy (LE) range.
+
+**Unwanted Tracking Detection**:
+: algorithms that detect the presence of an unknown Accessory traveling with a person over time.
+
+**Victim**:
+: a target of (attempted) Unwanted Tracking.
 
 # Security Considerations
 
