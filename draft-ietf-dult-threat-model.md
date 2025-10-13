@@ -383,7 +383,7 @@ The above taxonomy and threat analysis focus on Location-tracking Tags. They are
 
 ## Possible Attacks on the DULT Protocol
 
-There are several different ways an Attacker could attempt to circumvent the DULT Protocol in order to track a Victim without their consent or otherwise take advanTage of the Crowdsourced Network. These include deploying multiple Tags to follow a single Victim, using non-conformant accessories and/or Devices, and taking advanTage of possible differences between Crowdsourced Network implementations. This section includes a threat prioritization framework that assesses the risk of these attacks and how these risks may be mitigated.
+There are several different ways an Attacker could attempt to circumvent the DULT Protocol in order to track a Victim without their consent or otherwise take advantage of the Crowdsourced Network. These include deploying multiple Tags to follow a single Victim, using non-conformant accessories and/or Devices, and taking advantage of possible differences between Crowdsourced Network implementations. This section includes a threat prioritization framework that assesses the risk of these attacks and how these risks may be mitigated.
 
 ### Threat Prioritization Framework for DULT Threat Model
 
@@ -607,7 +607,7 @@ Considers the location in which the Device is seen (e.g., home, office, public p
 
 **Rationale**: Devices seen only in familiar, safe zones may be harmless. Appearances in unfamiliar or private locations without explanation raise concern.
 
-A confidence-based approach offers the following advanTages:
+A confidence-based approach offers the following advantages:
 
   - Reduced False Positives: A confidence-based approach can help filter out benign tracking scenarios, such as transient signals or shared family Devices. Instead of triggering alerts based solely on presence, the system can dynamically adjust its sensitivity based on behavioral patterns. For example, if a tracking Device appears near a user only briefly or follows a predictable shared usage pattern (e.g., a Bluetooth Tag frequently used by family members), it may be assigned a low confidence score. This prevents unnecessary alerts while still ensuring that persistent and anomalous tracking behaviors are flagged for user attention.
   - Context-Aware Threat Evaluation: The confidence score can incorporate contextual factors such as movement patterns, duration of proximity, and recurrence. For instance, if a tracker is detected only once in a public place (e.g., at a café or airport), it is less likely to indicate malicious tracking. However, if the same tracker reappears near the user across multiple locations or over an extended period, its confidence score increases, prompting a higher-priority alert.
