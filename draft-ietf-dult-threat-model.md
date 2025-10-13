@@ -51,28 +51,27 @@ Lightweight Location-tracking Tags are in wide use to allow users to locate item
 
 # Introduction
 
-Location-tracking Tags are Devices that allow users to locate items. These Tags function as a component of a Crowdsourced Network in which Devices belonging to other network users (e.g., phones) report on the location of Tags they have seen. At a high level, this works as follows:
+Location-tracking Tags allow users to locate items. These Tags function as a component of a Crowdsourced Network in which Devices belonging to other network users (e.g. phones) report on the location of Tags they have seen. At a high level, this works as follows:
 
-  - Tags ("accessories") transmit an advertisement payload containing accessory-specific information. The payload indicates whether the accessory is separated from its Owner(s) and thus potentially lost.
-  - Devices belonging to other users ("non-Owner Devices") observe those payloads and if the payload is in a separated mode, reports its location to some central service.
-  - The Owner(s) queries the central service for the location of their accessory.
+  - Tags ("Accessories") transmit a Location-enabled Advertisement Payload containing Accessory-specific information. The Payload indicates whether the Accessory is separated from its Owner(s) and thus potentially lost.
+  - Devices belonging to other users ("Non-Owner Devices") observe those Payloads and if the Payload is in a separated mode, report its location to a Crowdsourced Network.
+  - The Owner(s) queries the Crowdsourced Network for the location of their Accessory.
 
 A naive implementation of this design exposes both a Tag's user and anyone who might be targeted for location tracking by a Tag's user, to considerable privacy risk. In particular:
 
-  - If accessories simply have a fixed identifier that is reported back to the tracking network, then the central server is able to track any accessory without the user's assistance, which is clearly undesirable.
-  - Any Attacker who can guess a Tag ID can query the central server for its location.
-  - An Attacker can surreptitiously plant an accessory on a target and thus track them by tracking their "own" accessory.
-  - Attackers could launch Denial-of-Service (DoS) attacks by flooding the tracking service with spoofed Tag reports, disrupting real updates and overwhelming the central server.
-  - Frequent co-location of multiple Tags enables the central server or a passive observer to infer social relationships, routines, or group behaviors, compromising user privacy without consent.
+  - If Accessories simply have a fixed identifier that is reported back to the Crowdsourced Network, then the central server is able to track any Accessory without the user's assistance, which is clearly undesirable.
+  - Any Attacker who can guess a Tag ID can query the Crowdsourced Network for its location.
+  - An Attacker can surreptitiously plant an Accessory on a target and thus track them by tracking their "own" Accessory.
+  - Attackers could launch Denial-of-Service (DoS) attacks by flooding the Crowdsourced Network with spoofed Tag reports, disrupting real updates and overwhelming the Network.
+  - Frequent co-location of multiple Tags enables the Crowdsourced Network or a passive observer to infer social relationships, routines, or group behaviors, compromising user privacy without consent.
 
+While Location-tracking Tags have existed for over a decade, they became especially widely-used in the Global North in the last several years as Crowdsourced Networks were deployed by major smart phone manufacturers. However, due to their reliance on a high density of Non-Owner Devices for the network to be effective and the relative cost of Location-tracking Tags, location tracker use in the Global South is typically limited to affluent communities. If the cost of Non-Owner Devices and Location-tracking Tags decrease, an uptick of Unwanted Tracking could also occur in contexts where it is currently infeasible.
 
-While Location-tracking Tags have existed for over a decade, they became especially widely-used in the Global North in the last several years as Crowdsourced Networks were deployed by major smart phone manufacturers. However, due to their reliance on a high density of non-Owner Devices for the network to be effective and the relative cost of Location-tracking Tags, location tracker use in the Global South is typically limited to affluent communities. If the cost of non-Owner Devices and Location-tracking Tags decrease, an uptick of unwanted location tracking could also occur in contexts where it is currently infeasible.
+Detecting Unwanted Tracking is currently left to individual Tag manufacturers and Platforms on Non-Owner Devices. Each manufacturer and Platform has different implementations to prevent Unwanted Tracking, which may or may not be compatible with other manufacturers or Platforms. The goal of the IETF Detecting Unwanted Location Tracking (DULT) working group is to standardize a protocol between Location-tracking Tags, Non-Owner Devices, and Crowdsourced Networks.
 
-Detecting unwanted location tracking is currently left to individual tracking Tag manufacturers and software on non-Owner Devices. Each manufacturer and smartphone operating system has different implementations to prevent unwanted location tracking, which may or may not be compatible with other manufacturers or operating systems. The goal of the IETF Detecting Unwanted Location Tracking (DULT) working group is to standardize a protocol between Location-tracking Tags and non-Owner Devices.
+In order to standardize a protocol for detecting Unwanted Tracking, thus minimizing the privacy risks described above, it is necessary to analyze and be able to model different privacy threats. This document includes: 1) a taxonomy of Unwanted Tracking, 2) methods Attackers could use to circumvent the DULT Protocol, and 3) design considerations for implementing the DULT protocol. The taxonomy of Unwanted Tracking uses a flexible framework to provide analysis and modeling of different threat actors, as well as models of potential Victims based on their threat context. It defines how these Attacker and Victim persona models can be combined into threat models. The section on methods to circumvent the DULT protocol includes a threat matrix and description of several different possible attack vectors. Finally, the design considerations section focuses on specific requirements and constraints for successfully detecting Unwanted Tracking, alerting users, and providing guidance on disabling trackers (if desired). This threat model document is intended to inform the work of the implementation of the DULT Protocol as described in {{!I-D.draft-ietf-dult-Accessory-protocol}} and {{!I-D.draft-ietf-dult-finding}}. The DULT Protocol is based on an earlier Internet Draft; see {{!I-D.draft-ledvina-apple-google-unwanted-trackers}}.
 
-In order to standardize a protocol for detecting unwanted location tracking, thus minimizing the privacy risks described above, it is necessary to analyze and be able to model different privacy threats. This document includes: 1) a taxonomy of unwanted location tracking, 2) methods Attackers could use to circumvent unwanted location tracking protocols, and 3) design considerations for implementing unwanted location tracking protocols. The taxonomy of unwanted location tracking uses a flexible framework to provide analysis and modeling of different threat actors, as well as models of potential Victims based on their threat context. It defines how these Attacker and Victim persona models can be combined into threat models. The section on methods to circumvent detection of unwanted location tracking includes a threat matrix and description of several different possible attack vectors. Finally, the design considerations section focuses on specific requirements and constraints for successfully detecting unwanted location tracking, alerting users, and providing guidance on disabling trackers (if desired). This threat model document is intended to inform the work of the implementation of the DULT Protocol as described in {{!I-D.draft-ietf-dult-accessory-protocol}} and {{!I-D.draft-ietf-dult-finding}}. The DULT Protocol is based on an earlier Internet Draft; see {{!I-D.draft-ledvina-apple-google-unwanted-trackers}}.
-
-There are many types of technology that can be used for location tracking that have similarities to unwanted location tracking using tracking Tags. It is infeasible to attempt to describe a threat analysis for each possible technology in this document. The threat model described here is likely not applicable to the following areas: app-based technologies such as parental monitoring apps, Internet of Things (IoT) Devices that are easily discoverable, connected cars, or user accounts for cloud services or social media. A notable exception to this is GPS trackers; see {{bluetooth-vs-other-technologies}} for relevant information and recommendations.
+While there are many types of technology that can be used for Location Tracking, it is infeasible to attempt to describe a threat analysis for each possible technology in this document. The threat model described here is likely not applicable to the following areas: app-based technologies such as parental monitoring apps, Internet of Things (IoT) Devices that are easily discoverable, connected cars, or user accounts for cloud services or social media. A notable exception to this is GPS trackers; see {{bluetooth-vs-other-technologies}} for relevant information and recommendations.
 
 # Conventions and Definitions
 
@@ -103,7 +102,7 @@ There are many types of technology that can be used for location tracking that h
 : Hardware that includes software for a Platform and that can connect to Accessories and one or more Crowdsourced Networks. Examples of Devices are phones, tablets, laptops, etc.
 
 **Detecting Unwanted Location Tracking (DULT) Protocol**
-: the protocol under development by the IETF DULT working Group to prevent Unwanted Location Tracking. This includes protocols for accessories and the crowd sourced network, along with algorithms for detecting unwanted location tracking.
+: the protocol under development by the IETF DULT working Group to prevent Unwanted Location Tracking. This includes protocols for Accessories and the crowd sourced network, along with algorithms for detecting unwanted location tracking.
 
 **Easily Discoverable**:
 : an Accessory that is larger than 30 cm in at least one dimension, larger than 18 cm x 13 cm in two of its dimensions, and/or larger than 250 cm<sup>3</sup> in three-dimensional space.
@@ -124,7 +123,7 @@ There are many types of technology that can be used for location tracking that h
 : a Device that may connect to an Accessory but is not an Owner Device of that Accessory.
 
 **Owner**:
-: an individual that is in active control of and the primary user of an Owner Device. An Owner may be associated with one or more accessories and/or Devices.
+: an individual that is in active control of and the primary user of an Owner Device. An Owner may be associated with one or more Accessories and/or Devices.
 
 **Owner Device**:
 : a Device that is associated with the Accessory and can retrieve the Accessory's location by querying the Crowdsourced Network.
@@ -136,7 +135,7 @@ There are many types of technology that can be used for location tracking that h
 : Operating systems that communicate with Accessories.
 
 **Platform-compatible Method**:
-: a method of communication between the Platform and the Accessory/accessory manufacturers to exchange information, including, but not limited to, BT GATT protocol, BT advertisement, HTTP, etc.
+: a method of communication between the Platform and the Accessory/Accessory manufacturers to exchange information, including, but not limited to, BT GATT protocol, BT advertisement, HTTP, etc.
 
 **Remote Disablement**:
 : the process of preventing a specific Location-tracking Accessory from communicating with the Crowdsourced Network via a command sent by a Platform.
@@ -171,7 +170,7 @@ In order to avoid pitting the privacy of Tag Owners not engaged in Unwanted Trac
 
 ### Security against Unwanted Tracking for potential Victims
 
-The DULT Protocol must make it possible for potential Victims to discover unwanted trackers across accessory hardware and Platforms within a reasonable amount of time. It should aid the Victim in determining the location and Owner of the accessory while not providing a full name or contact information on demand (as the Tag may merely have been lost or otherwise coincidentally in proximity, and providing excessive information would violate the privacy of a non-malicious Tag Owner). This could potentially be done with obfuscation, such as showing a partially redacted email address or phone number (see {{active-scanning}}).
+The DULT Protocol must make it possible for potential Victims to discover unwanted trackers across Accessory hardware and Platforms within a reasonable amount of time. It should aid the Victim in determining the location and Owner of the Accessory while not providing a full name or contact information on demand (as the Tag may merely have been lost or otherwise coincidentally in proximity, and providing excessive information would violate the privacy of a non-malicious Tag Owner). This could potentially be done with obfuscation, such as showing a partially redacted email address or phone number (see {{active-scanning}}).
 
 ### Privacy for potential Victims against the use of security measures for further surveillance
 
@@ -325,11 +324,11 @@ This is a case involving a high-skill Attacker, with a large skill difference be
 
 ##### Narrative
 
-Banana is a social media influencer. Fig is one of Banana's followers, and has become increasingly obsessed with Banana. Banana has no technical background. Fig has no formal technical background, but does read some online forums. Banana keeps a tracking accessory on their keyring to prevent loss or theft of their home and car keys. Fig learns, from reading an online forum, how to find leaked passwords in data breaches, and is able to find the password to the account associated with Banana's accessory. Using the Crowdsourced Network, Fig is able to find Banana's home address and track their location. Fig makes a plan to travel to Banana's home and approach them in person.
+Banana is a social media influencer. Fig is one of Banana's followers, and has become increasingly obsessed with Banana. Banana has no technical background. Fig has no formal technical background, but does read some online forums. Banana keeps a tracking Accessory on their keyring to prevent loss or theft of their home and car keys. Fig learns, from reading an online forum, how to find leaked passwords in data breaches, and is able to find the password to the account associated with Banana's Accessory. Using the Crowdsourced Network, Fig is able to find Banana's home address and track their location. Fig makes a plan to travel to Banana's home and approach them in person.
 
 ##### Analysis
 
-This scenario differs from the previous ones in three major ways. First, it requires no physical proximity between the Attacker and the Victim. Second, the Attacker, like nearly one in five stalkers [(SPARC - Stalking Infographic, 2022)](https://www.stalkingawareness.org/wp-content/uploads/2022/04/General-Stalking-Infographic.pdf), is a stranger. Third, in this scenario the accessory belongs to the Victim rather than the Attacker. The Attacker was able to use OSINT learned from an online forum in order to gain remote access to the Victim's accessory.
+This scenario differs from the previous ones in three major ways. First, it requires no physical proximity between the Attacker and the Victim. Second, the Attacker, like nearly one in five stalkers [(SPARC - Stalking Infographic, 2022)](https://www.stalkingawareness.org/wp-content/uploads/2022/04/General-Stalking-Infographic.pdf), is a stranger. Third, in this scenario the Accessory belongs to the Victim rather than the Attacker. The Attacker was able to use OSINT learned from an online forum in order to gain remote access to the Victim's Accessory.
 
 | Attacker Profile | Fig        |
 | ------------- |------------|
@@ -353,11 +352,11 @@ This scenario differs from the previous ones in three major ways. First, it requ
 
 ##### Narrative
 
-Orange and Grapefruit are university students in computer science. They attend multiple classes together, and are acquainted but do not regularly socialize or live in the same dormitory. Both use tracking accessories to avoid losing items, as do many students at the university. Grapefruit has become increasingly obsessed with Orange, though Orange does not realize it. Grapefruit places tracking accessories in Orange's backpack and car. Orange found the one in their backpack after receiving a notification, but was not suspicious when Grapefruit said that they had dropped it. Orange has not used their car in a week and is unaware of the well-hidden tracking accessory there. Grapefruit has created a new account to associate with their backup phone and plans to associate multiple tracking accessories with it, in order to place them on other possessions of Orange's.
+Orange and Grapefruit are university students in computer science. They attend multiple classes together, and are acquainted but do not regularly socialize or live in the same dormitory. Both use tracking Accessories to avoid losing items, as do many students at the university. Grapefruit has become increasingly obsessed with Orange, though Orange does not realize it. Grapefruit places tracking Accessories in Orange's backpack and car. Orange found the one in their backpack after receiving a notification, but was not suspicious when Grapefruit said that they had dropped it. Orange has not used their car in a week and is unaware of the well-hidden tracking Accessory there. Grapefruit has created a new account to associate with their backup phone and plans to associate multiple tracking Accessories with it, in order to place them on other possessions of Orange's.
 
 ##### Analysis
 
-In this scenario involving two technical students, the Attacker, like over 40% of stalkers [(SPARC - Stalking Infographic, 2022)](https://www.stalkingawareness.org/wp-content/uploads/2022/04/General-Stalking-Infographic.pdf), is an acquaintance. Both Attacker and Victim are familiar with and use tracking accessories. The Attacker is using multiple accessories with a plan to incorporate more into their strategy.
+In this scenario involving two technical students, the Attacker, like over 40% of stalkers [(SPARC - Stalking Infographic, 2022)](https://www.stalkingawareness.org/wp-content/uploads/2022/04/General-Stalking-Infographic.pdf), is an acquaintance. Both Attacker and Victim are familiar with and use tracking Accessories. The Attacker is using multiple Accessories with a plan to incorporate more into their strategy.
 
 | Attacker Profile | Grapefruit |
 | ------------- |------------|
@@ -379,11 +378,11 @@ In this scenario involving two technical students, the Attacker, like over 40% o
 
 ### Bluetooth vs. other technologies
 
-The above taxonomy and threat analysis focus on Location-tracking Tags. They are protocol-independent; if a Tag were designed for crowd-sourced location tracking using a technology other than Bluetooth, they would still apply. The key attributes are the functionalities and physical properties of the accessory from the user’s perspective: the accessory must be small, not easily discoverable, and able to participate in a crowd-sourced location tracking network. While many GPS based location trackers are not explicitly designed for crowd-sourced location tracking, relying instead on cellular or satellite transmission, they offer different affordances that can have a critical impact on safety, including increased location precision and real-time tracking. Manufacturers of these trackers are strongly encouraged to add bluetooth crowd-sourced functionality so that DULT Protocols can be supported by GPS trackers.
+The above taxonomy and threat analysis focus on Location-tracking Tags. They are protocol-independent; if a Tag were designed for crowd-sourced location tracking using a technology other than Bluetooth, they would still apply. The key attributes are the functionalities and physical properties of the Accessory from the user’s perspective: the Accessory must be small, not easily discoverable, and able to participate in a crowd-sourced location tracking network. While many GPS based location trackers are not explicitly designed for crowd-sourced location tracking, relying instead on cellular or satellite transmission, they offer different affordances that can have a critical impact on safety, including increased location precision and real-time tracking. Manufacturers of these trackers are strongly encouraged to add bluetooth crowd-sourced functionality so that DULT Protocols can be supported by GPS trackers.
 
 ## Possible Attacks on the DULT Protocol
 
-There are several different ways an Attacker could attempt to circumvent the DULT Protocol in order to track a Victim without their consent or otherwise take advantage of the Crowdsourced Network. These include deploying multiple Tags to follow a single Victim, using non-conformant accessories and/or Devices, and taking advantage of possible differences between Crowdsourced Network implementations. This section includes a threat prioritization framework that assesses the risk of these attacks and how these risks may be mitigated.
+There are several different ways an Attacker could attempt to circumvent the DULT Protocol in order to track a Victim without their consent or otherwise take advantage of the Crowdsourced Network. These include deploying multiple Tags to follow a single Victim, using non-conformant Accessories and/or Devices, and taking advantage of possible differences between Crowdsourced Network implementations. This section includes a threat prioritization framework that assesses the risk of these attacks and how these risks may be mitigated.
 
 ### Threat Prioritization Framework for DULT Threat Model
 
@@ -394,9 +393,9 @@ Threats in the DULT ecosystem vary in severity, feasibility, and likelihood, aff
 To systematically assess the risks associated with different threats, we introduce the following threat matrix. This categorization considers the following factors:
 
   - Scope: The DULT WG document(s) most relevant to the attack.
-    - Accessory: The accessory protocol document, which describes the DULT non-Owner Device protocol and other requirements for accessories.
+    - Accessory: The Accessory protocol document, which describes the DULT Non-Owner Device protocol and other requirements for Accessories.
     - Finding: The finding algorithm document, which describes the unwanted location tracking detection algorithm(s) to be implemented by Platforms/Devices.
-    - Network: The crowd-sourced network document, which describes the architecture of the crowd-sourced network and includes guidance for Platforms/Devices.
+    - Network: The Crowdsourced Network document, which describes the architecture of the Crowdsourced Network and includes guidance for Platforms/Devices.
   - Impact: The potential consequences of the threat if successfully executed.
     - Low: Minimal effect on privacy and security.
     - Medium: Moderate effect on user privacy or tracking protection.
@@ -438,7 +437,7 @@ To systematically assess the risks associated with different threats, we introdu
 
 When an Attacker deploys tracking Tags to follow a Victim, they may deploy more than one Tag. For example, if planting a tracking Tag in a car, the Attacker might place one Tag inside the car, and another affixed on the outside of the car. The DULT Protocol must be robust to this scenario. This means that scans, whether passive or active, need to be able to return more than one result if a Device is suspected of being used for Unwanted Tracking, and the time to do so must not be significantly impeded by the presence of multiple trackers. This also applies to situations where many Tags are present, even if they are not being used for unwanted location tracking, such as a busy train station or airport where Tag Owners may or may not be in proximity to their tracking Tags. Instead of distributing multiple Tags in the same location, an Attacker could also distribute multiple tracking Tags across locations frequently visited by a Victim (home, workplace, etc.).
 
-The impact of this attack is medium for typical cases involving a small number of Tags, though the impact could escalate if an Attacker deploys dozens of Tags. The likelihood is high, as deploying multiple Tags requires minimal technical effort and can be done using inexpensive, commercially available trackers, making the attack easily repeatable. As a result, the overall risk is high, requiring robust countermeasures. The impact of multiple Tags can be fully mitigated by scanning for multiple Tags, though a sophisticated Attacker might deploy other techniques such as modifying Tag firmware ({{accessory-firmware-modifications-accessory}}) or periodically disabling a Tag ({{Attacker-accessory-disablement-accessory-finding}}) to evade detection.
+The impact of this attack is medium for typical cases involving a small number of Tags, though the impact could escalate if an Attacker deploys dozens of Tags. The likelihood is high, as deploying multiple Tags requires minimal technical effort and can be done using inexpensive, commercially available trackers, making the attack easily repeatable. As a result, the overall risk is high, requiring robust countermeasures. The impact of multiple Tags can be fully mitigated by scanning for multiple Tags, though a sophisticated Attacker might deploy other techniques such as modifying Tag firmware ({{Accessory-firmware-modifications-Accessory}}) or periodically disabling a Tag ({{Attacker-Accessory-disablement-Accessory-finding}}) to evade detection.
 
 ### Remote Advertisement Monitoring (Accessory, Network)
 
@@ -458,9 +457,9 @@ The likelihood is medium, as such hardware modifications require moderate techni
 
 ### Accessory Firmware Modifications (Accessory)
 
-The DULT Protocol (see {{!I-D.draft-ietf-dult-accessory-protocol}}) will specify that accessory firmware images MUST be authenticated, and that accessories MUST verify the integrity and origin of firmware. However, if these protections were to be bypassed, an accessory's firmware could be altered to deviate from standard behavior. Attackers may manipulate advertisement intervals to reduce detection opportunities, allowing the Tag to evade tracking for extended periods, or rotate IDs rapidly, disrupting detection systems that rely on tracking unknown Device persistence.
+The DULT Protocol (see {{!I-D.draft-ietf-dult-Accessory-protocol}}) will specify that Accessory firmware images MUST be authenticated, and that Accessories MUST verify the integrity and origin of firmware. However, if these protections were to be bypassed, an Accessory's firmware could be altered to deviate from standard behavior. Attackers may manipulate advertisement intervals to reduce detection opportunities, allowing the Tag to evade tracking for extended periods, or rotate IDs rapidly, disrupting detection systems that rely on tracking unknown Device persistence.
 
-Firmware-based changes would have high impact. The likelihood is low, as these attacks require significant technical expertise to bypass firmware verification and modify low-level accessory behavior. As a result, the overall risk level is medium. Partial mitigation of this attack is possible by requiring accessories to verify the integrity and origin of firmware.
+Firmware-based changes would have high impact. The likelihood is low, as these attacks require significant technical expertise to bypass firmware verification and modify low-level Accessory behavior. As a result, the overall risk level is medium. Partial mitigation of this attack is possible by requiring Accessories to verify the integrity and origin of firmware.
 
 ### Attacker Accessory Disablement (Accessory, Finding)
 
@@ -472,7 +471,7 @@ The likelihood is medium, as this attack is relatively easy to perform using com
 
 Attackers with access to a Victim’s account, either through password reuse, phishing, social engineering, or credential theft, can exploit DULT’s Ownership model by using the Victim’s own tracker to monitor their location. Since the tracker is registered to the Victim, the system assumes the user is the legitimate Owner and suppresses any Unwanted Tracking alerts. This creates a significant blind spot, as the Victim is effectively tracked by their own Device without any warning.
 
-This threat differs from impersonation or replay attacks (see {{impersonation-attack-Tag-accessory-finding-network}} and {{replay-attack-accessory-network}}) because it does not rely on breaking cryptographic protections or evading detection algorithms. Instead, it leverages the legitimate trust relationship encoded in the protocol. The impact of this attack is high, as it results in silent tracking with no alert mechanism. The likelihood is medium, as account compromise is a relatively common occurrence in real-world settings, though it still requires some Attacker effort or opportunity. Overall, the risk level is high due to the complete circumvention of core notification systems.
+This threat differs from impersonation or replay attacks (see {{impersonation-attack-Tag-Accessory-finding-network}} and {{replay-attack-Accessory-network}}) because it does not rely on breaking cryptographic protections or evading detection algorithms. Instead, it leverages the legitimate trust relationship encoded in the protocol. The impact of this attack is high, as it results in silent tracking with no alert mechanism. The likelihood is medium, as account compromise is a relatively common occurrence in real-world settings, though it still requires some Attacker effort or opportunity. Overall, the risk level is high due to the complete circumvention of core notification systems.
 
 Partial mitigation may be possible through account activity monitoring, anomaly detection (e.g., login from unfamiliar location or Device), and notifications of significant account events (such as Tag access or Tag movement linked to a different Device). However, these features depend on Platform implementation and may not be uniformly enforced.
 
@@ -488,7 +487,7 @@ An Attacker might intentionally disable a Victim's Tag as a form of harassment. 
 
 ### Impersonation Attack (Tag; Accessory, Finding, Network)
 
-Attackers might be able to impersonate legitimate tracking accessories, enabling tracking without complying with the DULT Protocol. This can be done by [deploying custom Tags](https://www.hackster.io/news/fabian-braunlein-s-esp32-powered-find-you-Tag-bypasses-apple-s-airTag-anti-stalking-protections-0f2c9ee7da74) or by using [Devices to mimic Tags](https://cec.gmu.edu/news/2025-02/find-my-hacker-how-apples-network-can-be-potential-tracking-tool). By impersonating an authorized Tag, an Attacker could inject false location data, misattribute Tag Ownership, or evade detection by appearing as a trusted accessory or rotating identifiers frequently. This tactic increases the difficulty of accurately identifying unauthorized tracking attempts and undermines the reliability of the network.
+Attackers might be able to impersonate legitimate tracking Accessories, enabling tracking without complying with the DULT Protocol. This can be done by [deploying custom Tags](https://www.hackster.io/news/fabian-braunlein-s-esp32-powered-find-you-Tag-bypasses-apple-s-airTag-anti-stalking-protections-0f2c9ee7da74) or by using [Devices to mimic Tags](https://cec.gmu.edu/news/2025-02/find-my-hacker-how-apples-network-can-be-potential-tracking-tool). By impersonating an authorized Tag, an Attacker could inject false location data, misattribute Tag Ownership, or evade detection by appearing as a trusted Accessory or rotating identifiers frequently. This tactic increases the difficulty of accurately identifying unauthorized tracking attempts and undermines the reliability of the network.
 
 In addition to full impersonation, adversaries may exploit Platform-specific assumptions to suppress alerts. For instance, Chen et al. [describe](https://www.usenix.org/system/files/conference/usenixsecurity25/sec25cycle1-prepub-1266-chen-junming.pdf) a technique in which an Attacker sets the status field of a broadcast message to 0x00 to emulate MacBook location beacons. Since such beacons are typically ignored by Apple’s Unwanted Tracking alerts, this evasion method allows the Attacker to remain undetected. This demonstrates how Attackers can exploit trust assumptions about certain Device classes to bypass user protections, further complicating detection and mitigation.
 
@@ -496,13 +495,13 @@ The impact of this attack is high, as it enables real-time location tracking by 
 
 ### Impersonation Attack (Device)
 
-In addition to impersonating a Tag, an Attacker could also impersonate a Device. This affords attacks against both tracking accessories and against the Crowdsourced Network.
+In addition to impersonating a Tag, an Attacker could also impersonate a Device. This affords attacks against both tracking Accessories and against the Crowdsourced Network.
 
-#### Attacks on accessories (Accessory, Network)
+#### Attacks on Accessories (Accessory, Network)
 
-An impersonated Device could send commands to accessories, such as a "play sound" command or a remote disablement command. Accessory firmware should either attempt to verify the authenticity of commands from Devices or otherwise limit how accessories respond to commands from Devices. For example, accessories that receive a "play sound" command should only execute the command if the accessory is away from its Owner. Similarly, accessories should only respond to remote disablement commands if the accessory can reasonably be expected to be used for unwanted location tracking and the accessory can confirm that a Device has used other finding techniques to locate the Device.
+An impersonated Device could send commands to Accessories, such as a "play sound" command or a remote disablement command. Accessory firmware should either attempt to verify the authenticity of commands from Devices or otherwise limit how Accessories respond to commands from Devices. For example, Accessories that receive a "play sound" command should only execute the command if the Accessory is away from its Owner. Similarly, Accessories should only respond to remote disablement commands if the Accessory can reasonably be expected to be used for unwanted location tracking and the Accessory can confirm that a Device has used other finding techniques to locate the Device.
 
-The impact of a Device impersonation attack is high if it is able to send arbitrary commands to accessories. The likelihood of such an attack is medium as it can be done by any Device able to transmit BTLE packets but requires some familiarity with the DULT Protocol. Therefore, the overall risk level is high. The affected users are all users. Mitigation is partial; while Devices cannot be prevented from transmitting packets, certain rules can be enforced by accessories.
+The impact of a Device impersonation attack is high if it is able to send arbitrary commands to Accessories. The likelihood of such an attack is medium as it can be done by any Device able to transmit BTLE packets but requires some familiarity with the DULT Protocol. Therefore, the overall risk level is high. The affected users are all users. Mitigation is partial; while Devices cannot be prevented from transmitting packets, certain rules can be enforced by Accessories.
 
 #### Attacks on Crowdsourced Network (Network)
 
@@ -512,9 +511,9 @@ The likelihood of this attack is low, as it would require the impersonated Devic
 
 ### Replay Attack (Accessory, Network)
 
-In addition to impersonating legitimate tracking Devices (see {{impersonation-attack-Tag-accessory-finding-network}}), Attackers can record and replay Bluetooth advertisements from a legitimate tracker. For example, an Attacker could capture a tracker's broadcast and retransmit it elsewhere, creating confusion about its actual location. This could be used to mislead users, interfere with tracking accuracy, or frame an innocent party by making it appear as though they are carrying a tracker when they are not.
+In addition to impersonating legitimate tracking Devices (see {{impersonation-attack-Tag-Accessory-finding-network}}), Attackers can record and replay Bluetooth advertisements from a legitimate tracker. For example, an Attacker could capture a tracker's broadcast and retransmit it elsewhere, creating confusion about its actual location. This could be used to mislead users, interfere with tracking accuracy, or frame an innocent party by making it appear as though they are carrying a tracker when they are not.
 
-The impact of this attack is medium. The likelihood is high, as replay attacks require no authentication and can be executed using off-the-shelf Bluetooth scanning tools with minimal technical expertise. Replay attacks pose a medium risk owing to their higher likelihood but medium impact. Replay attacks are particularly difficult to mitigate as they may involve different combinations of accessories and Devices. Partial mitigation may be possible by authenticating messages from accessories in a time varying manner.
+The impact of this attack is medium. The likelihood is high, as replay attacks require no authentication and can be executed using off-the-shelf Bluetooth scanning tools with minimal technical expertise. Replay attacks pose a medium risk owing to their higher likelihood but medium impact. Replay attacks are particularly difficult to mitigate as they may involve different combinations of Accessories and Devices. Partial mitigation may be possible by authenticating messages from Accessories in a time varying manner.
 
 ### Heterogeneous Tracker Networks (Accessory, Finding, Network)
 
@@ -524,7 +523,7 @@ The impact is high, as it circumvents traditional defenses. The likelihood is me
 
 ### Deploying GPS Tracker (Accessory)
 
-When an Attacker deploys a GPS tracker to stalk a Victim, they have access to greater location precision, real-time tracking, and even global coverage through satellite connection for some trackers. Attackers are especially likely to use GPS trackers in rural areas and areas with low crowd-sourced network saturation, or when looking for more advanced precision or for Devices that do not offer safety protections.
+When an Attacker deploys a GPS tracker to stalk a Victim, they have access to greater location precision, real-time tracking, and even global coverage through satellite connection for some trackers. Attackers are especially likely to use GPS trackers in rural areas and areas with low Crowdsourced Network saturation, or when looking for more advanced precision or for Devices that do not offer safety protections.
 
 The impact of this attack is high due to the increased location precision and real-time tracking functionality. The likelihood is medium, as these trackers are currently more expensive than Bluetooth based trackers, and not as readily available. As a result, the overall risk is high, requiring robust countermeasures. The impact of GPS trackers can be mitigated by adding bluetooth crowd-sourced tracking functionality to GPS trackers and adopting the DULT Protocol. However, the adoption of the DULT Protocol by GPS tracker manufacturers is of course optional, so this is considered a partial mitigation.
 
@@ -532,7 +531,7 @@ The impact of this attack is high due to the increased location precision and re
 
 ### Technologies
 
-The scope of this threat analysis includes any accessory that is small and not easily discoverable and able to transmit its location to other consumer Devices using Bluetooth. Larger and/or easily discoverable Devices such as laptops with tracking Tag integrations may also choose to implement the protocol.
+The scope of this threat analysis includes any Accessory that is small and not easily discoverable and able to transmit its location to other consumer Devices using Bluetooth. Larger and/or easily discoverable Devices such as laptops with tracking Tag integrations may also choose to implement the protocol.
 
 ### Attacker Profiles
 
@@ -624,9 +623,9 @@ Tracking Tags may be difficult to locate, and users may not have a Device that c
 
 #### Crowdsourced Network Activities Logs
 
-[Stephenson et al.](https://www.usenix.org/system/files/usenixsecurity23-stephenson-lessons.pdf) point out that Internet of Things Devices like location tracking accessories do not have ways to reveal abusive behavior. This can be addressed through the use of detailed logs that provide insights for Victims about which accounts have accessed the location of which accessories and when. Crowdsourced Networks should log common user activities for review by each accessory Owner, and should not be able to be easily deleted by accessory Owners, who might do so as a way to hide evidence of unwanted location tracking.
+[Stephenson et al.](https://www.usenix.org/system/files/usenixsecurity23-stephenson-lessons.pdf) point out that Internet of Things Devices like location tracking Accessories do not have ways to reveal abusive behavior. This can be addressed through the use of detailed logs that provide insights for Victims about which accounts have accessed the location of which Accessories and when. Crowdsourced Networks should log common user activities for review by each Accessory Owner, and should not be able to be easily deleted by Accessory Owners, who might do so as a way to hide evidence of unwanted location tracking.
 
-Logs should include sufficient detail to detect unwanted location tracking without being another vector for surveillance. For example, a log could state that "User B viewed the location of Device X at [time]." By including information about user, Device, and time, Victims can determine whether their own accessories are being used to track them, and whether or not their accounts connected to the Crowdsourced Network are compromised.
+Logs should include sufficient detail to detect unwanted location tracking without being another vector for surveillance. For example, a log could state that "User B viewed the location of Device X at [time]." By including information about user, Device, and time, Victims can determine whether their own Accessories are being used to track them, and whether or not their accounts connected to the Crowdsourced Network are compromised.
 
 ### Finding Tracking Tags
 
@@ -634,7 +633,7 @@ Even after a location tracker is detected through passive or active scanning, a 
 
 ### Disabling Tracking Tags
 
-In order to effectively prevent unwanted location tracking, users should be able to disable location tracker Tags. This includes a non-Owner user being tracked by a Tag's Owner, as well as an Owner user who believes that an Attacker is using their own Tag to track them. Platforms should provide instructions for disabling tracking Tags once they are located. Platforms should also consider allowing tracking Tags to be disabled remotely.
+In order to effectively prevent unwanted location tracking, users should be able to disable location tracker Tags. This includes a Non-Owner user being tracked by a Tag's Owner, as well as an Owner user who believes that an Attacker is using their own Tag to track them. Platforms should provide instructions for disabling tracking Tags once they are located. Platforms should also consider allowing tracking Tags to be disabled remotely.
 
 Beyond simple deactivation, users should also receive guidance on additional steps they may take, depending on their specific situation:
 
