@@ -218,19 +218,19 @@ It is also appropriate to define who is using the Location-tracking Tags and inc
     - Victim only: The Victim controls one or more Location-tracking Tags, but the Attacker does not.
     - Attacker and Victim: Both the Attacker and Victim control one or more Location-tracking Tags.
 
-Any of the threat analyses above could be affected by placement of the Tag(s). For instance, a Tag could be placed on a Victim's person, or in proximity to a Victim but not on their person (e.g. a child's backpack). Examples include:
+Any of the threat analyses above could be affected by placement of the Tag(s). For instance, a Tag could be placed on a Victim's person, or in proximity to a Victim but not on their person (e.g. a child's backpack).
 
   - Tag placement
-    - Tag on Victim's person or immediate belongings. This attack vector allows an Attacker to track a Victim in a fine-grained way. It is also more likely that this attack would trigger an alert from the Tag.
-    - Tag(s) in proximity to Victim but not on their person (e.g. child's backpack, car). While this is a less fine-grained attack, it may also be less likely to be discovered by the Victim. A child may not realize the significance of an alert or know how to check for a Tag. A parent may not think to scan for such a Tag, or may have more difficulty finding a Tag in a complex location such as a car.
-    - Tags nearby but not used for unwanted location tracking (e.g. false positives by companions or on transit). While this is not an attack vector in its own right, repeated false positives may discourage a Victim from treating alerts seriously.
-    - Multiple Tags using multiple types of placement. This attack vector may trick a Victim into believing that they have fully addressed the attack when they have not. It also allows for a diversity of monitoring types (e.g. monitoring the Victim's precise location, monitoring a child's routine, monitoring car usage).
+    - Tag on Victim's person or immediate belongings: This attack vector allows an Attacker to track a Victim in a fine-grained way. It is also more likely that this attack would trigger an alert from the Tag.
+    - Tag(s) in proximity to Victim but not on their person (e.g. child's backpack, car): While this is a less fine-grained attack, it may also be less likely to be discovered by the Victim. A child may not realize the significance of an alert or know how to check for a Tag. A parent may not think to scan for such a Tag, or may have more difficulty finding a Tag in a complex location such as a car.
+    - Tags nearby but not used for unwanted location tracking (e.g. false positives by companions or on transit): While this is not an attack vector in its own right, repeated false positives may discourage a Victim from treating alerts seriously.
+    - Multiple Tags using multiple types of placement: This attack vector may trick a Victim into believing that they have fully addressed the attack when they have not. It also allows for a diversity of monitoring types (e.g. monitoring the Victim's precise location, monitoring a child's routine, monitoring car usage).
 
 ### Example scenarios with analyses
 
-The following scenarios are composite cases based upon reports from the field. They are intended to illustrate different angles of the problem. They are not only technological, but meant to provide realistic insights into the constraints of people being targeted through these Tags. There is no identifying information for any real person contained within them. In accordance with research on [how designers understand personas](https://dl.acm.org/doi/10.1145/2207676.2208573), the characters are given non-human names without attributes such as gender or race.
-The analysis of each scenario provides an example usage of the modeling framework described above. It includes a tracking Tag usage element for illustrative purposes. However, as discussed previously, this element becomes more or less relevant depending on protocol evolution.
-Note that once a given Attacker persona has been modeled, it could be recombined with a different Victim persona, or vice versa, to model a different scenario. For example, a non-expert Victim persona could be combined with both non-expert and expert Attacker personas.
+The following scenarios are composite cases based upon reports from the field. They are intended to illustrate different angles of the problem. They are not only technological, but meant to provide realistic insights into the constraints of people being targeted through Location-Tracking Tags. There is no identifying information for any real person contained within them. In accordance with research on [how designers understand personas](https://dl.acm.org/doi/10.1145/2207676.2208573), the characters are given non-human names without attributes such as gender or race.
+
+The analysis of each scenario provides an example usage of the modeling framework described above. It includes a tracking Tag usage element for illustrative purposes. However, as discussed previously, this element becomes more or less relevant depending on protocol evolution. Note that once a given Attacker persona has been modeled, it could be recombined with a different Victim persona, or vice versa, to model a different scenario. For example, a non-expert Victim persona could be combined with both non-expert and expert Attacker personas.
 
 #### Scenario 1
 
@@ -253,7 +253,7 @@ In this case, the Attacker has planted a Tag on a child. Co-parenting after sepa
 | Expertise Level  | Non-Expert |
 | Expectation of Unwanted Tracking| Suspecting |
 | Access to Resources  | Low        |
-| Access to Technological Safeguards  | Normal     |
+| Access to Technological Safeguards  | High    |
 
 | Other Characteristics | Avocado and Mango       |
 |-----------------------|-------------------------|
@@ -264,11 +264,11 @@ In this case, the Attacker has planted a Tag on a child. Co-parenting after sepa
 
 ##### Narrative
 
-Strawberry and Elderberry live together. Neither has any specialized technological knowledge. Strawberry has noticed that Elderberry has become excessively jealous – every time they go to visit a friend by themselves, Elderberry accuses them of infidelity. To their alarm, over the last week, on multiple occasions, Elderberry has somehow known which friend they visited at any given time and has started to harass the friends. Strawberry eventually gets a notification that a tracker is traveling with them, and thinks it may be in their car, but they cannot find it. They live in a car-dependent area and cannot visit friends without the car, and Elderberry controls all of the “family” money, so their cannot take the car to the mechanic without Elderberry knowing.
+Strawberry and Elderberry live together. Neither has any specialized technological knowledge. Strawberry has noticed that Elderberry has become excessively jealous – every time they go to visit a friend by themselves, Elderberry accuses them of infidelity. To their alarm, over the last week, on multiple occasions, Elderberry has somehow known which friend they visited at any given time and has started to harass the friends. Strawberry eventually gets a notification that a tracker is traveling with them, and thinks it may be in their car, but they cannot find it. They live in a car-dependent area and cannot visit friends without the car, and Elderberry controls all of the “family” money, so they cannot take the car to the mechanic without Elderberry knowing.
 
 ##### Analysis
 
-Here, the Attacker and the Victim are still cohabiting, and the Attacker is monitoring the Victim’s independent activities. This would allow the Attacker to know if, for instance, the Victim went to a police station or a domestic violence agency. The Victim has reason to think that they are being tracked, but they cannot find the Device. This can happen if the sound emitted by the Device is insufficiently loud, and is particularly a risk in a car, where seat cushions or other typical features of a car may provide sound insulation for a hidden Tag. The Victim could benefit from having a mechanism to increase the volume of the sound emitted by the Tag. Another notable feature of this scenario is that because of the cohabitation, the Tag will spend most of the time in “near-Owner state” as defined by the proposed industry consortium specification {{I-D.detecting-unwanted-location-trackers}}. In near-Owner state it would not provide alerts under that specification.
+Here, the Attacker and the Victim are still cohabiting, and the Attacker is monitoring the Victim’s independent activities. This would allow the Attacker to know if, for instance, the Victim went to a police station or a domestic violence agency. The Victim has reason to think that they are being tracked, but they cannot find the Tag. This can happen if the sound emitted by the Tag is insufficiently loud, and is particularly a risk in a car, where seat cushions or other typical features of a car may provide sound insulation for a hidden Tag. The Victim could benefit from having a mechanism to increase the volume of the sound emitted by the Tag. Another notable feature of this scenario is that because of the cohabitation, the Tag will spend most of the time in “near-Owner state” as defined by the proposed industry consortium specification (see {{I-D.detecting-unwanted-location-trackers}}). Tags do not provide alerts in near-Owner state to reduce false positives.
 
 | Attacker Profile | Elderberry |
 | ------------- | ------------- |
@@ -320,7 +320,7 @@ This is a case involving a high-skill Attacker, with a large skill difference be
 
 ##### Narrative
 
-Banana is a social media influencer. Fig is one of Banana's followers, and has become increasingly obsessed with Banana. Banana has no technical background. Fig has no formal technical background, but does read some online forums. Banana keeps a tracking Accessory on their keyring to prevent loss or theft of their home and car keys. Fig learns, from reading an online forum, how to find leaked passwords in data breaches, and is able to find the password to the account associated with Banana's Accessory. Using the Crowdsourced Network, Fig is able to find Banana's home address and track their location. Fig makes a plan to travel to Banana's home and approach them in person.
+Banana is a social media influencer. Fig is one of Banana's followers, and has become increasingly obsessed with Banana. Banana has no technical background. Fig has no formal technical background, but does read some online forums. Banana keeps a Location-tracking Tag on their keyring to prevent loss or theft of their home and car keys. Fig learns, from reading an online forum, how to find leaked passwords in data breaches, and is able to find the password to the account associated with Banana's Tag. Using the Crowdsourced Network, Fig is able to find Banana's home address and track their location. Fig makes a plan to travel to Banana's home and approach them in person.
 
 ##### Analysis
 
@@ -348,7 +348,7 @@ This scenario differs from the previous ones in three major ways. First, it requ
 
 ##### Narrative
 
-Orange and Grapefruit are university students in computer science. They attend multiple classes together, and are acquainted but do not regularly socialize or live in the same dormitory. Both use tracking Accessories to avoid losing items, as do many students at the university. Grapefruit has become increasingly obsessed with Orange, though Orange does not realize it. Grapefruit places tracking Accessories in Orange's backpack and car. Orange found the one in their backpack after receiving a notification, but was not suspicious when Grapefruit said that they had dropped it. Orange has not used their car in a week and is unaware of the well-hidden tracking Accessory there. Grapefruit has created a new account to associate with their backup phone and plans to associate multiple tracking Accessories with it, in order to place them on other possessions of Orange's.
+Orange and Grapefruit are university students in computer science. They attend multiple classes together, and are acquainted but do not regularly socialize or live in the same dormitory. Both use Location-tracking Tags to avoid losing items, as do many students at the university. Grapefruit has become increasingly obsessed with Orange, though Orange does not realize it. Grapefruit places Location-tracking Tags in Orange's backpack and car. Orange found the one in their backpack after receiving a notification, but was not suspicious when Grapefruit said that they had dropped it. Orange has not used their car in a week and is unaware of the well-hidden Tag there. Grapefruit has created a new account to associate with their backup phone and plans to associate multiple Tags with it, in order to place them on other possessions of Orange's.
 
 ##### Analysis
 
