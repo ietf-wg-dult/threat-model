@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-10-09T01:15:23.680228+00:00",
+  "timestamp": "2025-10-14T01:15:04.870120+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -3960,21 +3960,21 @@
       "id": "PR_kwDOMB0Qas6XRWI2",
       "title": "Add shared DULT definitions and update threat model document to reflect those definitions",
       "url": "https://github.com/ietf-wg-dult/threat-model/pull/102",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "See especially the updated definitions section starting on line 79 of the threat model markdown file. This combines definitions from the [accessory protocol document ](https://github.com/ietf-wg-dult/accessory-protocol/blob/d579f69dfbf2a63942b28964aa1d67773a51dfb0/draft-ietf-dult-accessory-protocol.md?plain=1#L84) along with those used in the threat model document and the finding document. I tried to focus on definitions that are likely to be common to all documents. Each individual document may also have other definitions relevant to that document or a subset of documents.\r\n\r\nThe threat model text has not been fully updated to reflect the new text; once the draft definitions are agreed upon, the PR will be updated accordingly and changed from a draft to a regular PR.\r\n\r\nSee discussion also as an issue on the [accessory protocol repo](https://github.com/ietf-wg-dult/accessory-protocol/issues/8).\r\n\r\nCloses #33, closes #34.\r\n\r\n",
       "createdAt": "2025-05-22T18:02:09Z",
-      "updatedAt": "2025-06-18T18:31:50Z",
+      "updatedAt": "2025-10-13T20:03:16Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
       "baseRefOid": "0eb5afe9227408f2d7e1e0159a184112dffcd4f9",
       "headRepository": "ietf-wg-dult/threat-model",
       "headRefName": "fix-terminology",
       "headRefOid": "4c9af098614f08ab028dd2768b695f3d3b5ade07",
-      "closedAt": null,
+      "closedAt": "2025-10-13T20:02:58Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
@@ -3985,6 +3985,13 @@
           "body": "Also created a pull request on the accessory protocol repo: https://github.com/ietf-wg-dult/accessory-protocol/pull/24",
           "createdAt": "2025-06-18T18:31:49Z",
           "updatedAt": "2025-06-18T18:31:49Z"
+        },
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Terminology has been added in #140 so we no longer need this draft PR.",
+          "createdAt": "2025-10-13T20:02:58Z",
+          "updatedAt": "2025-10-13T20:03:16Z"
         }
       ],
       "reviews": []
@@ -4162,25 +4169,33 @@
       "id": "PR_kwDOMB0Qas6YVFS2",
       "title": "Addresses #36",
       "url": "https://github.com/ietf-wg-dult/threat-model/pull/110",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "exploretechsafety",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "This commit addresses Issue #36 Discuss Possible Design Tradeoffs.",
       "createdAt": "2025-05-30T20:45:09Z",
-      "updatedAt": "2025-06-03T19:28:07Z",
+      "updatedAt": "2025-10-13T20:08:39Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
       "baseRefOid": "9996e603b43a9b3f3e4a01832ab74aa6002a00f8",
       "headRepository": "ietf-wg-dult/threat-model",
       "headRefName": "exploretechsafety-tradeoffs",
       "headRefOid": "106a6dee1c875fc7968082be912e214acc9021e6",
-      "closedAt": null,
+      "closedAt": "2025-10-13T20:08:39Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I think our document is pretty lengthy and it's probably fine to leave the stuff out for now in the interest of getting it out the door.",
+          "createdAt": "2025-10-13T20:08:39Z",
+          "updatedAt": "2025-10-13T20:08:39Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDOMB0Qas6sfDGn",
@@ -4827,24 +4842,26 @@
       "id": "PR_kwDOMB0Qas6rLKv5",
       "title": "Remove to dos and update terms",
       "url": "https://github.com/ietf-wg-dult/threat-model/pull/140",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Getting ready to push another version. Will also need to check to make sure terms are corrected in the text, but that doesn't need to happen urgently.",
       "createdAt": "2025-09-29T19:37:55Z",
-      "updatedAt": "2025-10-07T19:36:08Z",
+      "updatedAt": "2025-10-13T19:52:15Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
       "baseRefOid": "e128326da707685bbf4879d5b91dae5f924ce6ee",
       "headRepository": "ietf-wg-dult/threat-model",
       "headRefName": "delano-remove-todos",
       "headRefOid": "f5325c3e8f1453ecb00d8faa3060e7ffde5d3541",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-10-13T19:52:15Z",
+      "mergedAt": "2025-10-13T19:52:14Z",
+      "mergedBy": "maggiedelano",
+      "mergeCommit": {
+        "oid": "9a111fc5265c987a8599dd0c28bf250e175e6cd3"
+      },
       "comments": [],
       "reviews": [
         {
