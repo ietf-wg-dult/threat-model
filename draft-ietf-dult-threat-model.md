@@ -140,37 +140,33 @@ While there are many types of technology that can be used for Location Tracking,
 **Remote Disablement**:
 : the process of preventing a specific Location-tracking Accessory from communicating with the Crowdsourced Network via a command sent by a Platform.
 
-**Unwanted Tracking (UT)**:
+**Unwanted (Location) Tracking (UT)**:
 : undesired tracking of a person, their property, or their belongings by a Location-tracking Accessory.
 
 **Unwanted Tracking Alert**:
-: an alert notifying the user of the presence of an unrecognized Accessory that may be traveling with them over time that allows them to take various actions, including playing a sound on the Accessory if the Accessory is in Bluetooth Low Energy (LE) range.
+: an alert notifying the user of the presence of an unrecognized Accessory that may be traveling with them over time that allows them to take various actions, including playing a sound on the Accessory if the Accessory is in Bluetooth Low Energy (BLE) range.
 
 **Unwanted Tracking Detection**:
 : algorithms that detect the presence of an unknown Accessory traveling with a person over time.
 
 **Victim**:
-: a target of (attempted) Unwanted Tracking.
+: a target of (attempted) Unwanted Tracking. A victim may or may not own a Location-tracking Accessory.
 
 # Security Considerations
 
-Incorporation of this threat analysis into the DULT Protocol does not introduce any security risks not already inherent in the underlying Bluetooth tracking Tag protocols. Existing attempts to prevent Unwanted Tracking by the Owner(s) of a Tag have been criticized as potentially making it easier to engage in Unwanted Tracking of the Owner(s) of a Tag. However, Beck et al. have [demonstrated](https://eprint.iacr.org/2023/1332.pdf) a technological solution that employs secret sharing and error correction coding.
+Incorporation of this threat analysis into the DULT Protocol does not introduce any security risks not already inherent in the underlying Location-tracking Tag protocols.
 
 ## Security Considerations Unique To Unwanted Location Tracking
 
-In a situation involving interpersonal control, an Attacker may have access to a Victim's tracking account (e.g. Apple FindMy). The Attacker could have physical access to a mobile Device on which a tracking account app is installed, remote access through a web portal, or both.
-
-The risk of an Attacker accessing a Victim's tracking account remotely can be mitigated, though not eliminated, through support for different forms of multi-factor authentication (including hardware keys, e.g. Yubikeys, as well as more traditional methods). While this can also be used to mitigate the risk posed by physical access, taking overt security measures while frequently in physical proximity to the Attacker may lead to the Attacker escalating their tactics of interpersonal control. Risk assessments and the weighing of tradeoffs in such situations are often highly individualized.
-
-The ability of a user to access a tracking account over a web portal illustrates the need to consider web app security as part of support for detecting unwanted location trackers.
+In a situation involving interpersonal control, an Attacker may be more likely to have access to a Victim's Device or passwords. The Attacker could have physical access to a mobile Device on which a tracking account app is installed, remote access through a web portal, or both. The risk of an Attacker accessing a Victim's tracking account remotely can be mitigated, though not eliminated, through support for different forms of multi-factor authentication (including hardware keys, e.g. Yubikeys, as well as more traditional methods). While this can also be used to mitigate the risk posed by physical access, taking overt security measures while frequently in physical proximity to the Attacker may lead to the Attacker escalating their tactics of interpersonal control. Risk assessments and the weighing of tradeoffs in such situations are often highly individualized. The ability of a user to access a tracking account over a web portal illustrates the need to consider web app security as part of support for detecting unwanted location trackers.
 
 ## Balancing Privacy and Security
 
-In order to avoid pitting the privacy of Tag Owners not engaged in Unwanted Tracking against the security/safety of Victims, the DULT Protocol must consider and balance the privacy and safety of different users of the Crowdsourced Network.
+In order to avoid pitting the privacy of Tag Owners not engaged in Unwanted Tracking against the security/safety of Victims, the DULT Protocol must consider and balance the privacy and safety of different users of the Crowdsourced Network. Existing attempts to prevent Unwanted Tracking by the Owner(s) of a Tag have been criticized as potentially making it easier to engage in Unwanted Tracking of the Owner(s) of a Tag. However, Beck et al. have [demonstrated](https://eprint.iacr.org/2023/1332.pdf) a technological solution that employs secret sharing and error correction coding that may preserve the privacy of Tag Owners without reducing the efficacy of detecting Unwanted Tracking.
 
 ### Security against Unwanted Tracking for potential Victims
 
-The DULT Protocol must make it possible for potential Victims to discover unwanted trackers across Accessory hardware and Platforms within a reasonable amount of time. It should aid the Victim in determining the location and Owner of the Accessory while not providing a full name or contact information on demand (as the Tag may merely have been lost or otherwise coincidentally in proximity, and providing excessive information would violate the privacy of a non-malicious Tag Owner). This could potentially be done with obfuscation, such as showing a partially redacted email address or phone number (see {{active-scanning}}).
+The DULT Protocol must make it possible for potential Victims to discover Unwanted Tracking across Accessory hardware and Platforms within a reasonable amount of time. It should aid the Victim in determining the location and Owner of the Accessory while not providing a full name or contact information on demand (as the Tag may merely have been lost or otherwise coincidentally in proximity, and providing excessive information would violate the privacy of a non-malicious Tag Owner). This could potentially be done with obfuscation, such as showing a partially redacted email address or phone number (see {{active-scanning}}).
 
 ### Privacy for potential Victims against the use of security measures for further surveillance
 
@@ -209,18 +205,18 @@ In addition, the Victim also has characteristics which influence the threat anal
     - Unsuspecting: The Victim has no particular reason to be concerned about Unwanted Tracking.
   - Access to resources
     - High: The Victim is generally able to safely access practical and relevant resources. These might include funds to pay a car mechanic or private investigator, law enforcement or legal assistance, or other resources.
-    - Low: The Victim is generally unable to safely access practical and relevant resources. These might include money to pay a car mechanic or private investigator, law enforcement or legal assistance, or other resources.
+    - Low: The Victim is generally unable to safely access practical and relevant resources.
   - Access to technological safeguards
     - High: The Victim is able to safely use, and has access to, technological safeguards such as active scanning apps.
     - Limited: The Victim is able to safely use, and has access to, technological safeguards such as active scanning apps, but is unable to use their full capacity.
     - Low: The Victim is not able to use technological safeguards such as active scanning apps, due to reasons of safety or access.
 
-It is also appropriate to define who is using the tracking Tags and incorporate this into a model. This is because if protocols overly deprioritize the privacy of tracking Tags’ users, an Attacker could use a Victim’s own Tag to track them. Beck et al. describe a [possible technological solution](https://eprint.iacr.org/2023/1332.pdf) to the problem of user privacy vs privacy of other potential Victims. In designing the protocol, these concerns should be weighed equally.
+It is also appropriate to define who is using the Location-tracking Tags and incorporate this into a model. This is because if protocols overly deprioritize the privacy of tracking Tags’ users, an Attacker could use a Victim’s own Tag to track them (see {{balancing-privacy-and-security}}).
 
   - Tracking Tag usage
-    - Attacker only: The Attacker controls one or more tracking Tags, but the Victim does not.
-    - Victim only: The Victim controls one or more tracking Tags, but the Attacker does not.
-    - Attacker and Victim: Both the Attacker and Victim control one or more tracking Tags.
+    - Attacker only: The Attacker controls one or more Location-tracking Tags, but the Victim does not.
+    - Victim only: The Victim controls one or more Location-tracking Tags, but the Attacker does not.
+    - Attacker and Victim: Both the Attacker and Victim control one or more Location-tracking Tags.
 
 Any of the threat analyses above could be affected by placement of the Tag(s). For instance, a Tag could be placed on a Victim's person, or in proximity to a Victim but not on their person (e.g. a child's backpack). Examples include:
 
@@ -435,9 +431,9 @@ To systematically assess the risks associated with different threats, we introdu
 
 ### Deploying Multiple Tags (Finding)
 
-When an Attacker deploys tracking Tags to follow a Victim, they may deploy more than one Tag. For example, if planting a tracking Tag in a car, the Attacker might place one Tag inside the car, and another affixed on the outside of the car. The DULT Protocol must be robust to this scenario. This means that scans, whether passive or active, need to be able to return more than one result if a Device is suspected of being used for Unwanted Tracking, and the time to do so must not be significantly impeded by the presence of multiple trackers. This also applies to situations where many Tags are present, even if they are not being used for unwanted location tracking, such as a busy train station or airport where Tag Owners may or may not be in proximity to their tracking Tags. Instead of distributing multiple Tags in the same location, an Attacker could also distribute multiple tracking Tags across locations frequently visited by a Victim (home, workplace, etc.).
+When an Attacker deploys Location-tracking Tags to follow a Victim, they may deploy more than one Tag. For example, if planting a tracking Tag in a car, the Attacker might place one Tag inside the car, and another affixed on the outside of the car. The DULT Protocol must be robust to this scenario. This means that scans, whether passive or active, need to be able to return more than one result if a Device is suspected of being used for Unwanted Tracking, and the time to do so must not be significantly impeded by the presence of multiple trackers. This also applies to situations where many Tags are present, even if they are not being used for unwanted location tracking, such as a busy train station or airport where Tag Owners may or may not be in proximity to their Location-tracking Tags. Instead of distributing multiple Tags in the same location, an Attacker could also distribute multiple Location-tracking Tags across locations frequently visited by a Victim (home, workplace, etc.).
 
-The impact of this attack is medium for typical cases involving a small number of Tags, though the impact could escalate if an Attacker deploys dozens of Tags. The likelihood is high, as deploying multiple Tags requires minimal technical effort and can be done using inexpensive, commercially available trackers, making the attack easily repeatable. As a result, the overall risk is high, requiring robust countermeasures. The impact of multiple Tags can be fully mitigated by scanning for multiple Tags, though a sophisticated Attacker might deploy other techniques such as modifying Tag firmware ({{Accessory-firmware-modifications-Accessory}}) or periodically disabling a Tag ({{Attacker-Accessory-disablement-Accessory-finding}}) to evade detection.
+The impact of this attack is medium for typical cases involving a small number of Tags, though the impact could escalate if an Attacker deploys dozens of Tags. The likelihood is high, as deploying multiple Tags requires minimal technical effort and can be done using inexpensive, commercially available trackers, making the attack easily repeatable. As a result, the overall risk is high, requiring robust countermeasures. The impact of multiple Tags can be fully mitigated by scanning for multiple Tags, though a sophisticated Attacker might deploy other techniques such as modifying Tag firmware ({{accessory-firmware-modifications-accessory}}) or periodically disabling a Tag ({{attacker-accessory-disablement-accessory-finding}}) to evade detection.
 
 ### Remote Advertisement Monitoring (Accessory, Network)
 
@@ -445,7 +441,7 @@ Any Device with Bluetooth scanning capabilities in proximity to a Location-track
 
 The impact of remote advertisement monitoring is moderate, as tracking generally compromises privacy but, in many cases, prolonged observation primarily reveals the location of the object rather than of the person. The likelihood is high, as Attackers can execute this using off-the-shelf Bluetooth scanning tools or smartphone apps with minimal technical knowledge. As a result, this is classified as a medium risk attack. This attack can be partially mitigated by rotating tracking identifiers.
 
-Tracking Tags typically rotate any identifiers associated with the Tag, with the interval depending on context: when near the Owner's Device, identifiers rotate frequently (every 15–30 minutes), while in a separated state, rotation may occur only once every 24 hours (see {{!I-D.detecting-unwanted-location-trackers}}). Beck et al. have [demonstrated](https://eprint.iacr.org/2023/1332.pdf) a technological solution that employs secret sharing and error correction coding that would reduce this to 60 seconds. However, work must investigate how robust this scheme is to the presence of multiple Tags (see {{deploying-multiple-Tags-finding}}).
+Tracking Tags typically rotate any identifiers associated with the Tag, with the interval depending on context: when near the Owner's Device, identifiers rotate frequently (every 15–30 minutes), while in a separated state, rotation may occur only once every 24 hours (see {{!I-D.detecting-unwanted-location-trackers}}). Beck et al. have [demonstrated](https://eprint.iacr.org/2023/1332.pdf) a technological solution that employs secret sharing and error correction coding that would reduce this to 60 seconds. However, work must investigate how robust this scheme is to the presence of multiple Tags (see {{deploying-multiple-tags-finding}}).
 
 While rotating identifiers provides partial mitigation, Attackers can still use advanced correlation techniques, such as signal fingerprinting, timing analysis, and multi-sensor triangulation, to bypass this defense. These methods leverage unique transmission characteristics, RSSI (Received Signal Strength Indicator) variations, and environmental factors to probabilistically link rotating identifiers back to a single Device over time. Prior research, such as Beck et al., has [demonstrated](https://eprint.iacr.org/2023/1332.pdf) how statistical models can be used to correlate Bluetooth signals even when identifiers change frequently. Additional work by Despres et al. further [demonstrates](https://people.eecs.berkeley.edu/~daw/papers/deTagtive-snip23.pdf) that BLE Devices using rotating identifiers can be deanonymized through RSSI-based correlation techniques.
 
@@ -471,7 +467,7 @@ The likelihood is medium, as this attack is relatively easy to perform using com
 
 Attackers with access to a Victim’s account, either through password reuse, phishing, social engineering, or credential theft, can exploit DULT’s Ownership model by using the Victim’s own tracker to monitor their location. Since the tracker is registered to the Victim, the system assumes the user is the legitimate Owner and suppresses any Unwanted Tracking alerts. This creates a significant blind spot, as the Victim is effectively tracked by their own Device without any warning.
 
-This threat differs from impersonation or replay attacks (see {{impersonation-attack-Tag-Accessory-finding-network}} and {{replay-attack-Accessory-network}}) because it does not rely on breaking cryptographic protections or evading detection algorithms. Instead, it leverages the legitimate trust relationship encoded in the protocol. The impact of this attack is high, as it results in silent tracking with no alert mechanism. The likelihood is medium, as account compromise is a relatively common occurrence in real-world settings, though it still requires some Attacker effort or opportunity. Overall, the risk level is high due to the complete circumvention of core notification systems.
+This threat differs from impersonation or replay attacks (see {{impersonation-attack-tag-accessory-finding-network}} and {{replay-attack-accessory-network}}) because it does not rely on breaking cryptographic protections or evading detection algorithms. Instead, it leverages the legitimate trust relationship encoded in the protocol. The impact of this attack is high, as it results in silent tracking with no alert mechanism. The likelihood is medium, as account compromise is a relatively common occurrence in real-world settings, though it still requires some Attacker effort or opportunity. Overall, the risk level is high due to the complete circumvention of core notification systems.
 
 Partial mitigation may be possible through account activity monitoring, anomaly detection (e.g., login from unfamiliar location or Device), and notifications of significant account events (such as Tag access or Tag movement linked to a different Device). However, these features depend on Platform implementation and may not be uniformly enforced.
 
@@ -511,7 +507,7 @@ The likelihood of this attack is low, as it would require the impersonated Devic
 
 ### Replay Attack (Accessory, Network)
 
-In addition to impersonating legitimate tracking Devices (see {{impersonation-attack-Tag-Accessory-finding-network}}), Attackers can record and replay Bluetooth advertisements from a legitimate tracker. For example, an Attacker could capture a tracker's broadcast and retransmit it elsewhere, creating confusion about its actual location. This could be used to mislead users, interfere with tracking accuracy, or frame an innocent party by making it appear as though they are carrying a tracker when they are not.
+In addition to impersonating legitimate tracking Devices (see {{impersonation-attack-tag-accessory-finding-network}}), Attackers can record and replay Bluetooth advertisements from a legitimate tracker. For example, an Attacker could capture a tracker's broadcast and retransmit it elsewhere, creating confusion about its actual location. This could be used to mislead users, interfere with tracking accuracy, or frame an innocent party by making it appear as though they are carrying a tracker when they are not.
 
 The impact of this attack is medium. The likelihood is high, as replay attacks require no authentication and can be executed using off-the-shelf Bluetooth scanning tools with minimal technical expertise. Replay attacks pose a medium risk owing to their higher likelihood but medium impact. Replay attacks are particularly difficult to mitigate as they may involve different combinations of Accessories and Devices. Partial mitigation may be possible by authenticating messages from Accessories in a time varying manner.
 
@@ -535,7 +531,7 @@ The scope of this threat analysis includes any Accessory that is small and not e
 
 ### Attacker Profiles
 
-An Attacker who deploys any of the attacks described in {{threat-prioritization-framework-for-dult-threat-model}} is considered in scope. This includes: Attackers who track Victims using a tracking Tag and applications readily available for end-users (e.g. native tracking application), Attackers who physically modify tracking Tags (e.g. to disable a speaker), and Attackers who make alterations to the firmware of an existing tracking Tag or create custom Devices that successfully connect to the crowdsourced tracking network.
+An Attacker who deploys any of the attacks described in {{threat-prioritization-framework-for-dult-threat-model}} is considered in scope. This includes: Attackers who track Victims using a tracking Tag and applications readily available for end-users (e.g. native tracking application), Attackers who physically modify Location-tracking Tags (e.g. to disable a speaker), and Attackers who make alterations to the firmware of an existing tracking Tag or create custom Devices that successfully connect to the crowdsourced tracking network.
 
 ### Victim Profiles
 
@@ -548,7 +544,7 @@ As discussed in {{security-considerations}}, unwanted location tracking can invo
 - Include a variety of approaches to address different scenarios, including active and passive scanning and notifications or sounds
 - Account for scenarios in which the Attacker has high expertise, proximity, and/or access to resources within the scope defined in {{what-is-in-scope}}
 - Account for scenarios in which the Victim has low expertise, access to resources, and/or access to technological safeguards within the scope defined in {{what-is-in-scope}}
-- Avoid privacy compromises for the Tag Owner(s) when protecting against unwanted location tracking using tracking Tags
+- Avoid privacy compromises for the Tag Owner(s) when protecting against unwanted location tracking using Location-tracking Tags
 
 ## Design Requirements
 
@@ -560,11 +556,11 @@ There are four ways that the DULT Protocol should assist Victims in detecting po
 
 #### Active Scanning
 
-There may be scenarios where a Victim suspects that they are being tracked without their consent. Active scanning should allow a user to use a native application on their Device to search for tracking Tags that are separated from their Owners. When a Tag has been identified as potentially being used for unwanted location tracking, the user should be able to view the serial number of the Device along with obfuscated Owner information (e.g. last four digits of phone number, obfuscated email address) and instructions on how to find and/or disable the Device (see {{finding-tracking-Tags}} and {{disabling-tracking-Tags}}). Additional information about when that Tag has been previously encountered within a designated time window (e.g. the last 12 hours) should also be included if available (see {{balancing-privacy-and-security}}). Allowing users to "snooze" or ignore Tags known to be safe (e.g. Tags from a family member) could also be implemented. Tracking Tags that are near their Owners should not be shared to avoid abuse of the active scanning feature.
+There may be scenarios where a Victim suspects that they are being tracked without their consent. Active scanning should allow a user to use a native application on their Device to search for Location-tracking Tags that are separated from their Owners. When a Tag has been identified as potentially being used for unwanted location tracking, the user should be able to view the serial number of the Device along with obfuscated Owner information (e.g. last four digits of phone number, obfuscated email address) and instructions on how to find and/or disable the Device (see {{finding-tracking-tags}} and {{disabling-tracking-tags}}). Additional information about when that Tag has been previously encountered within a designated time window (e.g. the last 12 hours) should also be included if available (see {{balancing-privacy-and-security}}). Allowing users to "snooze" or ignore Tags known to be safe (e.g. Tags from a family member) could also be implemented. Tracking Tags that are near their Owners should not be shared to avoid abuse of the active scanning feature.
 
 #### Passive Scanning
 
-The Platform should passively scan for Devices suspected of unwanted location tracking and notify the user. This will involve implementing one or more algorithms to use to flag trackers and determine when to notify the user. (A dedicated DULT WG document will address tracking algorithms, and will be linked when it is available.) The user could be notified through a push notification or through Sounds and Haptics (see {{tracking-Tag-alerts}}). When a Tag has been identified as potentially being used for unwanted location tracking, the user should be able to view the serial number of the Device along with obfuscated Owner information (e.g. last four digits of phone number, obfuscated email address) for all accounts linked to the Tag and instructions on how to find and/or disable the Tag (see {{finding-tracking-Tags}} and {{disabling-tracking-Tags}}). There will be tradeoffs between detecting potential unwanted location tracking promptly and alerting the potential Victim prematurely. One way to handle these tradeoffs is to allow users to set the sensitivity of these alerts. For example, the [AirGuard](https://github.com/seemoo-lab/AirGuard) app includes three different "Security Level" settings that users can customize.
+The Platform should passively scan for Devices suspected of unwanted location tracking and notify the user. This will involve implementing one or more algorithms to use to flag trackers and determine when to notify the user. (A dedicated DULT WG document will address tracking algorithms, and will be linked when it is available.) The user could be notified through a push notification or through Sounds and Haptics (see {{tracking-tag-alerts}}). When a Tag has been identified as potentially being used for unwanted location tracking, the user should be able to view the serial number of the Device along with obfuscated Owner information (e.g. last four digits of phone number, obfuscated email address) for all accounts linked to the Tag and instructions on how to find and/or disable the Tag (see {{finding-tracking-tags}} and {{disabling-tracking-tags}}). There will be tradeoffs between detecting potential unwanted location tracking promptly and alerting the potential Victim prematurely. One way to handle these tradeoffs is to allow users to set the sensitivity of these alerts. For example, the [AirGuard](https://github.com/seemoo-lab/AirGuard) app includes three different "Security Level" settings that users can customize.
 
 To improve the accuracy of Unwanted Tracking detection, a confidence scoring mechanism can be used. Instead of issuing binary alerts for all detected tracking Devices, the system assigns a confidence score based on multiple factors, helping distinguish between genuine tracking threats and benign scenarios.
 
@@ -619,7 +615,7 @@ This approach ensures that users receive actionable and meaningful alerts, reduc
 
 #### Tracking Tag Alerts
 
-Tracking Tags may be difficult to locate, and users may not have a Device that can actively or passively scan for tracking Tags. The DULT Protocol should be built with [accessibility in mind](https://cdt.org/insights/centering-disability-in-mitigating-harms-of-bluetooth-tracking-technology/) so that the most people can be protected by the protocol. In addition to push notifications on nearby Devices, tracking Tags themselves should be able to notify end users. This should include periodic sounds when away from all Tag Owners, along with lights and haptics so that people who are Deaf or hard of hearing can still locate them.
+Tracking Tags may be difficult to locate, and users may not have a Device that can actively or passively scan for Location-tracking Tags. The DULT Protocol should be built with [accessibility in mind](https://cdt.org/insights/centering-disability-in-mitigating-harms-of-bluetooth-tracking-technology/) so that the most people can be protected by the protocol. In addition to push notifications on nearby Devices, Location-tracking Tags themselves should be able to notify end users. This should include periodic sounds when away from all Tag Owners, along with lights and haptics so that people who are Deaf or hard of hearing can still locate them.
 
 #### Crowdsourced Network Activities Logs
 
@@ -629,11 +625,11 @@ Logs should include sufficient detail to detect unwanted location tracking witho
 
 ### Finding Tracking Tags
 
-Even after a location tracker is detected through passive or active scanning, a user may have difficulty in locating it. For example, a Tag may be buried under a vehicle cushion. Platforms should allow users who have discovered a tracker through passive or active scanning to request that the tracker signal its presence. This assistance should be done in a way that is accessible to users with sensory or other impairments by using multimodal signals as described in {{tracking-Tag-alerts}}. Platforms may also implement other methods to assist in locating trackers, such as precision finding using Ultra-wideband.
+Even after a location tracker is detected through passive or active scanning, a user may have difficulty in locating it. For example, a Tag may be buried under a vehicle cushion. Platforms should allow users who have discovered a tracker through passive or active scanning to request that the tracker signal its presence. This assistance should be done in a way that is accessible to users with sensory or other impairments by using multimodal signals as described in {{tracking-tag-alerts}}. Platforms may also implement other methods to assist in locating trackers, such as precision finding using Ultra-wideband.
 
 ### Disabling Tracking Tags
 
-In order to effectively prevent unwanted location tracking, users should be able to disable location tracker Tags. This includes a Non-Owner user being tracked by a Tag's Owner, as well as an Owner user who believes that an Attacker is using their own Tag to track them. Platforms should provide instructions for disabling tracking Tags once they are located. Platforms should also consider allowing tracking Tags to be disabled remotely.
+In order to effectively prevent unwanted location tracking, users should be able to disable location tracker Tags. This includes a Non-Owner user being tracked by a Tag's Owner, as well as an Owner user who believes that an Attacker is using their own Tag to track them. Platforms should provide instructions for disabling Location-tracking Tags once they are located. Platforms should also consider allowing Location-tracking Tags to be disabled remotely.
 
 Beyond simple deactivation, users should also receive guidance on additional steps they may take, depending on their specific situation:
 
@@ -644,7 +640,7 @@ It is important to consider where educational and disabling guidance is hosted. 
 
 ### Notification Management for Trusted Devices
 
-To reduce alert fatigue and improve user experience, implementations should allow users to snooze passive notifications from tracking Tags that have been explicitly marked as trusted or friendly. This is particularly useful in scenarios where users regularly encounter the same Tag (e.g., a family member's keys or a shared vehicle Tag).
+To reduce alert fatigue and improve user experience, implementations should allow users to snooze passive notifications from Location-tracking Tags that have been explicitly marked as trusted or friendly. This is particularly useful in scenarios where users regularly encounter the same Tag (e.g., a family member's keys or a shared vehicle Tag).
 
 Such snoozed Tags may also be de-prioritized or grouped separately during active scans, helping users focus on unfamiliar or potentially malicious trackers. Platforms should make it easy to manage snoozed Devices and review or revoke trust status as needed. It is also advisable to implement revalidation mechanisms, for example, resuming notifications after a period of time to prevent long-term blind spots.
 
