@@ -416,7 +416,7 @@ To systematically assess the risks associated with different threats, we introdu
 
 | Threat | Scope | Impact | Likelihood | Risk Level | Affected Users | Mitigation Available? |
 | ------ | --------------------- | ------------------------- | ------------------------- | -------------- | ------------------------------ |
-| Deploying Multiple Tags | Finding | Medium | High	| High | Targets | Full |
+| Deploying Multiple Tags | Finding | Medium | High	| High | Targets | Yes |
 | Remote Advertisement Monitoring | Accessory, Network | Medium | High | Medium | All users | Partial |
 | Physically Modifying Tags | Accessory | High | Medium | Medium | Targets | Partial |
 | Accessory Firmware Modifications | Accessory | High | Low | Medium | Targets | Partial |
