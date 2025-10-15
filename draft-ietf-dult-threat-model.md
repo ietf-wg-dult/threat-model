@@ -71,7 +71,7 @@ In order to standardize a protocol for detecting Unwanted Tracking, thus minimiz
 
 ## Applicability
 
-While there are many types of technology that can be used for Location Tracking, it is infeasible to attempt to describe a threat analysis for each possible technology in this document. The threat model described here is likely not applicable to the following areas: app-based technologies such as parental monitoring apps, Internet of Things (IoT) Devices that are easily discoverable, connected cars, or user accounts for cloud services or social media. A notable exception to this is GPS trackers; see {{bluetooth-vs-other-technologies}} for relevant information and recommendations.
+While there are many types of technology that can be used for Location Tracking, it is infeasible to attempt to describe a threat analysis for each possible technology in this document. The threat model described here is likely not applicable to the following areas: app-based technologies such as parental monitoring apps, Internet of Things (IoT) Devices that are Easily Discoverable, connected cars, or user accounts for cloud services or social media. A notable exception to this is GPS trackers; see {{bluetooth-vs-other-technologies}} for relevant information and recommendations.
 
 This threat model is also more likely to be applicable in regions where the use of Location-tracking Tags is more prevalent. While Location-tracking Tags have existed for over a decade, they became especially widely-used in the Global North in the last several years as Crowdsourced Networks were deployed by major smart phone manufacturers. However, due to their reliance on a high density of Non-Owner Devices for the network to be effective and the relative cost of Location-tracking Tags, Location-tracking Tag use in the Global South is typically limited to affluent communities. If the cost of Non-Owner Devices and Location-tracking Tags decrease, an uptick of Unwanted Tracking could also occur in contexts where it is currently infeasible. This threat-model does still attempt to consider possible regional differences in Location-tracking Tag use (such as differences between rural and urban use), and also the sometimes limited resources that may be available to victims of unwanted tracking.
 
@@ -107,7 +107,7 @@ This threat model is also more likely to be applicable in regions where the use 
 : the protocol under development by the IETF DULT working Group to prevent Unwanted Location Tracking. This includes protocols for Accessories and the crowd sourced network, along with algorithms for detecting Unwanted Tracking.
 
 **Easily Discoverable**:
-: an Accessory that is larger than 30 cm in at least one dimension, larger than 18 cm x 13 cm in two of its dimensions, and/or larger than 250 cm<sup>3</sup> in three-dimensional space.
+: an Accessory that is larger than 30 cm in at least one dimension, larger than 18 cm x 13 cm in two of its dimensions, and/or larger than 250 cm<sup>3</sup> in three-dimensional space. Location-tracking Accessories that are not Easily Discoverable MUST adhere to the DULT protocol.
 
 **Location-enabled Advertisement Payload**:
 : the Bluetooth (BT) advertisement payload that is advertised when an Accessory has recently, is currently, or will in the future provide location updates to its Owner.
