@@ -693,4 +693,4 @@ This document has no IANA actions.
 # Acknowledgments
 {:numbered="false"}
 
-TODO acknowledge.
+Many thanks for feedback from Brent Ledvina, Barry Leiba, Michael Ricardson, Eric Rescorla, Christine Fossaceca, Eva Galperin, and Alexis Hancock, and for contributed text from Corbin Streett and Diana Appanna.
