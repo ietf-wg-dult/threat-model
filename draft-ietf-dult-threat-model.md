@@ -544,7 +544,7 @@ As discussed in {{security-considerations}}, Unwanted Tracking can involve a var
 - Include a variety of approaches to address different scenarios, including active and passive scanning and notifications or sounds
 - Account for scenarios in which the Attacker has high expertise, proximity, and/or access to resources within the scope defined in {{what-is-in-scope}}
 - Account for scenarios in which the Target has low expertise, access to resources, and/or access to technological safeguards within the scope defined in {{what-is-in-scope}}
-- Avoid privacy compromises for Tag Owner(s) when protecting against Unwanted Tracking
+- Avoid privacy compromises for Tag Owner(s) when protecting against Unwanted Tracking. The privacy of Tag Owner(s) and the security of Targets should be considered equally.
 
 ## Design Requirements
 
