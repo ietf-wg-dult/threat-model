@@ -5,10 +5,10 @@
 Detecting Unwanted Location Trackers                           M. Delano
 Internet-Draft                                        Swarthmore College
 Intended status: Informational                                 J. Lowell
-Expires: 17 April 2026         National Network to End Domestic Violence
+Expires: 18 April 2026         National Network to End Domestic Violence
                                                                S. Prabhu
                                                                    Nokia
-                                                         14 October 2025
+                                                         15 October 2025
 
 
                            DULT Threat Model
@@ -17,13 +17,13 @@ Expires: 17 April 2026         National Network to End Domestic Violence
 Abstract
 
    Lightweight Location-tracking Tags are in wide use to allow users to
-   locate items.  These Tags function as a component of a crowdsourced
-   tracking network in which Devices belonging to other network users
-   (e.g., phones) report which Tags they see and their location, thus
-   allowing the Owner(s) of the Tag to determine where their Tag was
-   most recently seen.  While there are many legitimate uses of these
-   Tags, they are also susceptible to misuse for the purpose of stalking
-   and abuse.  A protocol that allows others to detect unwanted tracking
+   locate items.  These Tags function as a component of a Crowdsourced
+   Network in which Devices belonging to other network users (e.g.,
+   phones) report which Tags they see and their location, thus allowing
+   the Owner(s) of the Tag to determine where their Tag was most
+   recently seen.  While there are many legitimate uses of these Tags,
+   they are also susceptible to misuse for the purpose of stalking and
+   abuse.  A protocol that allows others to detect Unwanted Tracking
    must incorporate an understanding of the Unwanted Tracking landscape
    today.  This document provides a threat analysis for this purpose,
    including a taxonomy of Unwanted Tracking and potential attacks
@@ -67,7 +67,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 17 April 2026.
+   This Internet-Draft will expire on 18 April 2026.
 
 Copyright Notice
 
@@ -127,7 +127,7 @@ Table of Contents
        4.1.1.  Detecting Unwanted Location Tracking
        4.1.2.  Finding Tracking Tags
        4.1.3.  Disabling Tracking Tags
-       4.1.4.  Notification Management for Trusted Devices
+       4.1.4.  Notification Management for Trusted Accessories
      4.2.  Design Constraints
        4.2.1.  Bluetooth constraints
        4.2.2.  Power constraints
@@ -226,7 +226,7 @@ Table of Contents
    analysis for each possible technology in this document.  The threat
    model described here is likely not applicable to the following areas:
    app-based technologies such as parental monitoring apps, Internet of
-   Things (IoT) Devices that are easily discoverable, connected cars, or
+   Things (IoT) devices that are easily discoverable, connected cars, or
    user accounts for cloud services or social media.  A notable
    exception to this is GPS trackers; see Section 3.3.2 for relevant
    information and recommendations.
@@ -292,13 +292,13 @@ Table of Contents
       location can be remotely viewed by its Owner.
 
    *Location-tracking Accessory*:  any Accessory that has location-
-      tracking capabilities, including, but not limited to, crowd-
-      sourced location, GPS/GNSS location, WiFi location, cell location,
-      etc., and provides the location information back to an Owner
-      Device via a Crowdsourced Network using the internet, cellular
-      connection, etc.  Location-tracking Accessories that are Easily
-      Discoverable MUST adhere to the DULT Protocol.  Location-tracking
-      Accessories may also be referred to as Location-tracking Tags.
+      tracking capabilities, including, but not limited to, crowdsourced
+      location, GPS/GNSS location, WiFi location, cell location, etc.,
+      and provides the location information back to an Owner Device via
+      a Crowdsourced Network using the internet, cellular connection,
+      etc.  Location-tracking Accessories that are Easily Discoverable
+      MUST adhere to the DULT Protocol.  Location-tracking Accessories
+      may also be referred to as Location-tracking Tags.
 
    *Location-tracking Tag*:  a term that may be used interchangeably
       with Location-tracking Accessory.
@@ -945,12 +945,12 @@ Table of Contents
    and physical properties of the Accessory from the user’s perspective:
    the Accessory must be small, not Easily Discoverable, and able to
    participate in a Crowdsourced Network.  While many GPS based location
-   trackers are not explicitly designed for crowdsourced location
+   trackers are not explicitly designed for crowdsourced location-
    tracking, relying instead on cellular or satellite transmission, they
    offer different affordances that can have a critical impact on
    safety, including increased location precision and real-time
    tracking.  Manufacturers of these trackers are strongly encouraged to
-   add Bluetooth crowd-sourced functionality so that DULT Protocols can
+   add Bluetooth crowdsourced functionality so that DULT Protocols can
    be supported by GPS trackers.
 
 3.4.  Possible Attacks on the DULT Protocol
@@ -1113,15 +1113,15 @@ Table of Contents
    car, and another affixed on the outside of the car.  The DULT
    Protocol must be robust to this scenario.  This means that scans,
    whether passive or active, need to be able to return more than one
-   result if a Device is suspected of being used for Unwanted Tracking,
-   and the time to do so must not be significantly impeded by the
-   presence of multiple Tags.  This also applies to situations where
-   many Tags are present, even if they are not being used for Unwanted
-   Tracking, such as a busy train station or airport where Tag Owners
-   may or may not be in proximity to their Location-tracking Tags.
-   Instead of distributing multiple Tags in the same location, an
-   Attacker could also distribute multiple Location-tracking Tags across
-   locations frequently visited by a Victim (home, workplace, etc.).
+   result if a Tag is suspected of being used for Unwanted Tracking, and
+   the time to do so must not be significantly impeded by the presence
+   of multiple Tags.  This also applies to situations where many Tags
+   are present, even if they are not being used for Unwanted Tracking,
+   such as a busy train station or airport where Tag Owners may or may
+   not be in proximity to their Location-tracking Tags.  Instead of
+   distributing multiple Tags in the same location, an Attacker could
+   also distribute multiple Location-tracking Tags across locations
+   frequently visited by a Victim (home, workplace, etc.).
 
    The impact of this attack is medium for typical cases involving a
    small number of Tags, though the impact could escalate if an Attacker
@@ -1170,13 +1170,13 @@ Table of Contents
    bypass this defense.  These methods leverage unique transmission
    characteristics, RSSI (Received Signal Strength Indicator)
    variations, and environmental factors to probabilistically link
-   rotating identifiers back to a single Device over time.  Prior
-   research, such as Eldridge et al., has demonstrated
+   rotating identifiers back to a single Tag over time.  Prior research,
+   such as Eldridge et al., has demonstrated
    (https://eprint.iacr.org/2023/1332.pdf) how statistical models can be
    used to correlate Bluetooth signals even when identifiers change
    frequently.  Additional work by Despres et al. further demonstrates
    (https://people.eecs.berkeley.edu/~daw/papers/deTagtive-snip23.pdf)
-   that BLE Devices using rotating identifiers can be deanonymized
+   that BLE Accessories using rotating identifiers can be deanonymized
    through RSSI-based correlation techniques.
 
 3.4.5.  Physically Modifying Tags (Accessory)
@@ -1188,11 +1188,10 @@ Table of Contents
    modifications can make it more difficult for Victims to discover
    hidden Tags, leading to a high impact.  The likelihood is medium, as
    such hardware modifications require moderate technical expertise and
-   physical access to the Device.  Given this combination of factors,
-   the overall risk level is medium.  Partial mitigation is available,
-   such as monitoring the impedance of the speaker, but these
-   mitigations are limited as Attackers have physical access to the
-   Tags.
+   physical access to the Tag.  Given this combination of factors, the
+   overall risk level is medium.  Partial mitigation is available, such
+   as monitoring the impedance of the speaker, but these mitigations are
+   limited as Attackers have physical access to the Tags.
 
 3.4.6.  Accessory Firmware Modifications (Accessory)
 
@@ -1204,7 +1203,7 @@ Table of Contents
    Attackers may manipulate advertisement intervals to reduce detection
    opportunities, allowing the Tag to evade tracking for extended
    periods, or rotate IDs rapidly, disrupting detection systems that
-   rely on tracking unknown Device persistence.
+   rely on tracking unknown Accessory persistence.
 
    Firmware-based changes would have high impact.  The likelihood is
    low, as these attacks require significant technical expertise to
@@ -1218,7 +1217,7 @@ Table of Contents
    An Attacker might intentionally disable their Location-tracking Tag
    to make it harder for a Victim to detect and/or locate the Tag. This
    could be done periodically or permanently and either remotely or
-   using a physical Device (https://undetecTag.com/products/undetecTag).
+   using a physical device (https://undetecTag.com/products/undetecTag).
 
    The likelihood is medium, as this attack is relatively easy to
    perform using commercially available tools, but it still requires
@@ -1312,14 +1311,14 @@ Table of Contents
    emulate MacBook location beacons.  Since such beacons are typically
    ignored by Apple’s Unwanted Tracking alerts, this evasion method
    allows the Attacker to remain undetected.  This demonstrates how
-   Attackers can exploit trust assumptions about certain Device classes
-   to bypass user protections, further complicating detection and
-   mitigation.
+   Attackers can exploit trust assumptions about certain Accessory
+   classes to bypass user protections, further complicating detection
+   and mitigation.
 
    The impact of this attack is high, as it enables real-time location
-   tracking by exploiting the behavior of crowdsourced location
-   networks.  The likelihood is medium, as the attack requires deploying
-   custom hardware or exploiting Platform-specific capabilities like
+   tracking by exploiting the behavior of the Crowdsourced Network.  The
+   likelihood is medium, as the attack requires deploying custom
+   hardware or exploiting Platform-specific capabilities like
    unrestricted Bluetooth broadcasting, which have been demonstrated in
    research but remain moderately complex to execute.  As a result, the
    overall risk level is considered high.  Currently, no fully effective
@@ -1376,14 +1375,14 @@ Table of Contents
 
 3.4.13.  Replay Attack (Accessory, Network)
 
-   In addition to impersonating legitimate tracking Devices (see
+   In addition to impersonating legitimate Accessories (see
    Section 3.4.11), Attackers can record and replay Bluetooth
-   advertisements from a legitimate Tag. For example, an Attacker could
-   capture a Tag's broadcast and retransmit it elsewhere, creating
-   confusion about its actual location.  This could be used to mislead
-   users, interfere with tracking accuracy, or frame an innocent party
-   by making it appear as though they are carrying a Tag or in a
-   location when they are not.
+   advertisements from a legitimate Accessory.  For example, an Attacker
+   could capture an Accessory's broadcast and retransmit it elsewhere,
+   creating confusion about its actual location.  This could be used to
+   mislead users, interfere with tracking accuracy, or frame an innocent
+   party by making it appear as though they are carrying an Accessory or
+   in a location when they are not.
 
    The impact of this attack is medium.  The likelihood is high, as
    replay attacks require no authentication and can be executed using
@@ -1427,7 +1426,7 @@ Table of Contents
    based trackers, and not as readily available.  As a result, the
    overall risk is high, requiring robust countermeasures.  The impact
    of GPS trackers can be mitigated by adding Bluetooth crowdsourced
-   tracking functionality to GPS trackers and adopting the DULT
+   location-tracking functionality to GPS trackers and adopting the DULT
    Protocol.  However, the adoption of the DULT Protocol by GPS tracker
    manufacturers is of course optional, so this is considered a partial
    mitigation.
@@ -1439,8 +1438,8 @@ Table of Contents
    The scope of this threat analysis includes any Accessory that is
    small and not Easily Discoverable and able to transmit its location
    to consumer Devices using Bluetooth.  Larger and/or Easily
-   Discoverable Devices such as laptops with Location-tracking Tag
-   integrations may also choose to implement the protocol.
+   Discoverable Accessories/Devices such as laptops with location-
+   tracking integrations may also choose to implement the protocol.
 
 3.5.2.  Attacker Profiles
 
@@ -1450,8 +1449,8 @@ Table of Contents
    end-users (e.g. native tracking application), Attackers who
    physically modify Location-tracking Tags (e.g. to disable a speaker),
    and Attackers who make alterations to the firmware of an existing
-   tracking Tag or create custom Devices that successfully connect to
-   the crowdsourced tracking network.
+   tracking Tag or create custom Tags that successfully connect to
+   Devices and therefore the Crowdsourced Network.
 
 3.5.3.  Victim Profiles
 
@@ -1508,7 +1507,7 @@ Table of Contents
    user should be able to view the serial number of the Device along
    with obfuscated Owner information (e.g. last four digits of phone
    number, obfuscated email address) and instructions on how to find
-   and/or disable the Device (see Section 4.1.2 and Section 4.1.3).
+   and/or disable the Tag (see Section 4.1.2 and Section 4.1.3).
    Additional information about when that Tag has been previously
    encountered within a designated time window (e.g. the last 12 hours)
    should also be included if available (see Section 3.2).  Allowing
@@ -1527,7 +1526,7 @@ Table of Contents
    be notified through a push notification or through Sounds and Haptics
    (see Section 4.1.1.3).  When a Tag has been identified as potentially
    being used for Unwanted Tracking, the user should be able to view the
-   serial number of the Device along with obfuscated Owner information
+   serial number of the Tag along with obfuscated Owner information
    (e.g. last four digits of phone number, obfuscated email address) for
    all accounts linked to the Tag and instructions on how to find and/or
    disable the Tag (see Section 4.1.2 and Section 4.1.3).  There will be
@@ -1540,13 +1539,13 @@ Table of Contents
 
    To improve the accuracy of Unwanted Tracking detection, a confidence
    scoring mechanism can be used.  Instead of issuing binary alerts for
-   all detected tracking Devices, the system assigns a confidence score
-   based on multiple factors, helping distinguish between genuine
-   tracking threats and benign scenarios.  This section outlines
-   potential factors that may contribute to assessing the likelihood of
-   Unwanted Tracking.  Each factor can be considered independently to
-   help inform an overall risk assessment.  A confidence-based approach
-   offers the following advantages:
+   all detected Tags, the system assigns a confidence score based on
+   multiple factors, helping distinguish between genuine tracking
+   threats and benign scenarios.  This section outlines potential
+   factors that may contribute to assessing the likelihood of Unwanted
+   Tracking.  Each factor can be considered independently to help inform
+   an overall risk assessment.  A confidence-based approach offers the
+   following advantages:
 
    *  Reduced False Positives: A confidence-based approach can help
       filter out benign tracking scenarios, such as transient signals or
@@ -1644,14 +1643,14 @@ Table of Contents
    Appearances in unfamiliar or private locations without explanation
    raise concern.
 
-4.1.1.3.  Tracking Tag Alerts
+4.1.1.3.  Location-tracking Tag Alerts
 
-   Tracking Tags may be difficult to locate, and users may not have a
-   Device that can actively or passively scan for Location-tracking
-   Tags.  The DULT Protocol should be built with accessibility in mind
-   (https://cdt.org/insights/centering-disability-in-mitigating-harms-
-   of-bluetooth-tracking-technology/) so that the most people can be
-   protected by the protocol.  In addition to push notifications on
+   Location-tracking Tags may be difficult to locate, and users may not
+   have a Device that can actively or passively scan for Location-
+   tracking Tags.  The DULT Protocol should be built with accessibility
+   in mind (https://cdt.org/insights/centering-disability-in-mitigating-
+   harms-of-bluetooth-tracking-technology/) so that the most people can
+   be protected by the protocol.  In addition to push notifications on
    nearby Devices, Location-tracking Tags themselves should be able to
    notify end users.  This should include periodic sounds when away from
    all Tag Owners, along with lights and haptics so that people who are
@@ -1661,7 +1660,7 @@ Table of Contents
 
    Stephenson et al. (https://www.usenix.org/system/files/
    usenixsecurity23-stephenson-lessons.pdf) point out that Internet of
-   Things Devices like Location-tracking Accessories do not have ways to
+   Things devices like Location-tracking Accessories do not have ways to
    reveal abusive behavior.  This can be addressed through the use of
    detailed logs that provide insights for Victims about which accounts
    have accessed the location of which Accessories and when.
@@ -1672,11 +1671,11 @@ Table of Contents
 
    Logs should include sufficient detail to detect Unwanted Tracking
    without being another vector for surveillance.  For example, a log
-   could state that "User B viewed the location of Device X at [time]."
-   By including information about user, Device, and time, Victims can
-   determine whether their own Accessories are being used to track them,
-   and whether or not their accounts connected to the Crowdsourced
-   Network are compromised.
+   could state that "User B viewed the location of Accessory X at
+   [time]."  By including information about user, Accessory, and time,
+   Victims can determine whether their own Accessories are being used to
+   track them, and whether or not their accounts connected to the
+   Crowdsourced Network are compromised.
 
 4.1.2.  Finding Tracking Tags
 
@@ -1727,7 +1726,7 @@ Table of Contents
    for vulnerable users, including those in high-risk environments or
    authoritarian regions.
 
-4.1.4.  Notification Management for Trusted Devices
+4.1.4.  Notification Management for Trusted Accessories
 
    To reduce alert fatigue and improve user experience, implementations
    should allow users to snooze passive notifications from Location-
@@ -1738,9 +1737,9 @@ Table of Contents
 
    Such snoozed Tags may also be de-prioritized or grouped separately
    during active scans, helping users focus on unfamiliar or potentially
-   malicious Tags.  Platforms should make it easy to manage snoozed
-   Devices and review or revoke trust status as needed.  It is also
-   advisable to implement revalidation mechanisms, for example, resuming
+   malicious Tags.  Platforms should make it easy to manage snoozed Tags
+   and review or revoke trust status as needed.  It is also advisable to
+   implement revalidation mechanisms, for example, resuming
    notifications after a period of time to prevent long-term blind
    spots.
 
@@ -1824,7 +1823,7 @@ Table of Contents
 4.2.2.  Power constraints
 
    Unwanted tracking detection mechanisms typically rely on periodic
-   Bluetooth scanning to identify unknown tracking Devices.  However,
+   Bluetooth scanning to identify unknown Accessories.  However,
    continuous background scanning poses a significant power challenge,
    especially for mobile Devices with limited battery capacity.
    Maintaining high-frequency scans for extended periods can lead to
@@ -1835,9 +1834,9 @@ Table of Contents
    efficient approaches that balance security with practicality.
    Adaptive scanning strategies can dynamically adjust the scan
    frequency based on contextual risk levels.  For example, if a
-   suspicious tracking Device is detected nearby, the system can
-   temporarily increase scan frequency while reverting to a lower-power
-   mode when no threats are present.
+   suspicious Accessory is detected nearby, the system can temporarily
+   increase scan frequency while reverting to a lower-power mode when no
+   threats are present.
 
    Event-triggered detection offers another alternative by activating
    scanning only in specific high-risk scenarios.  Users moving into a
@@ -1849,7 +1848,7 @@ Table of Contents
    design, ensuring that detection mechanisms remain effective without
    significantly degrading battery performance.  Consideration of
    Device-specific constraints, such as variations in power efficiency
-   across smartphones, wearables, and IoT Devices, will be critical in
+   across smartphones, wearables, and IoT devices, will be critical in
    maintaining a balance between security and usability.
 
 4.2.3.  Device constraints
@@ -1864,7 +1863,7 @@ Table of Contents
    Hardware variability affects detection accuracy.  While newer
    smartphones are equipped with advanced Bluetooth Low Energy (BLE)
    chipsets capable of frequent and reliable scanning, older
-   smartphones, feature phones, and IoT Devices may have reduced BLE
+   smartphones, feature phones, and IoT devices may have reduced BLE
    performance.  Differences in antenna sensitivity, chipset power, and
    OS-level access control can result in inconsistent detection, where
    some Devices fail to detect tracking signals as reliably as others.
@@ -1878,9 +1877,9 @@ Table of Contents
    updates.  Android applies similar policies to regulate background
    processes and optimize power consumption.  Additionally, privacy
    frameworks on mobile Platforms may influence how applications access
-   and process certain Device-related data.  These factors, along with
-   resource limitations in wearables and IoT Devices, can impact the
-   feasibility of continuous scanning and detection.
+   and process certain Accessory-related data.  These factors, along
+   with resource limitations in wearables and IoT Devices, can impact
+   the feasibility of continuous scanning and detection.
 
    Further, Platform permission models can restrict access to BLE scan
    data.  For example, Android requires coarse or fine location
