@@ -59,7 +59,7 @@ Location-tracking Tags allow users to locate items. These Tags function as a com
 
 A naive implementation of this design exposes both a Tag's user and anyone who might be targeted for location tracking by a Tag's user, to considerable privacy risk. In particular:
 
-  - If Accessories simply have a fixed identifier that is reported back to the Crowdsourced Network, then the central server is able to track any Accessory without the user's assistance, which is clearly undesirable.
+  - If Accessories simply have a fixed identifier that is reported back to the Crowdsourced Network, then the central server is able to track any Accessory without the user's assistance.
   - Any Attacker who can guess a Tag ID can query the Crowdsourced Network for its location.
   - An Attacker can surreptitiously plant an Accessory on a target and thus track them by tracking their "own" Accessory.
   - Attackers could launch Denial-of-Service (DoS) attacks by flooding the Crowdsourced Network with spoofed Tag reports, disrupting real updates and overwhelming the Network.
