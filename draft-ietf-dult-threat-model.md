@@ -164,7 +164,7 @@ In a situation involving interpersonal control, an Attacker may be more likely t
 
 ## Balancing Privacy and Security
 
-In order to avoid pitting the privacy of Tag Owners not engaged in Unwanted Tracking against the security/safety of Victims, the DULT Protocol must consider and balance the privacy and safety of different users of the Crowdsourced Network. Existing attempts to prevent Unwanted Tracking by the Owner(s) of a Tag have been criticized as potentially making it easier to engage in Unwanted Tracking of the Owner(s) of a Tag. However, Eldridge et al. have [demonstrated](https://eprint.iacr.org/2023/1332.pdf) a technological solution that employs secret sharing and error correction coding that may preserve the privacy of Tag Owners without reducing the efficacy of detecting Unwanted Tracking.
+In order to avoid pitting the privacy of Tag Owners not engaged in Unwanted Tracking against the security/safety of Victims, the DULT Protocol must consider and balance the privacy and safety of different users of the Crowdsourced Network. Existing attempts to prevent Unwanted Tracking (i.e. where an Attacker uses their own Tag to tracks a Victim without their consent) have been criticized as potentially making it easier for an Attacker to track a Victim using the Victim's own Tag. However, Eldridge et al. have [demonstrated](https://eprint.iacr.org/2023/1332.pdf) a technological solution that employs secret sharing and error correction coding that may preserve the privacy of Tag Owners without reducing the efficacy of detecting Unwanted Tracking.
 
 ### Security against Unwanted Tracking for potential Victims
 
