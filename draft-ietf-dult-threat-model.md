@@ -621,6 +621,10 @@ Logs should include sufficient detail to detect Unwanted Tracking without being 
 
 Even after a Tag is detected through passive or active scanning, a user may have difficulty in locating it. For example, a Tag may be buried under a vehicle cushion. Platforms should allow users who have discovered a Tag through passive or active scanning to request that the Tag signal its presence. This assistance should be done in a way that is accessible to users with sensory or other impairments by using multimodal signals as described in {{tracking-tag-alerts}}. Manufacturers/Platforms may also implement other methods to assist in locating Tags, such as precision finding using Ultra-wideband.
 
+#### Lost Mode
+
+Some Platforms allow Accessories to be marked as lost. When another user finds the Accessory, they can view a message and/or contact information of the Accessory Owner. While helpful in a benign case where an Accessory is truly lost, care must be taken to ensure that the lost mode function is not used for harassment. Platforms should use a non-customizable lost message and display either obfuscated Owner information (e.g. last four digits of phone number, obfuscated email address), or a full phone number or email address if the Accessory Owner chooses to share that information.
+
 ### Disabling Tracking Tags
 
 In order to effectively prevent Unwanted Tracking, users should be able to disable Location-tracking Tags. This includes a Non-Owner user being tracked by a Tag's Owner, as well as an Owner user who believes that an Attacker is using their own Tag to track them. Platforms should provide instructions for disabling Location-tracking Tags once they are located. Manufactures/Platforms should also consider allowing Location-tracking Tags to be disabled remotely.
