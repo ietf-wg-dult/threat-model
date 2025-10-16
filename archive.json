@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-10-14T01:15:04.870120+00:00",
+  "timestamp": "2025-10-16T01:16:36.122710+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -447,7 +447,7 @@
       "id": "I_kwDOMB0Qas6oCfOS",
       "title": "Update terminology in threat model document to be consistent with other documents",
       "url": "https://github.com/ietf-wg-dult/threat-model/issues/33",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -456,8 +456,8 @@
       "labels": [],
       "body": "Update terminology in threat model document to be consistent with other documents.",
       "createdAt": "2025-01-29T20:29:34Z",
-      "updatedAt": "2025-08-05T14:51:29Z",
-      "closedAt": null,
+      "updatedAt": "2025-10-15T15:09:21Z",
+      "closedAt": "2025-10-15T15:09:20Z",
       "comments": [
         {
           "author": "maggiedelano",
@@ -473,7 +473,7 @@
       "id": "I_kwDOMB0Qas6oCgcV",
       "title": "Terminology: Update terminology to match accessory protocol document",
       "url": "https://github.com/ietf-wg-dult/threat-model/issues/34",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -482,8 +482,8 @@
       "labels": [],
       "body": "Update terminology to match [accessory protocol document](https://github.com/ietf-wg-dult/accessory-protocol). (N.B. we discussed at IETF that the terminology in that document should likely serve as a reference, but if changes are needed, they can be made as well. This issue may therefore be lower priority while all groups work on their terminology.) ",
       "createdAt": "2025-01-29T20:31:08Z",
-      "updatedAt": "2025-08-05T14:51:30Z",
-      "closedAt": null,
+      "updatedAt": "2025-10-15T15:09:20Z",
+      "closedAt": "2025-10-15T15:09:20Z",
       "comments": []
     },
     {
@@ -517,7 +517,7 @@
       "id": "I_kwDOMB0Qas6oCjqU",
       "title": "Discuss possible design tradeoffs",
       "url": "https://github.com/ietf-wg-dult/threat-model/issues/36",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -526,8 +526,8 @@
       "labels": [],
       "body": "Detecting unwanted location tracking is often discussed as a trade off between privacy of unassociated tag owners and security of tracking victims (see e.g. [this article](https://eprint.iacr.org/2023/1332.pdf)). However, victims could be threatened using either attacks related to [remote advertisement monitoring](https://github.com/ietf-wg-dult/threat-model/issues/17) as well as the \"standard\" tracking scenario. Update the document to discuss this, and how the protocol should prioritize different types of attacks, victims, etc.",
       "createdAt": "2025-01-29T20:36:41Z",
-      "updatedAt": "2025-08-05T14:51:30Z",
-      "closedAt": null,
+      "updatedAt": "2025-10-14T19:54:18Z",
+      "closedAt": "2025-10-14T19:54:17Z",
       "comments": [
         {
           "author": "maggiedelano",
@@ -535,6 +535,13 @@
           "body": "Pushing this to Post-IETF 122. Relevant section is on line 117 in the current draft:\n\n> It is also appropriate to define who is using the tracking tags and incorporate this into a model. This is because if protocols overly deprioritize the privacy of tracking tags\u2019 users, an attacker could use a victim\u2019s own tag to track them. Beck et al. describe a [possible technological solution](https://eprint.iacr.org/2023/1332.pdf) to the problem of user privacy vs privacy of other potential victims. In designing the protocol, these concerns should be weighed equally. TODO: Is this actually how we want to weigh them? This warrants further discussion.\n\nText could also be added to the Privacy and Security Requirements section (currently 4.1.4). ",
           "createdAt": "2025-03-01T08:24:06Z",
           "updatedAt": "2025-03-01T08:24:06Z"
+        },
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I think our document covers this enough so I'll close for now.",
+          "createdAt": "2025-10-14T19:54:17Z",
+          "updatedAt": "2025-10-14T19:54:17Z"
         }
       ]
     },
@@ -4878,6 +4885,186 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 141,
+      "id": "PR_kwDOMB0Qas6tvRo8",
+      "title": "Clean up document and try to standardize terminology throughout the document",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/141",
+      "state": "MERGED",
+      "author": "maggiedelano",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Accessory and tag are still often used interchangeably but I think this is OK.\r\n\r\nAlso include some other minor changes but nothing that should affect the meaning of the text too closely.\r\n\r\nCloses #34. Closes #33.",
+      "createdAt": "2025-10-14T19:51:21Z",
+      "updatedAt": "2025-10-15T15:09:19Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "9a111fc5265c987a8599dd0c28bf250e175e6cd3",
+      "headRepository": "ietf-wg-dult/threat-model",
+      "headRefName": "delano0-cleanup",
+      "headRefOid": "e8520a316e8b31f8b9f3f473bc3713cb0f586b3c",
+      "closedAt": "2025-10-15T15:09:19Z",
+      "mergedAt": "2025-10-15T15:09:19Z",
+      "mergedBy": "maggiedelano",
+      "mergeCommit": {
+        "oid": "162a4f90df7da42ea4f2e78a514de5e85eef3eaa"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOMB0Qas7G-cWP",
+          "commit": {
+            "abbreviatedOid": "e8520a3"
+          },
+          "author": "shaileshprabhu95",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "This looks great to me, thanks @maggiedelano !",
+          "createdAt": "2025-10-15T03:58:14Z",
+          "updatedAt": "2025-10-15T03:58:14Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 142,
+      "id": "PR_kwDOMB0Qas6tvY_J",
+      "title": "tracking tag alerts should assist users in locating and disabling tags",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/142",
+      "state": "OPEN",
+      "author": "maggiedelano",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Closes #114.",
+      "createdAt": "2025-10-14T20:00:58Z",
+      "updatedAt": "2025-10-14T20:00:59Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "9a111fc5265c987a8599dd0c28bf250e175e6cd3",
+      "headRepository": "ietf-wg-dult/threat-model",
+      "headRefName": "delano-alerts",
+      "headRefOid": "3d1df0b8ff0385bf3207362fabd31604261df114",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 143,
+      "id": "PR_kwDOMB0Qas6t6mtf",
+      "title": "Fix more terminology that slipped through the cracks",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/143",
+      "state": "OPEN",
+      "author": "maggiedelano",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-10-15T15:44:07Z",
+      "updatedAt": "2025-10-15T15:44:08Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "162a4f90df7da42ea4f2e78a514de5e85eef3eaa",
+      "headRepository": "ietf-wg-dult/threat-model",
+      "headRefName": "delano0-cleanup",
+      "headRefOid": "16d27afc41963204bb17452352d2f8dec1281951",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 144,
+      "id": "PR_kwDOMB0Qas6t6x-8",
+      "title": "Add suggestions of how to use lost mode",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/144",
+      "state": "OPEN",
+      "author": "maggiedelano",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Closes #117.",
+      "createdAt": "2025-10-15T15:57:31Z",
+      "updatedAt": "2025-10-15T15:57:32Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "162a4f90df7da42ea4f2e78a514de5e85eef3eaa",
+      "headRepository": "ietf-wg-dult/threat-model",
+      "headRefName": "delano-lost-mode",
+      "headRefOid": "eb3be06dab6f989d6f332e26427e13e8027a2b08",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 145,
+      "id": "PR_kwDOMB0Qas6t7eCB",
+      "title": "Update document in response to Barry Leiba Review",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/145",
+      "state": "OPEN",
+      "author": "maggiedelano",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Thank you Barry for the detailed feedback.",
+      "createdAt": "2025-10-15T16:56:35Z",
+      "updatedAt": "2025-10-15T17:15:56Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "162a4f90df7da42ea4f2e78a514de5e85eef3eaa",
+      "headRepository": "ietf-wg-dult/threat-model",
+      "headRefName": "delano-barry-review",
+      "headRefOid": "bc1f1c9a771b7f4e8b4cacb3bc0417402506aba7",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@exploretechsafety I especially want your thoughts about whether or not you're OK changing the term victim to target",
+          "createdAt": "2025-10-15T17:15:56Z",
+          "updatedAt": "2025-10-15T17:15:56Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 146,
+      "id": "PR_kwDOMB0Qas6t7qLd",
+      "title": "Add acknowledgements",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/146",
+      "state": "OPEN",
+      "author": "maggiedelano",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Please add any I might've missed!",
+      "createdAt": "2025-10-15T17:15:27Z",
+      "updatedAt": "2025-10-15T17:15:28Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "162a4f90df7da42ea4f2e78a514de5e85eef3eaa",
+      "headRepository": "ietf-wg-dult/threat-model",
+      "headRefName": "acknowledgments",
+      "headRefOid": "efd7d7f26d32bf428207eb2f45e93bf364436d04",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
