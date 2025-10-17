@@ -205,7 +205,7 @@ Table of Contents
    Tracking, alerting users, and providing guidance on disabling Tags
    (if desired).  This threat model document is intended to inform the
    work of the implementation of the DULT Protocol as described in
-   [I-D.draft-ietf-dult-Accessory-protocol] and
+   [I-D.draft-ietf-dult-accessory-protocol] and
    [I-D.draft-ietf-dult-finding].  The DULT Protocol is based on an
    earlier Internet Draft; see
    [I-D.draft-ledvina-apple-google-unwanted-trackers].
@@ -1974,9 +1974,6 @@ Table of Contents
               location-trackers-01, 20 December 2023,
               <https://datatracker.ietf.org/doc/html/draft-detecting-
               unwanted-location-trackers-01>.
-
-   [I-D.draft-ietf-dult-Accessory-protocol]
-              "*** BROKEN REFERENCE ***".
 
    [I-D.draft-ietf-dult-accessory-protocol]
               Ledvina, B., Lazarov, D., Detwiler, B., and S. P.
