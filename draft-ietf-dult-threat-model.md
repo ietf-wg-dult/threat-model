@@ -142,6 +142,9 @@ This threat model is also more likely to be applicable in regions where the use 
 **Remote Disablement**:
 : the process of preventing a specific Location-tracking Accessory from communicating with the Crowdsourced Network via a command sent by a Platform.
 
+**Target**:
+: a individual who an Attacker is attempting to track without their consent. A Target may or may not own a Location-tracking Accessory.
+
 **Unwanted (Location) Tracking (UT)**:
 : undesired tracking of a person, their property, or their belongings by a Location-tracking Accessory.
 
@@ -150,9 +153,6 @@ This threat model is also more likely to be applicable in regions where the use 
 
 **Unwanted Tracking Detection**:
 : algorithms that detect the presence of an unknown Accessory traveling with a person over time.
-
-**Target**:
-: a individual who an Attacker is attempting to track without their consent. A Target may or may not own a Location-tracking Accessory.
 
 # Security Considerations
 
@@ -453,7 +453,7 @@ An Attacker might physically modify a Tag in ways that make it non-conformant wi
 
 ### Accessory Firmware Modifications (Accessory)
 
-The DULT Protocol (see {{!I-D.draft-ietf-dult-Accessory-protocol}}) will specify that Accessory firmware images MUST be authenticated, and that Accessories MUST verify the integrity and origin of firmware. However, if these protections were to be bypassed, an Accessory's firmware could be altered to deviate from standard behavior. Attackers may manipulate advertisement intervals to reduce detection opportunities, allowing the Tag to evade tracking for extended periods, or rotate IDs rapidly, disrupting detection systems that rely on tracking unknown Accessory persistence.
+The DULT Protocol (see {{!I-D.draft-ietf-dult-accessory-protocol}}) will specify that Accessory firmware images MUST be authenticated, and that Accessories MUST verify the integrity and origin of firmware. However, if these protections were to be bypassed, an Accessory's firmware could be altered to deviate from standard behavior. Attackers may manipulate advertisement intervals to reduce detection opportunities, allowing the Tag to evade tracking for extended periods, or rotate IDs rapidly, disrupting detection systems that rely on tracking unknown Accessory persistence.
 
 Firmware-based changes would have high impact. The likelihood is low, as these attacks require significant technical expertise to bypass firmware verification and modify low-level Accessory behavior. As a result, the overall risk level is medium. Partial mitigation of this attack is possible by requiring Accessories to verify the integrity and origin of firmware.
 
