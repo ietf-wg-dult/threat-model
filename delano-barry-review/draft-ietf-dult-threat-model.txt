@@ -168,7 +168,7 @@ Table of Contents
    *  Any Attacker who can guess a Tag ID can query the Crowdsourced
       Network for its location.
 
-   *  An Attacker can surreptitiously plant an Accessory on a target and
+   *  An Attacker can surreptitiously plant an Accessory on a Target and
       thus track them by tracking their "own" Accessory.
 
    *  Attackers could launch Denial-of-Service (DoS) attacks by flooding
@@ -352,8 +352,9 @@ Table of Contents
    *Unwanted Tracking Detection*:  algorithms that detect the presence
       of an unknown Accessory traveling with a person over time.
 
-   *Target*:  a target of (attempted) Unwanted Tracking.  A Target may
-      or may not own a Location-tracking Accessory.
+   *Target*:  a individual who an Attacker is attempting to track
+      without their consent.  A Target may or may not own a Location-
+      tracking Accessory.
 
 3.  Security Considerations
 
