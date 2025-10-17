@@ -1521,27 +1521,27 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
 </dd>
           <dd class="break"></dd>
 <dt id="section-2.2-1.43">
-<strong>Unwanted (Location) Tracking (UT)</strong>:</dt>
+<strong>Target</strong>:</dt>
           <dd style="margin-left: 1.5em" id="section-2.2-1.44">
-            <p id="section-2.2-1.44.1">undesired tracking of a person, their property, or their belongings by a Location-tracking Accessory.<a href="#section-2.2-1.44.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-1.44.1">a individual who an Attacker is attempting to track without their consent. A Target may or may not own a Location-tracking Accessory.<a href="#section-2.2-1.44.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-2.2-1.45">
-<strong>Unwanted Tracking Alert</strong>:</dt>
+<strong>Unwanted (Location) Tracking (UT)</strong>:</dt>
           <dd style="margin-left: 1.5em" id="section-2.2-1.46">
-            <p id="section-2.2-1.46.1">an alert notifying the user of the presence of an unrecognized Accessory that may be traveling with them over time that allows them to take various actions, including playing a sound on the Accessory if the Accessory is in Bluetooth Low Energy (BLE) range.<a href="#section-2.2-1.46.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-1.46.1">undesired tracking of a person, their property, or their belongings by a Location-tracking Accessory.<a href="#section-2.2-1.46.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-2.2-1.47">
-<strong>Unwanted Tracking Detection</strong>:</dt>
+<strong>Unwanted Tracking Alert</strong>:</dt>
           <dd style="margin-left: 1.5em" id="section-2.2-1.48">
-            <p id="section-2.2-1.48.1">algorithms that detect the presence of an unknown Accessory traveling with a person over time.<a href="#section-2.2-1.48.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-1.48.1">an alert notifying the user of the presence of an unrecognized Accessory that may be traveling with them over time that allows them to take various actions, including playing a sound on the Accessory if the Accessory is in Bluetooth Low Energy (BLE) range.<a href="#section-2.2-1.48.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-2.2-1.49">
-<strong>Target</strong>:</dt>
+<strong>Unwanted Tracking Detection</strong>:</dt>
           <dd style="margin-left: 1.5em" id="section-2.2-1.50">
-            <p id="section-2.2-1.50.1">a individual who an Attacker is attempting to track without their consent. A Target may or may not own a Location-tracking Accessory.<a href="#section-2.2-1.50.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-1.50.1">algorithms that detect the presence of an unknown Accessory traveling with a person over time.<a href="#section-2.2-1.50.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
 </dl>
@@ -2487,7 +2487,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
           <h4 id="name-accessory-firmware-modifica">
 <a href="#section-3.4.6" class="section-number selfRef">3.4.6. </a><a href="#name-accessory-firmware-modifica" class="section-name selfRef">Accessory Firmware Modifications (Accessory)</a>
           </h4>
-<p id="section-3.4.6-1">The DULT Protocol (see <span>[<a href="#I-D.draft-ietf-dult-Accessory-protocol" class="cite xref">I-D.draft-ietf-dult-Accessory-protocol</a>]</span>) will specify that Accessory firmware images <span class="bcp14">MUST</span> be authenticated, and that Accessories <span class="bcp14">MUST</span> verify the integrity and origin of firmware. However, if these protections were to be bypassed, an Accessory's firmware could be altered to deviate from standard behavior. Attackers may manipulate advertisement intervals to reduce detection opportunities, allowing the Tag to evade tracking for extended periods, or rotate IDs rapidly, disrupting detection systems that rely on tracking unknown Accessory persistence.<a href="#section-3.4.6-1" class="pilcrow">¶</a></p>
+<p id="section-3.4.6-1">The DULT Protocol (see <span>[<a href="#I-D.draft-ietf-dult-accessory-protocol" class="cite xref">I-D.draft-ietf-dult-accessory-protocol</a>]</span>) will specify that Accessory firmware images <span class="bcp14">MUST</span> be authenticated, and that Accessories <span class="bcp14">MUST</span> verify the integrity and origin of firmware. However, if these protections were to be bypassed, an Accessory's firmware could be altered to deviate from standard behavior. Attackers may manipulate advertisement intervals to reduce detection opportunities, allowing the Tag to evade tracking for extended periods, or rotate IDs rapidly, disrupting detection systems that rely on tracking unknown Accessory persistence.<a href="#section-3.4.6-1" class="pilcrow">¶</a></p>
 <p id="section-3.4.6-2">Firmware-based changes would have high impact. The likelihood is low, as these attacks require significant technical expertise to bypass firmware verification and modify low-level Accessory behavior. As a result, the overall risk level is medium. Partial mitigation of this attack is possible by requiring Accessories to verify the integrity and origin of firmware.<a href="#section-3.4.6-2" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -2885,6 +2885,10 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
 <dt id="I-D.draft-ietf-dult-Accessory-protocol">[I-D.draft-ietf-dult-Accessory-protocol]</dt>
       <dd>
 <span class="refTitle">"*** BROKEN REFERENCE ***"</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.draft-ietf-dult-accessory-protocol">[I-D.draft-ietf-dult-accessory-protocol]</dt>
+      <dd>
+<span class="refAuthor">Ledvina, B.</span>, <span class="refAuthor">Lazarov, D.</span>, <span class="refAuthor">Detwiler, B.</span>, and <span class="refAuthor">S. P. Polatkan</span>, <span class="refTitle">"Detecting Unwanted Location Trackers Accessory Protocol"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-dult-accessory-protocol-00</span>, <time datetime="2024-11-03" class="refDate">3 November 2024</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-dult-accessory-protocol-00">https://datatracker.ietf.org/doc/html/draft-ietf-dult-accessory-protocol-00</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.draft-ietf-dult-finding">[I-D.draft-ietf-dult-finding]</dt>
       <dd>
