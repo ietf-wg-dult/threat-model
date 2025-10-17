@@ -61,7 +61,7 @@ A naive implementation of this design exposes both a Tag's user and anyone who m
 
   - If Accessories simply have a fixed identifier that is reported back to the Crowdsourced Network, then the central server is able to track any Accessory without the user's assistance.
   - Any Attacker who can guess a Tag ID can query the Crowdsourced Network for its location.
-  - An Attacker can surreptitiously plant an Accessory on a target and thus track them by tracking their "own" Accessory.
+  - An Attacker can surreptitiously plant an Accessory on a Target and thus track them by tracking their "own" Accessory.
   - Attackers could launch Denial-of-Service (DoS) attacks by flooding the Crowdsourced Network with spoofed Tag reports, disrupting real updates and overwhelming the Network.
   - Frequent co-location of multiple Tags enables the Crowdsourced Network or a passive observer to infer social relationships, routines, or group behaviors, compromising user privacy without consent.
 
@@ -152,7 +152,7 @@ This threat model is also more likely to be applicable in regions where the use 
 : algorithms that detect the presence of an unknown Accessory traveling with a person over time.
 
 **Target**:
-: a target of (attempted) Unwanted Tracking. A Target may or may not own a Location-tracking Accessory.
+: a individual who an Attacker is attempting to track without their consent. A Target may or may not own a Location-tracking Accessory.
 
 # Security Considerations
 
