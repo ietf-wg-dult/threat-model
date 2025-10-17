@@ -9,7 +9,7 @@
 <meta content="Jessie Lowell" name="author">
 <meta content="Shailesh Prabhu" name="author">
 <meta content="
-       Lightweight Location-tracking Tags are in wide use to allow users to locate items. These Tags function as a component of a crowdsourced tracking network in which Devices belonging to other network users (e.g., phones) report which Tags they see and their location, thus allowing the Owner(s) of the Tag to determine where their Tag was most recently seen. While there are many legitimate uses of these Tags, they are also susceptible to misuse for the purpose of stalking and abuse. A protocol that allows others to detect unwanted tracking must incorporate an understanding of the Unwanted Tracking landscape today. This document provides a threat analysis for this purpose, including a taxonomy of Unwanted Tracking and potential attacks against Detection of Unwanted Location Tracking (DULT) protocols. The document defines what is in and out of scope for the Unwanted Tracking protocols, and provides design requirements, constraints, and considerations for implementation of protocols to detect Unwanted Tracking. 
+       Lightweight Location-tracking Tags are in wide use to allow users to locate items. These Tags function as a component of a Crowdsourced Network in which Devices belonging to other network users (e.g., phones) report which Tags they see and their location, thus allowing the Owner(s) of the Tag to determine where their Tag was most recently seen. While there are many legitimate uses of these Tags, they are also susceptible to misuse for the purpose of stalking and abuse. A protocol that allows others to detect Unwanted Tracking must incorporate an understanding of the Unwanted Tracking landscape today. This document provides a threat analysis for this purpose, including a taxonomy of Unwanted Tracking and potential attacks against Detection of Unwanted Location Tracking (DULT) protocols. The document defines what is in and out of scope for the Unwanted Tracking protocols, and provides design requirements, constraints, and considerations for implementation of protocols to detect Unwanted Tracking. 
     " name="description">
 <meta content="xml2rfc 3.30.2" name="generator">
 <meta content="Internet-Draft" name="keyword">
@@ -1052,7 +1052,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Delano, et al.</td>
-<td class="center">Expires 18 April 2026</td>
+<td class="center">Expires 20 April 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1065,12 +1065,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-dult-threat-model-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-10-15" class="published">15 October 2025</time>
+<time datetime="2025-10-17" class="published">17 October 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-04-18">18 April 2026</time></dd>
+<dd class="expires"><time datetime="2026-04-20">20 April 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1091,7 +1091,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <h1 id="title">DULT Threat Model</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">Lightweight Location-tracking Tags are in wide use to allow users to locate items. These Tags function as a component of a crowdsourced tracking network in which Devices belonging to other network users (e.g., phones) report which Tags they see and their location, thus allowing the Owner(s) of the Tag to determine where their Tag was most recently seen. While there are many legitimate uses of these Tags, they are also susceptible to misuse for the purpose of stalking and abuse. A protocol that allows others to detect unwanted tracking must incorporate an understanding of the Unwanted Tracking landscape today. This document provides a threat analysis for this purpose, including a taxonomy of Unwanted Tracking and potential attacks against Detection of Unwanted Location Tracking (DULT) protocols. The document defines what is in and out of scope for the Unwanted Tracking protocols, and provides design requirements, constraints, and considerations for implementation of protocols to detect Unwanted Tracking.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-1">Lightweight Location-tracking Tags are in wide use to allow users to locate items. These Tags function as a component of a Crowdsourced Network in which Devices belonging to other network users (e.g., phones) report which Tags they see and their location, thus allowing the Owner(s) of the Tag to determine where their Tag was most recently seen. While there are many legitimate uses of these Tags, they are also susceptible to misuse for the purpose of stalking and abuse. A protocol that allows others to detect Unwanted Tracking must incorporate an understanding of the Unwanted Tracking landscape today. This document provides a threat analysis for this purpose, including a taxonomy of Unwanted Tracking and potential attacks against Detection of Unwanted Location Tracking (DULT) protocols. The document defines what is in and out of scope for the Unwanted Tracking protocols, and provides design requirements, constraints, and considerations for implementation of protocols to detect Unwanted Tracking.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-about-this-document">
@@ -1128,7 +1128,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 18 April 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 20 April 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1159,6 +1159,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <nav class="toc"><ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1">
             <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="auto internal xref">1</a>.  <a href="#name-introduction" class="internal xref">Introduction</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.1">
+                <p id="section-toc.1-1.1.2.1.1" class="keepWithNext"><a href="#section-1.1" class="auto internal xref">1.1</a>.  <a href="#name-applicability" class="internal xref">Applicability</a></p>
+</li>
+            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2">
             <p id="section-toc.1-1.2.1"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-conventions-and-definitions" class="internal xref">Conventions and Definitions</a></p>
@@ -1167,7 +1172,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <p id="section-toc.1-1.2.2.1.1" class="keepWithNext"><a href="#section-2.1" class="auto internal xref">2.1</a>.  <a href="#name-conventions" class="internal xref">Conventions</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.2">
-                <p id="section-toc.1-1.2.2.2.1" class="keepWithNext"><a href="#section-2.2" class="auto internal xref">2.2</a>.  <a href="#name-definitions" class="internal xref">Definitions</a></p>
+                <p id="section-toc.1-1.2.2.2.1"><a href="#section-2.2" class="auto internal xref">2.2</a>.  <a href="#name-definitions" class="internal xref">Definitions</a></p>
 </li>
             </ul>
 </li>
@@ -1181,10 +1186,10 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-balancing-privacy-and-secur" class="internal xref">Balancing Privacy and Security</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.1">
-                    <p id="section-toc.1-1.3.2.2.2.1.1"><a href="#section-3.2.1" class="auto internal xref">3.2.1</a>.  <a href="#name-security-against-unwanted-t" class="internal xref">Security against Unwanted Tracking for potential Victims</a></p>
+                    <p id="section-toc.1-1.3.2.2.2.1.1"><a href="#section-3.2.1" class="auto internal xref">3.2.1</a>.  <a href="#name-security-against-unwanted-t" class="internal xref">Security against Unwanted Tracking for potential Targets</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.2">
-                    <p id="section-toc.1-1.3.2.2.2.2.1"><a href="#section-3.2.2" class="auto internal xref">3.2.2</a>.  <a href="#name-privacy-for-potential-victi" class="internal xref">Privacy for potential Victims against the use of security measures for further surveillance</a></p>
+                    <p id="section-toc.1-1.3.2.2.2.2.1"><a href="#section-3.2.2" class="auto internal xref">3.2.2</a>.  <a href="#name-privacy-for-potential-targe" class="internal xref">Privacy for potential Targets against the use of security measures for further surveillance</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.3">
                     <p id="section-toc.1-1.3.2.2.2.3.1"><a href="#section-3.2.3" class="auto internal xref">3.2.3</a>.  <a href="#name-privacy-for-unassociated-ta" class="internal xref">Privacy for unassociated Tag Owners</a></p>
@@ -1227,13 +1232,13 @@ svg :is([fill="white"], [fill^="#fff"]) {
                     <p id="section-toc.1-1.3.2.4.2.7.1"><a href="#section-3.4.7" class="auto internal xref">3.4.7</a>.  <a href="#name-attacker-accessory-disablem" class="internal xref">Attacker Accessory Disablement (Accessory, Finding)</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.4.2.8">
-                    <p id="section-toc.1-1.3.2.4.2.8.1"><a href="#section-3.4.8" class="auto internal xref">3.4.8</a>.  <a href="#name-tracking-using-victims-own-" class="internal xref">Tracking Using Victim's Own Tag (Network)</a></p>
+                    <p id="section-toc.1-1.3.2.4.2.8.1"><a href="#section-3.4.8" class="auto internal xref">3.4.8</a>.  <a href="#name-tracking-using-targets-own-" class="internal xref">Tracking Using Target's Own Tag (Network)</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.4.2.9">
-                    <p id="section-toc.1-1.3.2.4.2.9.1"><a href="#section-3.4.9" class="auto internal xref">3.4.9</a>.  <a href="#name-disabling-victim-tag-detect" class="internal xref">Disabling Victim Tag Detection (Network)</a></p>
+                    <p id="section-toc.1-1.3.2.4.2.9.1"><a href="#section-3.4.9" class="auto internal xref">3.4.9</a>.  <a href="#name-disabling-target-tag-detect" class="internal xref">Disabling Target Tag Detection (Network)</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.4.2.10">
-                    <p id="section-toc.1-1.3.2.4.2.10.1"><a href="#section-3.4.10" class="auto internal xref">3.4.10</a>. <a href="#name-disabling-victim-tag-access" class="internal xref">Disabling Victim Tag (Accessory, Network)</a></p>
+                    <p id="section-toc.1-1.3.2.4.2.10.1"><a href="#section-3.4.10" class="auto internal xref">3.4.10</a>. <a href="#name-disabling-target-tag-access" class="internal xref">Disabling Target Tag (Accessory, Network)</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.4.2.11">
                     <p id="section-toc.1-1.3.2.4.2.11.1"><a href="#section-3.4.11" class="auto internal xref">3.4.11</a>. <a href="#name-impersonation-attack-tag-ac" class="internal xref">Impersonation Attack (Tag; Accessory, Finding, Network)</a></p>
@@ -1262,7 +1267,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
                     <p id="section-toc.1-1.3.2.5.2.2.1"><a href="#section-3.5.2" class="auto internal xref">3.5.2</a>.  <a href="#name-attacker-profiles" class="internal xref">Attacker Profiles</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.5.2.3">
-                    <p id="section-toc.1-1.3.2.5.2.3.1"><a href="#section-3.5.3" class="auto internal xref">3.5.3</a>.  <a href="#name-victim-profiles" class="internal xref">Victim Profiles</a></p>
+                    <p id="section-toc.1-1.3.2.5.2.3.1"><a href="#section-3.5.3" class="auto internal xref">3.5.3</a>.  <a href="#name-target-profiles" class="internal xref">Target Profiles</a></p>
 </li>
                 </ul>
 </li>
@@ -1284,7 +1289,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
                     <p id="section-toc.1-1.4.2.1.2.3.1"><a href="#section-4.1.3" class="auto internal xref">4.1.3</a>.  <a href="#name-disabling-tracking-tags" class="internal xref">Disabling Tracking Tags</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.4">
-                    <p id="section-toc.1-1.4.2.1.2.4.1"><a href="#section-4.1.4" class="auto internal xref">4.1.4</a>.  <a href="#name-notification-management-for" class="internal xref">Notification Management for Trusted Devices</a></p>
+                    <p id="section-toc.1-1.4.2.1.2.4.1"><a href="#section-4.1.4" class="auto internal xref">4.1.4</a>.  <a href="#name-notification-management-for" class="internal xref">Notification Management for Trusted Accessories</a></p>
 </li>
                 </ul>
 </li>
@@ -1340,13 +1345,13 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <p id="section-1-3">A naive implementation of this design exposes both a Tag's user and anyone who might be targeted for location tracking by a Tag's user, to considerable privacy risk. In particular:<a href="#section-1-3" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-1-4.1">
-          <p id="section-1-4.1.1">If Accessories simply have a fixed identifier that is reported back to the Crowdsourced Network, then the central server is able to track any Accessory without the user's assistance, which is clearly undesirable.<a href="#section-1-4.1.1" class="pilcrow">¶</a></p>
+          <p id="section-1-4.1.1">If Accessories simply have a fixed identifier that is reported back to the Crowdsourced Network, then the central server is able to track any Accessory without the user's assistance.<a href="#section-1-4.1.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-1-4.2">
           <p id="section-1-4.2.1">Any Attacker who can guess a Tag ID can query the Crowdsourced Network for its location.<a href="#section-1-4.2.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-1-4.3">
-          <p id="section-1-4.3.1">An Attacker can surreptitiously plant an Accessory on a target and thus track them by tracking their "own" Accessory.<a href="#section-1-4.3.1" class="pilcrow">¶</a></p>
+          <p id="section-1-4.3.1">An Attacker can surreptitiously plant an Accessory on a Target and thus track them by tracking their "own" Accessory.<a href="#section-1-4.3.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-1-4.4">
           <p id="section-1-4.4.1">Attackers could launch Denial-of-Service (DoS) attacks by flooding the Crowdsourced Network with spoofed Tag reports, disrupting real updates and overwhelming the Network.<a href="#section-1-4.4.1" class="pilcrow">¶</a></p>
@@ -1355,10 +1360,17 @@ svg :is([fill="white"], [fill^="#fff"]) {
           <p id="section-1-4.5.1">Frequent co-location of multiple Tags enables the Crowdsourced Network or a passive observer to infer social relationships, routines, or group behaviors, compromising user privacy without consent.<a href="#section-1-4.5.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<p id="section-1-5">While Location-tracking Tags have existed for over a decade, they became especially widely-used in the Global North in the last several years as Crowdsourced Networks were deployed by major smart phone manufacturers. However, due to their reliance on a high density of Non-Owner Devices for the network to be effective and the relative cost of Location-tracking Tags, location tracker use in the Global South is typically limited to affluent communities. If the cost of Non-Owner Devices and Location-tracking Tags decrease, an uptick of Unwanted Tracking could also occur in contexts where it is currently infeasible.<a href="#section-1-5" class="pilcrow">¶</a></p>
-<p id="section-1-6">Detecting Unwanted Tracking is currently left to individual Tag manufacturers and Platforms on Non-Owner Devices. Each manufacturer and Platform has different implementations to prevent Unwanted Tracking, which may or may not be compatible with other manufacturers or Platforms. The goal of the IETF Detecting Unwanted Location Tracking (DULT) working group is to standardize a protocol between Location-tracking Tags, Non-Owner Devices, and Crowdsourced Networks.<a href="#section-1-6" class="pilcrow">¶</a></p>
-<p id="section-1-7">In order to standardize a protocol for detecting Unwanted Tracking, thus minimizing the privacy risks described above, it is necessary to analyze and be able to model different privacy threats. This document includes: 1) a taxonomy of Unwanted Tracking, 2) methods Attackers could use to circumvent the DULT Protocol, and 3) design considerations for implementing the DULT protocol. The taxonomy of Unwanted Tracking uses a flexible framework to provide analysis and modeling of different threat actors, as well as models of potential Victims based on their threat context. It defines how these Attacker and Victim persona models can be combined into threat models. The section on methods to circumvent the DULT protocol includes a threat matrix and description of several different possible attack vectors. Finally, the design considerations section focuses on specific requirements and constraints for successfully detecting Unwanted Tracking, alerting users, and providing guidance on disabling Tags (if desired). This threat model document is intended to inform the work of the implementation of the DULT Protocol as described in <span>[<a href="#I-D.draft-ietf-dult-Accessory-protocol" class="cite xref">I-D.draft-ietf-dult-Accessory-protocol</a>]</span> and <span>[<a href="#I-D.draft-ietf-dult-finding" class="cite xref">I-D.draft-ietf-dult-finding</a>]</span>. The DULT Protocol is based on an earlier Internet Draft; see <span>[<a href="#I-D.draft-ledvina-apple-google-unwanted-trackers" class="cite xref">I-D.draft-ledvina-apple-google-unwanted-trackers</a>]</span>.<a href="#section-1-7" class="pilcrow">¶</a></p>
-<p id="section-1-8">While there are many types of technology that can be used for Location Tracking, it is infeasible to attempt to describe a threat analysis for each possible technology in this document. The threat model described here is likely not applicable to the following areas: app-based technologies such as parental monitoring apps, Internet of Things (IoT) Devices that are easily discoverable, connected cars, or user accounts for cloud services or social media. A notable exception to this is GPS trackers; see <a href="#bluetooth-vs-other-technologies" class="auto internal xref">Section 3.3.2</a> for relevant information and recommendations.<a href="#section-1-8" class="pilcrow">¶</a></p>
+<p id="section-1-5">Detecting Unwanted Tracking is currently left to individual Tag manufacturers and Platforms on Non-Owner Devices. Each manufacturer and Platform has different implementations to prevent Unwanted Tracking, which may or may not be compatible with other manufacturers or Platforms. The goal of the IETF Detecting Unwanted Location Tracking (DULT) working group is to standardize a protocol between Location-tracking Tags, Non-Owner Devices, and Crowdsourced Networks.<a href="#section-1-5" class="pilcrow">¶</a></p>
+<p id="section-1-6">In order to standardize a protocol for detecting Unwanted Tracking, thus minimizing the privacy risks described above, it is necessary to analyze and be able to model different privacy threats. This document includes: 1) a taxonomy of Unwanted Tracking, 2) methods Attackers could use to circumvent the DULT Protocol, and 3) design considerations for implementing the DULT protocol. The taxonomy of Unwanted Tracking uses a flexible framework to provide analysis and modeling of different threat actors, as well as models of potential Targets based on their threat context. It defines how these Attacker and Target persona models can be combined into threat models. The section on methods to circumvent the DULT protocol includes a threat matrix and description of several different possible attack vectors. Finally, the design considerations section focuses on specific requirements and constraints for successfully detecting Unwanted Tracking, alerting users, and providing guidance on disabling Tags (if desired). This threat model document is intended to inform the work of the implementation of the DULT Protocol as described in <span>[<a href="#I-D.draft-ietf-dult-Accessory-protocol" class="cite xref">I-D.draft-ietf-dult-Accessory-protocol</a>]</span> and <span>[<a href="#I-D.draft-ietf-dult-finding" class="cite xref">I-D.draft-ietf-dult-finding</a>]</span>. The DULT Protocol is based on an earlier Internet Draft; see <span>[<a href="#I-D.draft-ledvina-apple-google-unwanted-trackers" class="cite xref">I-D.draft-ledvina-apple-google-unwanted-trackers</a>]</span>.<a href="#section-1-6" class="pilcrow">¶</a></p>
+<div id="applicability">
+<section id="section-1.1">
+        <h3 id="name-applicability">
+<a href="#section-1.1" class="section-number selfRef">1.1. </a><a href="#name-applicability" class="section-name selfRef">Applicability</a>
+        </h3>
+<p id="section-1.1-1">While there are many types of technology that can be used for Location Tracking, it is infeasible to attempt to describe a threat analysis for each possible technology in this document. The threat model described here is likely not applicable to the following areas: app-based technologies such as parental monitoring apps that do not use Location-tracking Accessories, Internet of Things (IoT) Devices that are Easily Discoverable, connected cars, or user accounts for cloud services or social media. A notable exception to this is GPS trackers; see <a href="#bluetooth-vs-other-technologies" class="auto internal xref">Section 3.3.2</a> for relevant information and recommendations.<a href="#section-1.1-1" class="pilcrow">¶</a></p>
+<p id="section-1.1-2">This threat model is also more likely to be applicable in regions where the use of Location-tracking Tags is more prevalent. While Location-tracking Tags have existed for over a decade, they became especially widely-used in the Global North in the last several years as Crowdsourced Networks were deployed by major smart phone manufacturers. However, due to their reliance on a high density of Non-Owner Devices for the network to be effective and the relative cost of Location-tracking Tags, Location-tracking Tag use in the Global South is typically limited to affluent communities. If the cost of Non-Owner Devices and Location-tracking Tags decrease, an uptick of Unwanted Tracking could also occur in contexts where it is currently infeasible. This threat-model does still attempt to consider possible regional differences in Location-tracking Tag use (such as differences between rural and urban use), and also the sometimes limited resources that may be available to Targets of Unwanted Tracking.<a href="#section-1.1-2" class="pilcrow">¶</a></p>
+</section>
+</div>
 </section>
 </div>
 <div id="conventions-and-definitions">
@@ -1433,7 +1445,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
 <dt id="section-2.2-1.17">
 <strong>Easily Discoverable</strong>:</dt>
           <dd style="margin-left: 1.5em" id="section-2.2-1.18">
-            <p id="section-2.2-1.18.1">an Accessory that is larger than 30 cm in at least one dimension, larger than 18 cm x 13 cm in two of its dimensions, and/or larger than 250 cm<sup>3</sup> in three-dimensional space.<a href="#section-2.2-1.18.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-1.18.1">an Accessory that is larger than 30 cm in at least one dimension, larger than 18 cm x 13 cm in two of its dimensions, and/or larger than 250 cm<sup>3</sup> in three-dimensional space. Location-tracking Accessories that are not Easily Discoverable <span class="bcp14">MUST</span> adhere to the DULT protocol.<a href="#section-2.2-1.18.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-2.2-1.19">
@@ -1451,7 +1463,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
 <dt id="section-2.2-1.23">
 <strong>Location-tracking Accessory</strong>:</dt>
           <dd style="margin-left: 1.5em" id="section-2.2-1.24">
-            <p id="section-2.2-1.24.1">any Accessory that has location-tracking capabilities, including, but not limited to, crowd-sourced location, GPS/GNSS location, WiFi location, cell location, etc., and provides the location information back to an Owner Device via a Crowdsourced Network using the internet, cellular connection, etc. Location-tracking Accessories that are Easily Discoverable <span class="bcp14">MUST</span> adhere to the DULT Protocol. Location-tracking Accessories may also be referred to as Location-tracking Tags.<a href="#section-2.2-1.24.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-1.24.1">any Accessory that has location-tracking capabilities, including, but not limited to, crowdsourced location, GPS/GNSS location, WiFi location, cell location, etc., and provides the location information back to an Owner Device via a Crowdsourced Network using the internet, cellular connection, etc. Location-tracking Accessories that are Easily Discoverable <span class="bcp14">MUST</span> adhere to the DULT Protocol. Location-tracking Accessories may also be referred to as Location-tracking Tags.<a href="#section-2.2-1.24.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-2.2-1.25">
@@ -1521,9 +1533,9 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
 </dd>
           <dd class="break"></dd>
 <dt id="section-2.2-1.47">
-<strong>Victim</strong>:</dt>
+<strong>Target</strong>:</dt>
           <dd style="margin-left: 1.5em" id="section-2.2-1.48">
-            <p id="section-2.2-1.48.1">a target of (attempted) Unwanted Tracking. A victim may or may not own a Location-tracking Accessory.<a href="#section-2.2-1.48.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-1.48.1">a individual who an Attacker is attempting to track without their consent. A Target may or may not own a Location-tracking Accessory.<a href="#section-2.2-1.48.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
 </dl>
@@ -1542,7 +1554,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
         <h3 id="name-security-considerations-uni">
 <a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-security-considerations-uni" class="section-name selfRef">Security Considerations Unique To Unwanted Location Tracking</a>
         </h3>
-<p id="section-3.1-1">In a situation involving interpersonal control, an Attacker may be more likely to have access to a Victim's Device or passwords. The Attacker could have physical access to a mobile Device on which a tracking account app is installed, remote access through a web portal, or both. The risk of an Attacker accessing a Victim's tracking account remotely can be mitigated, though not eliminated, through support for different forms of multi-factor authentication (including hardware keys, e.g. Yubikeys, as well as more traditional methods). While this can also be used to mitigate the risk posed by physical access, taking overt security measures while frequently in physical proximity to the Attacker may lead to the Attacker escalating their tactics of interpersonal control. Risk assessments and the weighing of tradeoffs in such situations are often highly individualized. The ability of a user to access a tracking account over a web portal illustrates the need to consider web app security as part of support for detecting Unwanted Tracking.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.1-1">In a situation involving interpersonal control, an Attacker may be more likely to have access to a Target's Device or passwords. The Attacker could have physical access to a mobile Device on which a tracking account app is installed, remote access through a web portal, or both. The risk of an Attacker accessing a Target's tracking account remotely can be mitigated, though not eliminated, through support for different forms of multi-factor authentication (including hardware keys, e.g. Yubikeys, as well as more traditional methods). While this can also be used to mitigate the risk posed by physical access, taking overt security measures while frequently in physical proximity to the Attacker may lead to the Attacker escalating their tactics of interpersonal control. Risk assessments and the weighing of tradeoffs in such situations are often highly individualized. The ability of a user to access a tracking account over a web portal illustrates the need to consider web app security as part of support for detecting Unwanted Tracking.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="balancing-privacy-and-security">
@@ -1550,21 +1562,21 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
         <h3 id="name-balancing-privacy-and-secur">
 <a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-balancing-privacy-and-secur" class="section-name selfRef">Balancing Privacy and Security</a>
         </h3>
-<p id="section-3.2-1">In order to avoid pitting the privacy of Tag Owners not engaged in Unwanted Tracking against the security/safety of Victims, the DULT Protocol must consider and balance the privacy and safety of different users of the Crowdsourced Network. Existing attempts to prevent Unwanted Tracking by the Owner(s) of a Tag have been criticized as potentially making it easier to engage in Unwanted Tracking of the Owner(s) of a Tag. However, Eldridge et al. have <a href="https://eprint.iacr.org/2023/1332.pdf">demonstrated</a> a technological solution that employs secret sharing and error correction coding that may preserve the privacy of Tag Owners without reducing the efficacy of detecting Unwanted Tracking.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
-<div id="security-against-unwanted-tracking-for-potential-victims">
+<p id="section-3.2-1">In order to avoid pitting the privacy of Tag Owners not engaged in Unwanted Tracking against the security/safety of Targets, the DULT Protocol must consider and balance the privacy and safety of different users of the Crowdsourced Network. Existing attempts to prevent Unwanted Tracking (i.e. where an Attacker uses their own Tag to track a Target without their consent) have been criticized as potentially making it easier for an Attacker to track a Target using the Target's own Tag. This can occur if Tags do not rotate identifiers frequently enough. However, Eldridge et al. have <a href="https://eprint.iacr.org/2023/1332.pdf">demonstrated</a> a technological solution that employs secret sharing and error correction coding that may preserve the privacy of Tag Owners without reducing the efficacy of detecting Unwanted Tracking.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+<div id="security-against-unwanted-tracking-for-potential-targets">
 <section id="section-3.2.1">
           <h4 id="name-security-against-unwanted-t">
-<a href="#section-3.2.1" class="section-number selfRef">3.2.1. </a><a href="#name-security-against-unwanted-t" class="section-name selfRef">Security against Unwanted Tracking for potential Victims</a>
+<a href="#section-3.2.1" class="section-number selfRef">3.2.1. </a><a href="#name-security-against-unwanted-t" class="section-name selfRef">Security against Unwanted Tracking for potential Targets</a>
           </h4>
-<p id="section-3.2.1-1">The DULT Protocol must make it possible for potential Victims to discover Unwanted Tracking across Accessory hardware and Platforms within a reasonable amount of time. It should aid the Victim in determining the location and Owner of the Accessory while not providing a full name or contact information on demand (as the Tag may merely have been lost or otherwise coincidentally in proximity, and providing excessive information would violate the privacy of a non-malicious Tag Owner). This could potentially be done with obfuscation, such as showing a partially redacted email address or phone number (see <a href="#active-scanning" class="auto internal xref">Section 4.1.1.1</a>).<a href="#section-3.2.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.1-1">The DULT Protocol must make it possible for potential Targets to discover Unwanted Tracking across Accessory hardware and Platforms within a reasonable amount of time. It should aid the Target in determining the location and Owner of the Accessory while not providing a full name or contact information on demand (as the Tag may merely have been lost or otherwise coincidentally in proximity, and providing excessive information would violate the privacy of a non-malicious Tag Owner). This could potentially be done with obfuscation, such as showing a partially redacted email address or phone number (see <a href="#active-scanning" class="auto internal xref">Section 4.1.1.1</a>).<a href="#section-3.2.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="privacy-for-potential-victims-against-the-use-of-security-measures-for-further-surveillance">
+<div id="privacy-for-potential-targets-against-the-use-of-security-measures-for-further-surveillance">
 <section id="section-3.2.2">
-          <h4 id="name-privacy-for-potential-victi">
-<a href="#section-3.2.2" class="section-number selfRef">3.2.2. </a><a href="#name-privacy-for-potential-victi" class="section-name selfRef">Privacy for potential Victims against the use of security measures for further surveillance</a>
+          <h4 id="name-privacy-for-potential-targe">
+<a href="#section-3.2.2" class="section-number selfRef">3.2.2. </a><a href="#name-privacy-for-potential-targe" class="section-name selfRef">Privacy for potential Targets against the use of security measures for further surveillance</a>
           </h4>
-<p id="section-3.2.2-1">The DULT Protocol must consider the threat vector of an Attacker with access to a Victim's Tag-associated account. In one study of how intimate partners misuse technology <a href="https://dl.acm.org/doi/pdf/10.1145/3173574.3174241">Freed et al, 2018</a>, 72% of survivors reported being forced or coerced to share passwords with an abuser. 41% reported that a cohabiting abuser "went through" their Device while they were not looking, allowing the abuser to obtain saved account passwords in many cases. 67% reported that an abuser was able to "hack" into their accounts remotely. To prevent use of a Victim's own Tag as a means of surveillance, the protocol should minimize information that can be accessed from a web interface associated with a user's Tag-linked account.<a href="#section-3.2.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.2-1">The DULT Protocol must consider the threat vector of an Attacker with access to a Target's Tag-associated account. In one study of how intimate partners misuse technology <a href="https://dl.acm.org/doi/pdf/10.1145/3173574.3174241">Freed et al, 2018</a>, 72% of survivors reported being forced or coerced to share passwords with an abuser. 41% reported that a cohabiting abuser "went through" their Device while they were not looking, allowing the abuser to obtain saved account passwords in many cases. 67% reported that an abuser was able to "hack" into their accounts remotely. To prevent use of a Target's own Tag as a means of surveillance, the protocol should minimize information that can be accessed from a web interface associated with a user's Tag-linked account.<a href="#section-3.2.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="privacy-for-unassociated-tag-owners">
@@ -1572,8 +1584,8 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
           <h4 id="name-privacy-for-unassociated-ta">
 <a href="#section-3.2.3" class="section-number selfRef">3.2.3. </a><a href="#name-privacy-for-unassociated-ta" class="section-name selfRef">Privacy for unassociated Tag Owners</a>
           </h4>
-<p id="section-3.2.3-1">Any unassociated Tag Owner, whether an abuse/stalking survivor or not, could potentially be the Victim of an attack leveraging the Victim's own Tags. Survivors and activists for women's and LGBTQIA+ rights, and/or against intimate interpersonal violence, may face severe government surveillance, repression, and even imprisonment <a href="https://www.amnesty.org/en/latest/news/2025/03/iran-authorities-target-womens-rights-activists-with-arbitrary-arrest-flogging-and-death-penalty/">Amnesty International, 2025</a>, <a href="https://www.hrw.org/news/2020/03/18/kazakhstan-womens-day-activists-convicted">Human Rights Watch, 2020</a>, <a href="https://www.theguardian.com/global-development/2015/mar/18/honduras-women-gladys-lanza-feminism-human-rights">Ruiz-Navarro, 2015</a>. Broad issues of technological privacy, including privacy against government and corporate surveillance, affect many populations, including but not limited to human rights defenders, children, migrants, and LGBTQIA+ people. Some people in these categories may <em>also</em> be survivors of abuse or stalking. The DULT Protocol must not eschew legitimate privacy interests of Tag Owners in the name of safety and security for Victims.<a href="#section-3.2.3-1" class="pilcrow">¶</a></p>
-<p id="section-3.2.3-2">The same person may be a Victim of both Unwanted Tracking via an Attacker's Tag, and surveillance via their own Tag, either at different times or simultaneously. The DULT Protocol should account for this scenario.<a href="#section-3.2.3-2" class="pilcrow">¶</a></p>
+<p id="section-3.2.3-1">Any unassociated Tag Owner, whether an abuse/stalking survivor or not, could potentially be the Target of an attack leveraging the Target's own Tags. Survivors and activists for women's and LGBTQIA+ rights, and/or against intimate interpersonal violence, may face severe government surveillance, repression, and even imprisonment <a href="https://www.amnesty.org/en/latest/news/2025/03/iran-authorities-target-womens-rights-activists-with-arbitrary-arrest-flogging-and-death-penalty/">Amnesty International, 2025</a>, <a href="https://www.hrw.org/news/2020/03/18/kazakhstan-womens-day-activists-convicted">Human Rights Watch, 2020</a>, <a href="https://www.theguardian.com/global-development/2015/mar/18/honduras-women-gladys-lanza-feminism-human-rights">Ruiz-Navarro, 2015</a>. Broad issues of technological privacy, including privacy against government and corporate surveillance, affect many populations, including but not limited to human rights defenders, children, migrants, and LGBTQIA+ people. Some people in these categories may <em>also</em> be survivors of abuse or stalking. The DULT Protocol must not eschew legitimate privacy interests of Tag Owners in the name of safety and security for Targets.<a href="#section-3.2.3-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.3-2">The same person may be a Target of both Unwanted Tracking via an Attacker's Tag, and surveillance via their own Tag, either at different times or simultaneously. The DULT Protocol should account for this scenario.<a href="#section-3.2.3-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1598,16 +1610,16 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
             </ul>
 </li>
           <li class="normal" id="section-3.3-3.2">
-            <p id="section-3.3-3.2.1">Proximity to Victim<a href="#section-3.3-3.2.1" class="pilcrow">¶</a></p>
+            <p id="section-3.3-3.2.1">Proximity to Target<a href="#section-3.3-3.2.1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.3-3.2.2.1">
-                <p id="section-3.3-3.2.2.1.1">High: Lives with Victim or has easy physical access to Victim and/or Victim’s possessions.<a href="#section-3.3-3.2.2.1.1" class="pilcrow">¶</a></p>
+                <p id="section-3.3-3.2.2.1.1">High: Lives with Target or has easy physical access to Target and/or Target’s possessions.<a href="#section-3.3-3.2.2.1.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-3.3-3.2.2.2">
-                <p id="section-3.3-3.2.2.2.1">Medium: Has some physical access to the person and possessions of someone who lives with Victim, such as when the Attacker and Victim are co-parenting a child.<a href="#section-3.3-3.2.2.2.1" class="pilcrow">¶</a></p>
+                <p id="section-3.3-3.2.2.2.1">Medium: Has some physical access to the person and possessions of someone who lives with Target, such as when the Attacker and Target are co-parenting a child.<a href="#section-3.3-3.2.2.2.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-3.3-3.2.2.3">
-                <p id="section-3.3-3.2.2.3.1">Low: Does not live with or have physical access to Victim and/or Victim’s possessions.<a href="#section-3.3-3.2.2.3.1" class="pilcrow">¶</a></p>
+                <p id="section-3.3-3.2.2.3.1">Low: Does not live with or have physical access to Target and/or Target’s possessions.<a href="#section-3.3-3.2.2.3.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
@@ -1623,16 +1635,16 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
             </ul>
 </li>
         </ul>
-<p id="section-3.3-4">In addition, the Victim also has characteristics which influence the threat analysis. As with Attacker characteristics, these are not intended as a definitive taxonomy.<a href="#section-3.3-4" class="pilcrow">¶</a></p>
+<p id="section-3.3-4">In addition, the Target also has characteristics which influence the threat analysis. As with Attacker characteristics, these are not intended as a definitive taxonomy.<a href="#section-3.3-4" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.3-5.1">
             <p id="section-3.3-5.1.1">Expertise level<a href="#section-3.3-5.1.1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.3-5.1.2.1">
-                <p id="section-3.3-5.1.2.1.1">Expert: The Victim works in or is actively studying computer science, networking, computer applications, IT, or another technical field.<a href="#section-3.3-5.1.2.1.1" class="pilcrow">¶</a></p>
+                <p id="section-3.3-5.1.2.1.1">Expert: The Target works in or is actively studying computer science, networking, computer applications, IT, or another technical field.<a href="#section-3.3-5.1.2.1.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-3.3-5.1.2.2">
-                <p id="section-3.3-5.1.2.2.1">Non-expert: The Victim does not work or study in, or is a novice in, a technical field.<a href="#section-3.3-5.1.2.2.1" class="pilcrow">¶</a></p>
+                <p id="section-3.3-5.1.2.2.1">Non-expert: The Target does not work or study in, or is a novice in, a technical field.<a href="#section-3.3-5.1.2.2.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
@@ -1640,10 +1652,10 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
             <p id="section-3.3-5.2.1">Expectation of Unwanted Tracking<a href="#section-3.3-5.2.1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.3-5.2.2.1">
-                <p id="section-3.3-5.2.2.1.1">Suspecting: The Victim has reason to believe that Unwanted Tracking is a likely risk.<a href="#section-3.3-5.2.2.1.1" class="pilcrow">¶</a></p>
+                <p id="section-3.3-5.2.2.1.1">Suspecting: The Target has reason to believe that Unwanted Tracking is a likely risk.<a href="#section-3.3-5.2.2.1.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-3.3-5.2.2.2">
-                <p id="section-3.3-5.2.2.2.1">Unsuspecting: The Victim has no particular reason to be concerned about Unwanted Tracking.<a href="#section-3.3-5.2.2.2.1" class="pilcrow">¶</a></p>
+                <p id="section-3.3-5.2.2.2.1">Unsuspecting: The Target has no particular reason to be concerned about Unwanted Tracking.<a href="#section-3.3-5.2.2.2.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
@@ -1651,10 +1663,10 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
             <p id="section-3.3-5.3.1">Access to resources<a href="#section-3.3-5.3.1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.3-5.3.2.1">
-                <p id="section-3.3-5.3.2.1.1">High: The Victim is generally able to safely access practical and relevant resources. These might include funds to pay a car mechanic or private investigator, law enforcement or legal assistance, or other resources.<a href="#section-3.3-5.3.2.1.1" class="pilcrow">¶</a></p>
+                <p id="section-3.3-5.3.2.1.1">High: The Target is generally able to safely access practical and relevant resources. These might include funds to pay a car mechanic or private investigator, law enforcement or legal assistance, or other resources.<a href="#section-3.3-5.3.2.1.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-3.3-5.3.2.2">
-                <p id="section-3.3-5.3.2.2.1">Low: The Victim is generally unable to safely access practical and relevant resources.<a href="#section-3.3-5.3.2.2.1" class="pilcrow">¶</a></p>
+                <p id="section-3.3-5.3.2.2.1">Low: The Target is generally unable to safely access practical and relevant resources.<a href="#section-3.3-5.3.2.2.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
@@ -1662,50 +1674,50 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
             <p id="section-3.3-5.4.1">Access to technological safeguards<a href="#section-3.3-5.4.1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.3-5.4.2.1">
-                <p id="section-3.3-5.4.2.1.1">High: The Victim is able to safely use, and has access to, technological safeguards such as active scanning apps.<a href="#section-3.3-5.4.2.1.1" class="pilcrow">¶</a></p>
+                <p id="section-3.3-5.4.2.1.1">High: The Target is able to safely use, and has access to, technological safeguards such as active scanning apps.<a href="#section-3.3-5.4.2.1.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-3.3-5.4.2.2">
-                <p id="section-3.3-5.4.2.2.1">Limited: The Victim is able to safely use, and has access to, technological safeguards such as active scanning apps, but is unable to use their full capacity.<a href="#section-3.3-5.4.2.2.1" class="pilcrow">¶</a></p>
+                <p id="section-3.3-5.4.2.2.1">Limited: The Target is able to safely use, and has access to, technological safeguards such as active scanning apps, but is unable to use their full capacity.<a href="#section-3.3-5.4.2.2.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-3.3-5.4.2.3">
-                <p id="section-3.3-5.4.2.3.1">Low: The Victim is not able to use technological safeguards such as active scanning apps, due to reasons of safety or access.<a href="#section-3.3-5.4.2.3.1" class="pilcrow">¶</a></p>
+                <p id="section-3.3-5.4.2.3.1">Low: The Target is not able to use technological safeguards such as active scanning apps, due to reasons of safety or access.<a href="#section-3.3-5.4.2.3.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
         </ul>
-<p id="section-3.3-6">It is also appropriate to define who is using the Location-tracking Tags and incorporate this into a model. This is because if protocols overly deprioritize the privacy of tracking Tags’ users, an Attacker could use a Victim’s own Tag to track them (see <a href="#balancing-privacy-and-security" class="auto internal xref">Section 3.2</a>).<a href="#section-3.3-6" class="pilcrow">¶</a></p>
+<p id="section-3.3-6">It is also appropriate to define who is using the Location-tracking Tags and incorporate this into a model. This is because if protocols overly deprioritize the privacy of tracking Tags’ users, an Attacker could use a Target’s own Tag to track them (see <a href="#balancing-privacy-and-security" class="auto internal xref">Section 3.2</a>).<a href="#section-3.3-6" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.3-7.1">
             <p id="section-3.3-7.1.1">Tracking Tag usage<a href="#section-3.3-7.1.1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.3-7.1.2.1">
-                <p id="section-3.3-7.1.2.1.1">Attacker only: The Attacker controls one or more Location-tracking Tags, but the Victim does not.<a href="#section-3.3-7.1.2.1.1" class="pilcrow">¶</a></p>
+                <p id="section-3.3-7.1.2.1.1">Attacker only: The Attacker controls one or more Location-tracking Tags, but the Target does not.<a href="#section-3.3-7.1.2.1.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-3.3-7.1.2.2">
-                <p id="section-3.3-7.1.2.2.1">Victim only: The Victim controls one or more Location-tracking Tags, but the Attacker does not.<a href="#section-3.3-7.1.2.2.1" class="pilcrow">¶</a></p>
+                <p id="section-3.3-7.1.2.2.1">Target only: The Target controls one or more Location-tracking Tags, but the Attacker does not.<a href="#section-3.3-7.1.2.2.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-3.3-7.1.2.3">
-                <p id="section-3.3-7.1.2.3.1">Attacker and Victim: Both the Attacker and Victim control one or more Location-tracking Tags.<a href="#section-3.3-7.1.2.3.1" class="pilcrow">¶</a></p>
+                <p id="section-3.3-7.1.2.3.1">Attacker and Target: Both the Attacker and Target control one or more Location-tracking Tags.<a href="#section-3.3-7.1.2.3.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
         </ul>
-<p id="section-3.3-8">Any of the threat analyses above could be affected by placement of the Tag(s). For instance, a Tag could be placed on a Victim's person, or in proximity to a Victim but not on their person (e.g. a child's backpack).<a href="#section-3.3-8" class="pilcrow">¶</a></p>
+<p id="section-3.3-8">Any of the threat analyses above could be affected by placement of the Tag(s). For instance, a Tag could be placed on a Target's person, or in proximity to a Target but not on their person (e.g. a child's backpack).<a href="#section-3.3-8" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.3-9.1">
             <p id="section-3.3-9.1.1">Tag placement<a href="#section-3.3-9.1.1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.3-9.1.2.1">
-                <p id="section-3.3-9.1.2.1.1">Tag on Victim's person or immediate belongings: This attack vector allows an Attacker to track a Victim in a fine-grained way. It is also more likely that this attack would trigger an alert from the Tag.<a href="#section-3.3-9.1.2.1.1" class="pilcrow">¶</a></p>
+                <p id="section-3.3-9.1.2.1.1">Tag on Target's person or immediate belongings: This attack vector allows an Attacker to track a Target in a fine-grained way. It is also more likely that this attack would trigger an alert from the Tag.<a href="#section-3.3-9.1.2.1.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-3.3-9.1.2.2">
-                <p id="section-3.3-9.1.2.2.1">Tag(s) in proximity to Victim but not on their person (e.g. child's backpack, car): While this is a less fine-grained attack, it may also be less likely to be discovered by the Victim. A child may not realize the significance of an alert or know how to check for a Tag. A parent may not think to scan for such a Tag, or may have more difficulty finding a Tag in a complex location such as a car.<a href="#section-3.3-9.1.2.2.1" class="pilcrow">¶</a></p>
+                <p id="section-3.3-9.1.2.2.1">Tag(s) in proximity to Target but not on their person (e.g. child's backpack, car): While this is a less fine-grained attack, it may also be less likely to be discovered by the Target. A child may not realize the significance of an alert or know how to check for a Tag. A parent may not think to scan for such a Tag, or may have more difficulty finding a Tag in a complex location such as a car.<a href="#section-3.3-9.1.2.2.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-3.3-9.1.2.3">
-                <p id="section-3.3-9.1.2.3.1">Tags nearby but not used for Unwanted Tracking (e.g. false positives by companions or on transit): While this is not an attack vector in its own right, repeated false positives may discourage a Victim from treating alerts seriously.<a href="#section-3.3-9.1.2.3.1" class="pilcrow">¶</a></p>
+                <p id="section-3.3-9.1.2.3.1">Tags nearby but not used for Unwanted Tracking (e.g. false positives by companions or on transit): While this is not an attack vector in its own right, repeated false positives may discourage a Target from treating alerts seriously.<a href="#section-3.3-9.1.2.3.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-3.3-9.1.2.4">
-                <p id="section-3.3-9.1.2.4.1">Multiple Tags using multiple types of placement: This attack vector may trick a Victim into believing that they have fully addressed the attack when they have not. It also allows for a diversity of monitoring types (e.g. monitoring the Victim's precise location, monitoring a child's routine, monitoring car usage).<a href="#section-3.3-9.1.2.4.1" class="pilcrow">¶</a></p>
+                <p id="section-3.3-9.1.2.4.1">Multiple Tags using multiple types of placement: This attack vector may trick a Target into believing that they have fully addressed the attack when they have not. It also allows for a diversity of monitoring types (e.g. monitoring the Target's precise location, monitoring a child's routine, monitoring car usage).<a href="#section-3.3-9.1.2.4.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
@@ -1716,7 +1728,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
 <a href="#section-3.3.1" class="section-number selfRef">3.3.1. </a><a href="#name-example-scenarios-with-anal" class="section-name selfRef">Example scenarios with analyses</a>
           </h4>
 <p id="section-3.3.1-1">The following scenarios are composite cases based upon reports from the field. They are intended to illustrate different angles of the problem. They are not only technological, but meant to provide realistic insights into the constraints of people being targeted through Location-Tracking Tags. There is no identifying information for any real person contained within them. In accordance with research on <a href="https://dl.acm.org/doi/10.1145/2207676.2208573">how designers understand personas</a>, the characters are given non-human names without attributes such as gender or race.<a href="#section-3.3.1-1" class="pilcrow">¶</a></p>
-<p id="section-3.3.1-2">The analysis of each scenario provides an example usage of the modeling framework described above. It includes a tracking Tag usage element for illustrative purposes. However, as discussed previously, this element becomes more or less relevant depending on protocol evolution. Note that once a given Attacker persona has been modeled, it could be recombined with a different Victim persona, or vice versa, to model a different scenario. For example, a non-expert Victim persona could be combined with both non-expert and expert Attacker personas.<a href="#section-3.3.1-2" class="pilcrow">¶</a></p>
+<p id="section-3.3.1-2">The analysis of each scenario provides an example usage of the modeling framework described above. It includes a tracking Tag usage element for illustrative purposes. However, as discussed previously, this element becomes more or less relevant depending on protocol evolution. Note that once a given Attacker persona has been modeled, it could be recombined with a different Target persona, or vice versa, to model a different scenario. For example, a non-expert Target persona could be combined with both non-expert and expert Attacker personas.<a href="#section-3.3.1-2" class="pilcrow">¶</a></p>
 <div id="scenario-1">
 <section id="section-3.3.1.1">
             <h5 id="name-scenario-1">
@@ -1735,7 +1747,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
               <h6 id="name-analysis">
 <a href="#section-3.3.1.1.2" class="section-number selfRef">3.3.1.1.2. </a><a href="#name-analysis" class="section-name selfRef">Analysis</a>
               </h6>
-<p id="section-3.3.1.1.2-1">In this case, the Attacker has planted a Tag on a child. Co-parenting after separation is common in cases of intimate partner violence where the former partners have a child together. Child visits can be an opportunity to introduce technology for purposes of stalking the Victim.<a href="#section-3.3.1.1.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.3.1.1.2-1">In this case, the Attacker has planted a Tag on a child. Co-parenting after separation is common in cases of intimate partner violence where the former partners have a child together. Child visits can be an opportunity to introduce technology for purposes of stalking the Target.<a href="#section-3.3.1.1.2-1" class="pilcrow">¶</a></p>
 <table class="center" id="table-1">
                 <caption><a href="#table-1" class="selfRef">Table 1</a></caption>
 <thead>
@@ -1750,7 +1762,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
                     <td class="text-left" rowspan="1" colspan="1">Non-Expert</td>
                   </tr>
                   <tr>
-                    <td class="text-left" rowspan="1" colspan="1">Proximity to Victim</td>
+                    <td class="text-left" rowspan="1" colspan="1">Proximity to Target</td>
                     <td class="text-left" rowspan="1" colspan="1">Medium</td>
                   </tr>
                   <tr>
@@ -1763,7 +1775,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
                 <caption><a href="#table-2" class="selfRef">Table 2</a></caption>
 <thead>
                   <tr>
-                    <th class="text-left" rowspan="1" colspan="1">Victim Profile</th>
+                    <th class="text-left" rowspan="1" colspan="1">Target Profile</th>
                     <th class="text-left" rowspan="1" colspan="1">Mango</th>
                   </tr>
                 </thead>
@@ -1827,7 +1839,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
               <h6 id="name-analysis-2">
 <a href="#section-3.3.1.2.2" class="section-number selfRef">3.3.1.2.2. </a><a href="#name-analysis-2" class="section-name selfRef">Analysis</a>
               </h6>
-<p id="section-3.3.1.2.2-1">Here, the Attacker and the Victim are still cohabiting, and the Attacker is monitoring the Victim’s independent activities. This would allow the Attacker to know if, for instance, the Victim went to a police station or a domestic violence agency. The Victim has reason to think that they are being tracked, but they cannot find the Tag. This can happen if the sound emitted by the Tag is insufficiently loud, and is particularly a risk in a car, where seat cushions or other typical features of a car may provide sound insulation for a hidden Tag. The Victim could benefit from having a mechanism to increase the volume of the sound emitted by the Tag. Another notable feature of this scenario is that because of the cohabitation, the Tag will spend most of the time in “near-Owner state” as defined by the proposed industry consortium specification (see <span>[<a href="#I-D.detecting-unwanted-location-trackers" class="cite xref">I-D.detecting-unwanted-location-trackers</a>]</span>). Tags do not provide alerts in near-Owner state to reduce false positives.<a href="#section-3.3.1.2.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.3.1.2.2-1">Here, the Attacker and the Target are still cohabiting, and the Attacker is monitoring the Target’s independent activities. This would allow the Attacker to know if, for instance, the Target went to a police station or a domestic violence agency. The Target has reason to think that they are being tracked, but they cannot find the Tag. This can happen if the sound emitted by the Tag is insufficiently loud, and is particularly a risk in a car, where seat cushions or other typical features of a car may provide sound insulation for a hidden Tag. The Target could benefit from having a mechanism to increase the volume of the sound emitted by the Tag. Another notable feature of this scenario is that because of the cohabitation, the Tag will spend most of the time in “near-Owner state” as defined by the proposed industry consortium specification (see <span>[<a href="#I-D.detecting-unwanted-location-trackers" class="cite xref">I-D.detecting-unwanted-location-trackers</a>]</span>). Tags do not provide alerts in near-Owner state to reduce false positives.<a href="#section-3.3.1.2.2-1" class="pilcrow">¶</a></p>
 <table class="center" id="table-4">
                 <caption><a href="#table-4" class="selfRef">Table 4</a></caption>
 <thead>
@@ -1842,7 +1854,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
                     <td class="text-left" rowspan="1" colspan="1">Non-Expert</td>
                   </tr>
                   <tr>
-                    <td class="text-left" rowspan="1" colspan="1">Proximity to Victim</td>
+                    <td class="text-left" rowspan="1" colspan="1">Proximity to Target</td>
                     <td class="text-left" rowspan="1" colspan="1">High</td>
                   </tr>
                   <tr>
@@ -1855,7 +1867,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
                 <caption><a href="#table-5" class="selfRef">Table 5</a></caption>
 <thead>
                   <tr>
-                    <th class="text-left" rowspan="1" colspan="1">Victim Profile</th>
+                    <th class="text-left" rowspan="1" colspan="1">Target Profile</th>
                     <th class="text-left" rowspan="1" colspan="1">Strawberry</th>
                   </tr>
                 </thead>
@@ -1919,7 +1931,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
               <h6 id="name-analysis-3">
 <a href="#section-3.3.1.3.2" class="section-number selfRef">3.3.1.3.2. </a><a href="#name-analysis-3" class="section-name selfRef">Analysis</a>
               </h6>
-<p id="section-3.3.1.3.2-1">This is a case involving a high-skill Attacker, with a large skill difference between Attacker and Victim. This situation often arises in regions with a high concentration of technology industry workers. It also may be more common in ethnic-cultural communities with high representation in the technology industry. In this case the Victim is also subject to a very high level of control from the Attacker due to their imbalances in technological skills and societal status, and is heavily constrained in their options as a result. It is unsafe for the Victim to engage in active scanning, or to receive alerts on their phone. The Victim might benefit from being able to log into an account on another phone or a computer and view logs of any recent alerts collected through passive scanning.<a href="#section-3.3.1.3.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.3.1.3.2-1">This is a case involving a high-skill Attacker, with a large skill difference between Attacker and Target. This situation often arises in regions with a high concentration of technology industry workers. It also may be more common in ethnic-cultural communities with high representation in the technology industry. In this case the Target is also subject to a very high level of control from the Attacker due to their imbalances in technological skills and societal status, and is heavily constrained in their options as a result. It is unsafe for the Target to engage in active scanning, or to receive alerts on their phone. The Target might benefit from being able to log into an account on another phone or a computer and view logs of any recent alerts collected through passive scanning.<a href="#section-3.3.1.3.2-1" class="pilcrow">¶</a></p>
 <table class="center" id="table-7">
                 <caption><a href="#table-7" class="selfRef">Table 7</a></caption>
 <thead>
@@ -1934,7 +1946,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
                     <td class="text-left" rowspan="1" colspan="1">Expert</td>
                   </tr>
                   <tr>
-                    <td class="text-left" rowspan="1" colspan="1">Proximity to Victim</td>
+                    <td class="text-left" rowspan="1" colspan="1">Proximity to Target</td>
                     <td class="text-left" rowspan="1" colspan="1">High</td>
                   </tr>
                   <tr>
@@ -1947,7 +1959,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
                 <caption><a href="#table-8" class="selfRef">Table 8</a></caption>
 <thead>
                   <tr>
-                    <th class="text-left" rowspan="1" colspan="1">Victim Profile</th>
+                    <th class="text-left" rowspan="1" colspan="1">Target Profile</th>
                     <th class="text-left" rowspan="1" colspan="1">Lime</th>
                   </tr>
                 </thead>
@@ -2011,7 +2023,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
               <h6 id="name-analysis-4">
 <a href="#section-3.3.1.4.2" class="section-number selfRef">3.3.1.4.2. </a><a href="#name-analysis-4" class="section-name selfRef">Analysis</a>
               </h6>
-<p id="section-3.3.1.4.2-1">This scenario differs from the previous ones in three major ways. First, it requires no physical proximity between the Attacker and the Victim. Second, the Attacker, like nearly one in five stalkers <a href="https://www.stalkingawareness.org/wp-content/uploads/2022/04/General-Stalking-Infographic.pdf">(SPARC - Stalking Infographic, 2022)</a>, is a stranger. Third, in this scenario the Accessory belongs to the Victim rather than the Attacker. The Attacker was able to use OSINT learned from an online forum in order to gain remote access to the Victim's Accessory.<a href="#section-3.3.1.4.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.3.1.4.2-1">This scenario differs from the previous ones in three major ways. First, it requires no physical proximity between the Attacker and the Target. Second, the Attacker, like nearly one in five stalkers <a href="https://www.stalkingawareness.org/wp-content/uploads/2022/04/General-Stalking-Infographic.pdf">(SPARC - Stalking Infographic, 2022)</a>, is a stranger. Third, in this scenario the Accessory belongs to the Target rather than the Attacker. The Attacker was able to use OSINT learned from an online forum in order to gain remote access to the Target's Accessory.<a href="#section-3.3.1.4.2-1" class="pilcrow">¶</a></p>
 <table class="center" id="table-10">
                 <caption><a href="#table-10" class="selfRef">Table 10</a></caption>
 <thead>
@@ -2026,7 +2038,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
                     <td class="text-left" rowspan="1" colspan="1">Non-Expert</td>
                   </tr>
                   <tr>
-                    <td class="text-left" rowspan="1" colspan="1">Proximity to Victim</td>
+                    <td class="text-left" rowspan="1" colspan="1">Proximity to Target</td>
                     <td class="text-left" rowspan="1" colspan="1">Low</td>
                   </tr>
                   <tr>
@@ -2039,7 +2051,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
                 <caption><a href="#table-11" class="selfRef">Table 11</a></caption>
 <thead>
                   <tr>
-                    <th class="text-left" rowspan="1" colspan="1">Victim Profile</th>
+                    <th class="text-left" rowspan="1" colspan="1">Target Profile</th>
                     <th class="text-left" rowspan="1" colspan="1">Banana</th>
                   </tr>
                 </thead>
@@ -2073,11 +2085,11 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
                 <tbody>
                   <tr>
                     <td class="text-left" rowspan="1" colspan="1">Accessory Usage</td>
-                    <td class="text-left" rowspan="1" colspan="1">Victim Only</td>
+                    <td class="text-left" rowspan="1" colspan="1">Target Only</td>
                   </tr>
                   <tr>
                     <td class="text-left" rowspan="1" colspan="1">Tag Placement</td>
-                    <td class="text-left" rowspan="1" colspan="1">On Victim</td>
+                    <td class="text-left" rowspan="1" colspan="1">On Target</td>
                   </tr>
                 </tbody>
               </table>
@@ -2103,7 +2115,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
               <h6 id="name-analysis-5">
 <a href="#section-3.3.1.5.2" class="section-number selfRef">3.3.1.5.2. </a><a href="#name-analysis-5" class="section-name selfRef">Analysis</a>
               </h6>
-<p id="section-3.3.1.5.2-1">In this scenario involving two technical students, the Attacker, like over 40% of stalkers <a href="https://www.stalkingawareness.org/wp-content/uploads/2022/04/General-Stalking-Infographic.pdf">(SPARC - Stalking Infographic, 2022)</a>, is an acquaintance. Both Attacker and Victim are familiar with and use tracking Accessories. The Attacker is using multiple Accessories with a plan to incorporate more into their strategy.<a href="#section-3.3.1.5.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.3.1.5.2-1">In this scenario involving two technical students, the Attacker, like over 40% of stalkers <a href="https://www.stalkingawareness.org/wp-content/uploads/2022/04/General-Stalking-Infographic.pdf">(SPARC - Stalking Infographic, 2022)</a>, is an acquaintance. Both Attacker and Target are familiar with and use tracking Accessories. The Attacker is using multiple Accessories with a plan to incorporate more into their strategy.<a href="#section-3.3.1.5.2-1" class="pilcrow">¶</a></p>
 <table class="center" id="table-13">
                 <caption><a href="#table-13" class="selfRef">Table 13</a></caption>
 <thead>
@@ -2118,7 +2130,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
                     <td class="text-left" rowspan="1" colspan="1">Expert</td>
                   </tr>
                   <tr>
-                    <td class="text-left" rowspan="1" colspan="1">Proximity to Victim</td>
+                    <td class="text-left" rowspan="1" colspan="1">Proximity to Target</td>
                     <td class="text-left" rowspan="1" colspan="1">Medium</td>
                   </tr>
                   <tr>
@@ -2131,7 +2143,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
                 <caption><a href="#table-14" class="selfRef">Table 14</a></caption>
 <thead>
                   <tr>
-                    <th class="text-left" rowspan="1" colspan="1">Victim Profile</th>
+                    <th class="text-left" rowspan="1" colspan="1">Target Profile</th>
                     <th class="text-left" rowspan="1" colspan="1">Orange</th>
                   </tr>
                 </thead>
@@ -2165,7 +2177,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
                 <tbody>
                   <tr>
                     <td class="text-left" rowspan="1" colspan="1">Accessory Usage</td>
-                    <td class="text-left" rowspan="1" colspan="1">Attacker and Victim</td>
+                    <td class="text-left" rowspan="1" colspan="1">Attacker and Target</td>
                   </tr>
                   <tr>
                     <td class="text-left" rowspan="1" colspan="1">Tag Placement</td>
@@ -2184,7 +2196,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
           <h4 id="name-bluetooth-vs-other-technolo">
 <a href="#section-3.3.2" class="section-number selfRef">3.3.2. </a><a href="#name-bluetooth-vs-other-technolo" class="section-name selfRef">Bluetooth vs. other technologies</a>
           </h4>
-<p id="section-3.3.2-1">The above taxonomy and threat analysis focus on Location-tracking Tags. They are protocol-independent; if a Tag were designed for use with a Crowdsourced Network using a technology other than Bluetooth, they would still apply. The key attributes are the functionalities and physical properties of the Accessory from the user’s perspective: the Accessory must be small, not Easily Discoverable, and able to participate in a Crowdsourced Network. While many GPS based location trackers are not explicitly designed for crowdsourced location tracking, relying instead on cellular or satellite transmission, they offer different affordances that can have a critical impact on safety, including increased location precision and real-time tracking. Manufacturers of these trackers are strongly encouraged to add Bluetooth crowd-sourced functionality so that DULT Protocols can be supported by GPS trackers.<a href="#section-3.3.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.3.2-1">The above taxonomy and threat analysis focus on Location-tracking Tags. They are protocol-independent; if a Tag were designed for use with a Crowdsourced Network using a technology other than Bluetooth, they would still apply. The key attributes are the functionalities and physical properties of the Accessory from the user’s perspective: the Accessory must be small, not Easily Discoverable, and able to participate in a Crowdsourced Network. While many GPS based location trackers are not explicitly designed for crowdsourced location-tracking, relying instead on cellular or satellite transmission, they offer different affordances that can have a critical impact on safety, including increased location precision and real-time tracking. Manufacturers of these trackers are strongly encouraged to add Bluetooth crowdsourced functionality so that DULT Protocols can be supported by GPS trackers.<a href="#section-3.3.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2194,13 +2206,13 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
         <h3 id="name-possible-attacks-on-the-dul">
 <a href="#section-3.4" class="section-number selfRef">3.4. </a><a href="#name-possible-attacks-on-the-dul" class="section-name selfRef">Possible Attacks on the DULT Protocol</a>
         </h3>
-<p id="section-3.4-1">There are several different ways an Attacker could attempt to circumvent the DULT Protocol in order to track a Victim without their consent or otherwise take advantage of the Crowdsourced Network. These include deploying multiple Tags to follow a single Victim, using non-conformant Accessories and/or Devices, and taking advantage of possible differences between Crowdsourced Network implementations. This section includes a threat prioritization framework that assesses the risk of these attacks and how these risks may be mitigated.<a href="#section-3.4-1" class="pilcrow">¶</a></p>
+<p id="section-3.4-1">There are several different ways an Attacker could attempt to circumvent the DULT Protocol in order to track a Target without their consent or otherwise take advantage of the Crowdsourced Network. These include deploying multiple Tags to follow a single Target, using non-conformant Accessories and/or Devices, and taking advantage of possible differences between Crowdsourced Network implementations. This section includes a threat prioritization framework that assesses the risk of these attacks and how these risks may be mitigated.<a href="#section-3.4-1" class="pilcrow">¶</a></p>
 <div id="threat-prioritization-framework-for-dult-threat-model">
 <section id="section-3.4.1">
           <h4 id="name-threat-prioritization-frame">
 <a href="#section-3.4.1" class="section-number selfRef">3.4.1. </a><a href="#name-threat-prioritization-frame" class="section-name selfRef">Threat Prioritization Framework for DULT Threat Model</a>
           </h4>
-<p id="section-3.4.1-1">Threats in the DULT ecosystem vary in severity, feasibility, and likelihood, affecting users in different ways. Some threats enable long-term tracking, while others exploit gaps in detection mechanisms or leverage non-conformant Accessories and Devices. To assess and prioritize these risks, the following framework classifies threats based on their scope, impact, likelihood, risk level, affected users, and the availability of mitigations. A Threat Matrix is included that provides a structured assessment of known threats and their associated risks. This categorization helps in understanding the challenges posed by different tracking techniques and their potential mitigations.<a href="#section-3.4.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.4.1-1">Threats in the DULT ecosystem vary in severity, feasibility, and likelihood, affecting users in different ways. Some threats enable long-term tracking, while others exploit gaps in detection mechanisms or leverage non-conformant Accessories and Devices. To assess and prioritize these risks, the following framework classifies threats based on their scope, impact, likelihood, risk level, affected users, and the availability of mitigations. A Threat Matrix is included that provides a structured assessment of known threats and their associated risks. This categorization helps in understanding the challenges posed by different tracking techniques and their potential mitigations. While each attack included in this section only includes one value for potential impact, likelihood and risk level, in practice these values could differ depending on considerations discussed in <a href="#taxonomy-of-unwanted-tracking" class="auto internal xref">Section 3.3</a> such as the proximity of the Attacker to the Target.<a href="#section-3.4.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="threat-matrix">
@@ -2270,7 +2282,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
               <p id="section-3.4.2-2.5.1">Affected Users: These are categorized as either:<a href="#section-3.4.2-2.5.1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.4.2-2.5.2.1">
-                  <p id="section-3.4.2-2.5.2.1.1">Victims: Individuals specifically targeted for the purposes of Unwanted Tracking.<a href="#section-3.4.2-2.5.2.1.1" class="pilcrow">¶</a></p>
+                  <p id="section-3.4.2-2.5.2.1.1">Targets: Individuals specifically targeted for the purposes of Unwanted Tracking.<a href="#section-3.4.2-2.5.2.1.1" class="pilcrow">¶</a></p>
 </li>
                 <li class="normal" id="section-3.4.2-2.5.2.2">
                   <p id="section-3.4.2-2.5.2.2.1">All users: Anyone using the system, even if they are not directly targeted.<a href="#section-3.4.2-2.5.2.2.1" class="pilcrow">¶</a></p>
@@ -2312,8 +2324,8 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
                 <td class="text-left" rowspan="1" colspan="1">Medium</td>
                 <td class="text-left" rowspan="1" colspan="1">High</td>
                 <td class="text-left" rowspan="1" colspan="1">High</td>
-                <td class="text-left" rowspan="1" colspan="1">Victims</td>
-                <td class="text-left" rowspan="1" colspan="1">Full</td>
+                <td class="text-left" rowspan="1" colspan="1">Targets</td>
+                <td class="text-left" rowspan="1" colspan="1">Yes</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">Remote Advertisement Monitoring</td>
@@ -2330,7 +2342,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
                 <td class="text-left" rowspan="1" colspan="1">High</td>
                 <td class="text-left" rowspan="1" colspan="1">Medium</td>
                 <td class="text-left" rowspan="1" colspan="1">Medium</td>
-                <td class="text-left" rowspan="1" colspan="1">Victims</td>
+                <td class="text-left" rowspan="1" colspan="1">Targets</td>
                 <td class="text-left" rowspan="1" colspan="1">Partial</td>
               </tr>
               <tr>
@@ -2339,7 +2351,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
                 <td class="text-left" rowspan="1" colspan="1">High</td>
                 <td class="text-left" rowspan="1" colspan="1">Low</td>
                 <td class="text-left" rowspan="1" colspan="1">Medium</td>
-                <td class="text-left" rowspan="1" colspan="1">Victims</td>
+                <td class="text-left" rowspan="1" colspan="1">Targets</td>
                 <td class="text-left" rowspan="1" colspan="1">Partial</td>
               </tr>
               <tr>
@@ -2348,34 +2360,34 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
                 <td class="text-left" rowspan="1" colspan="1">Medium</td>
                 <td class="text-left" rowspan="1" colspan="1">Medium</td>
                 <td class="text-left" rowspan="1" colspan="1">Medium</td>
-                <td class="text-left" rowspan="1" colspan="1">Victims</td>
+                <td class="text-left" rowspan="1" colspan="1">Targets</td>
                 <td class="text-left" rowspan="1" colspan="1">Partial</td>
               </tr>
               <tr>
-                <td class="text-left" rowspan="1" colspan="1">Tracking Using Victim's Own Tag</td>
+                <td class="text-left" rowspan="1" colspan="1">Tracking Using Target's Own Tag</td>
                 <td class="text-left" rowspan="1" colspan="1">Network</td>
                 <td class="text-left" rowspan="1" colspan="1">High</td>
                 <td class="text-left" rowspan="1" colspan="1">Medium</td>
                 <td class="text-left" rowspan="1" colspan="1">High</td>
-                <td class="text-left" rowspan="1" colspan="1">Victims</td>
+                <td class="text-left" rowspan="1" colspan="1">Targets</td>
                 <td class="text-left" rowspan="1" colspan="1">Partial</td>
               </tr>
               <tr>
-                <td class="text-left" rowspan="1" colspan="1">Disabling Victim Tag Detection</td>
+                <td class="text-left" rowspan="1" colspan="1">Disabling Target Tag Detection</td>
                 <td class="text-left" rowspan="1" colspan="1">Network</td>
                 <td class="text-left" rowspan="1" colspan="1">High</td>
                 <td class="text-left" rowspan="1" colspan="1">Medium</td>
                 <td class="text-left" rowspan="1" colspan="1">Medium</td>
-                <td class="text-left" rowspan="1" colspan="1">Victims</td>
+                <td class="text-left" rowspan="1" colspan="1">Targets</td>
                 <td class="text-left" rowspan="1" colspan="1">Partial</td>
               </tr>
               <tr>
-                <td class="text-left" rowspan="1" colspan="1">Disabling Victim Tag</td>
+                <td class="text-left" rowspan="1" colspan="1">Disabling Target Tag</td>
                 <td class="text-left" rowspan="1" colspan="1">Accessory, Network</td>
                 <td class="text-left" rowspan="1" colspan="1">Medium</td>
                 <td class="text-left" rowspan="1" colspan="1">Medium</td>
                 <td class="text-left" rowspan="1" colspan="1">Medium</td>
-                <td class="text-left" rowspan="1" colspan="1">Victims</td>
+                <td class="text-left" rowspan="1" colspan="1">Targets</td>
                 <td class="text-left" rowspan="1" colspan="1">Partial</td>
               </tr>
               <tr>
@@ -2384,7 +2396,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
                 <td class="text-left" rowspan="1" colspan="1">High</td>
                 <td class="text-left" rowspan="1" colspan="1">Medium</td>
                 <td class="text-left" rowspan="1" colspan="1">High</td>
-                <td class="text-left" rowspan="1" colspan="1">Victims</td>
+                <td class="text-left" rowspan="1" colspan="1">Targets</td>
                 <td class="text-left" rowspan="1" colspan="1">Partial</td>
               </tr>
               <tr>
@@ -2420,7 +2432,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
                 <td class="text-left" rowspan="1" colspan="1">High</td>
                 <td class="text-left" rowspan="1" colspan="1">Medium</td>
                 <td class="text-left" rowspan="1" colspan="1">Medium</td>
-                <td class="text-left" rowspan="1" colspan="1">Victims</td>
+                <td class="text-left" rowspan="1" colspan="1">Targets</td>
                 <td class="text-left" rowspan="1" colspan="1">No</td>
               </tr>
               <tr>
@@ -2429,7 +2441,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
                 <td class="text-left" rowspan="1" colspan="1">High</td>
                 <td class="text-left" rowspan="1" colspan="1">Medium</td>
                 <td class="text-left" rowspan="1" colspan="1">High</td>
-                <td class="text-left" rowspan="1" colspan="1">Victims</td>
+                <td class="text-left" rowspan="1" colspan="1">Targets</td>
                 <td class="text-left" rowspan="1" colspan="1">Partial</td>
               </tr>
             </tbody>
@@ -2441,7 +2453,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
           <h4 id="name-deploying-multiple-tags-fin">
 <a href="#section-3.4.3" class="section-number selfRef">3.4.3. </a><a href="#name-deploying-multiple-tags-fin" class="section-name selfRef">Deploying Multiple Tags (Finding)</a>
           </h4>
-<p id="section-3.4.3-1">When an Attacker deploys Location-tracking Tags to follow a Victim, they may deploy more than one Tag. For example, if planting a tracking Tag in a car, the Attacker might place one Tag inside the car, and another affixed on the outside of the car. The DULT Protocol must be robust to this scenario. This means that scans, whether passive or active, need to be able to return more than one result if a Device is suspected of being used for Unwanted Tracking, and the time to do so must not be significantly impeded by the presence of multiple Tags. This also applies to situations where many Tags are present, even if they are not being used for Unwanted Tracking, such as a busy train station or airport where Tag Owners may or may not be in proximity to their Location-tracking Tags. Instead of distributing multiple Tags in the same location, an Attacker could also distribute multiple Location-tracking Tags across locations frequently visited by a Victim (home, workplace, etc.).<a href="#section-3.4.3-1" class="pilcrow">¶</a></p>
+<p id="section-3.4.3-1">When an Attacker deploys Location-tracking Tags to follow a Target, they may deploy more than one Tag. For example, if planting a tracking Tag in a car, the Attacker might place one Tag inside the car, and another affixed on the outside of the car. The DULT Protocol must be robust to this scenario. This means that scans, whether passive or active, need to be able to return more than one result if a Tag is suspected of being used for Unwanted Tracking, and the time to do so must not be significantly impeded by the presence of multiple Tags. This also applies to situations where many Tags are present, even if they are not being used for Unwanted Tracking, such as a busy train station or airport where Tag Owners may or may not be in proximity to their Location-tracking Tags. Instead of distributing multiple Tags in the same location, an Attacker could also distribute multiple Location-tracking Tags across locations frequently visited by a Target (home, workplace, etc.).<a href="#section-3.4.3-1" class="pilcrow">¶</a></p>
 <p id="section-3.4.3-2">The impact of this attack is medium for typical cases involving a small number of Tags, though the impact could escalate if an Attacker deploys dozens of Tags. The likelihood is high, as deploying multiple Tags requires minimal technical effort and can be done using inexpensive, commercially available Tags, making the attack easily repeatable. As a result, the overall risk is high, requiring robust countermeasures. The impact of multiple Tags can be fully mitigated by scanning for multiple Tags, though a sophisticated Attacker might deploy other techniques such as modifying Tag firmware (<a href="#accessory-firmware-modifications-accessory" class="auto internal xref">Section 3.4.6</a>) or periodically disabling a Tag (<a href="#attacker-accessory-disablement-accessory-finding" class="auto internal xref">Section 3.4.7</a>) to evade detection.<a href="#section-3.4.3-2" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -2450,10 +2462,10 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
           <h4 id="name-remote-advertisement-monito">
 <a href="#section-3.4.4" class="section-number selfRef">3.4.4. </a><a href="#name-remote-advertisement-monito" class="section-name selfRef">Remote Advertisement Monitoring (Accessory, Network)</a>
           </h4>
-<p id="section-3.4.4-1">Any Device with Bluetooth scanning capabilities in proximity to a Location-tracking Tag can receive Bluetooth advertisement packets. If an Attacker is able to link an identifier in an advertisement packet to a particular Tag, they may be able to use this information to track the Tag over time, and by proxy the Victim or other individual, without their consent.<a href="#section-3.4.4-1" class="pilcrow">¶</a></p>
+<p id="section-3.4.4-1">Any Device with Bluetooth scanning capabilities in proximity to a Location-tracking Tag can receive Bluetooth advertisement packets. If an Attacker is able to link an identifier in an advertisement packet to a particular Tag, they may be able to use this information to track the Tag over time, and by proxy the Target or other individual, without their consent.<a href="#section-3.4.4-1" class="pilcrow">¶</a></p>
 <p id="section-3.4.4-2">The impact of remote advertisement monitoring is moderate, as tracking generally compromises privacy but, in many cases, prolonged observation primarily reveals the location of the object rather than of the person. The likelihood is high, as Attackers can execute this using off-the-shelf Bluetooth scanning tools or smartphone apps with minimal technical knowledge. As a result, this is classified as a medium risk attack. This attack can be partially mitigated by rotating tracking identifiers.<a href="#section-3.4.4-2" class="pilcrow">¶</a></p>
 <p id="section-3.4.4-3">Tracking Tags typically rotate any identifiers associated with the Tag, with the interval depending on context: when near the Owner's Device, identifiers rotate frequently (every 15–30 minutes), while in a separated state, rotation may occur only once every 24 hours (see <span>[<a href="#I-D.detecting-unwanted-location-trackers" class="cite xref">I-D.detecting-unwanted-location-trackers</a>]</span>). Eldridge et al. have <a href="https://eprint.iacr.org/2023/1332.pdf">demonstrated</a> a technological solution that employs secret sharing and error correction coding that would reduce this to 60 seconds. However, work must investigate how robust this scheme is to the presence of multiple Tags (see <a href="#deploying-multiple-tags-finding" class="auto internal xref">Section 3.4.3</a>).<a href="#section-3.4.4-3" class="pilcrow">¶</a></p>
-<p id="section-3.4.4-4">While rotating identifiers provides partial mitigation, Attackers can still use advanced correlation techniques, such as signal fingerprinting, timing analysis, and multi-sensor triangulation, to bypass this defense. These methods leverage unique transmission characteristics, RSSI (Received Signal Strength Indicator) variations, and environmental factors to probabilistically link rotating identifiers back to a single Device over time. Prior research, such as Eldridge et al., has <a href="https://eprint.iacr.org/2023/1332.pdf">demonstrated</a> how statistical models can be used to correlate Bluetooth signals even when identifiers change frequently. Additional work by Despres et al. further <a href="https://people.eecs.berkeley.edu/~daw/papers/deTagtive-snip23.pdf">demonstrates</a> that BLE Devices using rotating identifiers can be deanonymized through RSSI-based correlation techniques.<a href="#section-3.4.4-4" class="pilcrow">¶</a></p>
+<p id="section-3.4.4-4">While rotating identifiers provides partial mitigation, Attackers can still use advanced correlation techniques, such as signal fingerprinting, timing analysis, and multi-sensor triangulation, to bypass this defense. These methods leverage unique transmission characteristics, RSSI (Received Signal Strength Indicator) variations, and environmental factors to probabilistically link rotating identifiers back to a single Tag over time. Prior research, such as Eldridge et al., has <a href="https://eprint.iacr.org/2023/1332.pdf">demonstrated</a> how statistical models can be used to correlate Bluetooth signals even when identifiers change frequently. Additional work by Despres et al. further <a href="https://people.eecs.berkeley.edu/~daw/papers/deTagtive-snip23.pdf">demonstrates</a> that BLE Accessories using rotating identifiers can be deanonymized through RSSI-based correlation techniques.<a href="#section-3.4.4-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="physically-modifying-tags-accessory">
@@ -2461,7 +2473,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
           <h4 id="name-physically-modifying-tags-a">
 <a href="#section-3.4.5" class="section-number selfRef">3.4.5. </a><a href="#name-physically-modifying-tags-a" class="section-name selfRef">Physically Modifying Tags (Accessory)</a>
           </h4>
-<p id="section-3.4.5-1">An Attacker might physically modify a Tag in ways that make it non-conformant with the DULT Protocol. Physical modifications may include disabling a speaker or other haptics, or shielding and altering the antenna to reduce transmission range. These modifications can make it more difficult for Victims to discover hidden Tags, leading to a high impact. The likelihood is medium, as such hardware modifications require moderate technical expertise and physical access to the Device.  Given this combination of factors, the overall risk level is medium. Partial mitigation is available, such as monitoring the impedance of the speaker, but these mitigations are limited as Attackers have physical access to the Tags.<a href="#section-3.4.5-1" class="pilcrow">¶</a></p>
+<p id="section-3.4.5-1">An Attacker might physically modify a Tag in ways that make it non-conformant with the DULT Protocol. Physical modifications may include disabling a speaker or other haptics, or shielding and altering the antenna to reduce transmission range. These modifications can make it more difficult for Victims to discover hidden Tags, leading to a high impact. The likelihood is medium, as such hardware modifications require moderate technical expertise and physical access to the Tag.  Given this combination of factors, the overall risk level is medium. Partial mitigation is available, such as monitoring the impedance of the speaker, but these mitigations are limited as Attackers have physical access to the Tags.<a href="#section-3.4.5-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="accessory-firmware-modifications-accessory">
@@ -2469,7 +2481,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
           <h4 id="name-accessory-firmware-modifica">
 <a href="#section-3.4.6" class="section-number selfRef">3.4.6. </a><a href="#name-accessory-firmware-modifica" class="section-name selfRef">Accessory Firmware Modifications (Accessory)</a>
           </h4>
-<p id="section-3.4.6-1">The DULT Protocol (see <span>[<a href="#I-D.draft-ietf-dult-Accessory-protocol" class="cite xref">I-D.draft-ietf-dult-Accessory-protocol</a>]</span>) will specify that Accessory firmware images <span class="bcp14">MUST</span> be authenticated, and that Accessories <span class="bcp14">MUST</span> verify the integrity and origin of firmware. However, if these protections were to be bypassed, an Accessory's firmware could be altered to deviate from standard behavior. Attackers may manipulate advertisement intervals to reduce detection opportunities, allowing the Tag to evade tracking for extended periods, or rotate IDs rapidly, disrupting detection systems that rely on tracking unknown Device persistence.<a href="#section-3.4.6-1" class="pilcrow">¶</a></p>
+<p id="section-3.4.6-1">The DULT Protocol (see <span>[<a href="#I-D.draft-ietf-dult-Accessory-protocol" class="cite xref">I-D.draft-ietf-dult-Accessory-protocol</a>]</span>) will specify that Accessory firmware images <span class="bcp14">MUST</span> be authenticated, and that Accessories <span class="bcp14">MUST</span> verify the integrity and origin of firmware. However, if these protections were to be bypassed, an Accessory's firmware could be altered to deviate from standard behavior. Attackers may manipulate advertisement intervals to reduce detection opportunities, allowing the Tag to evade tracking for extended periods, or rotate IDs rapidly, disrupting detection systems that rely on tracking unknown Accessory persistence.<a href="#section-3.4.6-1" class="pilcrow">¶</a></p>
 <p id="section-3.4.6-2">Firmware-based changes would have high impact. The likelihood is low, as these attacks require significant technical expertise to bypass firmware verification and modify low-level Accessory behavior. As a result, the overall risk level is medium. Partial mitigation of this attack is possible by requiring Accessories to verify the integrity and origin of firmware.<a href="#section-3.4.6-2" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -2478,35 +2490,35 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
           <h4 id="name-attacker-accessory-disablem">
 <a href="#section-3.4.7" class="section-number selfRef">3.4.7. </a><a href="#name-attacker-accessory-disablem" class="section-name selfRef">Attacker Accessory Disablement (Accessory, Finding)</a>
           </h4>
-<p id="section-3.4.7-1">An Attacker might intentionally disable their Location-tracking Tag to make it harder for a Victim to detect and/or locate the Tag. This could be done periodically or permanently and either remotely or using a <a href="https://undetecTag.com/products/undetecTag">physical Device</a>.<a href="#section-3.4.7-1" class="pilcrow">¶</a></p>
-<p id="section-3.4.7-2">The likelihood is medium, as this attack is relatively easy to perform using commercially available tools, but it still requires some Attacker awareness of the Victim’s actions (e.g., an ongoing search). The impact is medium as the Tag can still be detected and physically located, though it may be more difficult to do so. The risk level is medium. The impact of this attack can be partially mitigated by minimizing the time needed to detect Unwanted Tracking and maintaining the same identifier on reset.<a href="#section-3.4.7-2" class="pilcrow">¶</a></p>
+<p id="section-3.4.7-1">An Attacker might intentionally disable their Location-tracking Tag to make it harder for a Victim to detect and/or locate the Tag. This could be done periodically or permanently and either remotely or using a <a href="https://undetecTag.com/products/undetecTag">physical device</a>.<a href="#section-3.4.7-1" class="pilcrow">¶</a></p>
+<p id="section-3.4.7-2">The likelihood is medium, as this attack is relatively easy to perform using commercially available tools, but it still requires some Attacker awareness of the Target’s actions (e.g., an ongoing search). The impact is medium as the Tag can still be detected and physically located, though it may be more difficult to do so. The risk level is medium. The impact of this attack can be partially mitigated by minimizing the time needed to detect Unwanted Tracking and maintaining the same identifier on reset.<a href="#section-3.4.7-2" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="tracking-using-victims-own-tag-network">
+<div id="tracking-using-targets-own-tag-network">
 <section id="section-3.4.8">
-          <h4 id="name-tracking-using-victims-own-">
-<a href="#section-3.4.8" class="section-number selfRef">3.4.8. </a><a href="#name-tracking-using-victims-own-" class="section-name selfRef">Tracking Using Victim's Own Tag (Network)</a>
+          <h4 id="name-tracking-using-targets-own-">
+<a href="#section-3.4.8" class="section-number selfRef">3.4.8. </a><a href="#name-tracking-using-targets-own-" class="section-name selfRef">Tracking Using Target's Own Tag (Network)</a>
           </h4>
-<p id="section-3.4.8-1">Attackers with access to a Victim’s account, either through password reuse, phishing, social engineering, or credential theft, can exploit DULT’s Ownership model by using the Victim’s own Tag to monitor their location. Since the Tag is registered to the Victim, the system assumes the user is the legitimate Owner and suppresses any Unwanted Tracking alerts. This creates a significant blind spot, as the Victim is effectively tracked by their own Tag without any warning.<a href="#section-3.4.8-1" class="pilcrow">¶</a></p>
+<p id="section-3.4.8-1">Attackers with access to a Target’s account, either through password reuse, phishing, social engineering, or credential theft, can exploit DULT’s Ownership model by using the Target’s own Tag to monitor their location. Since the Tag is registered to the Target, the system assumes the user is the legitimate Owner and suppresses any Unwanted Tracking alerts. This creates a significant blind spot, as the Target is effectively tracked by their own Tag without any warning.<a href="#section-3.4.8-1" class="pilcrow">¶</a></p>
 <p id="section-3.4.8-2">This threat differs from impersonation or replay attacks (see <a href="#impersonation-attack-tag-accessory-finding-network" class="auto internal xref">Section 3.4.11</a> and <a href="#replay-attack-accessory-network" class="auto internal xref">Section 3.4.13</a>) because it does not rely on breaking cryptographic protections or evading detection algorithms. Instead, it leverages the legitimate trust relationship encoded in the protocol. The impact of this attack is high, as it results in silent tracking with no alert mechanism. The likelihood is medium, as account compromise is a relatively common occurrence in real-world settings, though it still requires some Attacker effort or opportunity. Overall, the risk level is high due to the complete circumvention of core notification systems.<a href="#section-3.4.8-2" class="pilcrow">¶</a></p>
 <p id="section-3.4.8-3">Partial mitigation may be possible through account activity monitoring, anomaly detection (e.g., login from unfamiliar location or Device), and notifications of significant account events (such as Tag access or Tag movement linked to a different Device). However, these features depend on Platform implementation and may not be uniformly enforced.<a href="#section-3.4.8-3" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="disabling-victim-tag-detection-network">
+<div id="disabling-target-tag-detection-network">
 <section id="section-3.4.9">
-          <h4 id="name-disabling-victim-tag-detect">
-<a href="#section-3.4.9" class="section-number selfRef">3.4.9. </a><a href="#name-disabling-victim-tag-detect" class="section-name selfRef">Disabling Victim Tag Detection (Network)</a>
+          <h4 id="name-disabling-target-tag-detect">
+<a href="#section-3.4.9" class="section-number selfRef">3.4.9. </a><a href="#name-disabling-target-tag-detect" class="section-name selfRef">Disabling Target Tag Detection (Network)</a>
           </h4>
-<p id="section-3.4.9-1">An Attacker might intentionally disable passive Unwanted Tracking detection on a Victim's Device.<a href="#section-3.4.9-1" class="pilcrow">¶</a></p>
-<p id="section-3.4.9-2">The impact of this attack is high as it would prevent the Victim from being notified about possible Unwanted Tracking. The likelihood is medium, as executing this attack requires the Attacker to physically or remotely alter settings on the Victim’s Device, which involves moderate effort and access. The risk level is medium. This attack can be partially mitigated by notifying Victims of potential location tracking using other means e.g. sounds or haptics on Location-tracking Tags.<a href="#section-3.4.9-2" class="pilcrow">¶</a></p>
+<p id="section-3.4.9-1">An Attacker might intentionally disable passive Unwanted Tracking detection on a Target's Device.<a href="#section-3.4.9-1" class="pilcrow">¶</a></p>
+<p id="section-3.4.9-2">The impact of this attack is high as it would prevent the Target from being notified about possible Unwanted Tracking. The likelihood is medium, as executing this attack requires the Attacker to physically or remotely alter settings on the Target’s Device, which involves moderate effort and access. The risk level is medium. This attack can be partially mitigated by notifying Targets of potential location tracking using other means e.g. sounds or haptics on Location-tracking Tags.<a href="#section-3.4.9-2" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="disabling-victim-tag-accessory-network">
+<div id="disabling-target-tag-accessory-network">
 <section id="section-3.4.10">
-          <h4 id="name-disabling-victim-tag-access">
-<a href="#section-3.4.10" class="section-number selfRef">3.4.10. </a><a href="#name-disabling-victim-tag-access" class="section-name selfRef">Disabling Victim Tag (Accessory, Network)</a>
+          <h4 id="name-disabling-target-tag-access">
+<a href="#section-3.4.10" class="section-number selfRef">3.4.10. </a><a href="#name-disabling-target-tag-access" class="section-name selfRef">Disabling Target Tag (Accessory, Network)</a>
           </h4>
-<p id="section-3.4.10-1">An Attacker might intentionally disable a Victim's Tag as a form of harassment. This could be done with physical access to the Tag, using a Victim's own Device to disable the Tag, or with remote access to disable the Tag via the Crowdsourced Network. The impact of this attack is medium as it is a nuisance but most likely does not involve a security threat, unless the Tag is being used to track a valuable item or child. The likelihood is medium, as executing the attack requires access to the Victim’s Tag, Device, or account, which involves a moderate level of access or effort. The risk level is therefore medium. Physical disablement of a Tag cannot be mitigated, but other forms of disablement may be mitigated by notifying users that a change has been made on their account, similar to suspicious login notifications.<a href="#section-3.4.10-1" class="pilcrow">¶</a></p>
+<p id="section-3.4.10-1">An Attacker might intentionally disable a Target's Tag as a form of harassment. This could be done with physical access to the Tag, using a Target's own Device to disable the Tag, or with remote access to disable the Tag via the Crowdsourced Network. The impact of this attack is medium as it is a nuisance but most likely does not involve a security threat, unless the Tag is being used to track a valuable item or child. The likelihood is medium, as executing the attack requires access to the Target’s Tag, Device, or account, which involves a moderate level of access or effort. The risk level is therefore medium. Physical disablement of a Tag cannot be mitigated, but other forms of disablement may be mitigated by notifying users that a change has been made on their account, similar to suspicious login notifications.<a href="#section-3.4.10-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="impersonation-attack-tag-accessory-finding-network">
@@ -2515,8 +2527,8 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
 <a href="#section-3.4.11" class="section-number selfRef">3.4.11. </a><a href="#name-impersonation-attack-tag-ac" class="section-name selfRef">Impersonation Attack (Tag; Accessory, Finding, Network)</a>
           </h4>
 <p id="section-3.4.11-1">Attackers might be able to impersonate legitimate tracking Accessories, enabling tracking without complying with the DULT Protocol. This can be done by <a href="https://www.hackster.io/news/fabian-braunlein-s-esp32-powered-find-you-Tag-bypasses-apple-s-airTag-anti-stalking-protections-0f2c9ee7da74">deploying custom Tags</a> or by using <a href="https://cec.gmu.edu/news/2025-02/find-my-hacker-how-apples-network-can-be-potential-tracking-tool">Devices to mimic Tags</a>. By impersonating an authorized Tag, an Attacker could inject false location data, misattribute Tag Ownership, or evade detection by appearing as a trusted Accessory or rotating identifiers frequently. This tactic increases the difficulty of accurately identifying unauthorized tracking attempts and undermines the reliability of the network.<a href="#section-3.4.11-1" class="pilcrow">¶</a></p>
-<p id="section-3.4.11-2">In addition to full impersonation, adversaries may exploit Platform-specific assumptions to suppress alerts. For instance, Chen et al. <a href="https://www.usenix.org/system/files/conference/usenixsecurity25/sec25cycle1-prepub-1266-chen-junming.pdf">describe</a> a technique in which an Attacker sets the status field of a broadcast message to 0x00 to emulate MacBook location beacons. Since such beacons are typically ignored by Apple’s Unwanted Tracking alerts, this evasion method allows the Attacker to remain undetected. This demonstrates how Attackers can exploit trust assumptions about certain Device classes to bypass user protections, further complicating detection and mitigation.<a href="#section-3.4.11-2" class="pilcrow">¶</a></p>
-<p id="section-3.4.11-3">The impact of this attack is high, as it enables real-time location tracking by exploiting the behavior of crowdsourced location networks. The likelihood is medium, as the attack requires deploying custom hardware or exploiting Platform-specific capabilities like unrestricted Bluetooth broadcasting, which have been demonstrated in research but remain moderately complex to execute. As a result, the overall risk level is considered high. Currently, no fully effective mitigation exists. However, improvements in authentication mechanisms, such as cryptographic signing of broadcasts, and anomaly detection techniques may help reduce the risk. Protocol-level authentication is needed to validate Accessory identities and prevent these attacks. Operating systems can partially mitigate software impersonation attacks by restricting low-level BLE broadcasting unless elevated privileges are granted.<a href="#section-3.4.11-3" class="pilcrow">¶</a></p>
+<p id="section-3.4.11-2">In addition to full impersonation, adversaries may exploit Platform-specific assumptions to suppress alerts. For instance, Chen et al. <a href="https://www.usenix.org/system/files/conference/usenixsecurity25/sec25cycle1-prepub-1266-chen-junming.pdf">describe</a> a technique in which an Attacker sets the status field of a broadcast message to 0x00 to emulate MacBook location beacons. Since such beacons are typically ignored by Apple’s Unwanted Tracking alerts, this evasion method allows the Attacker to remain undetected. This demonstrates how Attackers can exploit trust assumptions about certain Accessory classes to bypass user protections, further complicating detection and mitigation.<a href="#section-3.4.11-2" class="pilcrow">¶</a></p>
+<p id="section-3.4.11-3">The impact of this attack is high, as it enables real-time location tracking by exploiting the behavior of the Crowdsourced Network. The likelihood is medium, as the attack requires deploying custom hardware or exploiting Platform-specific capabilities like unrestricted Bluetooth broadcasting, which have been demonstrated in research but remain moderately complex to execute. As a result, the overall risk level is considered high. Currently, no fully effective mitigation exists. However, improvements in authentication mechanisms, such as cryptographic signing of broadcasts, and anomaly detection techniques may help reduce the risk. Protocol-level authentication is needed to validate Accessory identities and prevent these attacks. Operating systems can partially mitigate software impersonation attacks by restricting low-level BLE broadcasting unless elevated privileges are granted.<a href="#section-3.4.11-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="impersonation-attack-device">
@@ -2530,7 +2542,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
             <h5 id="name-attacks-on-accessories-acce">
 <a href="#section-3.4.12.1" class="section-number selfRef">3.4.12.1. </a><a href="#name-attacks-on-accessories-acce" class="section-name selfRef">Attacks on Accessories (Accessory, Network)</a>
             </h5>
-<p id="section-3.4.12.1-1">An impersonated Device could send commands to Accessories, such as a "play sound" command or a remote disablement command. Accessory firmware should either attempt to verify the authenticity of commands from Devices or otherwise limit how Accessories respond to commands from Devices. For example, Accessories that receive a "play sound" command should only execute the command if the Accessory is away from its Owner. Similarly, Accessories should only respond to remote disablement commands if the Accessory can reasonably be expected to be used for Unwanted Tracking and the Accessory can confirm that a Device has used other finding techniques to locate the Accessory.<a href="#section-3.4.12.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.4.12.1-1">An impersonated Device could send commands to Accessories, such as a "play sound" command or a remote disablement command. Accessory firmware should either attempt to verify the authenticity of commands from Devices or otherwise limit how Accessories respond to commands from Devices. For example, Accessories that receive a "play sound" command from a Non-Owner Device should only execute the command if the Accessory is away from its Owner. Similarly, Accessories should only respond to remote disablement commands if the Accessory can reasonably be expected to be used for Unwanted Tracking and the Accessory can confirm that a Device has used other finding techniques to locate the Accessory.<a href="#section-3.4.12.1-1" class="pilcrow">¶</a></p>
 <p id="section-3.4.12.1-2">The impact of a Device impersonation attack is high if it is able to send arbitrary commands to Accessories. The likelihood of such an attack is medium as it can be done by any Device able to transmit BTLE packets but requires some familiarity with the DULT Protocol. Therefore, the overall risk level is high. The affected users are all users. Mitigation is partial; while Devices cannot be prevented from transmitting packets, certain rules can be enforced by Accessories.<a href="#section-3.4.12.1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -2550,7 +2562,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
           <h4 id="name-replay-attack-accessory-net">
 <a href="#section-3.4.13" class="section-number selfRef">3.4.13. </a><a href="#name-replay-attack-accessory-net" class="section-name selfRef">Replay Attack (Accessory, Network)</a>
           </h4>
-<p id="section-3.4.13-1">In addition to impersonating legitimate tracking Devices (see <a href="#impersonation-attack-tag-accessory-finding-network" class="auto internal xref">Section 3.4.11</a>), Attackers can record and replay Bluetooth advertisements from a legitimate Tag. For example, an Attacker could capture a Tag's broadcast and retransmit it elsewhere, creating confusion about its actual location. This could be used to mislead users, interfere with tracking accuracy, or frame an innocent party by making it appear as though they are carrying a Tag or in a location when they are not.<a href="#section-3.4.13-1" class="pilcrow">¶</a></p>
+<p id="section-3.4.13-1">In addition to impersonating legitimate Accessories (see <a href="#impersonation-attack-tag-accessory-finding-network" class="auto internal xref">Section 3.4.11</a>), Attackers can record and replay Bluetooth advertisements from a legitimate Accessory. For example, an Attacker could capture an Accessory's broadcast and retransmit it elsewhere, creating confusion about its actual location. This could be used to mislead users, interfere with tracking accuracy, or frame an innocent party by making it appear as though they are carrying an Accessory or in a location when they are not.<a href="#section-3.4.13-1" class="pilcrow">¶</a></p>
 <p id="section-3.4.13-2">The impact of this attack is medium. The likelihood is high, as replay attacks require no authentication and can be executed using off-the-shelf Bluetooth scanning tools with minimal technical expertise. Replay attacks pose a medium risk owing to their higher likelihood but medium impact. Replay attacks are particularly difficult to mitigate as they may involve different combinations of Accessories and Devices. Partial mitigation may be possible by authenticating messages from Accessories in a time varying manner.<a href="#section-3.4.13-2" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -2568,8 +2580,8 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
           <h4 id="name-deploying-gps-tracker-acces">
 <a href="#section-3.4.15" class="section-number selfRef">3.4.15. </a><a href="#name-deploying-gps-tracker-acces" class="section-name selfRef">Deploying GPS Tracker (Accessory)</a>
           </h4>
-<p id="section-3.4.15-1">When an Attacker deploys a GPS tracker to stalk a Victim, they have access to greater location precision, real-time tracking, and even global coverage through satellite connection for some trackers. Attackers are especially likely to use GPS trackers in rural areas and areas with low Crowdsourced Network saturation, or when looking for more advanced precision or for Accessories that do not offer safety protections.<a href="#section-3.4.15-1" class="pilcrow">¶</a></p>
-<p id="section-3.4.15-2">The impact of this attack is high due to the increased location precision and real-time tracking functionality. The likelihood is medium, as these trackers are currently more expensive than Bluetooth based trackers, and not as readily available. As a result, the overall risk is high, requiring robust countermeasures. The impact of GPS trackers can be mitigated by adding Bluetooth crowdsourced tracking functionality to GPS trackers and adopting the DULT Protocol. However, the adoption of the DULT Protocol by GPS tracker manufacturers is of course optional, so this is considered a partial mitigation.<a href="#section-3.4.15-2" class="pilcrow">¶</a></p>
+<p id="section-3.4.15-1">When an Attacker deploys a GPS tracker to stalk a Target, they have access to greater location precision, real-time tracking, and even global coverage through satellite connection for some trackers. Attackers are especially likely to use GPS trackers in rural areas and areas with low Crowdsourced Network saturation, or when looking for more advanced precision or for Accessories that do not offer safety protections.<a href="#section-3.4.15-1" class="pilcrow">¶</a></p>
+<p id="section-3.4.15-2">The impact of this attack is high due to the increased location precision and real-time tracking functionality. The likelihood is medium, as these trackers are currently more expensive than Bluetooth based trackers, and not as readily available. As a result, the overall risk is high, requiring robust countermeasures. The impact of GPS trackers can be mitigated by adding Bluetooth crowdsourced location-tracking functionality to GPS trackers and adopting the DULT Protocol. However, the adoption of the DULT Protocol by GPS tracker manufacturers is of course optional, so this is considered a partial mitigation.<a href="#section-3.4.15-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2584,7 +2596,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
           <h4 id="name-technologies">
 <a href="#section-3.5.1" class="section-number selfRef">3.5.1. </a><a href="#name-technologies" class="section-name selfRef">Technologies</a>
           </h4>
-<p id="section-3.5.1-1">The scope of this threat analysis includes any Accessory that is small and not Easily Discoverable and able to transmit its location to consumer Devices using Bluetooth. Larger and/or Easily Discoverable Devices such as laptops with Location-tracking Tag integrations may also choose to implement the protocol.<a href="#section-3.5.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.5.1-1">The scope of this threat analysis includes any Accessory that is small and not Easily Discoverable and able to transmit its location to consumer Devices using Bluetooth. Larger and/or Easily Discoverable Accessories/Devices such as laptops with location-tracking integrations may also choose to implement the protocol.<a href="#section-3.5.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="attacker-profiles">
@@ -2592,15 +2604,15 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
           <h4 id="name-attacker-profiles">
 <a href="#section-3.5.2" class="section-number selfRef">3.5.2. </a><a href="#name-attacker-profiles" class="section-name selfRef">Attacker Profiles</a>
           </h4>
-<p id="section-3.5.2-1">An Attacker who deploys any of the attacks described in <a href="#threat-prioritization-framework-for-dult-threat-model" class="auto internal xref">Section 3.4.1</a> is considered in scope. This includes: Attackers who track Victims using a Location-tracking Tag and applications readily available for end-users (e.g. native tracking application), Attackers who physically modify Location-tracking Tags (e.g. to disable a speaker), and Attackers who make alterations to the firmware of an existing tracking Tag or create custom Devices that successfully connect to the crowdsourced tracking network.<a href="#section-3.5.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.5.2-1">An Attacker who deploys any of the attacks described in <a href="#threat-prioritization-framework-for-dult-threat-model" class="auto internal xref">Section 3.4.1</a> is considered in scope. This includes: Attackers who track Victims using a Location-tracking Tag and applications readily available for end-users (e.g. native tracking application), Attackers who physically modify Location-tracking Tags (e.g. to disable a speaker), and Attackers who make alterations to the firmware of an existing tracking Tag or create custom Tags that successfully connect to Devices and therefore the Crowdsourced Network.<a href="#section-3.5.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="victim-profiles">
+<div id="target-profiles">
 <section id="section-3.5.3">
-          <h4 id="name-victim-profiles">
-<a href="#section-3.5.3" class="section-number selfRef">3.5.3. </a><a href="#name-victim-profiles" class="section-name selfRef">Victim Profiles</a>
+          <h4 id="name-target-profiles">
+<a href="#section-3.5.3" class="section-number selfRef">3.5.3. </a><a href="#name-target-profiles" class="section-name selfRef">Target Profiles</a>
           </h4>
-<p id="section-3.5.3-1">All Victims profiles are in scope regardless of their expertise, access to resources, or access to technological safeguards. For example, protocols should account for a Victim's lack of access to a smartphone, and scenarios in which Victims cannot install separate software.<a href="#section-3.5.3-1" class="pilcrow">¶</a></p>
+<p id="section-3.5.3-1">All Targets profiles are in scope regardless of their expertise, access to resources, or access to technological safeguards. For example, protocols should account for a Target's lack of access to a smartphone, and scenarios in which Targets cannot install separate software.<a href="#section-3.5.3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2612,7 +2624,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
       <h2 id="name-design-considerations">
 <a href="#section-4" class="section-number selfRef">4. </a><a href="#name-design-considerations" class="section-name selfRef">Design Considerations</a>
       </h2>
-<p id="section-4-1">As discussed in <a href="#security-considerations" class="auto internal xref">Section 3</a>, Unwanted Tracking can involve a variety of Attacker, Victim, and Tag profiles. A successful implementation to preventing Unwanted Tracking should:<a href="#section-4-1" class="pilcrow">¶</a></p>
+<p id="section-4-1">As discussed in <a href="#security-considerations" class="auto internal xref">Section 3</a>, Unwanted Tracking can involve a variety of Attacker, Target, and Tag profiles. A successful implementation to preventing Unwanted Tracking should:<a href="#section-4-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-4-2.1">
           <p id="section-4-2.1.1">Include a variety of approaches to address different scenarios, including active and passive scanning and notifications or sounds<a href="#section-4-2.1.1" class="pilcrow">¶</a></p>
@@ -2621,10 +2633,10 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
           <p id="section-4-2.2.1">Account for scenarios in which the Attacker has high expertise, proximity, and/or access to resources within the scope defined in <a href="#what-is-in-scope" class="auto internal xref">Section 3.5</a><a href="#section-4-2.2.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-4-2.3">
-          <p id="section-4-2.3.1">Account for scenarios in which the Victim has low expertise, access to resources, and/or access to technological safeguards within the scope defined in <a href="#what-is-in-scope" class="auto internal xref">Section 3.5</a><a href="#section-4-2.3.1" class="pilcrow">¶</a></p>
+          <p id="section-4-2.3.1">Account for scenarios in which the Target has low expertise, access to resources, and/or access to technological safeguards within the scope defined in <a href="#what-is-in-scope" class="auto internal xref">Section 3.5</a><a href="#section-4-2.3.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-4-2.4">
-          <p id="section-4-2.4.1">Avoid privacy compromises for Tag Owner(s) when protecting against Unwanted Tracking<a href="#section-4-2.4.1" class="pilcrow">¶</a></p>
+          <p id="section-4-2.4.1">Avoid privacy compromises for Tag Owner(s) when protecting against Unwanted Tracking. The privacy of Tag Owner(s) and the security of Targets should be considered equally.<a href="#section-4-2.4.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <div id="design-requirements">
@@ -2632,19 +2644,19 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
         <h3 id="name-design-requirements">
 <a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-design-requirements" class="section-name selfRef">Design Requirements</a>
         </h3>
-<p id="section-4.1-1">The DULT Protocol should 1) allow Victims to detect Unwanted Tracking, 2) help Victims find Tags that are tracking them while minimizing false positives (e.g., avoiding legitimate, co-owned, or nearby Tags being misidentified as threats), and 3) provide instructions for Victims to disable those Tags if they choose. These affordances should be implemented while considering the appropriate privacy and security requirements.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
+<p id="section-4.1-1">The DULT Protocol should 1) allow Targets to detect Unwanted Tracking, 2) help Targets find Tags that are tracking them while minimizing false positives (e.g., avoiding legitimate, co-owned, or nearby Tags being misidentified as threats), and 3) provide instructions for Targets to disable those Tags if they choose. These affordances should be implemented while considering the appropriate privacy and security requirements.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
 <div id="detecting-unwanted-location-tracking">
 <section id="section-4.1.1">
           <h4 id="name-detecting-unwanted-location">
 <a href="#section-4.1.1" class="section-number selfRef">4.1.1. </a><a href="#name-detecting-unwanted-location" class="section-name selfRef">Detecting Unwanted Location Tracking</a>
           </h4>
-<p id="section-4.1.1-1">There are four ways that the DULT Protocol should assist Victims in detecting potentially Unwanted Tracking: 1) active scanning, 2) passive scanning, 3) tracking Tag alerts, and 4) Crowdsourced Network activities logs.<a href="#section-4.1.1-1" class="pilcrow">¶</a></p>
+<p id="section-4.1.1-1">There are four ways that the DULT Protocol should assist Targets in detecting potentially Unwanted Tracking: 1) active scanning, 2) passive scanning, 3) tracking Tag alerts, and 4) Crowdsourced Network activities logs.<a href="#section-4.1.1-1" class="pilcrow">¶</a></p>
 <div id="active-scanning">
 <section id="section-4.1.1.1">
             <h5 id="name-active-scanning">
 <a href="#section-4.1.1.1" class="section-number selfRef">4.1.1.1. </a><a href="#name-active-scanning" class="section-name selfRef">Active Scanning</a>
             </h5>
-<p id="section-4.1.1.1-1">There may be scenarios where a Victim suspects that they are being tracked without their consent. Active scanning should allow a user to use a native application on their Device to search for Location-tracking Tags that are separated from their Owners. When a Tag has been identified as potentially being used for Unwanted Tracking, the user should be able to view the serial number of the Device along with obfuscated Owner information (e.g. last four digits of phone number, obfuscated email address) and instructions on how to find and/or disable the Device (see <a href="#finding-tracking-tags" class="auto internal xref">Section 4.1.2</a> and <a href="#disabling-tracking-tags" class="auto internal xref">Section 4.1.3</a>). Additional information about when that Tag has been previously encountered within a designated time window (e.g. the last 12 hours) should also be included if available (see <a href="#balancing-privacy-and-security" class="auto internal xref">Section 3.2</a>). Allowing users to "snooze" or ignore Tags known to be safe (e.g. Tags from a family member) could also be implemented. Tracking Tags that are near their Owners should not be shared to avoid abuse of the active scanning feature.<a href="#section-4.1.1.1-1" class="pilcrow">¶</a></p>
+<p id="section-4.1.1.1-1">There may be scenarios where a Target suspects that they are being tracked without their consent. Active scanning should allow a user to use a native application on their Device to search for Location-tracking Tags that are separated from their Owners. When a Tag has been identified as potentially being used for Unwanted Tracking, the user should be able to view the serial number of the Device along with obfuscated Owner information (e.g. last four digits of phone number, obfuscated email address) and instructions on how to find and/or disable the Tag (see <a href="#finding-tracking-tags" class="auto internal xref">Section 4.1.2</a> and <a href="#disabling-tracking-tags" class="auto internal xref">Section 4.1.3</a>). Additional information about when that Tag has been previously encountered within a designated time window (e.g. the last 12 hours) should also be included if available (see <a href="#balancing-privacy-and-security" class="auto internal xref">Section 3.2</a>). Allowing users to "snooze" or ignore Tags known to be safe (e.g. Tags from a family member) could also be implemented. Tracking Tags that are near their Owners should not be shared to avoid abuse of the active scanning feature.<a href="#section-4.1.1.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="passive-scanning">
@@ -2652,8 +2664,8 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
             <h5 id="name-passive-scanning">
 <a href="#section-4.1.1.2" class="section-number selfRef">4.1.1.2. </a><a href="#name-passive-scanning" class="section-name selfRef">Passive Scanning</a>
             </h5>
-<p id="section-4.1.1.2-1">Platforms should passively scan for Tags suspected of Unwanted Tracking and notify the user. This will involve implementing one or more algorithms to use to flag Tags and determine when to notify the user. (A dedicated DULT WG document will address tracking algorithms, and will be linked when it is available.) The user could be notified through a push notification or through Sounds and Haptics (see <a href="#tracking-tag-alerts" class="auto internal xref">Section 4.1.1.3</a>). When a Tag has been identified as potentially being used for Unwanted Tracking, the user should be able to view the serial number of the Device along with obfuscated Owner information (e.g. last four digits of phone number, obfuscated email address) for all accounts linked to the Tag and instructions on how to find and/or disable the Tag (see <a href="#finding-tracking-tags" class="auto internal xref">Section 4.1.2</a> and <a href="#disabling-tracking-tags" class="auto internal xref">Section 4.1.3</a>). There will be tradeoffs between detecting potential Unwanted Tracking promptly and alerting the potential Victim prematurely. One way to handle these tradeoffs is to allow users to set the sensitivity of these alerts. For example, the <a href="https://github.com/seemoo-lab/AirGuard">AirGuard</a> app includes three different "Security Level" settings that users can customize.<a href="#section-4.1.1.2-1" class="pilcrow">¶</a></p>
-<p id="section-4.1.1.2-2">To improve the accuracy of Unwanted Tracking detection, a confidence scoring mechanism can be used. Instead of issuing binary alerts for all detected tracking Devices, the system assigns a confidence score based on multiple factors, helping distinguish between genuine tracking threats and benign scenarios. This section outlines potential factors that may contribute to assessing the likelihood of Unwanted Tracking. Each factor can be considered independently to help inform an overall risk assessment. A confidence-based approach offers the following advantages:<a href="#section-4.1.1.2-2" class="pilcrow">¶</a></p>
+<p id="section-4.1.1.2-1">Platforms should passively scan for Tags suspected of Unwanted Tracking and notify the user. This will involve implementing one or more algorithms to use to flag Tags and determine when to notify the user. (A dedicated DULT WG document will address tracking algorithms, and will be linked when it is available.) The user could be notified through a push notification or through Sounds and Haptics (see <a href="#location-tracking-tag-alerts" class="auto internal xref">Section 4.1.1.3</a>). When a Tag has been identified as potentially being used for Unwanted Tracking, the user should be able to view the serial number of the Tag along with obfuscated Owner information (e.g. last four digits of phone number, obfuscated email address) for all accounts linked to the Tag and instructions on how to find and/or disable the Tag (see <a href="#finding-tracking-tags" class="auto internal xref">Section 4.1.2</a> and <a href="#disabling-tracking-tags" class="auto internal xref">Section 4.1.3</a>). There will be tradeoffs between detecting potential Unwanted Tracking promptly and alerting the potential Target prematurely. One way to handle these tradeoffs is to allow users to set the sensitivity of these alerts. For example, the <a href="https://github.com/seemoo-lab/AirGuard">AirGuard</a> app includes three different "Security Level" settings that users can customize.<a href="#section-4.1.1.2-1" class="pilcrow">¶</a></p>
+<p id="section-4.1.1.2-2">To improve the accuracy of Unwanted Tracking detection, a confidence scoring mechanism can be used. Instead of issuing binary alerts for all detected Tags, the system assigns a confidence score based on multiple factors, helping distinguish between genuine tracking threats and benign scenarios. This section outlines potential factors that may contribute to assessing the likelihood of Unwanted Tracking. Each factor can be considered independently to help inform an overall risk assessment. A confidence-based approach offers the following advantages:<a href="#section-4.1.1.2-2" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-4.1.1.2-3.1">
                 <p id="section-4.1.1.2-3.1.1">Reduced False Positives: A confidence-based approach can help filter out benign tracking scenarios, such as transient signals or shared family Tags. Instead of triggering alerts based solely on presence, the system can dynamically adjust its sensitivity based on behavioral patterns. For example, if a tracking Tag appears near a user only briefly or follows a predictable shared usage pattern (e.g., a Bluetooth Tag frequently used by family members), it may be assigned a low confidence score. This prevents unnecessary alerts while still ensuring that persistent and anomalous tracking behaviors are flagged for user attention.<a href="#section-4.1.1.2-3.1.1" class="pilcrow">¶</a></p>
@@ -2733,12 +2745,12 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
 </div>
 </section>
 </div>
-<div id="tracking-tag-alerts">
+<div id="location-tracking-tag-alerts">
 <section id="section-4.1.1.3">
-            <h5 id="name-tracking-tag-alerts">
-<a href="#section-4.1.1.3" class="section-number selfRef">4.1.1.3. </a><a href="#name-tracking-tag-alerts" class="section-name selfRef">Tracking Tag Alerts</a>
+            <h5 id="name-location-tracking-tag-alert">
+<a href="#section-4.1.1.3" class="section-number selfRef">4.1.1.3. </a><a href="#name-location-tracking-tag-alert" class="section-name selfRef">Location-tracking Tag Alerts</a>
             </h5>
-<p id="section-4.1.1.3-1">Tracking Tags may be difficult to locate, and users may not have a Device that can actively or passively scan for Location-tracking Tags. The DULT Protocol should be built with <a href="https://cdt.org/insights/centering-disability-in-mitigating-harms-of-bluetooth-tracking-technology/">accessibility in mind</a> so that the most people can be protected by the protocol. In addition to push notifications on nearby Devices, Location-tracking Tags themselves should be able to notify end users. This should include periodic sounds when away from all Tag Owners, along with lights and haptics so that people who are Deaf or hard of hearing can still locate them.<a href="#section-4.1.1.3-1" class="pilcrow">¶</a></p>
+<p id="section-4.1.1.3-1">Location-tracking Tags may be difficult to locate, and users may not have a Device that can actively or passively scan for Location-tracking Tags. The DULT Protocol should be built with <a href="https://cdt.org/insights/centering-disability-in-mitigating-harms-of-bluetooth-tracking-technology/">accessibility in mind</a> so that the most people can be protected by the protocol. In addition to push notifications on nearby Devices, Location-tracking Tags themselves should be able to notify end users. This should include periodic sounds when away from all Tag Owners, along with lights and haptics so that people who are Deaf or hard of hearing can still locate them. Tracking Tag Alerts should also educate the user on methods to successfully find and disable Tags (see <a href="#finding-tracking-tags" class="auto internal xref">Section 4.1.2</a> and <a href="#disabling-tracking-tags" class="auto internal xref">Section 4.1.3</a>).<a href="#section-4.1.1.3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="crowdsourced-network-activities-logs">
@@ -2746,8 +2758,8 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
             <h5 id="name-crowdsourced-network-activi">
 <a href="#section-4.1.1.4" class="section-number selfRef">4.1.1.4. </a><a href="#name-crowdsourced-network-activi" class="section-name selfRef">Crowdsourced Network Activities Logs</a>
             </h5>
-<p id="section-4.1.1.4-1"><a href="https://www.usenix.org/system/files/usenixsecurity23-stephenson-lessons.pdf">Stephenson et al.</a> point out that Internet of Things Devices like Location-tracking Accessories do not have ways to reveal abusive behavior. This can be addressed through the use of detailed logs that provide insights for Victims about which accounts have accessed the location of which Accessories and when. Crowdsourced Networks should log common user activities for review by each Accessory Owner, and should not be able to be easily deleted by Accessory Owners, who might do so as a way to hide evidence of Unwanted Tracking.<a href="#section-4.1.1.4-1" class="pilcrow">¶</a></p>
-<p id="section-4.1.1.4-2">Logs should include sufficient detail to detect Unwanted Tracking without being another vector for surveillance. For example, a log could state that "User B viewed the location of Device X at [time]." By including information about user, Device, and time, Victims can determine whether their own Accessories are being used to track them, and whether or not their accounts connected to the Crowdsourced Network are compromised.<a href="#section-4.1.1.4-2" class="pilcrow">¶</a></p>
+<p id="section-4.1.1.4-1"><a href="https://www.usenix.org/system/files/usenixsecurity23-stephenson-lessons.pdf">Stephenson et al.</a> point out that Internet of Things devices like Location-tracking Accessories do not have ways to reveal abusive behavior. This can be addressed through the use of detailed logs that provide insights for Victims about which accounts have accessed the location of which Accessories and when. Crowdsourced Networks should log common user activities for review by each Accessory Owner, and should not be able to be easily deleted by Accessory Owners, who might do so as a way to hide evidence of Unwanted Tracking.<a href="#section-4.1.1.4-1" class="pilcrow">¶</a></p>
+<p id="section-4.1.1.4-2">Logs should include sufficient detail to detect Unwanted Tracking without being another vector for surveillance. For example, a log could state that "User B viewed the location of Accessory X at [time]." By including information about user, Accessory, and time, Victims can determine whether their own Accessories are being used to track them, and whether or not their accounts connected to the Crowdsourced Network are compromised.<a href="#section-4.1.1.4-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2757,7 +2769,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
           <h4 id="name-finding-tracking-tags">
 <a href="#section-4.1.2" class="section-number selfRef">4.1.2. </a><a href="#name-finding-tracking-tags" class="section-name selfRef">Finding Tracking Tags</a>
           </h4>
-<p id="section-4.1.2-1">Even after a Tag is detected through passive or active scanning, a user may have difficulty in locating it. For example, a Tag may be buried under a vehicle cushion. Platforms should allow users who have discovered a Tag through passive or active scanning to request that the Tag signal its presence. This assistance should be done in a way that is accessible to users with sensory or other impairments by using multimodal signals as described in <a href="#tracking-tag-alerts" class="auto internal xref">Section 4.1.1.3</a>. Manufacturers/Platforms may also implement other methods to assist in locating Tags, such as precision finding using Ultra-wideband.<a href="#section-4.1.2-1" class="pilcrow">¶</a></p>
+<p id="section-4.1.2-1">Even after a Tag is detected through passive or active scanning, a user may have difficulty in locating it. For example, a Tag may be buried under a vehicle cushion. Platforms should allow users who have discovered a Tag through passive or active scanning to request that the Tag signal its presence. This assistance should be done in a way that is accessible to users with sensory or other impairments by using multimodal signals as described in <a href="#location-tracking-tag-alerts" class="auto internal xref">Section 4.1.1.3</a>. Manufacturers/Platforms may also implement other methods to assist in locating Tags, such as precision finding using Ultra-wideband.<a href="#section-4.1.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="disabling-tracking-tags">
@@ -2778,14 +2790,14 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
 <p id="section-4.1.3-4">It is important to consider where educational and disabling guidance is hosted. For instance, information about disabling Tags should be publicly accessible, possibly from neutral, decentralized, or international organizations, to mitigate the risk of government censorship or politically motivated takedowns. This ensures access for vulnerable users, including those in high-risk environments or authoritarian regions.<a href="#section-4.1.3-4" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="notification-management-for-trusted-devices">
+<div id="notification-management-for-trusted-accessories">
 <section id="section-4.1.4">
           <h4 id="name-notification-management-for">
-<a href="#section-4.1.4" class="section-number selfRef">4.1.4. </a><a href="#name-notification-management-for" class="section-name selfRef">Notification Management for Trusted Devices</a>
+<a href="#section-4.1.4" class="section-number selfRef">4.1.4. </a><a href="#name-notification-management-for" class="section-name selfRef">Notification Management for Trusted Accessories</a>
           </h4>
 <p id="section-4.1.4-1">To reduce alert fatigue and improve user experience, implementations should allow users to snooze passive notifications from Location-tracking Tags that have been explicitly marked as trusted or friendly. This is particularly useful in scenarios where users regularly encounter the same Tag (e.g., a family member's keys or a shared vehicle Tag).<a href="#section-4.1.4-1" class="pilcrow">¶</a></p>
-<p id="section-4.1.4-2">Such snoozed Tags may also be de-prioritized or grouped separately during active scans, helping users focus on unfamiliar or potentially malicious Tags. Platforms should make it easy to manage snoozed Devices and review or revoke trust status as needed. It is also advisable to implement revalidation mechanisms, for example, resuming notifications after a period of time to prevent long-term blind spots.<a href="#section-4.1.4-2" class="pilcrow">¶</a></p>
-<p id="section-4.1.4-3">Some Platforms may wish to implement family sharing or shared Ownership models, where multiple users can be associated with a single Tag. However, this introduces the risk of abuse (e.g., an Attacker adding a Victim to the shared list in order to avoid triggering passive notifications), and therefore should be approached with caution and abuse mitigation in mind. These features are optional and may vary by Platform. Whenever shared Ownership is used, information about all Owners should be made available when a Tag is suspected of Unwanted Tracking (see <a href="#passive-scanning" class="auto internal xref">Section 4.1.1.2</a>).<a href="#section-4.1.4-3" class="pilcrow">¶</a></p>
+<p id="section-4.1.4-2">Such snoozed Tags may also be de-prioritized or grouped separately during active scans, helping users focus on unfamiliar or potentially malicious Tags. Platforms should make it easy to manage snoozed Tags and review or revoke trust status as needed. It is also advisable to implement revalidation mechanisms, for example, resuming notifications after a period of time to prevent long-term blind spots.<a href="#section-4.1.4-2" class="pilcrow">¶</a></p>
+<p id="section-4.1.4-3">Some Platforms may wish to implement family sharing or shared Ownership models, where multiple users can be associated with a single Tag. However, this introduces the risk of abuse (e.g., an Attacker adding a Target to the shared list in order to avoid triggering passive notifications), and therefore should be approached with caution and abuse mitigation in mind. These features are optional and may vary by Platform. Whenever shared Ownership is used, information about all Owners should be made available when a Tag is suspected of Unwanted Tracking (see <a href="#passive-scanning" class="auto internal xref">Section 4.1.1.2</a>).<a href="#section-4.1.4-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2814,10 +2826,10 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
           <h4 id="name-power-constraints">
 <a href="#section-4.2.2" class="section-number selfRef">4.2.2. </a><a href="#name-power-constraints" class="section-name selfRef">Power constraints</a>
           </h4>
-<p id="section-4.2.2-1">Unwanted tracking detection mechanisms typically rely on periodic Bluetooth scanning to identify unknown tracking Devices. However, continuous background scanning poses a significant power challenge, especially for mobile Devices with limited battery capacity. Maintaining high-frequency scans for extended periods can lead to excessive energy consumption, impacting Device usability and battery longevity.<a href="#section-4.2.2-1" class="pilcrow">¶</a></p>
-<p id="section-4.2.2-2">To address these concerns, detection systems must incorporate power-efficient approaches that balance security with practicality. Adaptive scanning strategies can dynamically adjust the scan frequency based on contextual risk levels. For example, if a suspicious tracking Device is detected nearby, the system can temporarily increase scan frequency while reverting to a lower-power mode when no threats are present.<a href="#section-4.2.2-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.2-1">Unwanted tracking detection mechanisms typically rely on periodic Bluetooth scanning to identify unknown Accessories. However, continuous background scanning poses a significant power challenge, especially for mobile Devices with limited battery capacity. Maintaining high-frequency scans for extended periods can lead to excessive energy consumption, impacting Device usability and battery longevity.<a href="#section-4.2.2-1" class="pilcrow">¶</a></p>
+<p id="section-4.2.2-2">To address these concerns, detection systems must incorporate power-efficient approaches that balance security with practicality. Adaptive scanning strategies can dynamically adjust the scan frequency based on contextual risk levels. For example, if a suspicious Accessory is detected nearby, the system can temporarily increase scan frequency while reverting to a lower-power mode when no threats are present.<a href="#section-4.2.2-2" class="pilcrow">¶</a></p>
 <p id="section-4.2.2-3">Event-triggered detection offers another alternative by activating scanning only in specific high-risk scenarios. Users moving into a new location or transitioning from a prolonged stationary state may require more frequent detection, while routine movement in known safe environments can minimize energy consumption.<a href="#section-4.2.2-3" class="pilcrow">¶</a></p>
-<p id="section-4.2.2-4">The DULT Protocol must account for these power limitations in its design, ensuring that detection mechanisms remain effective without significantly degrading battery performance. Consideration of Device-specific constraints, such as variations in power efficiency across smartphones, wearables, and IoT Devices, will be critical in maintaining a balance between security and usability.<a href="#section-4.2.2-4" class="pilcrow">¶</a></p>
+<p id="section-4.2.2-4">The DULT Protocol must account for these power limitations in its design, ensuring that detection mechanisms remain effective without significantly degrading battery performance. Consideration of Device-specific constraints, such as variations in power efficiency across smartphones, wearables, and IoT devices, will be critical in maintaining a balance between security and usability.<a href="#section-4.2.2-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="device-constraints">
@@ -2826,8 +2838,8 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
 <a href="#section-4.2.3" class="section-number selfRef">4.2.3. </a><a href="#name-device-constraints" class="section-name selfRef">Device constraints</a>
           </h4>
 <p id="section-4.2.3-1">Unwanted tracking detection is constrained by the diverse range of Devices used for scanning, each with varying hardware capabilities, operating system restrictions, processing power, and connectivity limitations. These factors directly impact the effectiveness of detection mechanisms and must be carefully considered in protocol design.<a href="#section-4.2.3-1" class="pilcrow">¶</a></p>
-<p id="section-4.2.3-2">Hardware variability affects detection accuracy. While newer smartphones are equipped with advanced Bluetooth Low Energy (BLE) chipsets capable of frequent and reliable scanning, older smartphones, feature phones, and IoT Devices may have reduced BLE performance. Differences in antenna sensitivity, chipset power, and OS-level access control can result in inconsistent detection, where some Devices fail to detect tracking signals as reliably as others.<a href="#section-4.2.3-2" class="pilcrow">¶</a></p>
-<p id="section-4.2.3-3">Operating system restrictions can affect detection efforts, particularly due to background Bluetooth Low Energy (BLE) scanning policies. Both iOS and Android implement mechanisms to manage background scanning behavior, balancing energy efficiency and privacy considerations. On iOS, background BLE scanning operates with periodic constraints, which may limit the frequency of detection updates. Android applies similar policies to regulate background processes and optimize power consumption. Additionally, privacy frameworks on mobile Platforms may influence how applications access and process certain Device-related data. These factors, along with resource limitations in wearables and IoT Devices, can impact the feasibility of continuous scanning and detection.<a href="#section-4.2.3-3" class="pilcrow">¶</a></p>
+<p id="section-4.2.3-2">Hardware variability affects detection accuracy. While newer smartphones are equipped with advanced Bluetooth Low Energy (BLE) chipsets capable of frequent and reliable scanning, older smartphones, feature phones, and IoT devices may have reduced BLE performance. Differences in antenna sensitivity, chipset power, and OS-level access control can result in inconsistent detection, where some Devices fail to detect tracking signals as reliably as others.<a href="#section-4.2.3-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.3-3">Operating system restrictions can affect detection efforts, particularly due to background Bluetooth Low Energy (BLE) scanning policies. Both iOS and Android implement mechanisms to manage background scanning behavior, balancing energy efficiency and privacy considerations. On iOS, background BLE scanning operates with periodic constraints, which may limit the frequency of detection updates. Android applies similar policies to regulate background processes and optimize power consumption. Additionally, privacy frameworks on mobile Platforms may influence how applications access and process certain Accessory-related data. These factors, along with resource limitations in wearables and IoT Devices, can impact the feasibility of continuous scanning and detection.<a href="#section-4.2.3-3" class="pilcrow">¶</a></p>
 <p id="section-4.2.3-4">Further, Platform permission models can restrict access to BLE scan data. For example, Android requires coarse or fine location permissions to perform BLE scanning, and users may revoke these permissions. Additionally, radio coexistence (BLE and Wi-Fi sharing the 2.4 GHz band) can impact BLE performance, especially on Devices with shared chipsets. User interface constraints, especially on wearables, may also limit how users receive or interact with tracking alerts.<a href="#section-4.2.3-4" class="pilcrow">¶</a></p>
 <p id="section-4.2.3-5">Processing and memory constraints are another limiting factor, particularly for low-end mobile Devices and Tags. Continuous scanning and anomaly detection algorithms, especially those relying on machine learning-based threat detection, require substantial processing power and RAM. Devices with limited computational resources may struggle to maintain effective real-time detection without degrading overall performance. Ensuring that detection mechanisms remain lightweight and optimized for constrained environments is essential.<a href="#section-4.2.3-5" class="pilcrow">¶</a></p>
 <p id="section-4.2.3-6">Connectivity limitations introduce additional challenges. Some Unwanted Tracking detection mechanisms rely on cloud-based lookups to verify Tag identities and share threat intelligence. However, users in offline environments, such as those in airplane mode, rural areas with limited connectivity, or secure facilities with network restrictions, may be unable to access these services. In such cases, detection must rely on local scanning and offline heuristics rather than real-time cloud-based verification.<a href="#section-4.2.3-6" class="pilcrow">¶</a></p>
