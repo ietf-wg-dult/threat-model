@@ -324,6 +324,17 @@ Table of Contents
       can retrieve the Accessory's location by querying the Crowdsourced
       Network.
 
+   *(Obfuscated) Owner Information*:  (obfuscated) contact information
+      for an Accessory Owner.  When an Accessory is marked as lost, this
+      should include a phone number and/or email address.  Otherwise,
+      the information should be obfuscated to ensure privacy of Owners
+      in cases where Accessories are falsely suspected of Unwanted
+      Tracking or an Attacker attempts to determine the Owner of an
+      Accessory.  The information should include no more than the last
+      two digits of a phone number and/or an obfuscated email address
+      with the first letter of the username and entity visible, as well
+      as the entire extension (e.g., b*****@i****.com).
+
    *Passive Scanning*:  method(s) of Unwanted Tracking detection that
       are running in the background on all Devices and may trigger
       Unwanted Tracking Alerts.  Contrast with Active Scanning.
@@ -1524,8 +1535,7 @@ Table of Contents
    tracking Tags that are separated from their Owners.  When a Tag has
    been identified as potentially being used for Unwanted Tracking, the
    user should be able to view the serial number of the Device along
-   with obfuscated Owner information (e.g. last four digits of phone
-   number, obfuscated email address) and instructions on how to find
+   with Obfuscated Owner Information and instructions on how to find
    and/or disable the Tag (see Section 4.1.2 and Section 4.1.3).
    Additional information about when that Tag has been previously
    encountered within a designated time window (e.g. the last 12 hours)
@@ -1545,8 +1555,7 @@ Table of Contents
    be notified through a push notification or through Sounds and Haptics
    (see Section 4.1.1.3).  When a Tag has been identified as potentially
    being used for Unwanted Tracking, the user should be able to view the
-   serial number of the Tag along with obfuscated Owner information
-   (e.g. last four digits of phone number, obfuscated email address) for
+   serial number of the Tag along with Obfuscated Owner Information for
    all accounts linked to the Tag and instructions on how to find and/or
    disable the Tag (see Section 4.1.2 and Section 4.1.3).  There will be
    tradeoffs between detecting potential Unwanted Tracking promptly and
@@ -1709,6 +1718,17 @@ Table of Contents
    by using multimodal signals as described in Section 4.1.1.3.
    Manufacturers/Platforms may also implement other methods to assist in
    locating Tags, such as precision finding using Ultra-wideband.
+
+4.1.2.1.  Lost Mode
+
+   Some Platforms allow Accessories to be marked as lost.  When another
+   user finds the Accessory, they can view a message and/or contact
+   information of the Accessory Owner.  While helpful in a benign case
+   where an Accessory is truly lost, care must be taken to ensure that
+   the lost mode function is not used for harassment.  Platforms should
+   use a non-customizable lost message and display either Obfuscated
+   Owner information, or a full phone number or email address if the
+   Accessory Owner chooses to share that information.
 
 4.1.3.  Disabling Tracking Tags
 
