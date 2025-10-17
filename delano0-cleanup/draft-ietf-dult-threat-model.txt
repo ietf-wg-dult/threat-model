@@ -5,10 +5,10 @@
 Detecting Unwanted Location Trackers                           M. Delano
 Internet-Draft                                        Swarthmore College
 Intended status: Informational                                 J. Lowell
-Expires: 18 April 2026         National Network to End Domestic Violence
+Expires: 20 April 2026         National Network to End Domestic Violence
                                                                S. Prabhu
                                                                    Nokia
-                                                         15 October 2025
+                                                         17 October 2025
 
 
                            DULT Threat Model
@@ -67,7 +67,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 18 April 2026.
+   This Internet-Draft will expire on 20 April 2026.
 
 Copyright Notice
 
@@ -1654,7 +1654,9 @@ Table of Contents
    nearby Devices, Location-tracking Tags themselves should be able to
    notify end users.  This should include periodic sounds when away from
    all Tag Owners, along with lights and haptics so that people who are
-   Deaf or hard of hearing can still locate them.
+   Deaf or hard of hearing can still locate them.  Tracking Tag Alerts
+   should also educate the user on methods to successfully find and
+   disable Tags (see Section 4.1.2 and Section 4.1.3).
 
 4.1.1.4.  Crowdsourced Network Activities Logs
 
