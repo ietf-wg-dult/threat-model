@@ -130,6 +130,9 @@ This threat model is also more likely to be applicable in regions where the use 
 **Owner Device**:
 : a Device that is associated with the Accessory and can retrieve the Accessory's location by querying the Crowdsourced Network.
 
+**(Obfuscated) Owner Information**:
+: (obfuscated) contact information for an Accessory Owner. When an Accessory is marked as lost, this should include a phone number and/or email address. Otherwise, the information should be obfuscated to ensure privacy of Owners in cases where Accessories are falsely suspected of Unwanted Tracking or an Attacker attempts to determine the Owner of an Accessory. The information should include no more than the last two digits of a phone number and/or an obfuscated email address with the first letter of the username and entity visible, as well as the entire extension (e.g., b********@i*****.com).
+
 **Passive Scanning**:
 : method(s) of Unwanted Tracking detection that are running in the background on all Devices and may trigger Unwanted Tracking Alerts. Contrast with Active Scanning.
 
