@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-10-16T01:16:36.122710+00:00",
+  "timestamp": "2025-10-19T01:25:05.460172+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -745,7 +745,7 @@
       "id": "I_kwDOMB0Qas6sLoJN",
       "title": "Add acknowledgements section",
       "url": "https://github.com/ietf-wg-dult/threat-model/issues/60",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -754,9 +754,17 @@
       "labels": [],
       "body": "Fill out the acknowledgements section.",
       "createdAt": "2025-03-01T08:25:12Z",
-      "updatedAt": "2025-08-05T14:51:31Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2025-10-17T15:02:29Z",
+      "closedAt": "2025-10-17T15:02:28Z",
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Addressed in #146. ",
+          "createdAt": "2025-10-17T15:02:28Z",
+          "updatedAt": "2025-10-17T15:02:28Z"
+        }
+      ]
     },
     {
       "number": 61,
@@ -1503,15 +1511,15 @@
       "id": "I_kwDOMB0Qas65oglU",
       "title": "Design considerations section: Finding",
       "url": "https://github.com/ietf-wg-dult/threat-model/issues/114",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "cstapl",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Can we make mention of ultra-wideband as a more accessible form of finding in the Design Considerations section? It can help a person narrow in to where a support person (e.g. mechanic, law enforcement officer) could focus, even if the tracker is out of reach due to being taped or embedded in a hard to reach area. While it's not a requirement, it points to the importance of adopting emerging technologies that improve user safety experience. ",
       "createdAt": "2025-06-03T15:12:51Z",
-      "updatedAt": "2025-08-05T14:51:32Z",
-      "closedAt": null,
+      "updatedAt": "2025-10-17T14:40:24Z",
+      "closedAt": "2025-10-17T14:40:24Z",
       "comments": [
         {
           "author": "maggiedelano",
@@ -1522,7 +1530,7 @@
         },
         {
           "author": "cstapl",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Apologies - I meant for this comment to be related to the Tracking Tag Alerts section. This seems like an ideal place to discuss ultra wideband finding, as it's both more useful to victims, and it's a more accessible tool for users with disabilities, e.g. visual impairment or hearing loss. ",
           "createdAt": "2025-06-10T21:02:20Z",
           "updatedAt": "2025-06-10T21:02:20Z"
@@ -1541,15 +1549,15 @@
       "id": "I_kwDOMB0Qas69InT4",
       "title": "Consider designing a \"lost mode\" function",
       "url": "https://github.com/ietf-wg-dult/threat-model/issues/117",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Platforms often support a specific \"lost mode\" function ([Apple](https://support.apple.com/guide/iphone/mark-an-item-as-lost-iph1b451b75f/ios)). Tile includes an [anti-theft mode](https://www.life360.com/blog/how-does-tile-anti-theft-mode-work), but this requires passing a 3-stage ID verification process.\n\nWe should think through what the implications of lost/theft modes are and see if we should discuss them in the Threat Model document. \n\nI think the lost mode functionality of displaying a message is probably benign (though could be used to share defamatory or harassing messages?), but we probably don't want to recommend the implementation of an anti-theft mode like Tile does.\n\n",
       "createdAt": "2025-06-24T20:08:31Z",
-      "updatedAt": "2025-10-07T19:44:08Z",
-      "closedAt": null,
+      "updatedAt": "2025-10-17T15:23:16Z",
+      "closedAt": "2025-10-17T15:23:15Z",
       "comments": [
         {
           "author": "bledvina",
@@ -4933,102 +4941,160 @@
       "id": "PR_kwDOMB0Qas6tvY_J",
       "title": "tracking tag alerts should assist users in locating and disabling tags",
       "url": "https://github.com/ietf-wg-dult/threat-model/pull/142",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Closes #114.",
       "createdAt": "2025-10-14T20:00:58Z",
-      "updatedAt": "2025-10-14T20:00:59Z",
+      "updatedAt": "2025-10-17T14:40:23Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
-      "baseRefOid": "9a111fc5265c987a8599dd0c28bf250e175e6cd3",
+      "baseRefOid": "162a4f90df7da42ea4f2e78a514de5e85eef3eaa",
       "headRepository": "ietf-wg-dult/threat-model",
       "headRefName": "delano-alerts",
-      "headRefOid": "3d1df0b8ff0385bf3207362fabd31604261df114",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "bb8df040a7c6e724e60290cc8681d16685b31fd4",
+      "closedAt": "2025-10-17T14:40:23Z",
+      "mergedAt": "2025-10-17T14:40:23Z",
+      "mergedBy": "maggiedelano",
+      "mergeCommit": {
+        "oid": "cf8ec14475912d7fcb87b68525d117c455f957ed"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOMB0Qas7He5oJ",
+          "commit": {
+            "abbreviatedOid": "3d1df0b"
+          },
+          "author": "exploretechsafety",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Good addition.",
+          "createdAt": "2025-10-16T19:50:48Z",
+          "updatedAt": "2025-10-16T19:50:48Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 143,
       "id": "PR_kwDOMB0Qas6t6mtf",
       "title": "Fix more terminology that slipped through the cracks",
       "url": "https://github.com/ietf-wg-dult/threat-model/pull/143",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-10-15T15:44:07Z",
-      "updatedAt": "2025-10-15T15:44:08Z",
+      "updatedAt": "2025-10-17T14:44:19Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
-      "baseRefOid": "162a4f90df7da42ea4f2e78a514de5e85eef3eaa",
+      "baseRefOid": "cf8ec14475912d7fcb87b68525d117c455f957ed",
       "headRepository": "ietf-wg-dult/threat-model",
       "headRefName": "delano0-cleanup",
-      "headRefOid": "16d27afc41963204bb17452352d2f8dec1281951",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "feb67e8540b4d271ec538ac09ccba1279ad46699",
+      "closedAt": "2025-10-17T14:44:19Z",
+      "mergedAt": "2025-10-17T14:44:19Z",
+      "mergedBy": "maggiedelano",
+      "mergeCommit": {
+        "oid": "60ec54168c590288a38c5b253fa3764518cd4991"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOMB0Qas7HQ8eP",
+          "commit": {
+            "abbreviatedOid": "16d27af"
+          },
+          "author": "shaileshprabhu95",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Looks good to me, thanks!",
+          "createdAt": "2025-10-16T05:26:55Z",
+          "updatedAt": "2025-10-16T05:26:55Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 144,
       "id": "PR_kwDOMB0Qas6t6x-8",
       "title": "Add suggestions of how to use lost mode",
       "url": "https://github.com/ietf-wg-dult/threat-model/pull/144",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Closes #117.",
       "createdAt": "2025-10-15T15:57:31Z",
-      "updatedAt": "2025-10-15T15:57:32Z",
+      "updatedAt": "2025-10-17T15:23:14Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
-      "baseRefOid": "162a4f90df7da42ea4f2e78a514de5e85eef3eaa",
+      "baseRefOid": "a6aee3e2814e57e3f80e5058e92ed96eb36720db",
       "headRepository": "ietf-wg-dult/threat-model",
       "headRefName": "delano-lost-mode",
-      "headRefOid": "eb3be06dab6f989d6f332e26427e13e8027a2b08",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
-      "comments": [],
-      "reviews": []
+      "headRefOid": "4fe613ecc19309baab9757a26659b1c10db1406b",
+      "closedAt": "2025-10-17T15:23:14Z",
+      "mergedAt": "2025-10-17T15:23:14Z",
+      "mergedBy": "maggiedelano",
+      "mergeCommit": {
+        "oid": "915e891ce8bfc784e93bd35bb8fc71c87976fa12"
+      },
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "OK that makes sense. I went back to the accessory-protocol document and they had a suggestion for the email address that we can use, and I changed four digits to two digits for the phone number.",
+          "createdAt": "2025-10-17T15:23:05Z",
+          "updatedAt": "2025-10-17T15:23:05Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOMB0Qas7HfBIs",
+          "commit": {
+            "abbreviatedOid": "eb3be06"
+          },
+          "author": "exploretechsafety",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "Maybe this is too much, but I'd go even further with obfuscation and make it only the last two digits of the phone number. And obfuscate the email address such that no matter its length, it gets the same number of asterisks filling in the obfuscated parts. This is because otherwise it can be too easy for an attacker who has information about their target (e.g. full name, information from data brokers, year of birth, etc) to guess an email address given a particular number of unknown characters. Or to check four digits of a phone number against lists of numbers (two digits can still provide important info to an attacker in some cases, but I'm not sure how much more you can obfuscate a phone number beyond that).",
+          "createdAt": "2025-10-16T19:57:45Z",
+          "updatedAt": "2025-10-16T19:57:45Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 145,
       "id": "PR_kwDOMB0Qas6t7eCB",
       "title": "Update document in response to Barry Leiba Review",
       "url": "https://github.com/ietf-wg-dult/threat-model/pull/145",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Thank you Barry for the detailed feedback.",
       "createdAt": "2025-10-15T16:56:35Z",
-      "updatedAt": "2025-10-15T17:15:56Z",
+      "updatedAt": "2025-10-17T14:58:43Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
-      "baseRefOid": "162a4f90df7da42ea4f2e78a514de5e85eef3eaa",
+      "baseRefOid": "60ec54168c590288a38c5b253fa3764518cd4991",
       "headRepository": "ietf-wg-dult/threat-model",
       "headRefName": "delano-barry-review",
-      "headRefOid": "bc1f1c9a771b7f4e8b4cacb3bc0417402506aba7",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "7f0a506666ae5f51ab51539ca56dfcb3f0c4da51",
+      "closedAt": "2025-10-17T14:58:43Z",
+      "mergedAt": "2025-10-17T14:58:43Z",
+      "mergedBy": "maggiedelano",
+      "mergeCommit": {
+        "oid": "123b274484e4363beac445a626cb77aed1c88e93"
+      },
       "comments": [
         {
           "author": "maggiedelano",
@@ -5038,31 +5104,130 @@
           "updatedAt": "2025-10-15T17:15:56Z"
         }
       ],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOMB0Qas7HfEBW",
+          "commit": {
+            "abbreviatedOid": "bc1f1c9"
+          },
+          "author": "exploretechsafety",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "I think changing Victim to Target is fine. I only used Victim in the first place because I've seen it so often in cybersecurity, but Target is clear and I've seen that terminology too.",
+          "createdAt": "2025-10-16T20:01:03Z",
+          "updatedAt": "2025-10-16T20:01:03Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 146,
       "id": "PR_kwDOMB0Qas6t7qLd",
       "title": "Add acknowledgements",
       "url": "https://github.com/ietf-wg-dult/threat-model/pull/146",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Please add any I might've missed!",
       "createdAt": "2025-10-15T17:15:27Z",
-      "updatedAt": "2025-10-15T17:15:28Z",
+      "updatedAt": "2025-10-17T15:02:00Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
-      "baseRefOid": "162a4f90df7da42ea4f2e78a514de5e85eef3eaa",
+      "baseRefOid": "123b274484e4363beac445a626cb77aed1c88e93",
       "headRepository": "ietf-wg-dult/threat-model",
       "headRefName": "acknowledgments",
-      "headRefOid": "efd7d7f26d32bf428207eb2f45e93bf364436d04",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "bb394008fc3ba0ff9d1be02b2c3eeee3bf448f1c",
+      "closedAt": "2025-10-17T15:02:00Z",
+      "mergedAt": "2025-10-17T15:02:00Z",
+      "mergedBy": "maggiedelano",
+      "mergeCommit": {
+        "oid": "a6aee3e2814e57e3f80e5058e92ed96eb36720db"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOMB0Qas7HQ6B9",
+          "commit": {
+            "abbreviatedOid": "efd7d7f"
+          },
+          "author": "shaileshprabhu95",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "@maggiedelano  - this looks good.\r\n\r\nPlease add the below line if it looks okay to you.\r\n\r\nWe also gratefully acknowledge the guidance and support of the DULT Working Group Chairs, Erica Olsen and Sean Turner, and the Area Director, Deb Cooley, throughout the development of this document.",
+          "createdAt": "2025-10-16T05:21:01Z",
+          "updatedAt": "2025-10-16T05:21:01Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOMB0Qas7He4pQ",
+          "commit": {
+            "abbreviatedOid": "efd7d7f"
+          },
+          "author": "exploretechsafety",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "This looks good with @shaileshprabhu95's suggested changes, which I agree with.",
+          "createdAt": "2025-10-16T19:49:55Z",
+          "updatedAt": "2025-10-16T19:49:55Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 147,
+      "id": "PR_kwDOMB0Qas6uVfAQ",
+      "title": "fix minor issues noticed in 3",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/147",
+      "state": "MERGED",
+      "author": "maggiedelano",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "- typo\r\n- move target to correct alphabetical location",
+      "createdAt": "2025-10-17T15:37:14Z",
+      "updatedAt": "2025-10-17T15:40:15Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "915e891ce8bfc784e93bd35bb8fc71c87976fa12",
+      "headRepository": "ietf-wg-dult/threat-model",
+      "headRefName": "delano-03-minor-edits",
+      "headRefOid": "7a8b53017b777a17ad2f0a33ead22e1abc5421dc",
+      "closedAt": "2025-10-17T15:40:15Z",
+      "mergedAt": "2025-10-17T15:40:15Z",
+      "mergedBy": "maggiedelano",
+      "mergeCommit": {
+        "oid": "a4e01da8d57f23ab1843543e8864c29d3607d632"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 148,
+      "id": "PR_kwDOMB0Qas6uVisn",
+      "title": "fix a second time",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/148",
+      "state": "MERGED",
+      "author": "maggiedelano",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-10-17T15:43:15Z",
+      "updatedAt": "2025-10-17T15:43:25Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "a4e01da8d57f23ab1843543e8864c29d3607d632",
+      "headRepository": "ietf-wg-dult/threat-model",
+      "headRefName": "delano-03-minor-edits",
+      "headRefOid": "229add940cadc79f515247ec53baa8783f7dca88",
+      "closedAt": "2025-10-17T15:43:25Z",
+      "mergedAt": "2025-10-17T15:43:25Z",
+      "mergedBy": "maggiedelano",
+      "mergeCommit": {
+        "oid": "d67fc95c9886411fb00cee7ab54b487cca59d90b"
+      },
       "comments": [],
       "reviews": []
     }
