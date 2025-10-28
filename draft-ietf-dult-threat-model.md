@@ -19,7 +19,7 @@ venue:
   type: "Working Group"
   mail: "unwanted-trackers@ietf.org"
   arch: "https://mailarchive.ietf.org/arch/browse/unwanted-trackers/"
-  github: "ietf-wg-dult/draft-ietf-dult-threat-model"
+  github: "ietf-wg-dult/threat-model"
   latest: "https://ietf-wg-dult.github.io/threat-model/draft-ietf-dult-threat-model.html"
 
 author:
