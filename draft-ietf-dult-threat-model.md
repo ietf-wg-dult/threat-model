@@ -152,7 +152,7 @@ This threat model is also more likely to be applicable in regions where the use 
 : undesired tracking of a person, their property, or their belongings by a Location-tracking Accessory.
 
 **Unwanted Tracking Alert**:
-: an alert notifying the user of the presence of an unrecognized Accessory that may be traveling with them over time that allows them to take various actions, including playing a sound on the Accessory if the Accessory is in Bluetooth Low Energy (BLE) range.
+: an alert notifying the user of the presence of an unrecognized Accessory that may be traveling with them over time that allows them to take various actions. Examples of alerts include playing a sound on the Accessory and displaying a message on a Device if the Accessory is in Bluetooth Low Energy (BLE) range of the Device.
 
 **Unwanted Tracking Detection**:
 : algorithms that detect the presence of an unknown Accessory traveling with a person over time.
