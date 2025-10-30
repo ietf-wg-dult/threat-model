@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-10-19T01:25:05.460172+00:00",
+  "timestamp": "2025-10-30T01:21:36.425149+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -1841,6 +1841,22 @@
           "updatedAt": "2025-09-29T18:43:21Z"
         }
       ]
+    },
+    {
+      "number": 151,
+      "id": "I_kwDOMB0Qas7UltxI",
+      "title": "\"Unwanted Tracking Alert\" definition is unclear",
+      "url": "https://github.com/ietf-wg-dult/threat-model/issues/151",
+      "state": "OPEN",
+      "author": "dkg",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "In the definitions section, it is hard to tell whether the accessory making a sound *is* an alert, or whether the alert is the thing that allows the user to make the sound.",
+      "createdAt": "2025-10-29T15:40:07Z",
+      "updatedAt": "2025-10-29T15:40:07Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -5229,6 +5245,126 @@
         "oid": "d67fc95c9886411fb00cee7ab54b487cca59d90b"
       },
       "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 149,
+      "id": "PR_kwDOMB0Qas6wOb8r",
+      "title": "Fix github link",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/149",
+      "state": "OPEN",
+      "author": "dkg",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-10-28T19:50:23Z",
+      "updatedAt": "2025-10-28T19:50:24Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "d67fc95c9886411fb00cee7ab54b487cca59d90b",
+      "headRepository": "dkg/dult-threat-model",
+      "headRefName": "fix-github-link",
+      "headRefOid": "d77f1f2bded6abb91fa9709bebae74aedccfed3a",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 150,
+      "id": "PR_kwDOMB0Qas6wPsDP",
+      "title": "Naive model also has tracking problems without guessing IDs",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/150",
+      "state": "OPEN",
+      "author": "dkg",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "The naive model problem statement omits a common attack, which is merely observing the persistent identifier and then tracking it across time.  This is distinct from guessing a tag ID, because increasing the entropy of the Tag ID space offers no effective defense.",
+      "createdAt": "2025-10-28T21:53:46Z",
+      "updatedAt": "2025-10-28T21:53:47Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "d67fc95c9886411fb00cee7ab54b487cca59d90b",
+      "headRepository": "dkg/dult-threat-model",
+      "headRefName": "observe-then-track",
+      "headRefOid": "d5d7b0c6e357227e208224e7ead48c7ef01db956",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 152,
+      "id": "PR_kwDOMB0Qas6waAxe",
+      "title": "The alert allows the user to cause the accessory to beep",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/152",
+      "state": "OPEN",
+      "author": "dkg",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "In this interpretation of the \"Unwanted Tracking Alert\", the alert appears on a Device and allows the user to cause the Accessory to beep.\r\n\r\nCloses: #151",
+      "createdAt": "2025-10-29T15:41:31Z",
+      "updatedAt": "2025-10-29T15:42:12Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "d67fc95c9886411fb00cee7ab54b487cca59d90b",
+      "headRepository": "dkg/dult-threat-model",
+      "headRefName": "alert-clarification-1",
+      "headRefOid": "880595779fe5b4ff7eb88c81734fc056a4666a5c",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "dkg",
+          "authorAssociation": "NONE",
+          "body": "this is mutually exclusive with #153 ",
+          "createdAt": "2025-10-29T15:42:12Z",
+          "updatedAt": "2025-10-29T15:42:12Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 153,
+      "id": "PR_kwDOMB0Qas6waA_e",
+      "title": "beeps can be alerts, and so can Device popups",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/153",
+      "state": "OPEN",
+      "author": "dkg",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "In this interpretation of Unwanted Tracking Alert, the beep itself can be an alert, as can the exposure of a message on a Device.\r\n\r\ncloses: #151",
+      "createdAt": "2025-10-29T15:41:43Z",
+      "updatedAt": "2025-10-29T15:41:57Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "d67fc95c9886411fb00cee7ab54b487cca59d90b",
+      "headRepository": "dkg/dult-threat-model",
+      "headRefName": "alert-clarification-2",
+      "headRefOid": "725bec3113102ee6035117397b9b563595f53873",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "dkg",
+          "authorAssociation": "NONE",
+          "body": "this is mutually exclusive with #152 ",
+          "createdAt": "2025-10-29T15:41:57Z",
+          "updatedAt": "2025-10-29T15:41:57Z"
+        }
+      ],
       "reviews": []
     }
   ]
