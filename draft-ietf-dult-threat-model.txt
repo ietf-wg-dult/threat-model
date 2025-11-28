@@ -185,27 +185,26 @@ Table of Contents
 
    Detecting Unwanted Tracking is currently left to individual Tag
    manufacturers and Platforms on Non-Owner Devices.  Each manufacturer
-   and Platform has different implementations to prevent Unwanted
-   Tracking, which may or may not be compatible with other manufacturers
-   or Platforms.  The goal of the IETF Detecting Unwanted Location
-   Tracking (DULT) working group is to standardize a protocol between
-   Location-tracking Tags, Non-Owner Devices, and Crowdsourced Networks.
+   and Platform has different implementations to prevent , which may or
+   may not be compatible with other manufacturers or Platforms.  The
+   goal of the IETF Detecting Unwanted Location Tracking (DULT) working
+   group is to standardize a protocol between Location-tracking Tags,
+   Non-Owner Devices, and Crowdsourced Networks.
 
-   In order to standardize a protocol for detecting Unwanted Tracking,
-   thus minimizing the privacy risks described above, it is necessary to
-   analyze and be able to model different privacy threats.  This
-   document includes: 1) a taxonomy of Unwanted Tracking, 2) methods
-   Attackers could use to circumvent the DULT Protocol, and 3) design
-   considerations for implementing the DULT protocol.  The taxonomy of
-   Unwanted Tracking uses a flexible framework to provide analysis and
-   modeling of different threat actors, as well as models of potential
-   Targets based on their threat context.  It defines how these Attacker
-   and Target persona models can be combined into threat models.  The
-   section on methods to circumvent the DULT protocol includes a threat
-   matrix and description of several different possible attack vectors.
-   Finally, the design considerations section focuses on specific
-   requirements and constraints for successfully detecting Unwanted
-   Tracking, alerting users, and providing guidance on disabling Tags
+   In order to standardize a protocol for detecting , thus minimizing
+   the privacy risks described above, it is necessary to analyze and be
+   able to model different privacy threats.  This document includes: 1)
+   a taxonomy of , 2) methods Attackers could use to circumvent the DULT
+   Protocol, and 3) design considerations for implementing the DULT
+   protocol.  The taxonomy of uses a flexible framework to provide
+   analysis and modeling of different threat actors, as well as models
+   of potential Targets based on their threat context.  It defines how
+   these Attacker and Target persona models can be combined into threat
+   models.  The section on methods to circumvent the DULT protocol
+   includes a threat matrix and description of several different
+   possible attack vectors.  Finally, the design considerations section
+   focuses on specific requirements and constraints for successfully
+   detecting , alerting users, and providing guidance on disabling Tags
    (if desired).  This threat model document is intended to inform the
    work of the implementation of the DULT Protocol as described in
    [I-D.draft-ietf-dult-accessory-protocol] and
@@ -236,12 +235,11 @@ Table of Contents
    cost of Location-tracking Tags, Location-tracking Tag use in the
    Global South is typically limited to affluent communities.  If the
    cost of Non-Owner Devices and Location-tracking Tags decrease, an
-   uptick of Unwanted Tracking could also occur in contexts where it is
-   currently infeasible.  This threat-model does still attempt to
-   consider possible regional differences in Location-tracking Tag use
-   (such as differences between rural and urban use), and also the
-   sometimes limited resources that may be available to Targets of
-   Unwanted Tracking.
+   uptick of could also occur in contexts where it is currently
+   infeasible.  This threat-model does still attempt to consider
+   possible regional differences in Location-tracking Tag use (such as
+   differences between rural and urban use), and also the sometimes
+   limited resources that may be available to Targets of .
 
 2.  Conventions and Definitions
 
@@ -259,13 +257,12 @@ Table of Contents
       connect to a Crowdsourced Network through the means described in
       these documents.
 
-   *Active Scanning*:  method(s) of Unwanted Tracking detection that
-      involves a user initiated scan for nearby Accessories.  Contrast
-      with Passive Scanning.
+   *Active Scanning*:  method(s) of detection that involves a user
+      initiated scan for nearby Accessories.  Contrast with Passive
+      Scanning.
 
    *Attacker*:  any individual, group, or organization that is
-      attempting to engage in Unwanted Tracking and/or circumvention of
-      the DULT Protocol.
+      attempting to engage in and/or circumvention of the DULT Protocol.
 
    *Crowdsourced Network*:  a service that Platforms communicate with to
       share and retrieve location information of Accessories.
@@ -361,11 +358,12 @@ Table of Contents
       their property, or their belongings by a Location-tracking
       Accessory.
 
-   *Unwanted Tracking Alert*:  an alert notifying the user of the
-      presence of an unrecognized Accessory that may be traveling with
-      them over time that allows them to take various actions, including
-      playing a sound on the Accessory if the Accessory is in Bluetooth
-      Low Energy (BLE) range.
+   *Unwanted Tracking Alert*:  an alert from a Device which notifies the
+      user of the presence of an unrecognized Accessory that may be
+      traveling with them over time.  The alert allows the user to take
+      various actions, including sending a command to the Accessory to
+      emit a sound if the Accessory is in Bluetooth Low Energy (BLE)
+      range.
 
    *Unwanted Tracking Detection*:  algorithms that detect the presence
       of an unknown Accessory traveling with a person over time.
