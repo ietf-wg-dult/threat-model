@@ -168,6 +168,9 @@ Table of Contents
    *  Any Attacker who can guess a Tag ID can query the Crowdsourced
       Network for its location.
 
+   *  Any Attacker who can observe a Tag ID at one time can query the
+      Crowdsourced Network for its location at another time.
+
    *  An Attacker can surreptitiously plant an Accessory on a Target and
       thus track them by tracking their "own" Accessory.
 
