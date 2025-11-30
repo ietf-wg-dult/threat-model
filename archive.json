@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-11-06T01:20:37.138895+00:00",
+  "timestamp": "2025-11-30T01:38:36.608601+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -1847,15 +1847,15 @@
       "id": "I_kwDOMB0Qas7UltxI",
       "title": "\"Unwanted Tracking Alert\" definition is unclear",
       "url": "https://github.com/ietf-wg-dult/threat-model/issues/151",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "dkg",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "In the definitions section, it is hard to tell whether the accessory making a sound *is* an alert, or whether the alert is the thing that allows the user to make the sound.",
       "createdAt": "2025-10-29T15:40:07Z",
-      "updatedAt": "2025-11-04T15:42:11Z",
-      "closedAt": null,
+      "updatedAt": "2025-11-28T16:05:07Z",
+      "closedAt": "2025-11-28T16:05:07Z",
       "comments": [
         {
           "author": "maggiedelano",
@@ -1935,16 +1935,24 @@
       "id": "I_kwDOMB0Qas7Vz9sn",
       "title": "Consider renaming Security Considerations section",
       "url": "https://github.com/ietf-wg-dult/threat-model/issues/158",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Watson Ladd:\n\n> There's also a bit of surprise at calling it  \nSecurity Considerations. It's very early in the document, typically  \nsecurity considerations is at the end, and for a document of this  \nnature would be fairly short. We should feel free to use a more  \ndescriptive name.  \n\nI don't really have a strong opinion about this, I was just following conventions from elsewhere. We can certainly call it something else.",
       "createdAt": "2025-11-04T15:49:53Z",
-      "updatedAt": "2025-11-04T15:49:53Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2025-11-28T16:07:01Z",
+      "closedAt": "2025-11-28T16:07:01Z",
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "We discussed this at IETF 124 and decided to keep the title as is.",
+          "createdAt": "2025-11-28T16:07:01Z",
+          "updatedAt": "2025-11-28T16:07:01Z"
+        }
+      ]
     },
     {
       "number": 159,
@@ -1991,6 +1999,53 @@
       "body": "Watson Ladd wrote:\n\n> As a much more minor and simpler point, there's a distinction between  \ntechnically sophisticated attacks that can be packaged up and run by  \nanyone after the software is distributed, and ones that require  \nskillful physical manipulation. The first will inevitably be widely  \napplied (ask your insurance agent about Kias to see a real world  \nexample), the second will remain niche. This affects the discussion  \nat least in 3.4.12.1, but maybe other places as well.",
       "createdAt": "2025-11-04T15:54:47Z",
       "updatedAt": "2025-11-04T15:54:58Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 162,
+      "id": "I_kwDOMB0Qas7bCoG1",
+      "title": "proposal to include a new threat - swarm attack",
+      "url": "https://github.com/ietf-wg-dult/threat-model/issues/162",
+      "state": "OPEN",
+      "author": "virtualVat",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "**Subject: Proposal: Add Swarm Tracking Attack Scenario to Security Section**\n\nI\u2019d like to suggest a short addition to the threat model to cover Swarm Tracking, a scenario where multiple Accessories are used to track a person without any single device being active long enough to trigger alerts.\n\n**Summary**\nIn this attack, an adversary places several Accessories near a Target. Each Accessory broadcasts for only brief windows, repeated over time. This prevents any one device from appearing persistent enough to be flagged as unwanted tracking. Even if one Accessory is found and removed, the others continue the tracking.\nWhile each device provides only small pieces of information, together they allow the adversary to infer the Target\u2019s location over time. Because the Accessories are rarely visible at the same time, scanning for multiple Tags (3.4.3) is less effective, and network-level correlation may not link the findings together.\n\t\u2022 Impact: Medium- enables long-term tracking while avoiding alerts.\n\t\u2022 Likelihood: Medium - can be done with low-cost devices and simple configuration changes.\n\t\u2022 Overall Risk: Medium - Influenced by likelihood.\nPossible mitigations include identifying repeated short observations near the same user over time, while still protecting user privacy.\n\n**Actual Text planning to submit**\n\n3.4.16. Swarm Tracking Attacks (Accessory, Finding, Network)\n\nIn a Swarm Tracking attack, an adversary deploys multiple Accessories that operate intermittently or with reduced duty cycles, such that each device appears only briefly or infrequently. This behaviour may be achieved through attacker-controlled activation intervals or, in more sophisticated cases, by modifying Accessory firmware (Section 3.4.6). As a result, no individual Accessory produces sufficient presence to be identified as a potential unwanted-tracker. Although each Accessory contributes only limited observations, their combined findings enable the adversary to maintain continuous or near-continuous location inference of the Target. Unlike the multiple-Tag scenario described in Section 3.4.3, Swarm Tracking avoids simultaneous visibility and therefore cannot be fully mitigated through scanning for multiple Tags. Swarm behaviour may involve Accessories that activate according to a rotating schedule, Accessories configured to broadcast only for short intervals, or sequential \u201chandoffs\u201d in which a new Accessory becomes active as another risks detection. The attack remains effective even if one or more Accessories are discovered and removed. This attack succeeds when intermittent broadcasts remain below thresholds used to identify persistent tracking and when rotating identifiers prevent straightforward linkage across Devices. Because each Accessory generates only short-lived findings, the Network may be unable to correlate these observations as elements of a coordinated tracking attempt.\nSwarm Tracking increases adversarial resilience by reducing the likelihood of user alerts and making physical discovery more difficult. Potential mitigations include identifying patterns in which multiple short-duration observations repeatedly appear near the same user over time, while preserving privacy protections for benign users. \n\nThe impact of the threat is medium as this threat  bypasses persistence-based detection thresholds and allows long-term tracking while avoiding user alerts. Likely hood of the attack is medium as this attack is feasible with inexpensive Accessories, modest technical skill. Given its ability to bypass core persistence-based detection mechanisms while remaining feasible for motivated adversaries, the overall risk of this attack is medium.\n\nLet me know your feedback\nBest regards,\nSrivatsa",
+      "createdAt": "2025-11-28T13:13:49Z",
+      "updatedAt": "2025-11-29T09:27:15Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "bobhinden",
+          "authorAssociation": "NONE",
+          "body": "Srivatsa,\n\nIf this attack includes firmware modification then I think it falls into a much larger set of attacks where the trackers don't include any tracking protections at all.   \n\nI am not sure I would call this a \"swarm\", but that is a different discussion.\n\nBob",
+          "createdAt": "2025-11-28T16:25:37Z",
+          "updatedAt": "2025-11-29T01:55:38Z"
+        },
+        {
+          "author": "virtualVat",
+          "authorAssociation": "NONE",
+          "body": "Hi Bob,\n\nThanks for the feedback - and agreed, attacks requiring full firmware modification fall into a broader category that intentionally bypasses unwanted-tracking protections. To clarify, the scenario here does not rely on firmware changes.\n\n\u201cSection 3.4.10 assumes adversaries can disable tags they do not own. If that capability is in\u2011scope, silencing or duty\u2011cycling tags the attacker does own must be considered even more feasible. Therefore, coordinated intermittent tracking does not require firmware modification - only the same level of control already acknowledged under 3.4.10.\u201d\n\nIf devices are configured to broadcast intermittently using legitimate user-exposed power-management behavior/configurations, no single device may individually trigger persistence\u2011based unwanted\u2011tracking alerts - but coordinated observations across multiple devices could still provide near\u2011continuous coverage.\n\nThat\u2019s the core concern - current detection is largely per\u2011device/persistence\u2011based, so multiple short\u2011duration sightings across devices are not correlated as a coordinated tracking attempt. This gap exists even with unmodified Accessories.\n\nMore importantly, if vendors expose configurations that allow Accessories to broadcast only briefly or infrequently (e.g., long intervals, scheduled wake-ups), attackers can deliberately tune devices to stay below detection thresholds. DULT should caution against such configurations without mitigating protections, or ensure defensive mechanisms account for them. Explicitly recognizing this risk in the model ensures vendors design protections that consider coordinated short-burst tracking.\n\nI\u2019m happy to adjust the text and terminology (including the name \u201cswarm\u201d) as the group prefers. My goal is simply to ensure the model includes this distributed, low\u2011persistence tracking class so vendors understand that protections must detect coordinated short\u2011burst observations - not only long\u2011duration persistence from a single device.\n\nThanks,\nSrivatsa\n",
+          "createdAt": "2025-11-29T09:20:29Z",
+          "updatedAt": "2025-11-29T09:25:34Z"
+        }
+      ]
+    },
+    {
+      "number": 163,
+      "id": "I_kwDOMB0Qas7bEZJB",
+      "title": "Consider how to enumerate what the priorities of the DULT WG should be",
+      "url": "https://github.com/ietf-wg-dult/threat-model/issues/163",
+      "state": "OPEN",
+      "author": "maggiedelano",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "At IETF 124, we agreed that we need to come up with a list of focus areas for the technical specs. For example, the current difficult issues that we have not addressed are non-conformant accessories and remote disablement. We also need to decide what success might look like.",
+      "createdAt": "2025-11-28T16:08:58Z",
+      "updatedAt": "2025-11-28T16:08:58Z",
       "closedAt": null,
       "comments": []
     }
@@ -5388,119 +5443,200 @@
       "id": "PR_kwDOMB0Qas6wOb8r",
       "title": "Fix github link",
       "url": "https://github.com/ietf-wg-dult/threat-model/pull/149",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "dkg",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-10-28T19:50:23Z",
-      "updatedAt": "2025-10-28T19:50:24Z",
+      "updatedAt": "2025-11-28T15:59:49Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
       "baseRefOid": "d67fc95c9886411fb00cee7ab54b487cca59d90b",
       "headRepository": "dkg/dult-threat-model",
       "headRefName": "fix-github-link",
       "headRefOid": "d77f1f2bded6abb91fa9709bebae74aedccfed3a",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-11-28T15:59:49Z",
+      "mergedAt": "2025-11-28T15:59:49Z",
+      "mergedBy": "maggiedelano",
+      "mergeCommit": {
+        "oid": "fb7e34c1156599b68ef5adfb1f389f204edda0d8"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOMB0Qas7Rxlcs",
+          "commit": {
+            "abbreviatedOid": "d77f1f2"
+          },
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-11-28T15:59:40Z",
+          "updatedAt": "2025-11-28T15:59:40Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 150,
       "id": "PR_kwDOMB0Qas6wPsDP",
       "title": "Naive model also has tracking problems without guessing IDs",
       "url": "https://github.com/ietf-wg-dult/threat-model/pull/150",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "dkg",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "The naive model problem statement omits a common attack, which is merely observing the persistent identifier and then tracking it across time.  This is distinct from guessing a tag ID, because increasing the entropy of the Tag ID space offers no effective defense.",
       "createdAt": "2025-10-28T21:53:46Z",
-      "updatedAt": "2025-10-28T21:53:47Z",
+      "updatedAt": "2025-11-28T16:00:47Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
       "baseRefOid": "d67fc95c9886411fb00cee7ab54b487cca59d90b",
       "headRepository": "dkg/dult-threat-model",
       "headRefName": "observe-then-track",
       "headRefOid": "d5d7b0c6e357227e208224e7ead48c7ef01db956",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-11-28T16:00:47Z",
+      "mergedAt": "2025-11-28T16:00:46Z",
+      "mergedBy": "maggiedelano",
+      "mergeCommit": {
+        "oid": "db0d9b2c3027eecee0753445b3493e9f1e21ccaa"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOMB0Qas7Rxl9N",
+          "commit": {
+            "abbreviatedOid": "d5d7b0c"
+          },
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-11-28T16:00:39Z",
+          "updatedAt": "2025-11-28T16:00:39Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 152,
       "id": "PR_kwDOMB0Qas6waAxe",
       "title": "The alert allows the user to cause the accessory to beep",
       "url": "https://github.com/ietf-wg-dult/threat-model/pull/152",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "dkg",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "In this interpretation of the \"Unwanted Tracking Alert\", the alert appears on a Device and allows the user to cause the Accessory to beep.\r\n\r\nCloses: #151",
       "createdAt": "2025-10-29T15:41:31Z",
-      "updatedAt": "2025-10-29T15:42:12Z",
+      "updatedAt": "2025-11-28T16:05:06Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
       "baseRefOid": "d67fc95c9886411fb00cee7ab54b487cca59d90b",
       "headRepository": "dkg/dult-threat-model",
       "headRefName": "alert-clarification-1",
-      "headRefOid": "880595779fe5b4ff7eb88c81734fc056a4666a5c",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "9a7635ac72798ce53eb0cc826abf8361a6e262ae",
+      "closedAt": "2025-11-28T16:05:06Z",
+      "mergedAt": "2025-11-28T16:05:06Z",
+      "mergedBy": "maggiedelano",
+      "mergeCommit": {
+        "oid": "929eb581b706d8c9417ac4766e16fee75f7002de"
+      },
       "comments": [
         {
           "author": "dkg",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "this is mutually exclusive with #153 ",
           "createdAt": "2025-10-29T15:42:12Z",
           "updatedAt": "2025-10-29T15:42:12Z"
         }
       ],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOMB0Qas7RxoKp",
+          "commit": {
+            "abbreviatedOid": "9a7635a"
+          },
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Approved with minor change (device sends command to accessory)",
+          "createdAt": "2025-11-28T16:04:49Z",
+          "updatedAt": "2025-11-28T16:04:49Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 153,
       "id": "PR_kwDOMB0Qas6waA_e",
       "title": "beeps can be alerts, and so can Device popups",
       "url": "https://github.com/ietf-wg-dult/threat-model/pull/153",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "dkg",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "In this interpretation of Unwanted Tracking Alert, the beep itself can be an alert, as can the exposure of a message on a Device.\r\n\r\ncloses: #151",
       "createdAt": "2025-10-29T15:41:43Z",
-      "updatedAt": "2025-10-29T15:41:57Z",
+      "updatedAt": "2025-11-28T16:06:15Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
       "baseRefOid": "d67fc95c9886411fb00cee7ab54b487cca59d90b",
       "headRepository": "dkg/dult-threat-model",
       "headRefName": "alert-clarification-2",
       "headRefOid": "725bec3113102ee6035117397b9b563595f53873",
-      "closedAt": null,
+      "closedAt": "2025-11-28T16:06:14Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [
         {
           "author": "dkg",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "this is mutually exclusive with #152 ",
           "createdAt": "2025-10-29T15:41:57Z",
           "updatedAt": "2025-10-29T15:41:57Z"
+        },
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Used the other definition, so closing this one.",
+          "createdAt": "2025-11-28T16:06:14Z",
+          "updatedAt": "2025-11-28T16:06:14Z"
         }
       ],
+      "reviews": []
+    },
+    {
+      "number": 164,
+      "id": "PR_kwDOMB0Qas62D9h5",
+      "title": "Fix capitalization",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/164",
+      "state": "OPEN",
+      "author": "maggiedelano",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Closes #154.",
+      "createdAt": "2025-11-28T16:24:19Z",
+      "updatedAt": "2025-11-28T16:24:20Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "929eb581b706d8c9417ac4766e16fee75f7002de",
+      "headRepository": "ietf-wg-dult/threat-model",
+      "headRefName": "fix-capitalization",
+      "headRefOid": "08e4b1dd4a9da2e7631db783834529df0df8d560",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
       "reviews": []
     }
   ]
