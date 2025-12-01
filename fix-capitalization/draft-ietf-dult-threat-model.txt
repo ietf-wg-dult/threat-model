@@ -5,10 +5,10 @@
 Detecting Unwanted Location Trackers                           M. Delano
 Internet-Draft                                        Swarthmore College
 Intended status: Informational                                 J. Lowell
-Expires: 1 June 2026           National Network to End Domestic Violence
+Expires: 4 June 2026           National Network to End Domestic Violence
                                                                S. Prabhu
                                                                    Nokia
-                                                        28 November 2025
+                                                         1 December 2025
 
 
                            DULT Threat Model
@@ -67,7 +67,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 1 June 2026.
+   This Internet-Draft will expire on 4 June 2026.
 
 Copyright Notice
 
@@ -220,8 +220,8 @@ Table of Contents
    analysis for each possible technology in this document.  The threat
    model described here is likely not applicable to the following areas:
    app-based technologies such as parental monitoring apps that do not
-   use Location-tracking Accessories, Internet of Things (IoT) Devices
-   that are Easily Discoverable, connected cars, or user accounts for
+   use Location-tracking Accessories, Internet of Things (IoT) devices
+   that are easily discoverable, connected cars, or user accounts for
    cloud services or social media.  A notable exception to this is GPS
    trackers; see Section 3.3.2 for relevant information and
    recommendations.
@@ -291,8 +291,7 @@ Table of Contents
    *Easily Discoverable*:  an Accessory that is larger than 30 cm in at
       least one dimension, larger than 18 cm x 13 cm in two of its
       dimensions, and/or larger than 250 cm^3 in three-dimensional
-      space.  Location-tracking Accessories that are not Easily
-      Discoverable MUST adhere to the DULT protocol.
+      space.
 
    *Location-enabled Advertisement Payload*:  the Bluetooth (BT)
       advertisement payload that is advertised when an Accessory has
