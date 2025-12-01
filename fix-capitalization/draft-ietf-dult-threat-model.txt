@@ -350,6 +350,9 @@ Table of Contents
       tracking Accessory from communicating with the Crowdsourced
       Network via a command sent by a Platform.
 
+   *Tag*:  shorthand for Location-tracking Tag; see Location-tracking
+      Accessory for full definition.
+
    *Target*:  a individual who an Attacker is attempting to track
       without their consent.  A Target may or may not own a Location-
       tracking Accessory.
