@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-11-30T01:38:36.608601+00:00",
+  "timestamp": "2025-12-02T01:22:34.880898+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -1906,13 +1906,23 @@
       "state": "OPEN",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
+      "assignees": [
+        "exploretechsafety"
+      ],
       "labels": [],
       "body": "Watson Ladd said:\n\n> Moving on to section 3, I see that we start with \"Incorporation of  \nthis threat analysis into the DULT Protocol does not introduce any  \nsecurity risks not already inherent in the underlying  \nLocation-tracking Tag protocols.\" I'm a bit mystified. How could a  \nthreat analysis introduce security risks? isn't it supposed to  \ndocument security risks?",
       "createdAt": "2025-11-04T15:48:30Z",
-      "updatedAt": "2025-11-04T15:48:30Z",
+      "updatedAt": "2025-12-01T16:13:05Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@exploretechsafety can you think of some good language to address this? I believe your intent here was to communicate that the process of documenting these security risks is justified because in some contexts there are concerns that doing so publicly could enable more abuse. Thanks!",
+          "createdAt": "2025-12-01T16:12:23Z",
+          "updatedAt": "2025-12-01T16:12:23Z"
+        }
+      ]
     },
     {
       "number": 157,
@@ -1962,11 +1972,13 @@
       "state": "OPEN",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
+      "assignees": [
+        "exploretechsafety"
+      ],
       "labels": [],
       "body": "Watson Ladd wrote:\n\n> Here is where I think overall organization of this document could be  \nimproved. 3.1 is a rather bad section name, as it could apply to  \neverything, and the material is then more like what follows in 3.4  \nthan what's in 3.2 and 3.3, and fairly in depth. ",
       "createdAt": "2025-11-04T15:51:11Z",
-      "updatedAt": "2025-11-04T15:51:11Z",
+      "updatedAt": "2025-12-01T16:13:45Z",
       "closedAt": null,
       "comments": []
     },
@@ -5616,22 +5628,22 @@
     {
       "number": 164,
       "id": "PR_kwDOMB0Qas62D9h5",
-      "title": "Fix capitalization",
+      "title": "Address issues from Watson (Fix capitalization, remove definition, etc.)",
       "url": "https://github.com/ietf-wg-dult/threat-model/pull/164",
       "state": "OPEN",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
-      "body": "Closes #154.",
+      "body": "Closes #154. Also updated to close #155 and close #157.\r\n\r\n",
       "createdAt": "2025-11-28T16:24:19Z",
-      "updatedAt": "2025-11-28T16:24:20Z",
+      "updatedAt": "2025-12-01T16:14:42Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
       "baseRefOid": "929eb581b706d8c9417ac4766e16fee75f7002de",
       "headRepository": "ietf-wg-dult/threat-model",
       "headRefName": "fix-capitalization",
-      "headRefOid": "08e4b1dd4a9da2e7631db783834529df0df8d560",
+      "headRefOid": "9677e32cd97ae5775b8c8179687b8d906d2e1bae",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
