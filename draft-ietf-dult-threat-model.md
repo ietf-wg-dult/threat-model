@@ -423,7 +423,7 @@ To systematically assess the risks associated with different threats, we introdu
 | Deploying Multiple Tags | Finding | Medium | High	| High | Targets | Yes |
 | Remote Advertisement Monitoring | Accessory, Network | Medium | High | Medium | All users | Partial |
 | Physically Modifying Tags | Accessory | High | Medium | Medium | Targets | Partial |
-| Accessory Firmware Modifications | Accessory | High | Low | Medium | Targets | Partial |
+| Accessory Firmware Modifications | Accessory | High | Low/Medium | High | Targets | Partial |
 | Attacker Accessory Disablement | Accessory, Finding | Medium | Medium | Medium | Targets | Partial |
 | Tracking Using Target's Own Tag | Network | High | Medium | High | Targets | Partial |
 | Disabling Target Tag Detection | Network | High | Medium | Medium | Targets | Partial |
@@ -459,7 +459,7 @@ An Attacker might physically modify a Tag in ways that make it non-conformant wi
 
 The DULT Protocol (see {{!I-D.draft-ietf-dult-accessory-protocol}}) will specify that Accessory firmware images MUST be authenticated, and that Accessories MUST verify the integrity and origin of firmware. However, if these protections were to be bypassed, an Accessory's firmware could be altered to deviate from standard behavior. Attackers may manipulate advertisement intervals to reduce detection opportunities, allowing the Tag to evade tracking for extended periods, or rotate IDs rapidly, disrupting detection systems that rely on tracking unknown Accessory persistence.
 
-Firmware-based changes would have high impact. The likelihood is low, as these attacks require significant technical expertise to bypass firmware verification and modify low-level Accessory behavior. As a result, the overall risk level is medium. Partial mitigation of this attack is possible by requiring Accessories to verify the integrity and origin of firmware.
+Firmware-based changes would have high impact. The likelihood is typically low, as these attacks require significant technical expertise to bypass firmware verification and modify low-level Accessory behavior. However, once a vulnerability has been discovered and distributed, the likelihood could increase to medium as it would only require the technical ability to deploy the attack. It will be important for Accessory firmware to be able to be patched to address vulnerabilities. As a result, the overall risk level is high. Partial mitigation of this attack is possible by requiring Accessories to verify the integrity and origin of firmware.
 
 ### Attacker Accessory Disablement (Accessory, Finding)
 
