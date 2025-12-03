@@ -430,7 +430,7 @@ To systematically assess the risks associated with different threats, we introdu
 | Disabling Target Tag | Accessory, Network | Medium | Medium | Medium | Targets | Partial |
 | Impersonation Attack (Tag) | Accessory, Finding, Network | High | Medium | High | Targets | Partial |
 | Impersonation Attack (Device/Tag) | Accessory, Network | High | Medium | High | All users | Partial |
-| Impersonation Attack (Device/Network) | Network | Medium | Low | Low | All users | Partial |
+| Impersonation Attack (Device/Network) | Network | Medium | Low/Medium | Low | All users | Partial |
 | Replay Attack | Accessory, Network | Medium | High | Medium | All users | Partial |
 | Heterogeneous Tracker Networks | Accessory, Finding, Network | High | Medium | Medium | Targets | No |
 | Deploying GPS Tracker | Accessory | High | Medium | High | Targets | Partial |
@@ -507,7 +507,7 @@ The impact of a Device impersonation attack is high if it is able to send arbitr
 
 An impersonated Device could send false location reports to the Crowdsourced Network, or selectively not report to the Crowdsourced Network.
 
-The likelihood of this attack is low, as it would require the impersonated Device to authenticate with the Crowdsourced Network. The impact is medium, as not reporting would have negligible impact and false location reports are a nuisance but can be mitigated. The overall risk level for this attack is low. The affected users are all users.  Mitigations include requiring authentication to send reports to the Crowdsourced Network and only trusting reports when they can be verified by multiple Devices.
+The likelihood of this attack is low, as it would require the impersonated Device to authenticate with the Crowdsourced Network. The likelihood could increase to medium if a pre-packaged and unpatched attack were discovered. The impact is medium, as not reporting would have negligible impact and false location reports are a nuisance but can be mitigated. The overall risk level for this attack is low even in circumstances of a pre-packaged attack as there are many mitigations available. The affected users are all users.  Mitigations include requiring authentication to send reports to the Crowdsourced Network and only trusting reports when they can be verified by multiple Devices.
 
 ### Replay Attack (Accessory, Network)
 
