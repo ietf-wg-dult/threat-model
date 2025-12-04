@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-12-02T01:22:34.880898+00:00",
+  "timestamp": "2025-12-04T01:22:57.161330+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -2026,7 +2026,7 @@
       "labels": [],
       "body": "**Subject: Proposal: Add Swarm Tracking Attack Scenario to Security Section**\n\nI\u2019d like to suggest a short addition to the threat model to cover Swarm Tracking, a scenario where multiple Accessories are used to track a person without any single device being active long enough to trigger alerts.\n\n**Summary**\nIn this attack, an adversary places several Accessories near a Target. Each Accessory broadcasts for only brief windows, repeated over time. This prevents any one device from appearing persistent enough to be flagged as unwanted tracking. Even if one Accessory is found and removed, the others continue the tracking.\nWhile each device provides only small pieces of information, together they allow the adversary to infer the Target\u2019s location over time. Because the Accessories are rarely visible at the same time, scanning for multiple Tags (3.4.3) is less effective, and network-level correlation may not link the findings together.\n\t\u2022 Impact: Medium- enables long-term tracking while avoiding alerts.\n\t\u2022 Likelihood: Medium - can be done with low-cost devices and simple configuration changes.\n\t\u2022 Overall Risk: Medium - Influenced by likelihood.\nPossible mitigations include identifying repeated short observations near the same user over time, while still protecting user privacy.\n\n**Actual Text planning to submit**\n\n3.4.16. Swarm Tracking Attacks (Accessory, Finding, Network)\n\nIn a Swarm Tracking attack, an adversary deploys multiple Accessories that operate intermittently or with reduced duty cycles, such that each device appears only briefly or infrequently. This behaviour may be achieved through attacker-controlled activation intervals or, in more sophisticated cases, by modifying Accessory firmware (Section 3.4.6). As a result, no individual Accessory produces sufficient presence to be identified as a potential unwanted-tracker. Although each Accessory contributes only limited observations, their combined findings enable the adversary to maintain continuous or near-continuous location inference of the Target. Unlike the multiple-Tag scenario described in Section 3.4.3, Swarm Tracking avoids simultaneous visibility and therefore cannot be fully mitigated through scanning for multiple Tags. Swarm behaviour may involve Accessories that activate according to a rotating schedule, Accessories configured to broadcast only for short intervals, or sequential \u201chandoffs\u201d in which a new Accessory becomes active as another risks detection. The attack remains effective even if one or more Accessories are discovered and removed. This attack succeeds when intermittent broadcasts remain below thresholds used to identify persistent tracking and when rotating identifiers prevent straightforward linkage across Devices. Because each Accessory generates only short-lived findings, the Network may be unable to correlate these observations as elements of a coordinated tracking attempt.\nSwarm Tracking increases adversarial resilience by reducing the likelihood of user alerts and making physical discovery more difficult. Potential mitigations include identifying patterns in which multiple short-duration observations repeatedly appear near the same user over time, while preserving privacy protections for benign users. \n\nThe impact of the threat is medium as this threat  bypasses persistence-based detection thresholds and allows long-term tracking while avoiding user alerts. Likely hood of the attack is medium as this attack is feasible with inexpensive Accessories, modest technical skill. Given its ability to bypass core persistence-based detection mechanisms while remaining feasible for motivated adversaries, the overall risk of this attack is medium.\n\nLet me know your feedback\nBest regards,\nSrivatsa",
       "createdAt": "2025-11-28T13:13:49Z",
-      "updatedAt": "2025-11-29T09:27:15Z",
+      "updatedAt": "2025-12-03T13:51:40Z",
       "closedAt": null,
       "comments": [
         {
@@ -2042,6 +2042,13 @@
           "body": "Hi Bob,\n\nThanks for the feedback - and agreed, attacks requiring full firmware modification fall into a broader category that intentionally bypasses unwanted-tracking protections. To clarify, the scenario here does not rely on firmware changes.\n\n\u201cSection 3.4.10 assumes adversaries can disable tags they do not own. If that capability is in\u2011scope, silencing or duty\u2011cycling tags the attacker does own must be considered even more feasible. Therefore, coordinated intermittent tracking does not require firmware modification - only the same level of control already acknowledged under 3.4.10.\u201d\n\nIf devices are configured to broadcast intermittently using legitimate user-exposed power-management behavior/configurations, no single device may individually trigger persistence\u2011based unwanted\u2011tracking alerts - but coordinated observations across multiple devices could still provide near\u2011continuous coverage.\n\nThat\u2019s the core concern - current detection is largely per\u2011device/persistence\u2011based, so multiple short\u2011duration sightings across devices are not correlated as a coordinated tracking attempt. This gap exists even with unmodified Accessories.\n\nMore importantly, if vendors expose configurations that allow Accessories to broadcast only briefly or infrequently (e.g., long intervals, scheduled wake-ups), attackers can deliberately tune devices to stay below detection thresholds. DULT should caution against such configurations without mitigating protections, or ensure defensive mechanisms account for them. Explicitly recognizing this risk in the model ensures vendors design protections that consider coordinated short-burst tracking.\n\nI\u2019m happy to adjust the text and terminology (including the name \u201cswarm\u201d) as the group prefers. My goal is simply to ensure the model includes this distributed, low\u2011persistence tracking class so vendors understand that protections must detect coordinated short\u2011burst observations - not only long\u2011duration persistence from a single device.\n\nThanks,\nSrivatsa\n",
           "createdAt": "2025-11-29T09:20:29Z",
           "updatedAt": "2025-11-29T09:25:34Z"
+        },
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Hello Srivatsa,\n\nThanks for your suggestion. I think your point that current detection is focused more on a per-device/persistence level is true. The question in my mind is whether/how to incorporate your suggested attack into the manuscript.\n\nThe attack you are describing requires that multiple trackers transmit for short periods. This would **not** be allowed by the DULT protocol, so either the tag would be required to have its firmware modified (3.4.6), a custom device to be deployed (impersonation attack, 3.4.11), or the tag could be physically powered off (3.4.10).\n\nRegarding this quote:\n\n> \u201cSection 3.4.10 assumes adversaries can disable tags they do not own. If that capability is in\u2011scope, silencing or duty\u2011cycling tags the attacker does own must be considered even more feasible. Therefore, coordinated intermittent tracking does not require firmware modification - only the same level of control already acknowledged under 3.4.10.\u201d\n\nSection 3.4.10 assumes adversaries can disable tags they do not own, but only in very specific circumstances that require high access and/or technical sophistication (e.g. access to a target's own device or tag or the ability to access the target's crowdsourced network account). So I don't think the logic quite follows, though I do agree that silencing or duty-cycling the tags the attacker does own is also in scope, and is mentioned in 3.4.10 and 3.4.6 (Btw, Where is this quote from? I am not seeing it anywhere.)\n\n> More importantly, **if vendors expose configurations that allow Accessories to broadcast only briefly or infrequently** (e.g., long intervals, scheduled wake-ups), attackers can deliberately tune devices to stay below detection thresholds. DULT should caution against such configurations without mitigating protections, or ensure defensive mechanisms account for them. Explicitly recognizing this risk in the model ensures vendors design protections that consider coordinated short-burst tracking.\n\n(emphasis added). I do not know why vendors would expose configurations that allow Accessories to do this. The finding algorithm document hasn't been written yet, but I can't imagine vendors being allowed to do this and comply with the DULT protocol. Ultimately we need to do our best to design a robust protocol that cannot be easily circumvented, and try to handle the accessory firmware (3.4.6), impersonation attack (3.4.11), and power cycling attack (3.4.10). \n\nIn terms of next steps, I think this contribution could be valuable as a scenario rather than as an attack. Would you be open to reviewing the format that @exploretechsafety has used for scenarios (see section 3.3.1) and drafting a scenario that includes an attack like this?",
+          "createdAt": "2025-12-03T13:51:40Z",
+          "updatedAt": "2025-12-03T13:51:40Z"
         }
       ]
     },
@@ -5644,6 +5651,32 @@
       "headRepository": "ietf-wg-dult/threat-model",
       "headRefName": "fix-capitalization",
       "headRefOid": "9677e32cd97ae5775b8c8179687b8d906d2e1bae",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 165,
+      "id": "PR_kwDOMB0Qas622cdr",
+      "title": "Consider prepackaged firmware in attack likelihoods",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/165",
+      "state": "OPEN",
+      "author": "maggiedelano",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Closes #161. ",
+      "createdAt": "2025-12-03T14:47:07Z",
+      "updatedAt": "2025-12-03T14:47:26Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "929eb581b706d8c9417ac4766e16fee75f7002de",
+      "headRepository": "ietf-wg-dult/threat-model",
+      "headRefName": "delano-consider-prepackaged-firmware",
+      "headRefOid": "5d6b6836bda9691b00b63449c8a22021822e707c",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
