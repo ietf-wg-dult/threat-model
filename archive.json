@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-12-04T01:22:57.161330+00:00",
+  "timestamp": "2025-12-07T01:39:02.019290+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -1991,12 +1991,22 @@
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "wontfix"
+      ],
       "body": "Watson Ladd wrote:\n\n> IMHO, I think we  \nshould start by describing what Attackers can do. They can place tags  \non Victims or their belongings, they can try to exploit existing tags  \nthe Victim has either secretly or by attempting to trigger them, etc.  \nThat's material we have in 3.4, and I think a lot of it isn't  \ncircumventing DULT, but rather general attacks. Then we can have the  \ntaxonomy of various attack scenarios. It is not easy reading, and I  \nknow it was not easy to write. I think it very much belongs in this  \ndocument: the stakes are real.  \n\n> Once we have that down, then the motivation and background to  \nunderstand the concerns about tags needing to be easy to locate even  \nafter notification, in a multimodal way, or need for devices  \nimplementing to be able to work stand-alone, are present. This would  \nbe the material in 3 that's dult specific or in depth responses to  \nparticular aspects of the attacks in the taxonomy. My hope is that  \nthis reorganization makes it easier to find what mitigations are  \nrequired where when searching in the doc and makes it easier to read  \nthrough and understand. Conceptually we have threat model, taxonomy of  \nattacks, and then mitigations for things the DULT protocol itself  \ncannot in this new organization. \n\nI'm definitely open to this but I think we can probably make the smaller changes first and see where that leaves us.\n\n",
       "createdAt": "2025-11-04T15:52:02Z",
-      "updatedAt": "2025-11-04T15:53:46Z",
+      "updatedAt": "2025-12-05T14:49:46Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "At the recent interim meeting, we discussed we likely will _not_ work on this; not because it isn't a good idea, but because too much time on editorial pursuits are not necessarily worth the effort at this point and we just want to get the draft done.",
+          "createdAt": "2025-12-05T14:49:36Z",
+          "updatedAt": "2025-12-05T14:49:36Z"
+        }
+      ]
     },
     {
       "number": 161,
@@ -2023,10 +2033,12 @@
       "author": "virtualVat",
       "authorAssociation": "NONE",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "question"
+      ],
       "body": "**Subject: Proposal: Add Swarm Tracking Attack Scenario to Security Section**\n\nI\u2019d like to suggest a short addition to the threat model to cover Swarm Tracking, a scenario where multiple Accessories are used to track a person without any single device being active long enough to trigger alerts.\n\n**Summary**\nIn this attack, an adversary places several Accessories near a Target. Each Accessory broadcasts for only brief windows, repeated over time. This prevents any one device from appearing persistent enough to be flagged as unwanted tracking. Even if one Accessory is found and removed, the others continue the tracking.\nWhile each device provides only small pieces of information, together they allow the adversary to infer the Target\u2019s location over time. Because the Accessories are rarely visible at the same time, scanning for multiple Tags (3.4.3) is less effective, and network-level correlation may not link the findings together.\n\t\u2022 Impact: Medium- enables long-term tracking while avoiding alerts.\n\t\u2022 Likelihood: Medium - can be done with low-cost devices and simple configuration changes.\n\t\u2022 Overall Risk: Medium - Influenced by likelihood.\nPossible mitigations include identifying repeated short observations near the same user over time, while still protecting user privacy.\n\n**Actual Text planning to submit**\n\n3.4.16. Swarm Tracking Attacks (Accessory, Finding, Network)\n\nIn a Swarm Tracking attack, an adversary deploys multiple Accessories that operate intermittently or with reduced duty cycles, such that each device appears only briefly or infrequently. This behaviour may be achieved through attacker-controlled activation intervals or, in more sophisticated cases, by modifying Accessory firmware (Section 3.4.6). As a result, no individual Accessory produces sufficient presence to be identified as a potential unwanted-tracker. Although each Accessory contributes only limited observations, their combined findings enable the adversary to maintain continuous or near-continuous location inference of the Target. Unlike the multiple-Tag scenario described in Section 3.4.3, Swarm Tracking avoids simultaneous visibility and therefore cannot be fully mitigated through scanning for multiple Tags. Swarm behaviour may involve Accessories that activate according to a rotating schedule, Accessories configured to broadcast only for short intervals, or sequential \u201chandoffs\u201d in which a new Accessory becomes active as another risks detection. The attack remains effective even if one or more Accessories are discovered and removed. This attack succeeds when intermittent broadcasts remain below thresholds used to identify persistent tracking and when rotating identifiers prevent straightforward linkage across Devices. Because each Accessory generates only short-lived findings, the Network may be unable to correlate these observations as elements of a coordinated tracking attempt.\nSwarm Tracking increases adversarial resilience by reducing the likelihood of user alerts and making physical discovery more difficult. Potential mitigations include identifying patterns in which multiple short-duration observations repeatedly appear near the same user over time, while preserving privacy protections for benign users. \n\nThe impact of the threat is medium as this threat  bypasses persistence-based detection thresholds and allows long-term tracking while avoiding user alerts. Likely hood of the attack is medium as this attack is feasible with inexpensive Accessories, modest technical skill. Given its ability to bypass core persistence-based detection mechanisms while remaining feasible for motivated adversaries, the overall risk of this attack is medium.\n\nLet me know your feedback\nBest regards,\nSrivatsa",
       "createdAt": "2025-11-28T13:13:49Z",
-      "updatedAt": "2025-12-03T13:51:40Z",
+      "updatedAt": "2025-12-05T14:50:39Z",
       "closedAt": null,
       "comments": [
         {
@@ -2064,7 +2076,63 @@
       "labels": [],
       "body": "At IETF 124, we agreed that we need to come up with a list of focus areas for the technical specs. For example, the current difficult issues that we have not addressed are non-conformant accessories and remote disablement. We also need to decide what success might look like.",
       "createdAt": "2025-11-28T16:08:58Z",
-      "updatedAt": "2025-11-28T16:08:58Z",
+      "updatedAt": "2025-12-05T14:44:17Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "At the interim meeting, we discussed the following:\n\n- Add list of the highest priority attacks (see [here](https://docs.google.com/presentation/d/19NqDqAx6f2bnEx-D0KdjzEQFUz0Hr_wwwtdICQeM5cY/edit?slide=id.g3ad6b68e4fa_0_0#slide=id.g3ad6b68e4fa_0_0))\n- Add list of highest priority features to implement (see [here](https://docs.google.com/presentation/d/19NqDqAx6f2bnEx-D0KdjzEQFUz0Hr_wwwtdICQeM5cY/edit?slide=id.g3ad6b68e4fa_0_15#slide=id.g3ad6b68e4fa_0_15))\n- Add a section that discusses the limitations of current implementations and _why_ we need to come up with a better system\n\nCreating subissues for these now.",
+          "createdAt": "2025-12-05T14:44:16Z",
+          "updatedAt": "2025-12-05T14:44:16Z"
+        }
+      ]
+    },
+    {
+      "number": 166,
+      "id": "I_kwDOMB0Qas7cfhls",
+      "title": "Add list of the highest priority attacks",
+      "url": "https://github.com/ietf-wg-dult/threat-model/issues/166",
+      "state": "OPEN",
+      "author": "maggiedelano",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "see [here](https://docs.google.com/presentation/d/19NqDqAx6f2bnEx-D0KdjzEQFUz0Hr_wwwtdICQeM5cY/edit?slide=id.g3ad6b68e4fa_0_0#slide=id.g3ad6b68e4fa_0_0)\n\nThese should probably go at the end of Section 3 (Security Considerations)",
+      "createdAt": "2025-12-05T14:45:15Z",
+      "updatedAt": "2025-12-05T14:45:15Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 167,
+      "id": "I_kwDOMB0Qas7cfizM",
+      "title": "Add list of highest priority features to implement",
+      "url": "https://github.com/ietf-wg-dult/threat-model/issues/167",
+      "state": "OPEN",
+      "author": "maggiedelano",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "see [here](https://docs.google.com/presentation/d/19NqDqAx6f2bnEx-D0KdjzEQFUz0Hr_wwwtdICQeM5cY/edit?slide=id.g3ad6b68e4fa_0_15#slide=id.g3ad6b68e4fa_0_15)\n\nThese should probably go at the end of the design considerations section (section 4)",
+      "createdAt": "2025-12-05T14:46:42Z",
+      "updatedAt": "2025-12-05T14:46:42Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 168,
+      "id": "I_kwDOMB0Qas7cfjZk",
+      "title": "Add a section that discusses the limitations of current implementations",
+      "url": "https://github.com/ietf-wg-dult/threat-model/issues/168",
+      "state": "OPEN",
+      "author": "maggiedelano",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Add a section that discusses the limitations of current implementations and _why_ we need to come up with a better system. This should probably be included in the introduction (probably as section 1.2)",
+      "createdAt": "2025-12-05T14:47:25Z",
+      "updatedAt": "2025-12-05T14:47:25Z",
       "closedAt": null,
       "comments": []
     }
