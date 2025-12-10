@@ -708,6 +708,19 @@ Connectivity limitations introduce additional challenges. Some Unwanted Tracking
 
 To address these challenges, detection mechanisms should incorporate adaptive scanning strategies that adjust based on Device capabilities, optimizing performance while maintaining security. Lightweight detection methods, such as event-triggered scanning and passive Bluetooth listening, can improve efficiency on constrained Devices. Additionally, fallback mechanisms should be implemented to provide at least partial detection functionality even when full-featured scanning is not available. Ensuring that detection remains effective across diverse hardware and software environments is critical for broad user protection.
 
+## Priorities for the DULT WG
+
+While all of the above design considerations should be considered, the following topics are considered highest priority for the technical documents of the DULT WG to address:
+
+- Active Scanning
+  - The documents should ensure platforms implement active scanning for all DULT compliant Accessories.
+- Passive Scanning
+  - The documents should ensure Accessories and Devices implement finding algorithms, issue Unwanted Tracking Alerts and otherwise notify users of Accessories in proximity, and allow users to manage Unwanted Tracking Alerts to prevent alarm fatigue
+- Remote Disablement
+  - The documents should consider whether Remote Disablement of Accessories is feasible to implement in a way that cannot be used to compromise the Crowdsourced Network
+- Crowdsourced Network Activities Logs
+  - The documents should provide guidance to platforms about how to implement activities logs to help Targets identify possible Unwanted Tracking
+
 # IANA Considerations
 
 This document has no IANA actions.
