@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-12-21T01:39:24.399156+00:00",
+  "timestamp": "2026-01-08T01:28:01.432720+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -5712,7 +5712,7 @@
       "labels": [],
       "body": "Closes #154. Also updated to close #155 and close #157.\r\n\r\n",
       "createdAt": "2025-11-28T16:24:19Z",
-      "updatedAt": "2025-12-01T16:14:42Z",
+      "updatedAt": "2026-01-06T20:15:18Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
       "baseRefOid": "929eb581b706d8c9417ac4766e16fee75f7002de",
@@ -5724,7 +5724,21 @@
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOMB0Qas7YgTe9",
+          "commit": {
+            "abbreviatedOid": "9677e32"
+          },
+          "author": "exploretechsafety",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Looks good.",
+          "createdAt": "2026-01-06T20:15:18Z",
+          "updatedAt": "2026-01-06T20:15:18Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 165,
@@ -5738,7 +5752,7 @@
       "labels": [],
       "body": "Closes #161. ",
       "createdAt": "2025-12-03T14:47:07Z",
-      "updatedAt": "2025-12-03T14:47:26Z",
+      "updatedAt": "2026-01-07T04:47:03Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
       "baseRefOid": "929eb581b706d8c9417ac4766e16fee75f7002de",
@@ -5750,7 +5764,34 @@
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOMB0Qas7YgZ4g",
+          "commit": {
+            "abbreviatedOid": "5d6b683"
+          },
+          "author": "exploretechsafety",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-01-06T20:24:07Z",
+          "updatedAt": "2026-01-06T20:24:07Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOMB0Qas7YkDjf",
+          "commit": {
+            "abbreviatedOid": "5d6b683"
+          },
+          "author": "shaileshprabhu95",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Looks good to me, thanks!",
+          "createdAt": "2026-01-07T04:47:03Z",
+          "updatedAt": "2026-01-07T04:47:03Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 169,
@@ -5764,7 +5805,7 @@
       "labels": [],
       "body": "Closes #166 and closes #167.",
       "createdAt": "2025-12-18T19:59:34Z",
-      "updatedAt": "2025-12-18T19:59:53Z",
+      "updatedAt": "2026-01-06T20:29:47Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
       "baseRefOid": "929eb581b706d8c9417ac4766e16fee75f7002de",
@@ -5776,7 +5817,21 @@
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOMB0Qas7Ygee4",
+          "commit": {
+            "abbreviatedOid": "811572b"
+          },
+          "author": "exploretechsafety",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "This is very minor, but there's a lot of capitalization of words in this section that seems unnecessary (and inconsistent with your having fixed this issue for a different section of this document). Examples: \"logs to help Targets identify possible Unwanted Tracking,\" \"notify users of Accessories in proximity,\" \"based on Device capabilities.\"",
+          "createdAt": "2026-01-06T20:29:47Z",
+          "updatedAt": "2026-01-06T20:29:47Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
