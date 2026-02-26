@@ -86,8 +86,8 @@ This threat model is also more likely to be applicable in regions where the use 
 **Accessory**:
 : any product intended to interface with a Platform to connect to a Crowdsourced Network through the means described in these documents.
 
-**Active Scanning**:
-: method(s) of  detection that involves a user initiated scan for nearby Accessories. Contrast with Passive Scanning.
+**Manual Scanning**:
+: method(s) of  detection that involve(s) a user initiated scan for nearby Accessories. Contrast with Passive Scanning.
 
 **Attacker**:
 : any individual, group, or organization that is attempting to engage in  and/or circumvention of the DULT Protocol.
@@ -135,7 +135,7 @@ This threat model is also more likely to be applicable in regions where the use 
 : (obfuscated) contact information for an Accessory Owner. When an Accessory is marked as lost, this should include a phone number and/or email address. Otherwise, the information should be obfuscated to ensure privacy of Owners in cases where Accessories are falsely suspected of Unwanted Tracking or an Attacker attempts to determine the Owner of an Accessory. The information should include no more than the last two digits of a phone number and/or an obfuscated email address with the first letter of the username and entity visible, as well as the entire extension (e.g., b********@i*****.com).
 
 **Passive Scanning**:
-: method(s) of Unwanted Tracking detection that are running in the background on all Devices and may trigger Unwanted Tracking Alerts. Contrast with Active Scanning.
+: method(s) of Unwanted Tracking detection that are running in the background on all Devices and may trigger Unwanted Tracking Alerts. Contrast with Manual Scanning.
 
 **Platform**:
 : Operating systems that communicate with Accessories.
@@ -175,7 +175,7 @@ In order to avoid pitting the privacy of Tag Owners not engaged in Unwanted Trac
 
 ### Security against Unwanted Tracking for potential Targets
 
-The DULT Protocol must make it possible for potential Targets to discover Unwanted Tracking across Accessory hardware and Platforms within a reasonable amount of time. It should aid the Target in determining the location and Owner of the Accessory while not providing a full name or contact information on demand (as the Tag may merely have been lost or otherwise coincidentally in proximity, and providing excessive information would violate the privacy of a non-malicious Tag Owner). This could potentially be done with obfuscation, such as showing a partially redacted email address or phone number (see {{active-scanning}}).
+The DULT Protocol must make it possible for potential Targets to discover Unwanted Tracking across Accessory hardware and Platforms within a reasonable amount of time. It should aid the Target in determining the location and Owner of the Accessory while not providing a full name or contact information on demand (as the Tag may merely have been lost or otherwise coincidentally in proximity, and providing excessive information would violate the privacy of a non-malicious Tag Owner). This could potentially be done with obfuscation, such as showing a partially redacted email address or phone number (see {{manual-scanning}}).
 
 ### Privacy for potential Targets against the use of security measures for further surveillance
 
@@ -216,9 +216,9 @@ In addition, the Target also has characteristics which influence the threat anal
     - High: The Target is generally able to safely access practical and relevant resources. These might include funds to pay a car mechanic or private investigator, law enforcement or legal assistance, or other resources.
     - Low: The Target is generally unable to safely access practical and relevant resources.
   - Access to technological safeguards
-    - High: The Target is able to safely use, and has access to, technological safeguards such as active scanning apps.
-    - Limited: The Target is able to safely use, and has access to, technological safeguards such as active scanning apps, but is unable to use their full capacity.
-    - Low: The Target is not able to use technological safeguards such as active scanning apps, due to reasons of safety or access.
+    - High: The Target is able to safely use, and has access to, technological safeguards such as manual scanning apps.
+    - Limited: The Target is able to safely use, and has access to, technological safeguards such as manual scanning apps, but is unable to use their full capacity.
+    - Low: The Target is not able to use technological safeguards such as manual scanning apps, due to reasons of safety or access.
 
 It is also appropriate to define who is using the Location-tracking Tags and incorporate this into a model. This is because if protocols overly deprioritize the privacy of tracking Tags’ users, an Attacker could use a Target’s own Tag to track them (see {{balancing-privacy-and-security}}).
 
@@ -305,7 +305,7 @@ Lime and Lemon have been dating for two years. Lemon works for a tech company an
 
 ##### Analysis
 
-This is a case involving a high-skill Attacker, with a large skill difference between Attacker and Target. This situation often arises in regions with a high concentration of technology industry workers. It also may be more common in ethnic-cultural communities with high representation in the technology industry. In this case the Target is also subject to a very high level of control from the Attacker due to their imbalances in technological skills and societal status, and is heavily constrained in their options as a result. It is unsafe for the Target to engage in active scanning, or to receive alerts on their phone. The Target might benefit from being able to log into an account on another phone or a computer and view logs of any recent alerts collected through passive scanning.
+This is a case involving a high-skill Attacker, with a large skill difference between Attacker and Target. This situation often arises in regions with a high concentration of technology industry workers. It also may be more common in ethnic-cultural communities with high representation in the technology industry. In this case the Target is also subject to a very high level of control from the Attacker due to their imbalances in technological skills and societal status, and is heavily constrained in their options as a result. It is unsafe for the Target to engage in manual scanning, or to receive alerts on their phone. The Target might benefit from being able to log into an account on another phone or a computer and view logs of any recent alerts collected through passive scanning.
 
 | Attacker Profile | Lemon |
 | ------------- | ------------- |
@@ -440,7 +440,7 @@ To systematically assess the risks associated with different threats, we introdu
 
 ### Deploying Multiple Tags (Finding)
 
-When an Attacker deploys Location-tracking Tags to follow a Target, they may deploy more than one Tag. For example, if planting a tracking Tag in a car, the Attacker might place one Tag inside the car, and another affixed on the outside of the car. The DULT Protocol must be robust to this scenario. This means that scans, whether passive or active, need to be able to return more than one result if a Tag is suspected of being used for Unwanted Tracking, and the time to do so must not be significantly impeded by the presence of multiple Tags. This also applies to situations where many Tags are present, even if they are not being used for Unwanted Tracking, such as a busy train station or airport where Tag Owners may or may not be in proximity to their Location-tracking Tags. Instead of distributing multiple Tags in the same location, an Attacker could also distribute multiple Location-tracking Tags across locations frequently visited by a Target (home, workplace, etc.).
+When an Attacker deploys Location-tracking Tags to follow a Target, they may deploy more than one Tag. For example, if planting a tracking Tag in a car, the Attacker might place one Tag inside the car, and another affixed on the outside of the car. The DULT Protocol must be robust to this scenario. This means that scans, whether passive or manual, need to be able to return more than one result if a Tag is suspected of being used for Unwanted Tracking, and the time to do so must not be significantly impeded by the presence of multiple Tags. This also applies to situations where many Tags are present, even if they are not being used for Unwanted Tracking, such as a busy train station or airport where Tag Owners may or may not be in proximity to their Location-tracking Tags. Instead of distributing multiple Tags in the same location, an Attacker could also distribute multiple Location-tracking Tags across locations frequently visited by a Target (home, workplace, etc.).
 
 The impact of this attack is medium for typical cases involving a small number of Tags, though the impact could escalate if an Attacker deploys dozens of Tags. The likelihood is high, as deploying multiple Tags requires minimal technical effort and can be done using inexpensive, commercially available Tags, making the attack easily repeatable. As a result, the overall risk is high, requiring robust countermeasures. The impact of multiple Tags can be fully mitigated by scanning for multiple Tags, though a sophisticated Attacker might deploy other techniques such as modifying Tag firmware ({{accessory-firmware-modifications-accessory}}) or periodically disabling a Tag ({{attacker-accessory-disablement-accessory-finding}}) to evade detection.
 
@@ -562,7 +562,7 @@ See {{threat-matrix}} for a full list of attacks.
 
 As discussed in {{security-considerations}}, Unwanted Tracking can involve a variety of Attacker, Target, and Tag profiles. A successful implementation to preventing Unwanted Tracking should:
 
-- Include a variety of approaches to address different scenarios, including active and passive scanning and notifications or sounds
+- Include a variety of approaches to address different scenarios, including manual and passive scanning and notifications or sounds
 - Account for scenarios in which the Attacker has high expertise, proximity, and/or access to resources within the scope defined in {{what-is-in-scope}}
 - Account for scenarios in which the Target has low expertise, access to resources, and/or access to technological safeguards within the scope defined in {{what-is-in-scope}}
 - Avoid privacy compromises for Tag Owner(s) when protecting against Unwanted Tracking. The privacy of Tag Owner(s) and the security of Targets should be considered equally.
@@ -620,11 +620,11 @@ The DULT Protocol should 1) allow Targets to detect Unwanted Tracking, 2) help T
 
 ### Detecting Unwanted Location Tracking
 
-There are four ways that the DULT Protocol should assist Targets in detecting potentially Unwanted Tracking: 1) active scanning, 2) passive scanning, 3) tracking Tag alerts, and 4) Crowdsourced Network activities logs.
+There are four ways that the DULT Protocol should assist Targets in detecting potentially Unwanted Tracking: 1) manual scanning, 2) passive scanning, 3) tracking Tag alerts, and 4) Crowdsourced Network activities logs.
 
-#### Active Scanning
+#### Manual Scanning
 
-There may be scenarios where a Target suspects that they are being tracked without their consent. Active scanning should allow a user to use a native application on their Device to search for Location-tracking Tags that are separated from their Owners. When a Tag has been identified as potentially being used for Unwanted Tracking, the user should be able to view the serial number of the Device along with Obfuscated Owner Information and instructions on how to find and/or disable the Tag (see {{finding-tracking-tags}} and {{disabling-tracking-tags}}). Additional information about when that Tag has been previously encountered within a designated time window (e.g. the last 12 hours) should also be included if available (see {{balancing-privacy-and-security}}). Allowing users to "snooze" or ignore Tags known to be safe (e.g. Tags from a family member) could also be implemented. Tracking Tags that are near their Owners should not be shared to avoid abuse of the active scanning feature.
+There may be scenarios where a Target suspects that they are being tracked without their consent. Manual scanning should allow a user to use a native application on their Device to search for Location-tracking Tags that are separated from their Owners. When a Tag has been identified as potentially being used for Unwanted Tracking, the user should be able to view the serial number of the Device along with Obfuscated Owner Information and instructions on how to find and/or disable the Tag (see {{finding-tracking-tags}} and {{disabling-tracking-tags}}). Additional information about when that Tag has been previously encountered within a designated time window (e.g. the last 12 hours) should also be included if available (see {{balancing-privacy-and-security}}). Allowing users to "snooze" or ignore Tags known to be safe (e.g. Tags from a family member) could also be implemented. Tracking Tags that are near their Owners should not be shared to avoid abuse of the manual scanning feature.
 
 #### Passive Scanning
 
@@ -679,7 +679,7 @@ Considers the location in which the Tag is seen (e.g., home, office, public plac
 
 #### Location-tracking Tag Alerts
 
-Location-tracking Tags may be difficult to locate, and users may not have a Device that can actively or passively scan for Location-tracking Tags. The DULT Protocol should be built with [accessibility in mind](https://cdt.org/insights/centering-disability-in-mitigating-harms-of-bluetooth-tracking-technology/) so that the most people can be protected by the protocol. In addition to push notifications on nearby Devices, Location-tracking Tags themselves should be able to notify end users. This should include periodic sounds when away from all Tag Owners, along with lights and haptics so that people who are Deaf or hard of hearing can still locate them. Tracking Tag Alerts should also educate the user on methods to successfully find and disable Tags (see {{finding-tracking-tags}} and {{disabling-tracking-tags}}).
+Location-tracking Tags may be difficult to locate, and users may not have a Device that can manually or passively scan for Location-tracking Tags. The DULT Protocol should be built with [accessibility in mind](https://cdt.org/insights/centering-disability-in-mitigating-harms-of-bluetooth-tracking-technology/) so that the most people can be protected by the protocol. In addition to push notifications on nearby Devices, Location-tracking Tags themselves should be able to notify end users. This should include periodic sounds when away from all Tag Owners, along with lights and haptics so that people who are Deaf or hard of hearing can still locate them. Tracking Tag Alerts should also educate the user on methods to successfully find and disable Tags (see {{finding-tracking-tags}} and {{disabling-tracking-tags}}).
 
 #### Crowdsourced Network Activities Logs
 
@@ -689,7 +689,7 @@ Logs should include sufficient detail to detect Unwanted Tracking without being 
 
 ### Finding Tracking Tags
 
-Even after a Tag is detected through passive or active scanning, a user may have difficulty in locating it. For example, a Tag may be buried under a vehicle cushion. Platforms should allow users who have discovered a Tag through passive or active scanning to request that the Tag signal its presence. This assistance should be done in a way that is accessible to users with sensory or other impairments by using multimodal signals as described in {{location-tracking-tag-alerts}}. Manufacturers/Platforms may also implement other methods to assist in locating Tags, such as precision finding using Ultra-wideband.
+Even after a Tag is detected through passive or manual scanning, a user may have difficulty in locating it. For example, a Tag may be buried under a vehicle cushion. Platforms should allow users who have discovered a Tag through passive or manual scanning to request that the Tag signal its presence. This assistance should be done in a way that is accessible to users with sensory or other impairments by using multimodal signals as described in {{location-tracking-tag-alerts}}. Manufacturers/Platforms may also implement other methods to assist in locating Tags, such as precision finding using Ultra-wideband.
 
 #### Lost Mode
 
@@ -710,7 +710,7 @@ It is important to consider where educational and disabling guidance is hosted. 
 
 To reduce alert fatigue and improve user experience, implementations should allow users to snooze passive notifications from Location-tracking Tags that have been explicitly marked as trusted or friendly. This is particularly useful in scenarios where users regularly encounter the same Tag (e.g., a family member's keys or a shared vehicle Tag).
 
-Such snoozed Tags may also be de-prioritized or grouped separately during active scans, helping users focus on unfamiliar or potentially malicious Tags. Platforms should make it easy to manage snoozed Tags and review or revoke trust status as needed. It is also advisable to implement revalidation mechanisms, for example, resuming notifications after a period of time to prevent long-term blind spots.
+Such snoozed Tags may also be de-prioritized or grouped separately during manual scans, helping users focus on unfamiliar or potentially malicious Tags. Platforms should make it easy to manage snoozed Tags and review or revoke trust status as needed. It is also advisable to implement revalidation mechanisms, for example, resuming notifications after a period of time to prevent long-term blind spots.
 
 Some Platforms may wish to implement family sharing or shared Ownership models, where multiple users can be associated with a single Tag. However, this introduces the risk of abuse (e.g., an Attacker adding a Target to the shared list in order to avoid triggering passive notifications), and therefore should be approached with caution and abuse mitigation in mind. These features are optional and may vary by Platform. Whenever shared Ownership is used, information about all Owners should be made available when a Tag is suspected of Unwanted Tracking (see {{passive-scanning}}).
 
@@ -762,8 +762,8 @@ To address these challenges, detection mechanisms should incorporate adaptive sc
 
 While all of the above design considerations should be considered, the following topics are considered highest priority for the technical documents of the DULT WG to address:
 
-- Active Scanning
-  - The documents should ensure platforms implement active scanning for all DULT compliant Accessories.
+- Manual Scanning
+  - The documents should ensure platforms implement manual scanning for all DULT compliant Accessories.
 - Passive Scanning
   - The documents should ensure Accessories and Devices implement finding algorithms, issue Unwanted Tracking Alerts and otherwise notify users of Accessories in proximity, and allow users to manage Unwanted Tracking Alerts to improve detection of Unwanted Tracking and/or prevent alarm fatigue
 - Nonconformant Accessories
