@@ -426,14 +426,14 @@ To systematically assess the risks associated with different threats, we introdu
 | Deploying Multiple Tags | Finding | Medium | High	| High | Targets | Yes |
 | Remote Advertisement Monitoring | Accessory, Network | Medium | High | Medium | All users | Partial |
 | Physically Modifying Tags | Accessory | High | Medium | Medium | Targets | Partial |
-| Accessory Firmware Modifications | Accessory | High | Low | Medium | Targets | Partial |
+| Accessory Firmware Modifications | Accessory | High | Low/Medium | High | Targets | Partial |
 | Attacker Accessory Disablement | Accessory, Finding | Medium | Medium | Medium | Targets | Partial |
 | Tracking Using Target's Own Tag | Network | High | Medium | High | Targets | Partial |
 | Disabling Target Tag Detection | Network | High | Medium | Medium | Targets | Partial |
 | Disabling Target Tag | Accessory, Network | Medium | Medium | Medium | Targets | Partial |
 | Impersonation Attack (Tag) | Accessory, Finding, Network | High | Medium | High | Targets | Partial |
 | Impersonation Attack (Device/Tag) | Accessory, Network | High | Medium | High | All users | Partial |
-| Impersonation Attack (Device/Network) | Network | Medium | Low | Low | All users | Partial |
+| Impersonation Attack (Device/Network) | Network | Medium | Low/Medium | Low | All users | Partial |
 | Replay Attack | Accessory, Network | Medium | High | Medium | All users | Partial |
 | Heterogeneous Tracker Networks | Accessory, Finding, Network | High | Medium | Medium | Targets | No |
 | Deploying GPS Tracker | Accessory | High | Medium | High | Targets | Partial |
@@ -462,7 +462,7 @@ An Attacker might physically modify a Tag in ways that make it non-conformant wi
 
 The DULT Protocol (see {{!I-D.draft-ietf-dult-accessory-protocol}}) will specify that Accessory firmware images MUST be authenticated, and that Accessories MUST verify the integrity and origin of firmware. However, if these protections were to be bypassed, an Accessory's firmware could be altered to deviate from standard behavior. Attackers may manipulate advertisement intervals to reduce detection opportunities, allowing the Tag to evade tracking for extended periods, or rotate IDs rapidly, disrupting detection systems that rely on tracking unknown Accessory persistence.
 
-Firmware-based changes would have high impact. The likelihood is low, as these attacks require significant technical expertise to bypass firmware verification and modify low-level Accessory behavior. As a result, the overall risk level is medium. Partial mitigation of this attack is possible by requiring Accessories to verify the integrity and origin of firmware.
+Firmware-based changes would have high impact. The likelihood is typically low, as these attacks require significant technical expertise to bypass firmware verification and modify low-level Accessory behavior. However, once a vulnerability has been discovered and distributed, the likelihood could increase to medium as it would only require the technical ability to deploy the attack. It will be important for Accessory firmware to be able to be patched to address vulnerabilities. As a result, the overall risk level is high. Partial mitigation of this attack is possible by requiring Accessories to verify the integrity and origin of firmware.
 
 ### Attacker Accessory Disablement (Accessory, Finding)
 
@@ -502,15 +502,15 @@ In addition to impersonating a Tag, an Attacker could also impersonate a Device.
 
 #### Attacks on Accessories (Accessory, Network)
 
-An impersonated Device could send commands to Accessories, such as a "play sound" command or a remote disablement command. Accessory firmware should either attempt to verify the authenticity of commands from Devices or otherwise limit how Accessories respond to commands from Devices. For example, Accessories that receive a "play sound" command from a Non-Owner Device should only execute the command if the Accessory is away from its Owner. Similarly, Accessories should only respond to remote disablement commands if the Accessory can reasonably be expected to be used for Unwanted Tracking and the Accessory can confirm that a Device has used other finding techniques to locate the Accessory.
+Any Bluetooth transmitter can theoretically send arbitrary commands to Accessories. Accessory firmware therefore must attempt to verify the authenticity of commands from Devices or otherwise limit how Accessories respond to commands from Devices. For example, Accessories that receive a "play sound" command from a Non-Owner Device should only execute the command if the Accessory is away from its Owner. Similarly, Accessories should only respond to remote disablement commands if the Accessory can confirm it is likely being used for Unwanted Tracking and the Accessory can confirm that a Device has used other finding techniques to locate the Accessory. However, if an Attacker is able to circumvent the DULT protocol and transmit arbitrary commands to Accessories, said Attacker could have high impact on the functioning of individual Accessories and/or the Crowdsourced Network.
 
-The impact of a Device impersonation attack is high if it is able to send arbitrary commands to Accessories. The likelihood of such an attack is medium as it can be done by any Device able to transmit BTLE packets but requires some familiarity with the DULT Protocol. Therefore, the overall risk level is high. The affected users are all users. Mitigation is partial; while Devices cannot be prevented from transmitting packets, certain rules can be enforced by Accessories.
+The impact of a Device impersonation attack is high if it is able to send arbitrary commands to Accessories. The likelihood of such an attack is medium; it can be done by any Device able to transmit BTLE packets, but requires some familiarity with the DULT Protocol or technical awareness to deploy a pre-packaged attack. Therefore, the overall risk level is high. The affected users are all users. Mitigation is partial; while Devices cannot be prevented from transmitting packets, certain rules can be enforced by Accessories.
 
 #### Attacks on Crowdsourced Network (Network)
 
 An impersonated Device could send false location reports to the Crowdsourced Network, or selectively not report to the Crowdsourced Network.
 
-The likelihood of this attack is low, as it would require the impersonated Device to authenticate with the Crowdsourced Network. The impact is medium, as not reporting would have negligible impact and false location reports are a nuisance but can be mitigated. The overall risk level for this attack is low. The affected users are all users.  Mitigations include requiring authentication to send reports to the Crowdsourced Network and only trusting reports when they can be verified by multiple Devices.
+The likelihood of this attack is low, as it would require the impersonated Device to authenticate with the Crowdsourced Network. The likelihood could increase to medium if a pre-packaged and unpatched attack were discovered. The impact is medium, as not reporting would have negligible impact and false location reports are a nuisance but can be mitigated. The overall risk level for this attack is low even in circumstances of a pre-packaged attack as there are many mitigations available. The affected users are all users.  Mitigations include requiring authentication to send reports to the Crowdsourced Network and only trusting reports when they can be verified by multiple Devices.
 
 ### Replay Attack (Accessory, Network)
 
