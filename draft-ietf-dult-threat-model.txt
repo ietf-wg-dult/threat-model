@@ -119,10 +119,11 @@ Table of Contents
        3.4.14. Heterogeneous Tag Networks (Accessory, Finding,
                Network)
        3.4.15. Deploying GPS Tracker (Accessory)
-     3.5.  What is in scope
+     3.5.  Scope and Priorities for the DULT WG
        3.5.1.  Technologies
        3.5.2.  Attacker Profiles
        3.5.3.  Target Profiles
+       3.5.4.  Priorities
    4.  Design Considerations
      4.1.  Design Requirements
        4.1.1.  Detecting Unwanted Location Tracking
@@ -133,6 +134,7 @@ Table of Contents
        4.2.1.  Bluetooth constraints
        4.2.2.  Power constraints
        4.2.3.  Device constraints
+     4.3.  Priorities for the DULT WG
    5.  IANA Considerations
    6.  Normative References
    Acknowledgments
@@ -1474,7 +1476,7 @@ Table of Contents
    manufacturers is of course optional, so this is considered a partial
    mitigation.
 
-3.5.  What is in scope
+3.5.  Scope and Priorities for the DULT WG
 
 3.5.1.  Technologies
 
@@ -1502,6 +1504,28 @@ Table of Contents
    example, protocols should account for a Target's lack of access to a
    smartphone, and scenarios in which Targets cannot install separate
    software.
+
+3.5.4.  Priorities
+
+   The technical documents of the DULT WG should consider all of the
+   scenarios discussed in Section 3.3.1.  When it comes to attacks,
+   while all attacks on the DULT protocol are considered to be in scope,
+   the following attacks are the highest risk and therefore considered
+   the highest priority for the DULT WG to address:
+
+   *  Deploying Multiple Tags (Section 3.4.3)
+
+   *  Accessory Firmware Modifications (Section 3.4.6)
+
+   *  Tracking Using Target's Own Tag (Section 3.4.8)
+
+   *  Impersonation Attack (Tag) (Section 3.4.11)
+
+   *  Impersonation Attack (Device/Tag) (Section 3.4.12.1)
+
+   *  Deploying GPS Tracker (Section 3.4.15)
+
+   See Section 3.4.2 for a full list of attacks.
 
 4.  Design Considerations
 
@@ -1974,6 +1998,37 @@ Table of Contents
    featured scanning is not available.  Ensuring that detection remains
    effective across diverse hardware and software environments is
    critical for broad user protection.
+
+4.3.  Priorities for the DULT WG
+
+   While all of the above design considerations should be considered,
+   the following topics are considered highest priority for the
+   technical documents of the DULT WG to address:
+
+   *  Active Scanning
+
+      -  The documents should ensure platforms implement active scanning
+         for all DULT compliant Accessories.
+
+   *  Passive Scanning
+
+      -  The documents should ensure Accessories and Devices implement
+         finding algorithms, issue Unwanted Tracking Alerts and
+         otherwise notify users of Accessories in proximity, and allow
+         users to manage Unwanted Tracking Alerts to prevent alarm
+         fatigue
+
+   *  Remote Disablement
+
+      -  The documents should consider whether Remote Disablement of
+         Accessories is feasible to implement in a way that cannot be
+         used to compromise the Crowdsourced Network
+
+   *  Crowdsourced Network Activities Logs
+
+      -  The documents should provide guidance to platforms about how to
+         implement activities logs to help Targets identify possible
+         Unwanted Tracking
 
 5.  IANA Considerations
 
