@@ -250,7 +250,8 @@ Table of Contents
    infeasible.  This threat-model does still attempt to consider
    possible regional differences in Location-tracking Tag use (such as
    differences between rural and urban use), and also the sometimes
-   limited resources that may be available to Targets of .
+   limited resources that may be available to Targets of Unwanted
+   Tracking.
 
 2.  Conventions and Definitions
 
@@ -268,12 +269,13 @@ Table of Contents
       connect to a Crowdsourced Network through the means described in
       these documents.
 
-   *Active Scanning*:  method(s) of detection that involves a user
-      initiated scan for nearby Accessories.  Contrast with Passive
-      Scanning.
+   *Active Scanning*:  method(s) of Unwanted Tracking detection that
+      involves a user initiated scan for nearby Accessories.  Contrast
+      with Passive Scanning.
 
    *Attacker*:  any individual, group, or organization that is
-      attempting to engage in and/or circumvention of the DULT Protocol.
+      attempting to engage in Unwanted Tracking and/or circumvention of
+      the DULT Protocol.
 
    *Crowdsourced Network*:  a service that Platforms communicate with to
       share and retrieve location information of Accessories.
