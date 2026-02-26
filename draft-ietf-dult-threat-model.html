@@ -2365,8 +2365,8 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
                 <td class="text-left" rowspan="1" colspan="1">Accessory Firmware Modifications</td>
                 <td class="text-left" rowspan="1" colspan="1">Accessory</td>
                 <td class="text-left" rowspan="1" colspan="1">High</td>
-                <td class="text-left" rowspan="1" colspan="1">Low</td>
-                <td class="text-left" rowspan="1" colspan="1">Medium</td>
+                <td class="text-left" rowspan="1" colspan="1">Low/Medium</td>
+                <td class="text-left" rowspan="1" colspan="1">High</td>
                 <td class="text-left" rowspan="1" colspan="1">Targets</td>
                 <td class="text-left" rowspan="1" colspan="1">Partial</td>
               </tr>
@@ -2428,7 +2428,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
                 <td class="text-left" rowspan="1" colspan="1">Impersonation Attack (Device/Network)</td>
                 <td class="text-left" rowspan="1" colspan="1">Network</td>
                 <td class="text-left" rowspan="1" colspan="1">Medium</td>
-                <td class="text-left" rowspan="1" colspan="1">Low</td>
+                <td class="text-left" rowspan="1" colspan="1">Low/Medium</td>
                 <td class="text-left" rowspan="1" colspan="1">Low</td>
                 <td class="text-left" rowspan="1" colspan="1">All users</td>
                 <td class="text-left" rowspan="1" colspan="1">Partial</td>
@@ -2498,7 +2498,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
 <a href="#section-3.4.6" class="section-number selfRef">3.4.6. </a><a href="#name-accessory-firmware-modifica" class="section-name selfRef">Accessory Firmware Modifications (Accessory)</a>
           </h4>
 <p id="section-3.4.6-1">The DULT Protocol (see <span>[<a href="#I-D.draft-ietf-dult-accessory-protocol" class="cite xref">I-D.draft-ietf-dult-accessory-protocol</a>]</span>) will specify that Accessory firmware images <span class="bcp14">MUST</span> be authenticated, and that Accessories <span class="bcp14">MUST</span> verify the integrity and origin of firmware. However, if these protections were to be bypassed, an Accessory's firmware could be altered to deviate from standard behavior. Attackers may manipulate advertisement intervals to reduce detection opportunities, allowing the Tag to evade tracking for extended periods, or rotate IDs rapidly, disrupting detection systems that rely on tracking unknown Accessory persistence.<a href="#section-3.4.6-1" class="pilcrow">¶</a></p>
-<p id="section-3.4.6-2">Firmware-based changes would have high impact. The likelihood is low, as these attacks require significant technical expertise to bypass firmware verification and modify low-level Accessory behavior. As a result, the overall risk level is medium. Partial mitigation of this attack is possible by requiring Accessories to verify the integrity and origin of firmware.<a href="#section-3.4.6-2" class="pilcrow">¶</a></p>
+<p id="section-3.4.6-2">Firmware-based changes would have high impact. The likelihood is typically low, as these attacks require significant technical expertise to bypass firmware verification and modify low-level Accessory behavior. However, once a vulnerability has been discovered and distributed, the likelihood could increase to medium as it would only require the technical ability to deploy the attack. It will be important for Accessory firmware to be able to be patched to address vulnerabilities. As a result, the overall risk level is high. Partial mitigation of this attack is possible by requiring Accessories to verify the integrity and origin of firmware.<a href="#section-3.4.6-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="attacker-accessory-disablement-accessory-finding">
@@ -2558,8 +2558,8 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
             <h5 id="name-attacks-on-accessories-acce">
 <a href="#section-3.4.12.1" class="section-number selfRef">3.4.12.1. </a><a href="#name-attacks-on-accessories-acce" class="section-name selfRef">Attacks on Accessories (Accessory, Network)</a>
             </h5>
-<p id="section-3.4.12.1-1">An impersonated Device could send commands to Accessories, such as a "play sound" command or a remote disablement command. Accessory firmware should either attempt to verify the authenticity of commands from Devices or otherwise limit how Accessories respond to commands from Devices. For example, Accessories that receive a "play sound" command from a Non-Owner Device should only execute the command if the Accessory is away from its Owner. Similarly, Accessories should only respond to remote disablement commands if the Accessory can reasonably be expected to be used for Unwanted Tracking and the Accessory can confirm that a Device has used other finding techniques to locate the Accessory.<a href="#section-3.4.12.1-1" class="pilcrow">¶</a></p>
-<p id="section-3.4.12.1-2">The impact of a Device impersonation attack is high if it is able to send arbitrary commands to Accessories. The likelihood of such an attack is medium as it can be done by any Device able to transmit BTLE packets but requires some familiarity with the DULT Protocol. Therefore, the overall risk level is high. The affected users are all users. Mitigation is partial; while Devices cannot be prevented from transmitting packets, certain rules can be enforced by Accessories.<a href="#section-3.4.12.1-2" class="pilcrow">¶</a></p>
+<p id="section-3.4.12.1-1">Any Bluetooth transmitter can theoretically send arbitrary commands to Accessories. Accessory firmware therefore must attempt to verify the authenticity of commands from Devices or otherwise limit how Accessories respond to commands from Devices. For example, Accessories that receive a "play sound" command from a Non-Owner Device should only execute the command if the Accessory is away from its Owner. Similarly, Accessories should only respond to remote disablement commands if the Accessory can confirm it is likely being used for Unwanted Tracking and the Accessory can confirm that a Device has used other finding techniques to locate the Accessory. However, if an Attacker is able to circumvent the DULT protocol and transmit arbitrary commands to Accessories, said Attacker could have high impact on the functioning of individual Accessories and/or the Crowdsourced Network.<a href="#section-3.4.12.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.4.12.1-2">The impact of a Device impersonation attack is high if it is able to send arbitrary commands to Accessories. The likelihood of such an attack is medium; it can be done by any Device able to transmit BTLE packets, but requires some familiarity with the DULT Protocol or technical awareness to deploy a pre-packaged attack. Therefore, the overall risk level is high. The affected users are all users. Mitigation is partial; while Devices cannot be prevented from transmitting packets, certain rules can be enforced by Accessories.<a href="#section-3.4.12.1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="attacks-on-crowdsourced-network-network">
@@ -2568,7 +2568,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
 <a href="#section-3.4.12.2" class="section-number selfRef">3.4.12.2. </a><a href="#name-attacks-on-crowdsourced-net" class="section-name selfRef">Attacks on Crowdsourced Network (Network)</a>
             </h5>
 <p id="section-3.4.12.2-1">An impersonated Device could send false location reports to the Crowdsourced Network, or selectively not report to the Crowdsourced Network.<a href="#section-3.4.12.2-1" class="pilcrow">¶</a></p>
-<p id="section-3.4.12.2-2">The likelihood of this attack is low, as it would require the impersonated Device to authenticate with the Crowdsourced Network. The impact is medium, as not reporting would have negligible impact and false location reports are a nuisance but can be mitigated. The overall risk level for this attack is low. The affected users are all users.  Mitigations include requiring authentication to send reports to the Crowdsourced Network and only trusting reports when they can be verified by multiple Devices.<a href="#section-3.4.12.2-2" class="pilcrow">¶</a></p>
+<p id="section-3.4.12.2-2">The likelihood of this attack is low, as it would require the impersonated Device to authenticate with the Crowdsourced Network. The likelihood could increase to medium if a pre-packaged and unpatched attack were discovered. The impact is medium, as not reporting would have negligible impact and false location reports are a nuisance but can be mitigated. The overall risk level for this attack is low even in circumstances of a pre-packaged attack as there are many mitigations available. The affected users are all users.  Mitigations include requiring authentication to send reports to the Crowdsourced Network and only trusting reports when they can be verified by multiple Devices.<a href="#section-3.4.12.2-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
