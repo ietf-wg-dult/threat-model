@@ -125,16 +125,24 @@ Table of Contents
        3.5.3.  Target Profiles
        3.5.4.  Priorities
    4.  Design Considerations
-     4.1.  Design Requirements
-       4.1.1.  Detecting Unwanted Location Tracking
-       4.1.2.  Finding Tracking Tags
-       4.1.3.  Disabling Tracking Tags
-       4.1.4.  Notification Management for Trusted Accessories
-     4.2.  Design Constraints
-       4.2.1.  Bluetooth constraints
-       4.2.2.  Power constraints
-       4.2.3.  Device constraints
-     4.3.  Priorities for the DULT WG
+     4.1.  Limitations of existing approaches to detecting and
+           preventing Unwanted Tracking
+       4.1.1.  Spotty Implementation
+       4.1.2.  Lack of customizability
+       4.1.3.  Difficulty finding and disabling tags
+       4.1.4.  Nonconformant Tags
+       4.1.5.  Activities Logs
+       4.1.6.  Anti-theft mode
+     4.2.  Design Requirements
+       4.2.1.  Detecting Unwanted Location Tracking
+       4.2.2.  Finding Tracking Tags
+       4.2.3.  Disabling Tracking Tags
+       4.2.4.  Notification Management for Trusted Accessories
+     4.3.  Design Constraints
+       4.3.1.  Bluetooth constraints
+       4.3.2.  Power constraints
+       4.3.3.  Device constraints
+     4.4.  Priorities for the DULT WG
    5.  IANA Considerations
    6.  Normative References
    Acknowledgments
@@ -425,7 +433,7 @@ Table of Contents
    and providing excessive information would violate the privacy of a
    non-malicious Tag Owner).  This could potentially be done with
    obfuscation, such as showing a partially redacted email address or
-   phone number (see Section 4.1.1.1).
+   phone number (see Section 4.2.1.1).
 
 3.2.2.  Privacy for potential Targets against the use of security
         measures for further surveillance
@@ -1548,7 +1556,174 @@ Table of Contents
       Unwanted Tracking.  The privacy of Tag Owner(s) and the security
       of Targets should be considered equally.
 
-4.1.  Design Requirements
+   In the sections below, we first discuss limitations of existing
+   approaches to detecting and preventing Unwanted Tracking, and then
+   outline design requirements, design constraints, and priorities for
+   the DULT WG moving forward.
+
+4.1.  Limitations of existing approaches to detecting and preventing
+      Unwanted Tracking
+
+   This section outlines several limitations of existing approaches to
+   detecting and preventing Unwanted Tracking as of the time of writing.
+   This includes six different areas:
+
+   1.  Spotty Implementation
+
+   2.  Lack of customizability
+
+   3.  Difficulty finding and disabling Tags
+
+   4.  Nonconformant Accessories
+
+   5.  Activities Logs
+
+   6.  Anti-theft mode
+
+   A successful implementation of the DULT protocol would consider each
+   of these limitations as described in the relevant sections below.
+
+4.1.1.  Spotty Implementation
+
+   In current implementations of the DULT protocol, implementations of
+   safeguards against Unwanted Tracking are inconsistent across
+   Platforms and Devices.  For example, the types and methods of
+   obtaining Unwanted Tracking Alerts vary.  Current Accessory types
+   also vary widely in the amount and type of information they provide
+   to a Target who has detected a possible unwanted tracker actively or
+   passively.  This creates a situation where a Target’s ability to
+   mitigate threats to their safety depends on consumer choices and
+   access.
+
+   As of this writing, major platforms do not currently implement both
+   Active and Passive Scanning.  Android users (including users of
+   devices with operating systems derived from Android OS, such as
+   Amazon’s FireOS) can actively scan for an Accessory, but passive
+   scanning is not supported. iOS users can receive potential Unwanted
+   Tracking Alerts generated through Passive Scanning, but cannot
+   actively scan for Accessories.  Because of this, protections are
+   contingent on both the type of Tag and the type of scanning Device.
+   These inconsistencies place a higher burden on targets of abuse to
+   find information specific to products, and create challenges in
+   creating easily understandable public safety information.  These
+   differences can also be exploited by an Attacker familiar with target
+   Platforms.  A successful protocol would support both Active and
+   Passive Scanning as this increases options for Targets who may be
+   dealing with highly individualized situations.
+
+   The information provided in Unwanted Tracking Alerts, and the options
+   for a Target, would benefit from standardization across Platforms and
+   Devices.  Currently, Accessories made by different manufacturers
+   provide different amounts and types of information in detection
+   reports, with different options available to targets.  This is easily
+   exploited by an attacker familiar with the differences in Unwanted
+   Tracking Alerts.
+
+4.1.2.  Lack of customizability
+
+   Potential Targets’ ability to customize Unwanted Tracking Alerts is
+   currently limited, as they cannot control the sensitivity of tracking
+   algorithms.  Because Targets have vastly different situations and
+   needs, they may benefit from customization options.  Some people may
+   develop “alert fatigue” from false positives, while others may be
+   more concerned about false negatives.  Some circumstances may also
+   raise the likelihood of false positive alerts, such as may happen on
+   public transportation.  As stalking situations often become more or
+   less intense over time, potentially with several cycles of intensity,
+   the same person may have different needs at different times.  They
+   may wish to increase sensitivity in a high risk scenario or
+   timeframe, or decrease/disable sensitivity because alerts cause
+   anxiety or false positives condition them to ignore alerts.  This
+   document recommends options for the customization in the frequency of
+   alerts and detection radius for receiving an alert.  A successful
+   protocol may also consider whether potential targets should be able
+   to customize whether an alert provides a high-level assessment of
+   risk level (e.g. “high risk” or “low risk” for a pattern of unwanted
+   tracking).
+
+4.1.3.  Difficulty finding and disabling tags
+
+   Location-tracking Tags are small by design and can be difficult to
+   locate.  While many Tags have speakers or haptics to help users
+   locate Tags, these sounds/vibrations may be difficult to detect
+   (especially for users with disabilities) and may also be easy to
+   disable.  Advanced features such as Ultra Wide Band (UWB) finding are
+   also not supported by all tags and devices/platforms.  This can make
+   it difficult for targets to locate Tags.  If a target cannot locate a
+   Tag, there is limited recourse as it is also not currently possible
+   to remotely disable a Tag (whether over the air using a device or via
+   the crowdsourced network).  A successful protocol would consider
+   requirements to assist Targets in locating and disabling tags that
+   are feasible for Tags, many of which are small and low-cost, and that
+   can be implemented without otherwise compromising the Crowdsourced
+   Network.
+
+4.1.4.  Nonconformant Tags
+
+   Attackers can deploy a variety of attacks involving Nonconformant
+   Tags:
+
+   *  Impersonation attack: Tags could be designed or manipulated to
+      impersonate a conformant Tag, but not implement the Unwanted
+      Tracking features
+
+   *  Replay attack: a nonconformant Tag could replay packets from a
+      conformant Tag
+
+   *  Physical modifications: a conformant Tag could have its physical
+      attributes compromised (e.g. disabling a speaker)
+
+   *  Accessory firmware modification: a conformant Tag could have its
+      software modified to circumvent Unwanted Tracking features
+
+   If any of these attacks are successful, attackers may be able to
+   authenticate with the Crowdsourced Network via any device, and
+   therefore access location information about the tag without complying
+   with the DULT protocol.  This could also make it more difficult for
+   targets to locate tags.  While it is not possible to limit the
+   deployment of nonconformant Tags, a successful protocol would
+   minimize the ability of nonconformant Tags to access the crowdsourced
+   network.
+
+4.1.5.  Activities Logs
+
+   A successful implementation of the protocol should consider logging
+   for two types of events: 1) when an Unwanted Tracking Alert is
+   triggered, and 2) when a location of a Tag suspected of Unwanted
+   Tracking is accessed via the Crowdsourced Network.  The account and
+   device are particularly important as Tags may be shared by multiple
+   accounts who may have many different devices.  Logs should not be
+   easily editable to avoid gaslighting and accountability efforts.
+
+   At a bare minimum, a successful protocol would include a log file
+   that is clearly labeled and easily accessible for users of a Device
+   that is not easily edited, clearly labeling the nature of the
+   tracking alert.  Each log event should include: the account, the
+   Device, GPS location, and the time.  This log should ideally be
+   stored on the Device where the alert was triggered.  Ideally, there
+   would also be a log file that would also include the times at which
+   the owner of the tracker checked its location while the tracker was
+   close enough to the device to set off the Unwanted Tracking Alert.
+   This would require information from the Crowdsourced Network and it
+   may be appropriate to be stored remotely.
+
+4.1.6.  Anti-theft mode
+
+   Tile has implemented an “Anti-Theft” mode that stops the tracker from
+   setting off Unwanted Tracking Alerts when a target runs Tile’s “Scan
+   and Secure” features on their own device.  Users of this mode must
+   agree to a multi-stage ID scan and send in a selfie to Tile for
+   verification.  This implementation plainly fails to meet DULT’s
+   recommendation that tracking alerts should not be circumventable
+   under any circumstance.  The ID verification that a Tile user must
+   pass in order to enable “Anti-Theft” mode is an insufficient
+   mitigation against stalking because it is only useful if the physical
+   item is found by the person being tracked, a circumstance that this
+   “Anti-theft” mode is designed to prevent.  Any mode that makes it
+   possible to turn off Unwanted Tracking Alerts is antithetical to
+   DULT’s recommendations.
+
+4.2.  Design Requirements
 
    The DULT Protocol should 1) allow Targets to detect Unwanted
    Tracking, 2) help Targets find Tags that are tracking them while
@@ -1558,14 +1733,14 @@ Table of Contents
    affordances should be implemented while considering the appropriate
    privacy and security requirements.
 
-4.1.1.  Detecting Unwanted Location Tracking
+4.2.1.  Detecting Unwanted Location Tracking
 
    There are four ways that the DULT Protocol should assist Targets in
    detecting potentially Unwanted Tracking: 1) active scanning, 2)
    passive scanning, 3) tracking Tag alerts, and 4) Crowdsourced Network
    activities logs.
 
-4.1.1.1.  Active Scanning
+4.2.1.1.  Active Scanning
 
    There may be scenarios where a Target suspects that they are being
    tracked without their consent.  Active scanning should allow a user
@@ -1574,7 +1749,7 @@ Table of Contents
    been identified as potentially being used for Unwanted Tracking, the
    user should be able to view the serial number of the Device along
    with Obfuscated Owner Information and instructions on how to find
-   and/or disable the Tag (see Section 4.1.2 and Section 4.1.3).
+   and/or disable the Tag (see Section 4.2.2 and Section 4.2.3).
    Additional information about when that Tag has been previously
    encountered within a designated time window (e.g. the last 12 hours)
    should also be included if available (see Section 3.2).  Allowing
@@ -1583,7 +1758,7 @@ Table of Contents
    near their Owners should not be shared to avoid abuse of the active
    scanning feature.
 
-4.1.1.2.  Passive Scanning
+4.2.1.2.  Passive Scanning
 
    Platforms should passively scan for Tags suspected of Unwanted
    Tracking and notify the user.  This will involve implementing one or
@@ -1591,11 +1766,11 @@ Table of Contents
    user.  (A dedicated DULT WG document will address tracking
    algorithms, and will be linked when it is available.)  The user could
    be notified through a push notification or through Sounds and Haptics
-   (see Section 4.1.1.3).  When a Tag has been identified as potentially
+   (see Section 4.2.1.3).  When a Tag has been identified as potentially
    being used for Unwanted Tracking, the user should be able to view the
    serial number of the Tag along with Obfuscated Owner Information for
    all accounts linked to the Tag and instructions on how to find and/or
-   disable the Tag (see Section 4.1.2 and Section 4.1.3).  There will be
+   disable the Tag (see Section 4.2.2 and Section 4.2.3).  There will be
    tradeoffs between detecting potential Unwanted Tracking promptly and
    alerting the potential Target prematurely.  One way to handle these
    tradeoffs is to allow users to set the sensitivity of these alerts.
@@ -1655,7 +1830,7 @@ Table of Contents
    protection against Unwanted Tracking.  The confidence scoring
    approach could include the variables listed below.
 
-4.1.1.2.1.  Duration of Proximity
+4.2.1.2.1.  Duration of Proximity
 
    Tracks how long a Tag remains in close proximity to the user.
 
@@ -1663,7 +1838,7 @@ Table of Contents
    more likely to indicate tracking activity than transient encounters
    (e.g., passing someone on public transit).
 
-4.1.1.2.2.  Movement Correlation
+4.2.1.2.2.  Movement Correlation
 
    Measures how closely the movement of the suspected Tag mirrors that
    of the user.
@@ -1672,7 +1847,7 @@ Table of Contents
    work, then a store with the user) increases the likelihood that the
    Tag is following the user intentionally.
 
-4.1.1.2.3.  Signal Strength Trends
+4.2.1.2.3.  Signal Strength Trends
 
    Observes how the signal strength of the suspected Tag (e.g.,
    Bluetooth RSSI) changes over time.
@@ -1681,7 +1856,7 @@ Table of Contents
    physical proximity to the user, strengthening the case for
    intentional tracking.
 
-4.1.1.2.4.  Persistence
+4.2.1.2.4.  Persistence
 
    Evaluates how often and across how many different times/locations the
    same Tag is observed, while accounting for identifier rotation.
@@ -1689,7 +1864,7 @@ Table of Contents
    *Rationale*: Frequent reappearances over time and space can indicate
    deliberate placement, even if identifiers change periodically.
 
-4.1.1.2.5.  Hardware Identity
+4.2.1.2.5.  Hardware Identity
 
    Analyzes available Bluetooth advertisement metadata, such as vendor-
    specific fields or Tag model indicators, while respecting identifier
@@ -1700,7 +1875,7 @@ Table of Contents
    identifiers, consistent vendor metadata or other characteristics may
    provide useful signals.
 
-4.1.1.2.6.  Environmental Context
+4.2.1.2.6.  Environmental Context
 
    Considers the location in which the Tag is seen (e.g., home, office,
    public places).
@@ -1709,7 +1884,7 @@ Table of Contents
    Appearances in unfamiliar or private locations without explanation
    raise concern.
 
-4.1.1.3.  Location-tracking Tag Alerts
+4.2.1.3.  Location-tracking Tag Alerts
 
    Location-tracking Tags may be difficult to locate, and users may not
    have a Device that can actively or passively scan for Location-
@@ -1722,9 +1897,9 @@ Table of Contents
    all Tag Owners, along with lights and haptics so that people who are
    Deaf or hard of hearing can still locate them.  Tracking Tag Alerts
    should also educate the user on methods to successfully find and
-   disable Tags (see Section 4.1.2 and Section 4.1.3).
+   disable Tags (see Section 4.2.2 and Section 4.2.3).
 
-4.1.1.4.  Crowdsourced Network Activities Logs
+4.2.1.4.  Crowdsourced Network Activities Logs
 
    Stephenson et al. (https://www.usenix.org/system/files/
    usenixsecurity23-stephenson-lessons.pdf) point out that Internet of
@@ -1745,7 +1920,7 @@ Table of Contents
    track them, and whether or not their accounts connected to the
    Crowdsourced Network are compromised.
 
-4.1.2.  Finding Tracking Tags
+4.2.2.  Finding Tracking Tags
 
    Even after a Tag is detected through passive or active scanning, a
    user may have difficulty in locating it.  For example, a Tag may be
@@ -1753,11 +1928,11 @@ Table of Contents
    have discovered a Tag through passive or active scanning to request
    that the Tag signal its presence.  This assistance should be done in
    a way that is accessible to users with sensory or other impairments
-   by using multimodal signals as described in Section 4.1.1.3.
+   by using multimodal signals as described in Section 4.2.1.3.
    Manufacturers/Platforms may also implement other methods to assist in
    locating Tags, such as precision finding using Ultra-wideband.
 
-4.1.2.1.  Lost Mode
+4.2.2.1.  Lost Mode
 
    Some Platforms allow Accessories to be marked as lost.  When another
    user finds the Accessory, they can view a message and/or contact
@@ -1768,7 +1943,7 @@ Table of Contents
    Owner information, or a full phone number or email address if the
    Accessory Owner chooses to share that information.
 
-4.1.3.  Disabling Tracking Tags
+4.2.3.  Disabling Tracking Tags
 
    In order to effectively prevent Unwanted Tracking, users should be
    able to disable Location-tracking Tags.  This includes a Non-Owner
@@ -1805,7 +1980,7 @@ Table of Contents
    for vulnerable users, including those in high-risk environments or
    authoritarian regions.
 
-4.1.4.  Notification Management for Trusted Accessories
+4.2.4.  Notification Management for Trusted Accessories
 
    To reduce alert fatigue and improve user experience, implementations
    should allow users to snooze passive notifications from Location-
@@ -1830,15 +2005,15 @@ Table of Contents
    with caution and abuse mitigation in mind.  These features are
    optional and may vary by Platform.  Whenever shared Ownership is
    used, information about all Owners should be made available when a
-   Tag is suspected of Unwanted Tracking (see Section 4.1.1.2).
+   Tag is suspected of Unwanted Tracking (see Section 4.2.1.2).
 
-4.2.  Design Constraints
+4.3.  Design Constraints
 
    There are also design constraints that the DULT Protocol must
    consider, including limitations of the Bluetooth Low Energy (BLE)
    protocol, power constraints, and Device constraints.
 
-4.2.1.  Bluetooth constraints
+4.3.1.  Bluetooth constraints
 
    Detecting Tags requires analyzing Bluetooth Low Energy (BLE)
    advertisement packets.  Advertisements are publicly transmitted,
@@ -1877,7 +2052,7 @@ Table of Contents
    such as OS-imposed scanning limits and background activity
    restrictions, further impact the consistency and responsiveness of
    tracking detection mechanisms.  For further discussion of power
-   constraints, see Section 4.2.2.
+   constraints, see Section 4.3.2.
 
    Additionally, Bluetooth-based tracking systems typically rely on an
    active Bluetooth connection on the Owner’s Device to determine
@@ -1899,7 +2074,7 @@ Table of Contents
    scoring, and optimizing scanning strategies based on known BLE
    limitations.
 
-4.2.2.  Power constraints
+4.3.2.  Power constraints
 
    Unwanted tracking detection mechanisms typically rely on periodic
    Bluetooth scanning to identify unknown Accessories.  However,
@@ -1930,7 +2105,7 @@ Table of Contents
    across smartphones, wearables, and IoT devices, will be critical in
    maintaining a balance between security and usability.
 
-4.2.3.  Device constraints
+4.3.3.  Device constraints
 
    Unwanted tracking detection is constrained by the diverse range of
    Devices used for scanning, each with varying hardware capabilities,
@@ -1999,7 +2174,7 @@ Table of Contents
    effective across diverse hardware and software environments is
    critical for broad user protection.
 
-4.3.  Priorities for the DULT WG
+4.4.  Priorities for the DULT WG
 
    While all of the above design considerations should be considered,
    the following topics are considered highest priority for the
@@ -2015,8 +2190,13 @@ Table of Contents
       -  The documents should ensure Accessories and Devices implement
          finding algorithms, issue Unwanted Tracking Alerts and
          otherwise notify users of Accessories in proximity, and allow
-         users to manage Unwanted Tracking Alerts to prevent alarm
-         fatigue
+         users to manage Unwanted Tracking Alerts to improve detection
+         of Unwanted Tracking and/or prevent alarm fatigue
+
+   *  Nonconformant Accessories
+
+      -  The documents should consider how to minimize the ability of
+         nonconformant Accessories to access the Crowdsourced Network
 
    *  Remote Disablement
 
@@ -2078,12 +2258,12 @@ Table of Contents
 Acknowledgments
 
    Many thanks for feedback from Brent Ledvina, Barry Leiba, Michael
-   Ricardson, Eric Rescorla, Christine Fossaceca, Eva Galperin, and
-   Alexis Hancock, and for contributed text from Corbin Streett and
-   Diana Appanna.  We also gratefully acknowledge the guidance and
-   support of the DULT Working Group Chairs, Erica Olsen and Sean
-   Turner, and the Area Director, Deb Cooley, throughout the development
-   of this document.
+   Ricardson, Eric Rescorla, Christine Fossaceca, and Alexis Hancock,
+   and for contributed text from Corbin Streett, Diana Appanna, and Eva
+   Galperin.  We also gratefully acknowledge the guidance and support of
+   the DULT Working Group Chairs, Erica Olsen and Sean Turner, and the
+   Area Director, Deb Cooley, throughout the development of this
+   document.
 
 Authors' Addresses
 
