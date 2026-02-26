@@ -268,8 +268,8 @@ Table of Contents
       connect to a Crowdsourced Network through the means described in
       these documents.
 
-   *Manual Scanning*:  method(s) of detection that involves a user
-      initiated scan for nearby Accessories.  Contrast with Passive
+   *Manual Scanning*:  method(s) of detection that involve(s) a user
+      initiated scan for nearby Accessories.  Contrast with Background
       Scanning.
 
    *Attacker*:  any individual, group, or organization that is
@@ -345,7 +345,7 @@ Table of Contents
       with the first letter of the username and entity visible, as well
       as the entire extension (e.g., b*****@i****.com).
 
-   *Passive Scanning*:  method(s) of Unwanted Tracking detection that
+   *Background Scanning*:  method(s) of Unwanted Tracking detection that
       are running in the background on all Devices and may trigger
       Unwanted Tracking Alerts.  Contrast with Manual Scanning.
 
@@ -808,7 +808,7 @@ Table of Contents
    for the Target to engage in manual scanning, or to receive alerts on
    their phone.  The Target might benefit from being able to log into an
    account on another phone or a computer and view logs of any recent
-   alerts collected through passive scanning.
+   alerts collected through background scanning.
 
                      +=====================+========+
                      | Attacker Profile    | Lemon  |
@@ -1154,7 +1154,7 @@ Table of Contents
    tracking Tag in a car, the Attacker might place one Tag inside the
    car, and another affixed on the outside of the car.  The DULT
    Protocol must be robust to this scenario.  This means that scans,
-   whether passive or manual, need to be able to return more than one
+   whether background or manual, need to be able to return more than one
    result if a Tag is suspected of being used for Unwanted Tracking, and
    the time to do so must not be significantly impeded by the presence
    of multiple Tags.  This also applies to situations where many Tags
@@ -1304,7 +1304,7 @@ Table of Contents
 
 3.4.9.  Disabling Target Tag Detection (Network)
 
-   An Attacker might intentionally disable passive Unwanted Tracking
+   An Attacker might intentionally disable background Unwanted Tracking
    detection on a Target's Device.
 
    The impact of this attack is high as it would prevent the Target from
@@ -1542,7 +1542,8 @@ Table of Contents
    preventing Unwanted Tracking should:
 
    *  Include a variety of approaches to address different scenarios,
-      including manual and passive scanning and notifications or sounds
+      including manual and background scanning and notifications or
+      sounds
 
    *  Account for scenarios in which the Attacker has high expertise,
       proximity, and/or access to resources within the scope defined in
@@ -1591,7 +1592,7 @@ Table of Contents
    obtaining Unwanted Tracking Alerts vary.  Current Accessory types
    also vary widely in the amount and type of information they provide
    to a Target who has detected a possible unwanted tracker.  Platforms
-   also differ in their support for Active and Passive Scanning, and
+   also differ in their support for Active and Background Scanning, and
    which brands of Accessories they can scan for.  This creates a
    situation where a Target’s ability to mitigate threats to their
    safety depends on consumer choices and access, placing a higher
@@ -1599,7 +1600,7 @@ Table of Contents
    challenges in creating easily understandable public safety
    information.  These differences can also be exploited by an Attacker
    familiar with target Platforms.  A successful protocol would support
-   both Active and Passive Scanning as this increases options for
+   both Active and Background Scanning as this increases options for
    Targets who may be dealing with highly individualized situations.
    The information provided in Unwanted Tracking Alerts, and the options
    for a Target, would also benefit from standardization across
@@ -1723,8 +1724,8 @@ Table of Contents
 
    There are four ways that the DULT Protocol should assist Targets in
    detecting potentially Unwanted Tracking: 1) manual scanning, 2)
-   passive scanning, 3) tracking Tag alerts, and 4) Crowdsourced Network
-   activities logs.
+   background scanning, 3) tracking Tag alerts, and 4) Crowdsourced
+   Network activities logs.
 
 4.2.1.1.  Manual Scanning
 
@@ -1744,25 +1745,25 @@ Table of Contents
    near their Owners should not be shared to avoid abuse of the manual
    scanning feature.
 
-4.2.1.2.  Passive Scanning
+4.2.1.2.  Background Scanning
 
-   Platforms should passively scan for Tags suspected of Unwanted
-   Tracking and notify the user.  This will involve implementing one or
-   more algorithms to use to flag Tags and determine when to notify the
-   user.  (A dedicated DULT WG document will address tracking
-   algorithms, and will be linked when it is available.)  The user could
-   be notified through a push notification or through Sounds and Haptics
-   (see Section 4.2.1.3).  When a Tag has been identified as potentially
-   being used for Unwanted Tracking, the user should be able to view the
-   serial number of the Tag along with Obfuscated Owner Information for
-   all accounts linked to the Tag and instructions on how to find and/or
-   disable the Tag (see Section 4.2.2 and Section 4.2.3).  There will be
-   tradeoffs between detecting potential Unwanted Tracking promptly and
-   alerting the potential Target prematurely.  One way to handle these
-   tradeoffs is to allow users to set the sensitivity of these alerts.
-   For example, the AirGuard (https://github.com/seemoo-lab/AirGuard)
-   app includes three different "Security Level" settings that users can
-   customize.
+   Platforms should scan in the background for Tags suspected of
+   Unwanted Tracking and notify the user.  This will involve
+   implementing one or more algorithms to use to flag Tags and determine
+   when to notify the user.  (A dedicated DULT WG document will address
+   tracking algorithms, and will be linked when it is available.)  The
+   user could be notified through a push notification or through Sounds
+   and Haptics (see Section 4.2.1.3).  When a Tag has been identified as
+   potentially being used for Unwanted Tracking, the user should be able
+   to view the serial number of the Tag along with Obfuscated Owner
+   Information for all accounts linked to the Tag and instructions on
+   how to find and/or disable the Tag (see Section 4.2.2 and
+   Section 4.2.3).  There will be tradeoffs between detecting potential
+   Unwanted Tracking promptly and alerting the potential Target
+   prematurely.  One way to handle these tradeoffs is to allow users to
+   set the sensitivity of these alerts.  For example, the AirGuard
+   (https://github.com/seemoo-lab/AirGuard) app includes three different
+   "Security Level" settings that users can customize.
 
    To improve the accuracy of Unwanted Tracking detection, a confidence
    scoring mechanism can be used.  Instead of issuing binary alerts for
@@ -1873,17 +1874,18 @@ Table of Contents
 4.2.1.3.  Location-tracking Tag Alerts
 
    Location-tracking Tags may be difficult to locate, and users may not
-   have a Device that can manually or passively scan for Location-
-   tracking Tags.  The DULT Protocol should be built with accessibility
-   in mind (https://cdt.org/insights/centering-disability-in-mitigating-
-   harms-of-bluetooth-tracking-technology/) so that the most people can
-   be protected by the protocol.  In addition to push notifications on
-   nearby Devices, Location-tracking Tags themselves should be able to
-   notify end users.  This should include periodic sounds when away from
-   all Tag Owners, along with lights and haptics so that people who are
-   Deaf or hard of hearing can still locate them.  Tracking Tag Alerts
-   should also educate the user on methods to successfully find and
-   disable Tags (see Section 4.2.2 and Section 4.2.3).
+   have a Device that can scan manually or in the background for
+   Location-tracking Tags.  The DULT Protocol should be built with
+   accessibility in mind (https://cdt.org/insights/centering-disability-
+   in-mitigating-harms-of-bluetooth-tracking-technology/) so that the
+   most people can be protected by the protocol.  In addition to push
+   notifications on nearby Devices, Location-tracking Tags themselves
+   should be able to notify end users.  This should include periodic
+   sounds when away from all Tag Owners, along with lights and haptics
+   so that people who are Deaf or hard of hearing can still locate them.
+   Tracking Tag Alerts should also educate the user on methods to
+   successfully find and disable Tags (see Section 4.2.2 and
+   Section 4.2.3).
 
 4.2.1.4.  Crowdsourced Network Activities Logs
 
@@ -1908,15 +1910,16 @@ Table of Contents
 
 4.2.2.  Finding Tracking Tags
 
-   Even after a Tag is detected through passive or manual scanning, a
+   Even after a Tag is detected through background or manual scanning, a
    user may have difficulty in locating it.  For example, a Tag may be
    buried under a vehicle cushion.  Platforms should allow users who
-   have discovered a Tag through passive or manual scanning to request
-   that the Tag signal its presence.  This assistance should be done in
-   a way that is accessible to users with sensory or other impairments
-   by using multimodal signals as described in Section 4.2.1.3.
-   Manufacturers/Platforms may also implement other methods to assist in
-   locating Tags, such as precision finding using Ultra-wideband.
+   have discovered a Tag through background or manual scanning to
+   request that the Tag signal its presence.  This assistance should be
+   done in a way that is accessible to users with sensory or other
+   impairments by using multimodal signals as described in
+   Section 4.2.1.3.  Manufacturers/Platforms may also implement other
+   methods to assist in locating Tags, such as precision finding using
+   Ultra-wideband.
 
 4.2.2.1.  Lost Mode
 
@@ -1969,7 +1972,7 @@ Table of Contents
 4.2.4.  Notification Management for Trusted Accessories
 
    To reduce alert fatigue and improve user experience, implementations
-   should allow users to snooze passive notifications from Location-
+   should allow users to snooze background notifications from Location-
    tracking Tags that have been explicitly marked as trusted or
    friendly.  This is particularly useful in scenarios where users
    regularly encounter the same Tag (e.g., a family member's keys or a
@@ -1987,9 +1990,9 @@ Table of Contents
    Ownership models, where multiple users can be associated with a
    single Tag. However, this introduces the risk of abuse (e.g., an
    Attacker adding a Target to the shared list in order to avoid
-   triggering passive notifications), and therefore should be approached
-   with caution and abuse mitigation in mind.  These features are
-   optional and may vary by Platform.  Whenever shared Ownership is
+   triggering background notifications), and therefore should be
+   approached with caution and abuse mitigation in mind.  These features
+   are optional and may vary by Platform.  Whenever shared Ownership is
    used, information about all Owners should be made available when a
    Tag is suspected of Unwanted Tracking (see Section 4.2.1.2).
 
@@ -2003,11 +2006,11 @@ Table of Contents
 
    Detecting Tags requires analyzing Bluetooth Low Energy (BLE)
    advertisement packets.  Advertisements are publicly transmitted,
-   allowing passive scanning by any nearby receiver.  While this enables
-   open detection of unknown Tags, it also raises privacy concerns (see
-   Section 1).  Some BLE implementations employ randomized MAC addresses
-   and other privacy-preserving techniques, which could impact
-   persistent tracking detection.
+   allowing background scanning by any nearby receiver.  While this
+   enables open detection of unknown Tags, it also raises privacy
+   concerns (see Section 1).  Some BLE implementations employ randomized
+   MAC addresses and other privacy-preserving techniques, which could
+   impact persistent tracking detection.
 
    The BLE payload in BLE 4.0 can support advertisement packets of up to
    37 bytes.  One current adoption of Unwanted Tracking detection
@@ -2171,7 +2174,7 @@ Table of Contents
       -  The documents should ensure platforms implement manual scanning
          for all DULT compliant Accessories.
 
-   *  Passive Scanning
+   *  Background Scanning
 
       -  The documents should ensure Accessories and Devices implement
          finding algorithms, issue Unwanted Tracking Alerts and
