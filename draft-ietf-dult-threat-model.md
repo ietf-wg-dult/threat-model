@@ -74,7 +74,7 @@ In order to standardize a protocol for Detecting Unwanted Location Tracking, thu
 
 While there are many types of technology that can be used for Location Tracking, it is infeasible to attempt to describe a threat analysis for each possible technology in this document. The threat model described here is likely not applicable to the following areas: app-based technologies such as parental monitoring apps that do not use Location-tracking Accessories, Internet of Things (IoT) devices that are easily discoverable, connected cars, or user accounts for cloud services or social media. A notable exception to this is GPS trackers; see {{bluetooth-vs-other-technologies}} for relevant information and recommendations.
 
-This threat model is also more likely to be applicable in regions where the use of Location-tracking Tags is more prevalent. While Location-tracking Tags have existed for over a decade, they became especially widely-used in the Global North in the last several years as Crowdsourced Networks were deployed by major smart phone manufacturers. However, due to their reliance on a high density of Non-Owner Devices for the network to be effective and the relative cost of Location-tracking Tags, Location-tracking Tag use in the Global South is typically limited to affluent communities. If the cost of Non-Owner Devices and Location-tracking Tags decrease, an uptick of  could also occur in contexts where it is currently infeasible. This threat-model does still attempt to consider possible regional differences in Location-tracking Tag use (such as differences between rural and urban use), and also the sometimes limited resources that may be available to Targets of .
+This threat model is also more likely to be applicable in regions where the use of Location-tracking Tags is more prevalent. While Location-tracking Tags have existed for over a decade, they became especially widely-used in the Global North in the last several years as Crowdsourced Networks were deployed by major smart phone manufacturers. However, due to their reliance on a high density of Non-Owner Devices for the network to be effective and the relative cost of Location-tracking Tags, Location-tracking Tag use in the Global South is typically limited to affluent communities. If the cost of Non-Owner Devices and Location-tracking Tags decrease, an uptick of  could also occur in contexts where it is currently infeasible. This threat-model does still attempt to consider possible regional differences in Location-tracking Tag use (such as differences between rural and urban use), and also the sometimes limited resources that may be available to Targets of Unwanted Tracking.
 
 # Conventions and Definitions
 
@@ -87,10 +87,10 @@ This threat model is also more likely to be applicable in regions where the use 
 : any product intended to interface with a Platform to connect to a Crowdsourced Network through the means described in these documents.
 
 **Active Scanning**:
-: method(s) of  detection that involves a user initiated scan for nearby Accessories. Contrast with Passive Scanning.
+: method(s) of Unwanted Tracking detection that involves a user initiated scan for nearby Accessories. Contrast with Passive Scanning.
 
 **Attacker**:
-: any individual, group, or organization that is attempting to engage in  and/or circumvention of the DULT Protocol.
+: any individual, group, or organization that is attempting to engage in Unwanted Tracking and/or circumvention of the DULT Protocol.
 
 **Crowdsourced Network**:
 : a service that Platforms communicate with to share and retrieve location information of Accessories.
