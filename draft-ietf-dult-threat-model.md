@@ -86,11 +86,11 @@ This threat model is also more likely to be applicable in regions where the use 
 **Accessory**:
 : any product intended to interface with a Platform to connect to a Crowdsourced Network through the means described in these documents.
 
-**Manual Scanning**:
-: method(s) of  detection that involve(s) a user initiated scan for nearby Accessories. Contrast with Background Scanning.
-
 **Attacker**:
 : any individual, group, or organization that is attempting to engage in  and/or circumvention of the DULT Protocol.
+
+**Background Scanning**:
+: method(s) of Unwanted Tracking detection that are running in the background on all Devices and may trigger Unwanted Tracking Alerts. Contrast with Manual Scanning.
 
 **Crowdsourced Network**:
 : a service that Platforms communicate with to share and retrieve location information of Accessories.
@@ -122,6 +122,9 @@ This threat model is also more likely to be applicable in regions where the use 
 **Location-tracking Tag**:
 : a term that may be used interchangeably with Location-tracking Accessory.
 
+**Manual Scanning**:
+: method(s) of  detection that involve(s) a user initiated scan for nearby Accessories. Contrast with Background Scanning.
+
 **Non-Owner Device**:
 : a Device that may connect to an Accessory but is not an Owner Device of that Accessory.
 
@@ -133,9 +136,6 @@ This threat model is also more likely to be applicable in regions where the use 
 
 **(Obfuscated) Owner Information**:
 : (obfuscated) contact information for an Accessory Owner. When an Accessory is marked as lost, this should include a phone number and/or email address. Otherwise, the information should be obfuscated to ensure privacy of Owners in cases where Accessories are falsely suspected of Unwanted Tracking or an Attacker attempts to determine the Owner of an Accessory. The information should include no more than the last two digits of a phone number and/or an obfuscated email address with the first letter of the username and entity visible, as well as the entire extension (e.g., b********@i*****.com).
-
-**Background Scanning**:
-: method(s) of Unwanted Tracking detection that are running in the background on all Devices and may trigger Unwanted Tracking Alerts. Contrast with Manual Scanning.
 
 **Platform**:
 : Operating systems that communicate with Accessories.
