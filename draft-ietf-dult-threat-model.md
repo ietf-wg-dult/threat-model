@@ -553,6 +553,57 @@ As discussed in {{security-considerations}}, Unwanted Tracking can involve a var
 - Account for scenarios in which the Target has low expertise, access to resources, and/or access to technological safeguards within the scope defined in {{what-is-in-scope}}
 - Avoid privacy compromises for Tag Owner(s) when protecting against Unwanted Tracking. The privacy of Tag Owner(s) and the security of Targets should be considered equally.
 
+In the sections below, we first discuss limitations of existing approaches to detecting and preventing Unwanted Tracking, and then outline design requirements, design constraints, and priorities for the DULT WG moving forward.
+
+## Limitations of existing approaches to detecting and preventing Unwanted Tracking
+
+This section outlines several limitations of existing approaches to detecting and preventing Unwanted Tracking as of the time of writing. This includes six different areas:
+
+1. Spotty Implementation
+2. Lack of customizability
+3. Difficulty finding and disabling tags
+4. Nonconformant Tags
+5. Activities Logs
+6. Anti-theft mode
+
+A successful implementation of the DULT protocol would consider each of these limitations as described in the relevant sections below.
+
+### Spotty Implementation
+
+In current implementations of the DULT protocol, implementations of safeguards against unwanted tracking are inconsistent across platforms and devices. For example, the types and methods of obtaining unwanted tracking alerts vary. Current Accessory types also vary widely in the amount and type of information they provide to a target who has detected a possible unwanted tracker actively or passively. This creates a situation where a target’s ability to mitigate threats to their safety depends on consumer choices and access.
+
+As of this writing, major platforms do not currently implement both active and passive scanning. Android users (including users of devices with operating systems derived from Android OS, such as Amazon’s FireOS) can actively scan for an Accessory, but passive scanning is not supported. iOS users can receive potential unwanted tracking alerts generated through passive scanning, but cannot actively scan for Accessories. Because of this, protections are contingent on both the type of tag and the type of scanning device. These inconsistencies place a higher burden on targets of abuse to find information specific to products, and create challenges in creating easily understandable public safety information. These differences can also be exploited by an attacker familiar with target platforms. A successful protocol would support both active and passive scanning as this increases options for targets who may be dealing with highly individualized situations.
+
+The information provided in detection reports, and the options for a target, would benefit from standardization across platforms and devices. Currently, Accessories made by different manufacturers provide different amounts and types of information in detection reports, with different options available to targets. This is easily exploited by an attacker familiar with the differences in detection reports.
+
+### Lack of customizability
+
+Potential targets’ ability to customize unwanted tracking alerts is currently limited, as they cannot control the sensitivity of tracking algorithms. Because targets have vastly different situations and needs, they may benefit from customization options. Some people may develop “alert fatigue” from false positives, while others may be more concerned about false negatives. Some circumstances may also raise the likelihood of false positive alerts, such as may happen on public transportation. As stalking situations often become more or less intense over time, potentially with several cycles of intensity, the same person may have different needs at different times. They may wish to increase sensitivity in a high risk scenario or timeframe, or decrease/disable sensitivity because alerts cause anxiety or false positives condition them to ignore alerts. This document recommends options for the customization in the frequency of alerts and detection radius for receiving an alert. A successful protocol may also consider whether potential targets should be able to customize whether an alert provides a high-level assessment of risk level (e.g. “high risk” or “low risk” for a pattern of unwanted tracking).
+
+### Difficulty finding and disabling tags
+
+Location-tracking tags are small by design and can be difficult to locate. While many tags have speakers or haptics to help users locate tags, these sounds/vibrations may be difficult to detect (especially for users with disabilities) and may also be easy to disable. Advanced features such as Ultra Wide Band (UWB) finding are also not supported by all tags and devices/platforms. This can make it difficult for targets to locate tags. If a target cannot locate a tag, there is limited recourse as it is also not currently possible to remotely disable a tag (whether over the air using a device or via the crowdsourced network). A successful protocol would consider requirements to assist targets in locating and disabling tags that are feasible for tags, many of which are small and low-cost, and that can be implemented without otherwise compromising the crowdsourced network.
+
+### Nonconformant Tags
+
+Attackers can deploy a variety of attacks involving nonconformant tags:
+
+* Impersonation attack: tags could be designed or manipulated to impersonate a conformant tag, but not implement the unwanted location tracking features
+* Replay attack: a nonconformant tag could replay packets from a conformant tag
+* Physical modifications: a conformant tag could have its physical attributes compromised (e.g. disabling a speaker)
+* Accessory firmware modification: a conformant tag could have its software modified to circumvent unwanted location tracking features
+
+If any of these attacks are successful, attackers may be able to authenticate with the crowdsourced network via any device, and therefore access location information about the tag without complying with the DULT protocol. This could also make it more difficult for targets to locate tags. While it is not possible to limit the deployment of nonconformant tags, a successful protocol would minimize the ability of nonconformant tags to access the crowdsourced network.
+
+### Activities Logs
+
+	A successful implementation of the protocol should consider logging for two types of events: 1\) when an unwanted tracking alert is triggered, and 2\) when a location of a tag suspected of unwanted tracking is accessed via the crowdsourced network. The account and device are particularly important as tags may be shared by multiple accounts who may have many different devices. Logs should not be easily editable to avoid gaslighting and accountability efforts.
+
+At a bare minimum, a successful protocol would include a log file that is clearly labeled and easily accessible for users of a device that is not easily edited, clearly labeling the nature of the tracking alert. Each log event should include: the account, the device, GPS location, and the time. This log should ideally be stored on the device where the alert was triggered. Ideally, there would also be a log file that would also include the times at which the owner of the tracker checked its location while the tracker was close enough to the device to set off the unwanted tracker alert. This would require information from the crowdsourced network and it may be appropriate to be stored remotely.
+
+### Anti-theft mode
+	Tile has implemented an “Anti-Theft” mode that stops the tracker from setting off alerts when a target runs Tile’s “Scan and Secure” features on their own device. Users of this mode must agree to a multi-stage ID scan and send in a selfie to Tile for verification. This implementation plainly fails to meet DULT’s recommendation that tracking alerts should not be circumventable under any circumstance. The ID verification that a Tile user must pass in order to enable “Anti-Theft” mode is an insufficient mitigation against stalking because it is only useful if the physical item is found by the person being tracked, a circumstance that this “Anti-theft” mode is designed to prevent. Any mode that makes it possible to turn off tracking notifications is antithetical to DULT’s recommendations.
+
 ## Design Requirements
 
 The DULT Protocol should 1) allow Targets to detect Unwanted Tracking, 2) help Targets find Tags that are tracking them while minimizing false positives (e.g., avoiding legitimate, co-owned, or nearby Tags being misidentified as threats), and 3) provide instructions for Targets to disable those Tags if they choose. These affordances should be implemented while considering the appropriate privacy and security requirements.
@@ -696,6 +747,19 @@ Processing and memory constraints are another limiting factor, particularly for 
 Connectivity limitations introduce additional challenges. Some Unwanted Tracking detection mechanisms rely on cloud-based lookups to verify Tag identities and share threat intelligence. However, users in offline environments, such as those in airplane mode, rural areas with limited connectivity, or secure facilities with network restrictions, may be unable to access these services. In such cases, detection must rely on local scanning and offline heuristics rather than real-time cloud-based verification.
 
 To address these challenges, detection mechanisms should incorporate adaptive scanning strategies that adjust based on Device capabilities, optimizing performance while maintaining security. Lightweight detection methods, such as event-triggered scanning and passive Bluetooth listening, can improve efficiency on constrained Devices. Additionally, fallback mechanisms should be implemented to provide at least partial detection functionality even when full-featured scanning is not available. Ensuring that detection remains effective across diverse hardware and software environments is critical for broad user protection.
+
+## Priorities for the DULT WG
+
+While all of the above design considerations should be considered, the following topics are considered highest priority for the technical documents of the DULT WG to address:
+
+- Active Scanning
+  - The documents should ensure platforms implement active scanning for all DULT compliant Accessories.
+- Passive Scanning
+  - The documents should ensure Accessories and Devices implement finding algorithms, issue Unwanted Tracking Alerts and otherwise notify users of Accessories in proximity, and allow users to manage Unwanted Tracking Alerts to improve detection of Unwanted Tracking and/or prevent alarm fatigue
+- Remote Disablement
+  - The documents should consider whether Remote Disablement of Accessories is feasible to implement in a way that cannot be used to compromise the Crowdsourced Network
+- Crowdsourced Network Activities Logs
+  - The documents should provide guidance to platforms about how to implement activities logs to help Targets identify possible Unwanted Tracking
 
 # IANA Considerations
 
