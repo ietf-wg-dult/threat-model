@@ -5,10 +5,10 @@
 Detecting Unwanted Location Trackers                           M. Delano
 Internet-Draft                                        Swarthmore College
 Intended status: Informational                                 J. Lowell
-Expires: 1 June 2026           National Network to End Domestic Violence
+Expires: 30 August 2026        National Network to End Domestic Violence
                                                                S. Prabhu
                                                                    Nokia
-                                                        28 November 2025
+                                                        26 February 2026
 
 
                            DULT Threat Model
@@ -16,22 +16,22 @@ Expires: 1 June 2026           National Network to End Domestic Violence
 
 Abstract
 
-   Lightweight Location-tracking Tags are in wide use to allow users to
-   locate items.  These Tags function as a component of a Crowdsourced
-   Network in which Devices belonging to other network users (e.g.,
-   phones) report which Tags they see and their location, thus allowing
-   the Owner(s) of the Tag to determine where their Tag was most
-   recently seen.  While there are many legitimate uses of these Tags,
+   Lightweight location-tracking tags are in wide use to allow users to
+   locate items.  These tags function as a component of a crowdsourced
+   network in which devices belonging to other network users (e.g.,
+   phones) report which tags they see and their location, thus allowing
+   the owner(s) of the tag to determine where their tag was most
+   recently seen.  While there are many legitimate uses of these tags,
    they are also susceptible to misuse for the purpose of stalking and
-   abuse.  A protocol that allows others to detect Unwanted Tracking
-   must incorporate an understanding of the Unwanted Tracking landscape
+   abuse.  A protocol that allows others to detect unwanted tracking
+   must incorporate an understanding of the unwanted tracking landscape
    today.  This document provides a threat analysis for this purpose,
-   including a taxonomy of Unwanted Tracking and potential attacks
+   including a taxonomy of unwanted tracking and potential attacks
    against Detection of Unwanted Location Tracking (DULT) protocols.
-   The document defines what is in and out of scope for the Unwanted
-   Tracking protocols, and provides design requirements, constraints,
-   and considerations for implementation of protocols to detect Unwanted
-   Tracking.
+   The document defines what is in and out of scope for the unwanted
+   tracking protocols, and provides design requirements, constraints,
+   and considerations for implementation of protocols to detect unwanted
+   tracking.
 
 About This Document
 
@@ -67,11 +67,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 1 June 2026.
+   This Internet-Draft will expire on 30 August 2026.
 
 Copyright Notice
 
-   Copyright (c) 2025 IETF Trust and the persons identified as the
+   Copyright (c) 2026 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -140,10 +140,10 @@ Table of Contents
 
 1.  Introduction
 
-   Location-tracking Tags allow users to locate items.  These Tags
-   function as a component of a Crowdsourced Network in which Devices
+   Location-tracking tags allow users to locate items.  These tags
+   function as a component of a crowdsourced network in which devices
    belonging to other network users (e.g. phones) report on the location
-   of Tags they have seen.  At a high level, this works as follows:
+   of tags they have seen.  At a high level, this works as follows:
 
    *  Tags ("Accessories") transmit a Location-enabled Advertisement
       Payload containing Accessory-specific information.  The Payload
@@ -185,18 +185,19 @@ Table of Contents
 
    Detecting Unwanted Tracking is currently left to individual Tag
    manufacturers and Platforms on Non-Owner Devices.  Each manufacturer
-   and Platform has different implementations to prevent , which may or
-   may not be compatible with other manufacturers or Platforms.  The
-   goal of the IETF Detecting Unwanted Location Tracking (DULT) working
-   group is to standardize a protocol between Location-tracking Tags,
-   Non-Owner Devices, and Crowdsourced Networks.
+   and Platform has different implementations to prevent Unwanted
+   Tracking, which may or may not be compatible with other manufacturers
+   or Platforms.  The goal of the IETF Detecting Unwanted Location
+   Tracking (DULT) working group is to standardize a protocol between
+   Location-tracking Tags, Non-Owner Devices, and Crowdsourced Networks.
 
-   In order to standardize a protocol for detecting , thus minimizing
-   the privacy risks described above, it is necessary to analyze and be
-   able to model different privacy threats.  This document includes: 1)
-   a taxonomy of , 2) methods Attackers could use to circumvent the DULT
-   Protocol, and 3) design considerations for implementing the DULT
-   protocol.  The taxonomy of uses a flexible framework to provide
+   In order to standardize a protocol for Detecting Unwanted Location
+   Tracking, thus minimizing the privacy risks described above, it is
+   necessary to analyze and be able to model different privacy threats.
+   This document includes: 1) a taxonomy of Unwanted Tracking, 2)
+   methods Attackers could use to circumvent the DULT Protocol, and 3)
+   design considerations for implementing the DULT protocol.  The
+   taxonomy of Unwanted Tracking uses a flexible framework to provide
    analysis and modeling of different threat actors, as well as models
    of potential Targets based on their threat context.  It defines how
    these Attacker and Target persona models can be combined into threat
@@ -204,10 +205,10 @@ Table of Contents
    includes a threat matrix and description of several different
    possible attack vectors.  Finally, the design considerations section
    focuses on specific requirements and constraints for successfully
-   detecting , alerting users, and providing guidance on disabling Tags
-   (if desired).  This threat model document is intended to inform the
-   work of the implementation of the DULT Protocol as described in
-   [I-D.draft-ietf-dult-accessory-protocol] and
+   detecting Unwanted Tracking, alerting users, and providing guidance
+   on disabling Tags (if desired).  This threat model document is
+   intended to inform the work of the implementation of the DULT
+   Protocol as described in [I-D.draft-ietf-dult-accessory-protocol] and
    [I-D.draft-ietf-dult-finding].  The DULT Protocol is based on an
    earlier Internet Draft; see
    [I-D.draft-ledvina-apple-google-unwanted-trackers].
@@ -219,8 +220,8 @@ Table of Contents
    analysis for each possible technology in this document.  The threat
    model described here is likely not applicable to the following areas:
    app-based technologies such as parental monitoring apps that do not
-   use Location-tracking Accessories, Internet of Things (IoT) Devices
-   that are Easily Discoverable, connected cars, or user accounts for
+   use Location-tracking Accessories, Internet of Things (IoT) devices
+   that are easily discoverable, connected cars, or user accounts for
    cloud services or social media.  A notable exception to this is GPS
    trackers; see Section 3.3.2 for relevant information and
    recommendations.
@@ -283,15 +284,14 @@ Table of Contents
 
    *Detecting Unwanted Location Tracking (DULT) Protocol*  the protocol
       under development by the IETF DULT working Group to prevent
-      Unwanted Location Tracking.  This includes protocols for
-      Accessories and the crowd sourced network, along with algorithms
-      for detecting Unwanted Tracking.
+      Unwanted Tracking.  This includes protocols for Accessories and
+      the crowd sourced network, along with algorithms for detecting
+      Unwanted Tracking.
 
    *Easily Discoverable*:  an Accessory that is larger than 30 cm in at
       least one dimension, larger than 18 cm x 13 cm in two of its
       dimensions, and/or larger than 250 cm^3 in three-dimensional
-      space.  Location-tracking Accessories that are not Easily
-      Discoverable MUST adhere to the DULT protocol.
+      space.
 
    *Location-enabled Advertisement Payload*:  the Bluetooth (BT)
       advertisement payload that is advertised when an Accessory has
@@ -349,6 +349,9 @@ Table of Contents
    *Remote Disablement*:  the process of preventing a specific Location-
       tracking Accessory from communicating with the Crowdsourced
       Network via a command sent by a Platform.
+
+   *Tag*:  shorthand for Location-tracking Tag; see Location-tracking
+      Accessory for full definition.
 
    *Target*:  a individual who an Attacker is attempting to track
       without their consent.  A Target may or may not own a Location-
@@ -1994,9 +1997,9 @@ Table of Contents
               Ledvina, B., Eddinger, Z., Detwiler, B., and S. P.
               Polatkan, "Detecting Unwanted Location Trackers", Work in
               Progress, Internet-Draft, draft-ledvina-apple-google-
-              unwanted-trackers-01, 29 May 2025,
+              unwanted-trackers-02, 2 January 2026,
               <https://datatracker.ietf.org/doc/html/draft-ledvina-
-              apple-google-unwanted-trackers-01>.
+              apple-google-unwanted-trackers-02>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
