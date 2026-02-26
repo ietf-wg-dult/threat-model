@@ -530,7 +530,8 @@ When an Attacker deploys a GPS tracker to stalk a Target, they have access to gr
 
 The impact of this attack is high due to the increased location precision and real-time tracking functionality. The likelihood is medium, as these trackers are currently more expensive than Bluetooth based trackers, and not as readily available. As a result, the overall risk is high, requiring robust countermeasures. The impact of GPS trackers can be mitigated by adding Bluetooth crowdsourced location-tracking functionality to GPS trackers and adopting the DULT Protocol. However, the adoption of the DULT Protocol by GPS tracker manufacturers is of course optional, so this is considered a partial mitigation.
 
-## What is in scope
+
+## Scope and Priorities for the DULT WG {#what-is-in-scope}
 
 ### Technologies
 
@@ -543,6 +544,19 @@ An Attacker who deploys any of the attacks described in {{threat-prioritization-
 ### Target Profiles
 
 All Targets profiles are in scope regardless of their expertise, access to resources, or access to technological safeguards. For example, protocols should account for a Target's lack of access to a smartphone, and scenarios in which Targets cannot install separate software.
+
+### Priorities
+
+The technical documents of the DULT WG should consider all of the scenarios discussed in {{example-scenarios-with-analyses}}. When it comes to attacks, while all attacks on the DULT protocol are considered to be in scope, the following attacks are the highest risk and therefore considered the highest priority for the DULT WG to address:
+
+- Deploying Multiple Tags ({{deploying-multiple-tags-finding}})
+- Accessory Firmware Modifications ({{accessory-firmware-modifications-accessory}})
+- Tracking Using Target's Own Tag ({{tracking-using-targets-own-tag-network}})
+- Impersonation Attack (Tag) ({{impersonation-attack-tag-accessory-finding-network}})
+- Impersonation Attack (Device/Tag) ({{attacks-on-accessories-accessory-network}})
+- Deploying GPS Tracker ({{deploying-gps-tracker-accessory}})
+
+See {{threat-matrix}} for a full list of attacks.
 
 # Design Considerations
 
@@ -696,6 +710,19 @@ Processing and memory constraints are another limiting factor, particularly for 
 Connectivity limitations introduce additional challenges. Some Unwanted Tracking detection mechanisms rely on cloud-based lookups to verify Tag identities and share threat intelligence. However, users in offline environments, such as those in airplane mode, rural areas with limited connectivity, or secure facilities with network restrictions, may be unable to access these services. In such cases, detection must rely on local scanning and offline heuristics rather than real-time cloud-based verification.
 
 To address these challenges, detection mechanisms should incorporate adaptive scanning strategies that adjust based on Device capabilities, optimizing performance while maintaining security. Lightweight detection methods, such as event-triggered scanning and passive Bluetooth listening, can improve efficiency on constrained Devices. Additionally, fallback mechanisms should be implemented to provide at least partial detection functionality even when full-featured scanning is not available. Ensuring that detection remains effective across diverse hardware and software environments is critical for broad user protection.
+
+## Priorities for the DULT WG
+
+While all of the above design considerations should be considered, the following topics are considered highest priority for the technical documents of the DULT WG to address:
+
+- Active Scanning
+  - The documents should ensure platforms implement active scanning for all DULT compliant Accessories.
+- Passive Scanning
+  - The documents should ensure Accessories and Devices implement finding algorithms, issue Unwanted Tracking Alerts and otherwise notify users of Accessories in proximity, and allow users to manage Unwanted Tracking Alerts to prevent alarm fatigue
+- Remote Disablement
+  - The documents should consider whether Remote Disablement of Accessories is feasible to implement in a way that cannot be used to compromise the Crowdsourced Network
+- Crowdsourced Network Activities Logs
+  - The documents should provide guidance to platforms about how to implement activities logs to help Targets identify possible Unwanted Tracking
 
 # IANA Considerations
 
