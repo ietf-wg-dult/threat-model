@@ -772,4 +772,4 @@ This document has no IANA actions.
 # Acknowledgments
 {:numbered="false"}
 
-Many thanks for feedback from Brent Ledvina, Barry Leiba, Michael Ricardson, Eric Rescorla, Christine Fossaceca, Eva Galperin, and Alexis Hancock, and for contributed text from Corbin Streett and Diana Appanna. We also gratefully acknowledge the guidance and support of the DULT Working Group Chairs, Erica Olsen and Sean Turner, and the Area Director, Deb Cooley, throughout the development of this document.
+Many thanks for feedback from Brent Ledvina, Barry Leiba, Michael Ricardson, Eric Rescorla, Christine Fossaceca, and Alexis Hancock, and for contributed text from Corbin Streett, Diana Appanna, and Eva Galperin. We also gratefully acknowledge the guidance and support of the DULT Working Group Chairs, Erica Olsen and Sean Turner, and the Area Director, Deb Cooley, throughout the development of this document.
