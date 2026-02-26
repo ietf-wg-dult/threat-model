@@ -1590,34 +1590,20 @@ Table of Contents
    Platforms and Devices.  For example, the types and methods of
    obtaining Unwanted Tracking Alerts vary.  Current Accessory types
    also vary widely in the amount and type of information they provide
-   to a Target who has detected a possible unwanted tracker actively or
-   passively.  This creates a situation where a Target’s ability to
-   mitigate threats to their safety depends on consumer choices and
-   access.
-
-   As of this writing, major platforms do not currently implement both
-   Active and Passive Scanning.  Android users (including users of
-   devices with operating systems derived from Android OS, such as
-   Amazon’s FireOS) can actively scan for an Accessory, but passive
-   scanning is not supported. iOS users can receive potential Unwanted
-   Tracking Alerts generated through Passive Scanning, but cannot
-   actively scan for Accessories.  Because of this, protections are
-   contingent on both the type of Tag and the type of scanning Device.
-   These inconsistencies place a higher burden on targets of abuse to
-   find information specific to products, and create challenges in
-   creating easily understandable public safety information.  These
-   differences can also be exploited by an Attacker familiar with target
-   Platforms.  A successful protocol would support both Active and
-   Passive Scanning as this increases options for Targets who may be
-   dealing with highly individualized situations.
-
+   to a Target who has detected a possible unwanted tracker.  Platforms
+   also differ in their support for Active and Passive Scanning, and
+   which brands of Accessories they can scan for.  This creates a
+   situation where a Target’s ability to mitigate threats to their
+   safety depends on consumer choices and access, placing a higher
+   burden on Targets find information specific to products, and creating
+   challenges in creating easily understandable public safety
+   information.  These differences can also be exploited by an Attacker
+   familiar with target Platforms.  A successful protocol would support
+   both Active and Passive Scanning as this increases options for
+   Targets who may be dealing with highly individualized situations.
    The information provided in Unwanted Tracking Alerts, and the options
-   for a Target, would benefit from standardization across Platforms and
-   Devices.  Currently, Accessories made by different manufacturers
-   provide different amounts and types of information in detection
-   reports, with different options available to targets.  This is easily
-   exploited by an attacker familiar with the differences in Unwanted
-   Tracking Alerts.
+   for a Target, would also benefit from standardization across
+   Platforms and Devices.
 
 4.1.2.  Lack of customizability
 
