@@ -1703,11 +1703,11 @@ Table of Contents
    recommendation that tracking alerts should not be circumventable
    under any circumstance.  The ID verification that a Tile user must
    pass in order to enable “Anti-Theft” mode is an insufficient
-   mitigation against stalking because it is only useful if the physical
-   item is found by the person being tracked, a circumstance that this
-   “Anti-theft” mode is designed to prevent.  Any mode that makes it
-   possible to turn off Unwanted Tracking Alerts is antithetical to
-   DULT’s recommendations.
+   mitigation against Unwanted Tracking because it is only useful if the
+   physical item is found by the person being tracked, a circumstance
+   that this “Anti-theft” mode is designed to prevent.  Any mode that
+   makes it possible to turn off Unwanted Tracking Alerts is
+   antithetical to DULT’s recommendations.
 
 4.2.  Design Requirements
 
