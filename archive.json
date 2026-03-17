@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-03-01T02:05:43.483728+00:00",
+  "timestamp": "2026-03-17T01:57:44.788333+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -5991,7 +5991,7 @@
       "labels": [],
       "body": "Closes #173.\r\n\r\n@bledvina: what do you think about manual/background? Pairs better than active/passive since both are terms in BTLE scanning as you said. I also considered discussing active/passive scanning, but I think this is fine for the accessory-protocol document and does not need to be prescribed by this one.",
       "createdAt": "2026-02-26T23:08:37Z",
-      "updatedAt": "2026-02-26T23:08:37Z",
+      "updatedAt": "2026-03-16T21:48:53Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
       "baseRefOid": "706ebfb30e5da1ef0d056a5319aff3f03bb58bf3",
@@ -6002,8 +6002,37 @@
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
-      "reviews": []
+      "comments": [
+        {
+          "author": "bledvina",
+          "authorAssociation": "NONE",
+          "body": "@maggiedelano active and passive scanning are used to refer to two different types of scanning in BT spec. I'd suggest you move to manual and background to not confuse readers with the BT concepts of active and passive scanning.\r\n",
+          "createdAt": "2026-03-16T21:45:55Z",
+          "updatedAt": "2026-03-16T21:45:55Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOMB0Qas7r2KEA",
+          "commit": {
+            "abbreviatedOid": "32e511b"
+          },
+          "author": "bledvina",
+          "authorAssociation": "NONE",
+          "state": "CHANGES_REQUESTED",
+          "body": "",
+          "createdAt": "2026-03-16T21:47:58Z",
+          "updatedAt": "2026-03-16T21:48:53Z",
+          "comments": [
+            {
+              "originalPosition": 117,
+              "body": "@maggiedelano is this statement accurate \"Platforms also differ in their support for Active and Background Scanning?\" Are you intending to say the UI is different? Or something else?",
+              "createdAt": "2026-03-16T21:47:58Z",
+              "updatedAt": "2026-03-16T21:48:53Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
