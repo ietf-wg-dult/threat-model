@@ -5,10 +5,10 @@
 Detecting Unwanted Location Trackers                           M. Delano
 Internet-Draft                                        Swarthmore College
 Intended status: Informational                                 J. Lowell
-Expires: 30 August 2026        National Network to End Domestic Violence
+Expires: 21 September 2026     National Network to End Domestic Violence
                                                                S. Prabhu
                                                                    Nokia
-                                                        26 February 2026
+                                                           20 March 2026
 
 
                            DULT Threat Model
@@ -67,7 +67,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 30 August 2026.
+   This Internet-Draft will expire on 21 September 2026.
 
 Copyright Notice
 
@@ -1586,25 +1586,24 @@ Table of Contents
 
 4.1.1.  Spotty Implementation
 
-   In current implementations of the DULT protocol, implementations of
-   safeguards against Unwanted Tracking are inconsistent across
-   Platforms and Devices.  For example, the types and methods of
-   obtaining Unwanted Tracking Alerts vary.  Current Accessory types
-   also vary widely in the amount and type of information they provide
-   to a Target who has detected a possible unwanted tracker.  Platforms
-   also differ in their support for Active and Background Scanning, and
-   which brands of Accessories they can scan for.  This creates a
-   situation where a Target’s ability to mitigate threats to their
-   safety depends on consumer choices and access, placing a higher
-   burden on Targets find information specific to products, and creating
-   challenges in creating easily understandable public safety
-   information.  These differences can also be exploited by an Attacker
-   familiar with target Platforms.  A successful protocol would support
-   both Active and Background Scanning as this increases options for
-   Targets who may be dealing with highly individualized situations.
-   The information provided in Unwanted Tracking Alerts, and the options
-   for a Target, would also benefit from standardization across
-   Platforms and Devices.
+   Current implementations of safeguards against Unwanted Tracking are
+   inconsistent across Platforms and Devices.  For example, the types
+   and methods of obtaining Unwanted Tracking Alerts vary.  Current
+   Accessory types also vary widely in the amount and type of
+   information they provide to a Target who has detected a possible
+   unwanted tracker.  Platforms also differ in their support for Manual
+   and Background Scanning, and which brands of Accessories they can
+   scan for.  This creates a situation where a Target’s ability to
+   mitigate threats to their safety depends on consumer choices and
+   access, placing a higher burden on Targets to find information
+   specific to products, and creating challenges in creating easily
+   understandable public safety information.  These differences can also
+   be exploited by an Attacker familiar with target Platforms.  A
+   successful protocol would support both Manual and Background Scanning
+   as this increases options for Targets who may be dealing with highly
+   individualized situations.  The information provided in Unwanted
+   Tracking Alerts, and the options for a Target, would also benefit
+   from standardization across Platforms and Devices.
 
 4.1.2.  Lack of customizability
 
