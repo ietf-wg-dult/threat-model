@@ -1401,7 +1401,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="#section-1.1" class="section-number selfRef">1.1. </a><a href="#name-applicability" class="section-name selfRef">Applicability</a>
         </h3>
 <p id="section-1.1-1">While there are many types of technology that can be used for Location Tracking, it is infeasible to attempt to describe a threat analysis for each possible technology in this document. The threat model described here is likely not applicable to the following areas: app-based technologies such as parental monitoring apps that do not use Location-tracking Accessories, Internet of Things (IoT) devices that are easily discoverable, connected cars, or user accounts for cloud services or social media. A notable exception to this is GPS trackers; see <a href="#bluetooth-vs-other-technologies" class="auto internal xref">Section 3.3.2</a> for relevant information and recommendations.<a href="#section-1.1-1" class="pilcrow">¶</a></p>
-<p id="section-1.1-2">This threat model is also more likely to be applicable in regions where the use of Location-tracking Tags is more prevalent. While Location-tracking Tags have existed for over a decade, they became especially widely-used in the Global North in the last several years as Crowdsourced Networks were deployed by major smart phone manufacturers. However, due to their reliance on a high density of Non-Owner Devices for the network to be effective and the relative cost of Location-tracking Tags, Location-tracking Tag use in the Global South is typically limited to affluent communities. If the cost of Non-Owner Devices and Location-tracking Tags decrease, an uptick of  could also occur in contexts where it is currently infeasible. This threat-model does still attempt to consider possible regional differences in Location-tracking Tag use (such as differences between rural and urban use), and also the sometimes limited resources that may be available to Targets of .<a href="#section-1.1-2" class="pilcrow">¶</a></p>
+<p id="section-1.1-2">This threat model is also more likely to be applicable in regions where the use of Location-tracking Tags is more prevalent. While Location-tracking Tags have existed for over a decade, they became especially widely-used in the Global North in the last several years as Crowdsourced Networks were deployed by major smart phone manufacturers. However, due to their reliance on a high density of Non-Owner Devices for the network to be effective and the relative cost of Location-tracking Tags, Location-tracking Tag use in the Global South is typically limited to affluent communities. If the cost of Non-Owner Devices and Location-tracking Tags decrease, an uptick of  could also occur in contexts where it is currently infeasible. This threat-model does still attempt to consider possible regional differences in Location-tracking Tag use (such as differences between rural and urban use), and also the sometimes limited resources that may be available to Targets of Unwanted Tracking.<a href="#section-1.1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1435,152 +1435,158 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
 </dd>
           <dd class="break"></dd>
 <dt id="section-2.2-1.3">
-<strong>Attacker</strong>:</dt>
+<strong>Active Scanning</strong>:</dt>
           <dd style="margin-left: 1.5em" id="section-2.2-1.4">
-            <p id="section-2.2-1.4.1">any individual, group, or organization that is attempting to engage in  and/or circumvention of the DULT Protocol.<a href="#section-2.2-1.4.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-1.4.1">method(s) of Unwanted Tracking detection that involves a user initiated scan for nearby Accessories. Contrast with Passive Scanning.<a href="#section-2.2-1.4.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-2.2-1.5">
-<strong>Background Scanning</strong>:</dt>
+<strong>Attacker</strong>:</dt>
           <dd style="margin-left: 1.5em" id="section-2.2-1.6">
-            <p id="section-2.2-1.6.1">method(s) of Unwanted Tracking detection that are running in the background on all Devices and may trigger Unwanted Tracking Alerts. Contrast with Manual Scanning.<a href="#section-2.2-1.6.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-1.6.1">any individual, group, or organization that is attempting to engage in Unwanted Tracking and/or circumvention of the DULT Protocol.<a href="#section-2.2-1.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-2.2-1.7">
-<strong>Crowdsourced Network</strong>:</dt>
+<strong>Background Scanning</strong>:</dt>
           <dd style="margin-left: 1.5em" id="section-2.2-1.8">
-            <p id="section-2.2-1.8.1">a service that Platforms communicate with to share and retrieve location information of Accessories.<a href="#section-2.2-1.8.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-1.8.1">method(s) of Unwanted Tracking detection that are running in the background on all Devices and may trigger Unwanted Tracking Alerts. Contrast with Manual Scanning.<a href="#section-2.2-1.8.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-2.2-1.9">
-<strong>Disablement</strong>:</dt>
+<strong>Crowdsourced Network</strong>:</dt>
           <dd style="margin-left: 1.5em" id="section-2.2-1.10">
-            <p id="section-2.2-1.10.1">the process of preventing a specific Location-tracking Accessory from communicating with the Crowdsourced Network. This could be through physical means (e.g. removing the battery) or via a command sent by a Platform to an Accessory (e.g. Remote Disablement).<a href="#section-2.2-1.10.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-1.10.1">a service that Platforms communicate with to share and retrieve location information of Accessories.<a href="#section-2.2-1.10.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-2.2-1.11">
-<strong>Disablement Instructions</strong>:</dt>
+<strong>Disablement</strong>:</dt>
           <dd style="margin-left: 1.5em" id="section-2.2-1.12">
-            <p id="section-2.2-1.12.1">steps Non-Owner Device users can take to disable a Location-tracking Accessory suspected of Unwanted Tracking.<a href="#section-2.2-1.12.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-1.12.1">the process of preventing a specific Location-tracking Accessory from communicating with the Crowdsourced Network. This could be through physical means (e.g. removing the battery) or via a command sent by a Platform to an Accessory (e.g. Remote Disablement).<a href="#section-2.2-1.12.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-2.2-1.13">
-<strong>Device</strong>:</dt>
+<strong>Disablement Instructions</strong>:</dt>
           <dd style="margin-left: 1.5em" id="section-2.2-1.14">
-            <p id="section-2.2-1.14.1">Hardware that includes software for a Platform and that can connect to Accessories and one or more Crowdsourced Networks. Examples of Devices are phones, tablets, laptops, etc.<a href="#section-2.2-1.14.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-1.14.1">steps Non-Owner Device users can take to disable a Location-tracking Accessory suspected of Unwanted Tracking.<a href="#section-2.2-1.14.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-2.2-1.15"><strong>Detecting Unwanted Location Tracking (DULT) Protocol</strong></dt>
+<dt id="section-2.2-1.15">
+<strong>Device</strong>:</dt>
           <dd style="margin-left: 1.5em" id="section-2.2-1.16">
-            <p id="section-2.2-1.16.1">the protocol under development by the IETF DULT working Group to prevent Unwanted Tracking. This includes protocols for Accessories and the crowd sourced network, along with algorithms for detecting Unwanted Tracking.<a href="#section-2.2-1.16.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-1.16.1">Hardware that includes software for a Platform and that can connect to Accessories and one or more Crowdsourced Networks. Examples of Devices are phones, tablets, laptops, etc.<a href="#section-2.2-1.16.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-2.2-1.17">
-<strong>Easily Discoverable</strong>:</dt>
+<dt id="section-2.2-1.17"><strong>Detecting Unwanted Location Tracking (DULT) Protocol</strong></dt>
           <dd style="margin-left: 1.5em" id="section-2.2-1.18">
-            <p id="section-2.2-1.18.1">an Accessory that is larger than 30 cm in at least one dimension, larger than 18 cm x 13 cm in two of its dimensions, and/or larger than 250 cm<sup>3</sup> in three-dimensional space.<a href="#section-2.2-1.18.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-1.18.1">the protocol under development by the IETF DULT working Group to prevent Unwanted Tracking. This includes protocols for Accessories and the crowd sourced network, along with algorithms for detecting Unwanted Tracking.<a href="#section-2.2-1.18.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-2.2-1.19">
-<strong>Location-enabled Advertisement Payload</strong>:</dt>
+<strong>Easily Discoverable</strong>:</dt>
           <dd style="margin-left: 1.5em" id="section-2.2-1.20">
-            <p id="section-2.2-1.20.1">the Bluetooth (BT) advertisement payload that is advertised when an Accessory has recently, is currently, or will in the future provide location updates to its Owner.<a href="#section-2.2-1.20.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-1.20.1">an Accessory that is larger than 30 cm in at least one dimension, larger than 18 cm x 13 cm in two of its dimensions, and/or larger than 250 cm<sup>3</sup> in three-dimensional space.<a href="#section-2.2-1.20.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-2.2-1.21">
-<strong>Location-enabled State</strong>:</dt>
+<strong>Location-enabled Advertisement Payload</strong>:</dt>
           <dd style="margin-left: 1.5em" id="section-2.2-1.22">
-            <p id="section-2.2-1.22.1">the state an Accessory is in where its location can be remotely viewed by its Owner.<a href="#section-2.2-1.22.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-1.22.1">the Bluetooth (BT) advertisement payload that is advertised when an Accessory has recently, is currently, or will in the future provide location updates to its Owner.<a href="#section-2.2-1.22.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-2.2-1.23">
-<strong>Location-tracking Accessory</strong>:</dt>
+<strong>Location-enabled State</strong>:</dt>
           <dd style="margin-left: 1.5em" id="section-2.2-1.24">
-            <p id="section-2.2-1.24.1">any Accessory that has location-tracking capabilities, including, but not limited to, crowdsourced location, GPS/GNSS location, WiFi location, cell location, etc., and provides the location information back to an Owner Device via a Crowdsourced Network using the internet, cellular connection, etc. Location-tracking Accessories that are Easily Discoverable <span class="bcp14">MUST</span> adhere to the DULT Protocol. Location-tracking Accessories may also be referred to as Location-tracking Tags.<a href="#section-2.2-1.24.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-1.24.1">the state an Accessory is in where its location can be remotely viewed by its Owner.<a href="#section-2.2-1.24.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-2.2-1.25">
-<strong>Location-tracking Tag</strong>:</dt>
+<strong>Location-tracking Accessory</strong>:</dt>
           <dd style="margin-left: 1.5em" id="section-2.2-1.26">
-            <p id="section-2.2-1.26.1">a term that may be used interchangeably with Location-tracking Accessory.<a href="#section-2.2-1.26.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-1.26.1">any Accessory that has location-tracking capabilities, including, but not limited to, crowdsourced location, GPS/GNSS location, WiFi location, cell location, etc., and provides the location information back to an Owner Device via a Crowdsourced Network using the internet, cellular connection, etc. Location-tracking Accessories that are Easily Discoverable <span class="bcp14">MUST</span> adhere to the DULT Protocol. Location-tracking Accessories may also be referred to as Location-tracking Tags.<a href="#section-2.2-1.26.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-2.2-1.27">
-<strong>Manual Scanning</strong>:</dt>
+<strong>Location-tracking Tag</strong>:</dt>
           <dd style="margin-left: 1.5em" id="section-2.2-1.28">
-            <p id="section-2.2-1.28.1">method(s) of  detection that involve(s) a user initiated scan for nearby Accessories. Contrast with Background Scanning.<a href="#section-2.2-1.28.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-1.28.1">a term that may be used interchangeably with Location-tracking Accessory.<a href="#section-2.2-1.28.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-2.2-1.29">
-<strong>Non-Owner Device</strong>:</dt>
+<strong>Manual Scanning</strong>:</dt>
           <dd style="margin-left: 1.5em" id="section-2.2-1.30">
-            <p id="section-2.2-1.30.1">a Device that may connect to an Accessory but is not an Owner Device of that Accessory.<a href="#section-2.2-1.30.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-1.30.1">method(s) of  detection that involve(s) a user initiated scan for nearby Accessories. Contrast with Background Scanning.<a href="#section-2.2-1.30.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-2.2-1.31">
-<strong>Owner</strong>:</dt>
+<strong>Non-Owner Device</strong>:</dt>
           <dd style="margin-left: 1.5em" id="section-2.2-1.32">
-            <p id="section-2.2-1.32.1">an individual that is in active control of and the primary user of an Owner Device. An Owner may be associated with one or more Accessories and/or Devices.<a href="#section-2.2-1.32.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-1.32.1">a Device that may connect to an Accessory but is not an Owner Device of that Accessory.<a href="#section-2.2-1.32.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-2.2-1.33">
-<strong>Owner Device</strong>:</dt>
+<strong>Owner</strong>:</dt>
           <dd style="margin-left: 1.5em" id="section-2.2-1.34">
-            <p id="section-2.2-1.34.1">a Device that is associated with the Accessory and can retrieve the Accessory's location by querying the Crowdsourced Network.<a href="#section-2.2-1.34.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-1.34.1">an individual that is in active control of and the primary user of an Owner Device. An Owner may be associated with one or more Accessories and/or Devices.<a href="#section-2.2-1.34.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-2.2-1.35">
-<strong>(Obfuscated) Owner Information</strong>:</dt>
+<strong>Owner Device</strong>:</dt>
           <dd style="margin-left: 1.5em" id="section-2.2-1.36">
-            <p id="section-2.2-1.36.1">(obfuscated) contact information for an Accessory Owner. When an Accessory is marked as lost, this should include a phone number and/or email address. Otherwise, the information should be obfuscated to ensure privacy of Owners in cases where Accessories are falsely suspected of Unwanted Tracking or an Attacker attempts to determine the Owner of an Accessory. The information should include no more than the last two digits of a phone number and/or an obfuscated email address with the first letter of the username and entity visible, as well as the entire extension (e.g., b<strong>**</strong><strong>@i</strong>***.com).<a href="#section-2.2-1.36.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-1.36.1">a Device that is associated with the Accessory and can retrieve the Accessory's location by querying the Crowdsourced Network.<a href="#section-2.2-1.36.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-2.2-1.37">
-<strong>Platform</strong>:</dt>
+<strong>(Obfuscated) Owner Information</strong>:</dt>
           <dd style="margin-left: 1.5em" id="section-2.2-1.38">
-            <p id="section-2.2-1.38.1">Operating systems that communicate with Accessories.<a href="#section-2.2-1.38.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-1.38.1">(obfuscated) contact information for an Accessory Owner. When an Accessory is marked as lost, this should include a phone number and/or email address. Otherwise, the information should be obfuscated to ensure privacy of Owners in cases where Accessories are falsely suspected of Unwanted Tracking or an Attacker attempts to determine the Owner of an Accessory. The information should include no more than the last two digits of a phone number and/or an obfuscated email address with the first letter of the username and entity visible, as well as the entire extension (e.g., b<strong>**</strong><strong>@i</strong>***.com).<a href="#section-2.2-1.38.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-2.2-1.39">
-<strong>Platform-compatible Method</strong>:</dt>
+<strong>Platform</strong>:</dt>
           <dd style="margin-left: 1.5em" id="section-2.2-1.40">
-            <p id="section-2.2-1.40.1">a method of communication between the Platform and the Accessory/Accessory manufacturers to exchange information, including, but not limited to, BT GATT protocol, BT advertisement, HTTP, etc.<a href="#section-2.2-1.40.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-1.40.1">Operating systems that communicate with Accessories.<a href="#section-2.2-1.40.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-2.2-1.41">
-<strong>Remote Disablement</strong>:</dt>
+<strong>Platform-compatible Method</strong>:</dt>
           <dd style="margin-left: 1.5em" id="section-2.2-1.42">
-            <p id="section-2.2-1.42.1">the process of preventing a specific Location-tracking Accessory from communicating with the Crowdsourced Network via a command sent by a Platform.<a href="#section-2.2-1.42.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-1.42.1">a method of communication between the Platform and the Accessory/Accessory manufacturers to exchange information, including, but not limited to, BT GATT protocol, BT advertisement, HTTP, etc.<a href="#section-2.2-1.42.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-2.2-1.43">
-<strong>Tag</strong>:</dt>
+<strong>Remote Disablement</strong>:</dt>
           <dd style="margin-left: 1.5em" id="section-2.2-1.44">
-            <p id="section-2.2-1.44.1">shorthand for Location-tracking Tag; see Location-tracking Accessory for full definition.<a href="#section-2.2-1.44.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-1.44.1">the process of preventing a specific Location-tracking Accessory from communicating with the Crowdsourced Network via a command sent by a Platform.<a href="#section-2.2-1.44.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-2.2-1.45">
-<strong>Target</strong>:</dt>
+<strong>Tag</strong>:</dt>
           <dd style="margin-left: 1.5em" id="section-2.2-1.46">
-            <p id="section-2.2-1.46.1">a individual who an Attacker is attempting to track without their consent. A Target may or may not own a Location-tracking Accessory.<a href="#section-2.2-1.46.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-1.46.1">shorthand for Location-tracking Tag; see Location-tracking Accessory for full definition.<a href="#section-2.2-1.46.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-2.2-1.47">
-<strong>Unwanted (Location) Tracking (UT)</strong>:</dt>
+<strong>Target</strong>:</dt>
           <dd style="margin-left: 1.5em" id="section-2.2-1.48">
-            <p id="section-2.2-1.48.1">undesired tracking of a person, their property, or their belongings by a Location-tracking Accessory.<a href="#section-2.2-1.48.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-1.48.1">a individual who an Attacker is attempting to track without their consent. A Target may or may not own a Location-tracking Accessory.<a href="#section-2.2-1.48.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-2.2-1.49">
-<strong>Unwanted Tracking Alert</strong>:</dt>
+<strong>Unwanted (Location) Tracking (UT)</strong>:</dt>
           <dd style="margin-left: 1.5em" id="section-2.2-1.50">
-            <p id="section-2.2-1.50.1">an alert from a Device which notifies the user of the presence of an unrecognized Accessory that may be traveling with them over time. The alert allows the user to take various actions, including sending a command to the Accessory to emit a sound if the Accessory is in Bluetooth Low Energy (BLE) range.<a href="#section-2.2-1.50.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-1.50.1">undesired tracking of a person, their property, or their belongings by a Location-tracking Accessory.<a href="#section-2.2-1.50.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-2.2-1.51">
-<strong>Unwanted Tracking Detection</strong>:</dt>
+<strong>Unwanted Tracking Alert</strong>:</dt>
           <dd style="margin-left: 1.5em" id="section-2.2-1.52">
-            <p id="section-2.2-1.52.1">algorithms that detect the presence of an unknown Accessory traveling with a person over time.<a href="#section-2.2-1.52.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-1.52.1">an alert from a Device which notifies the user of the presence of an unrecognized Accessory that may be traveling with them over time. The alert allows the user to take various actions, including sending a command to the Accessory to emit a sound if the Accessory is in Bluetooth Low Energy (BLE) range.<a href="#section-2.2-1.52.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-2.2-1.53">
+<strong>Unwanted Tracking Detection</strong>:</dt>
+          <dd style="margin-left: 1.5em" id="section-2.2-1.54">
+            <p id="section-2.2-1.54.1">algorithms that detect the presence of an unknown Accessory traveling with a person over time.<a href="#section-2.2-1.54.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
 </dl>
