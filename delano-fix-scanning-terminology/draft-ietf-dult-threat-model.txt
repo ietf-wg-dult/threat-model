@@ -1591,9 +1591,9 @@ Table of Contents
    and methods of obtaining Unwanted Tracking Alerts vary.  Current
    Accessory types also vary widely in the amount and type of
    information they provide to a Target who has detected a possible
-   unwanted tracker.  Platforms also differ in their support for Manual
-   and Background Scanning, and which brands of Accessories they can
-   scan for.  This creates a situation where a Target’s ability to
+   unwanted tracker.  Platforms also differ in which brands of
+   Accessories they can scan for and when Manual scanning can be
+   performed.  This creates a situation where a Target’s ability to
    mitigate threats to their safety depends on consumer choices and
    access, placing a higher burden on Targets to find information
    specific to products, and creating challenges in creating easily
