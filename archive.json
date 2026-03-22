@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-03-17T01:57:44.788333+00:00",
+  "timestamp": "2026-03-22T02:02:32.343703+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -5991,13 +5991,13 @@
       "labels": [],
       "body": "Closes #173.\r\n\r\n@bledvina: what do you think about manual/background? Pairs better than active/passive since both are terms in BTLE scanning as you said. I also considered discussing active/passive scanning, but I think this is fine for the accessory-protocol document and does not need to be prescribed by this one.",
       "createdAt": "2026-02-26T23:08:37Z",
-      "updatedAt": "2026-03-16T21:48:53Z",
+      "updatedAt": "2026-03-20T14:13:01Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
-      "baseRefOid": "706ebfb30e5da1ef0d056a5319aff3f03bb58bf3",
+      "baseRefOid": "4365892b4693ad01fa538750acb3aa29f10844bb",
       "headRepository": "ietf-wg-dult/threat-model",
       "headRefName": "delano-fix-scanning-terminology",
-      "headRefOid": "32e511b04e14d4e2b4ba29f95bd6ce0dfd516064",
+      "headRefOid": "5dced9be1c8e5ac381569f52fac8766108195d4d",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -6009,6 +6009,13 @@
           "body": "@maggiedelano active and passive scanning are used to refer to two different types of scanning in BT spec. I'd suggest you move to manual and background to not confuse readers with the BT concepts of active and passive scanning.\r\n",
           "createdAt": "2026-03-16T21:45:55Z",
           "updatedAt": "2026-03-16T21:45:55Z"
+        },
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@bledvina Fixed the issue where \"active\" had not been replaced with \"manual.\" I think all instances of this are fixed now. Also clarified what was meant in the spotty implementation section.\r\n\r\n",
+          "createdAt": "2026-03-20T14:12:13Z",
+          "updatedAt": "2026-03-20T14:12:13Z"
         }
       ],
       "reviews": [
@@ -6029,6 +6036,26 @@
               "body": "@maggiedelano is this statement accurate \"Platforms also differ in their support for Active and Background Scanning?\" Are you intending to say the UI is different? Or something else?",
               "createdAt": "2026-03-16T21:47:58Z",
               "updatedAt": "2026-03-16T21:48:53Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOMB0Qas7tVTCZ",
+          "commit": {
+            "abbreviatedOid": "32e511b"
+          },
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-03-20T14:10:10Z",
+          "updatedAt": "2026-03-20T14:10:10Z",
+          "comments": [
+            {
+              "originalPosition": 117,
+              "body": "@bledvina I updated this to clarify what was meant by this sentence: \"Platforms also differ in which brands of Accessories they can scan for and when Manual scanning can be performed.\"",
+              "createdAt": "2026-03-20T14:10:10Z",
+              "updatedAt": "2026-03-20T14:11:25Z"
             }
           ]
         }
