@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-03-22T02:02:32.343703+00:00",
+  "timestamp": "2026-03-29T02:10:51.998874+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -2181,6 +2181,22 @@
       "body": "The current document focuses on establishing a threat model to assist the current DULT WG in developing technical documents to address the shortcomings of present-day unwanted location tracking detection. We should consider whether to adapt the document in any way to consider other audiences (I'm leaning toward no on this for now, but including it as an issue to consider further.)",
       "createdAt": "2026-02-26T22:36:56Z",
       "updatedAt": "2026-02-26T22:36:56Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 177,
+      "id": "I_kwDOMB0Qas73EazV",
+      "title": "Highlighting threats & limitations",
+      "url": "https://github.com/ietf-wg-dult/threat-model/issues/177",
+      "state": "OPEN",
+      "author": "cstapl",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Suggestion to help readers easily navigate key areas of the document (threats and limitations) through retitling sub-headings as so:\n\n3. Threat Matrix\n3.1 Threat: Deploying Multiple Tags (Finding)\n3.2 Threat: Remote Advertisement Monitoring (Accessory, Network)\n3.3 Threat: Physically Modifying Tags (Accessory)\n3.4 ...\nand so on...\n\n4. Design Considerations\n4.1 Limitations of existing approaches\n4.1.1. Limitation: Spotty Implementation\n4.1.2. Limitation: Lack of Customizability\n4.1.3. Limitation: Difficulty Finding and Disabling Tags\n4.1.4 ...\nand so on...\n\n\n\n",
+      "createdAt": "2026-03-26T15:41:25Z",
+      "updatedAt": "2026-03-26T15:42:20Z",
       "closedAt": null,
       "comments": []
     }
@@ -6060,6 +6076,32 @@
           ]
         }
       ]
+    },
+    {
+      "number": 178,
+      "id": "PR_kwDOMB0Qas7NxkIn",
+      "title": "Highlighting threats, limitations, design requirements, and prioritie\u2026",
+      "url": "https://github.com/ietf-wg-dult/threat-model/pull/178",
+      "state": "OPEN",
+      "author": "cstapl",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "\u2026s: Update draft-ietf-dult-threat-model.md\r\n\r\nAdded details to sub-headers for easier document navigation",
+      "createdAt": "2026-03-26T15:54:29Z",
+      "updatedAt": "2026-03-26T15:54:30Z",
+      "baseRepository": "ietf-wg-dult/threat-model",
+      "baseRefName": "main",
+      "baseRefOid": "4365892b4693ad01fa538750acb3aa29f10844bb",
+      "headRepository": "cstapl/threat-model",
+      "headRefName": "patch-3",
+      "headRefOid": "9c0e333411afb933d6e20f1fdb657be33a72842b",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
