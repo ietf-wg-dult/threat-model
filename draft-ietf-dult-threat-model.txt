@@ -5,10 +5,10 @@
 Detecting Unwanted Location Trackers                           M. Delano
 Internet-Draft                                        Swarthmore College
 Intended status: Informational                                 J. Lowell
-Expires: 30 August 2026        National Network to End Domestic Violence
+Expires: 1 October 2026        National Network to End Domestic Violence
                                                                S. Prabhu
                                                                    Nokia
-                                                        26 February 2026
+                                                           30 March 2026
 
 
                            DULT Threat Model
@@ -67,7 +67,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 30 August 2026.
+   This Internet-Draft will expire on 1 October 2026.
 
 Copyright Notice
 
@@ -105,20 +105,23 @@ Table of Contents
      3.4.  Possible Attacks on the DULT Protocol
        3.4.1.  Threat Prioritization Framework for DULT Threat Model
        3.4.2.  Threat Matrix
-       3.4.3.  Deploying Multiple Tags (Finding)
-       3.4.4.  Remote Advertisement Monitoring (Accessory, Network)
-       3.4.5.  Physically Modifying Tags (Accessory)
-       3.4.6.  Accessory Firmware Modifications (Accessory)
-       3.4.7.  Attacker Accessory Disablement (Accessory, Finding)
-       3.4.8.  Tracking Using Target's Own Tag (Network)
-       3.4.9.  Disabling Target Tag Detection (Network)
-       3.4.10. Disabling Target Tag (Accessory, Network)
-       3.4.11. Impersonation Attack (Tag; Accessory, Finding, Network)
-       3.4.12. Impersonation Attack (Device)
-       3.4.13. Replay Attack (Accessory, Network)
-       3.4.14. Heterogeneous Tag Networks (Accessory, Finding,
+       3.4.3.  Threat: Deploying Multiple Tags (Finding)
+       3.4.4.  Threat: Remote Advertisement Monitoring (Accessory,
                Network)
-       3.4.15. Deploying GPS Tracker (Accessory)
+       3.4.5.  Threat: Physically Modifying Tags (Accessory)
+       3.4.6.  Threat: Accessory Firmware Modifications (Accessory)
+       3.4.7.  Threat: Attacker Accessory Disablement (Accessory,
+               Finding)
+       3.4.8.  Threat: Tracking Using Target's Own Tag (Network)
+       3.4.9.  Threat: Disabling Target Tag Detection (Network)
+       3.4.10. Threat: Disabling Target Tag (Accessory, Network)
+       3.4.11. Threat: Impersonation Attack (Tag; Accessory, Finding,
+               Network)
+       3.4.12. Threat: Impersonation Attack (Device)
+       3.4.13. Threat: Replay Attack (Accessory, Network)
+       3.4.14. Threat: Heterogeneous Tag Networks (Accessory, Finding,
+               Network)
+       3.4.15. Threat: Deploying GPS Tracker (Accessory)
      3.5.  Scope and Priorities for the DULT WG
        3.5.1.  Technologies
        3.5.2.  Attacker Profiles
@@ -127,12 +130,12 @@ Table of Contents
    4.  Design Considerations
      4.1.  Limitations of existing approaches to detecting and
            preventing Unwanted Tracking
-       4.1.1.  Spotty Implementation
-       4.1.2.  Lack of customizability
-       4.1.3.  Difficulty finding and disabling tags
-       4.1.4.  Nonconformant Tags
-       4.1.5.  Activities Logs
-       4.1.6.  Anti-theft mode
+       4.1.1.  Limitation: Spotty Implementation
+       4.1.2.  Limitation: Lack of customizability
+       4.1.3.  Limitation: Difficulty finding and disabling tags
+       4.1.4.  Limitation: Nonconformant Tags
+       4.1.5.  Limitation: Activities Logs
+       4.1.6.  Limitation: Anti-theft mode
      4.2.  Design Requirements
        4.2.1.  Detecting Unwanted Location Tracking
        4.2.2.  Finding Tracking Tags
@@ -1149,7 +1152,7 @@ Table of Contents
 
                                   Table 16
 
-3.4.3.  Deploying Multiple Tags (Finding)
+3.4.3.  Threat: Deploying Multiple Tags (Finding)
 
    When an Attacker deploys Location-tracking Tags to follow a Target,
    they may deploy more than one Tag. For example, if planting a
@@ -1179,7 +1182,7 @@ Table of Contents
    (Section 3.4.6) or periodically disabling a Tag (Section 3.4.7) to
    evade detection.
 
-3.4.4.  Remote Advertisement Monitoring (Accessory, Network)
+3.4.4.  Threat: Remote Advertisement Monitoring (Accessory, Network)
 
    Any Device with Bluetooth scanning capabilities in proximity to a
    Location-tracking Tag can receive Bluetooth advertisement packets.
@@ -1223,7 +1226,7 @@ Table of Contents
    that BLE Accessories using rotating identifiers can be deanonymized
    through RSSI-based correlation techniques.
 
-3.4.5.  Physically Modifying Tags (Accessory)
+3.4.5.  Threat: Physically Modifying Tags (Accessory)
 
    An Attacker might physically modify a Tag in ways that make it non-
    conformant with the DULT Protocol.  Physical modifications may
@@ -1237,7 +1240,7 @@ Table of Contents
    as monitoring the impedance of the speaker, but these mitigations are
    limited as Attackers have physical access to the Tags.
 
-3.4.6.  Accessory Firmware Modifications (Accessory)
+3.4.6.  Threat: Accessory Firmware Modifications (Accessory)
 
    The DULT Protocol (see [I-D.draft-ietf-dult-accessory-protocol]) will
    specify that Accessory firmware images MUST be authenticated, and
@@ -1260,7 +1263,7 @@ Table of Contents
    high.  Partial mitigation of this attack is possible by requiring
    Accessories to verify the integrity and origin of firmware.
 
-3.4.7.  Attacker Accessory Disablement (Accessory, Finding)
+3.4.7.  Threat: Attacker Accessory Disablement (Accessory, Finding)
 
    An Attacker might intentionally disable their Location-tracking Tag
    to make it harder for a Victim to detect and/or locate the Tag. This
@@ -1276,7 +1279,7 @@ Table of Contents
    mitigated by minimizing the time needed to detect Unwanted Tracking
    and maintaining the same identifier on reset.
 
-3.4.8.  Tracking Using Target's Own Tag (Network)
+3.4.8.  Threat: Tracking Using Target's Own Tag (Network)
 
    Attackers with access to a Target’s account, either through password
    reuse, phishing, social engineering, or credential theft, can exploit
@@ -1304,7 +1307,7 @@ Table of Contents
    these features depend on Platform implementation and may not be
    uniformly enforced.
 
-3.4.9.  Disabling Target Tag Detection (Network)
+3.4.9.  Threat: Disabling Target Tag Detection (Network)
 
    An Attacker might intentionally disable passive Unwanted Tracking
    detection on a Target's Device.
@@ -1318,7 +1321,7 @@ Table of Contents
    tracking using other means e.g. sounds or haptics on Location-
    tracking Tags.
 
-3.4.10.  Disabling Target Tag (Accessory, Network)
+3.4.10.  Threat: Disabling Target Tag (Accessory, Network)
 
    An Attacker might intentionally disable a Target's Tag as a form of
    harassment.  This could be done with physical access to the Tag,
@@ -1334,7 +1337,7 @@ Table of Contents
    that a change has been made on their account, similar to suspicious
    login notifications.
 
-3.4.11.  Impersonation Attack (Tag; Accessory, Finding, Network)
+3.4.11.  Threat: Impersonation Attack (Tag; Accessory, Finding, Network)
 
    Attackers might be able to impersonate legitimate tracking
    Accessories, enabling tracking without complying with the DULT
@@ -1378,13 +1381,13 @@ Table of Contents
    impersonation attacks by restricting low-level BLE broadcasting
    unless elevated privileges are granted.
 
-3.4.12.  Impersonation Attack (Device)
+3.4.12.  Threat: Impersonation Attack (Device)
 
    In addition to impersonating a Tag, an Attacker could also
    impersonate a Device.  This affords attacks against both Accessories
    and against the Crowdsourced Network.
 
-3.4.12.1.  Attacks on Accessories (Accessory, Network)
+3.4.12.1.  Threat: Attacks on Accessories (Accessory, Network)
 
    Any Bluetooth transmitter can theoretically send arbitrary commands
    to Accessories.  Accessory firmware therefore must attempt to verify
@@ -1410,7 +1413,7 @@ Table of Contents
    Mitigation is partial; while Devices cannot be prevented from
    transmitting packets, certain rules can be enforced by Accessories.
 
-3.4.12.2.  Attacks on Crowdsourced Network (Network)
+3.4.12.2.  Threat: Attacks on Crowdsourced Network (Network)
 
    An impersonated Device could send false location reports to the
    Crowdsourced Network, or selectively not report to the Crowdsourced
@@ -1428,7 +1431,7 @@ Table of Contents
    Crowdsourced Network and only trusting reports when they can be
    verified by multiple Devices.
 
-3.4.13.  Replay Attack (Accessory, Network)
+3.4.13.  Threat: Replay Attack (Accessory, Network)
 
    In addition to impersonating legitimate Accessories (see
    Section 3.4.11), Attackers can record and replay Bluetooth
@@ -1448,7 +1451,8 @@ Table of Contents
    Accessories and Devices.  Partial mitigation may be possible by
    authenticating messages from Accessories in a time varying manner.
 
-3.4.14.  Heterogeneous Tag Networks (Accessory, Finding, Network)
+3.4.14.  Threat: Heterogeneous Tag Networks (Accessory, Finding,
+         Network)
 
    Attackers may use a mix of Tags from different manufacturers (e.g.,
    Apple AirTags, Tile, Samsung SmartTags) to exploit gaps in vendor-
@@ -1465,7 +1469,7 @@ Table of Contents
    the DULT Protocol and ensuring that the DULT Protocol is sufficiently
    clear to minimize gaps in vendor-specific tracking protections.
 
-3.4.15.  Deploying GPS Tracker (Accessory)
+3.4.15.  Threat: Deploying GPS Tracker (Accessory)
 
    When an Attacker deploys a GPS tracker to stalk a Target, they have
    access to greater location precision, real-time tracking, and even
@@ -1585,7 +1589,7 @@ Table of Contents
    A successful implementation of the DULT protocol would consider each
    of these limitations as described in the relevant sections below.
 
-4.1.1.  Spotty Implementation
+4.1.1.  Limitation: Spotty Implementation
 
    In current implementations of the DULT protocol, implementations of
    safeguards against Unwanted Tracking are inconsistent across
@@ -1607,7 +1611,7 @@ Table of Contents
    for a Target, would also benefit from standardization across
    Platforms and Devices.
 
-4.1.2.  Lack of customizability
+4.1.2.  Limitation: Lack of customizability
 
    Potential Targets’ ability to customize Unwanted Tracking Alerts is
    currently limited, as they cannot control the sensitivity of tracking
@@ -1629,7 +1633,7 @@ Table of Contents
    risk level (e.g. “high risk” or “low risk” for a pattern of unwanted
    tracking).
 
-4.1.3.  Difficulty finding and disabling tags
+4.1.3.  Limitation: Difficulty finding and disabling tags
 
    Location-tracking Tags are small by design and can be difficult to
    locate.  While many Tags have speakers or haptics to help users
@@ -1646,7 +1650,7 @@ Table of Contents
    can be implemented without otherwise compromising the Crowdsourced
    Network.
 
-4.1.4.  Nonconformant Tags
+4.1.4.  Limitation: Nonconformant Tags
 
    Attackers can deploy a variety of attacks involving Nonconformant
    Tags:
@@ -1673,7 +1677,7 @@ Table of Contents
    minimize the ability of nonconformant Tags to access the crowdsourced
    network.
 
-4.1.5.  Activities Logs
+4.1.5.  Limitation: Activities Logs
 
    A successful implementation of the protocol should consider logging
    for two types of events: 1) when an Unwanted Tracking Alert is
@@ -1695,7 +1699,7 @@ Table of Contents
    This would require information from the Crowdsourced Network and it
    may be appropriate to be stored remotely.
 
-4.1.6.  Anti-theft mode
+4.1.6.  Limitation: Anti-theft mode
 
    Tile has implemented an “Anti-Theft” mode that stops the tracker from
    setting off Unwanted Tracking Alerts when a target runs Tile’s “Scan
@@ -1728,7 +1732,7 @@ Table of Contents
    passive scanning, 3) tracking Tag alerts, and 4) Crowdsourced Network
    activities logs.
 
-4.2.1.1.  Active Scanning
+4.2.1.1.  Design Requirement: Active Scanning
 
    There may be scenarios where a Target suspects that they are being
    tracked without their consent.  Active scanning should allow a user
@@ -1746,7 +1750,7 @@ Table of Contents
    near their Owners should not be shared to avoid abuse of the active
    scanning feature.
 
-4.2.1.2.  Passive Scanning
+4.2.1.2.  Design Requirement: Passive Scanning
 
    Platforms should passively scan for Tags suspected of Unwanted
    Tracking and notify the user.  This will involve implementing one or
@@ -1872,7 +1876,7 @@ Table of Contents
    Appearances in unfamiliar or private locations without explanation
    raise concern.
 
-4.2.1.3.  Location-tracking Tag Alerts
+4.2.1.3.  Design Requirement: Location-tracking Tag Alerts
 
    Location-tracking Tags may be difficult to locate, and users may not
    have a Device that can actively or passively scan for Location-
@@ -1887,7 +1891,7 @@ Table of Contents
    should also educate the user on methods to successfully find and
    disable Tags (see Section 4.2.2 and Section 4.2.3).
 
-4.2.1.4.  Crowdsourced Network Activities Logs
+4.2.1.4.  Design Requirement: Crowdsourced Network Activities Logs
 
    Stephenson et al. (https://www.usenix.org/system/files/
    usenixsecurity23-stephenson-lessons.pdf) point out that Internet of
@@ -2168,12 +2172,12 @@ Table of Contents
    the following topics are considered highest priority for the
    technical documents of the DULT WG to address:
 
-   *  Active Scanning
+   *  Priority 1: Active Scanning
 
       -  The documents should ensure platforms implement active scanning
          for all DULT compliant Accessories.
 
-   *  Passive Scanning
+   *  Priority 2: Passive Scanning
 
       -  The documents should ensure Accessories and Devices implement
          finding algorithms, issue Unwanted Tracking Alerts and
@@ -2181,18 +2185,18 @@ Table of Contents
          users to manage Unwanted Tracking Alerts to improve detection
          of Unwanted Tracking and/or prevent alarm fatigue
 
-   *  Nonconformant Accessories
+   *  Priority 3: Nonconformant Accessories
 
       -  The documents should consider how to minimize the ability of
          nonconformant Accessories to access the Crowdsourced Network
 
-   *  Remote Disablement
+   *  Priority 4: Remote Disablement
 
       -  The documents should consider whether Remote Disablement of
          Accessories is feasible to implement in a way that cannot be
          used to compromise the Crowdsourced Network
 
-   *  Crowdsourced Network Activities Logs
+   *  Priority 5: Crowdsourced Network Activities Logs
 
       -  The documents should provide guidance to platforms about how to
          implement activities logs to help Targets identify possible
