@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-03-29T02:10:51.998874+00:00",
+  "timestamp": "2026-03-31T02:08:42.118642+00:00",
   "repo": "ietf-wg-dult/threat-model",
   "labels": [
     {
@@ -1987,7 +1987,7 @@
       "id": "I_kwDOMB0Qas7V0ABA",
       "title": "Consider moving attacks before taxonomy",
       "url": "https://github.com/ietf-wg-dult/threat-model/issues/160",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "maggiedelano",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
@@ -1996,8 +1996,8 @@
       ],
       "body": "Watson Ladd wrote:\n\n> IMHO, I think we  \nshould start by describing what Attackers can do. They can place tags  \non Victims or their belongings, they can try to exploit existing tags  \nthe Victim has either secretly or by attempting to trigger them, etc.  \nThat's material we have in 3.4, and I think a lot of it isn't  \ncircumventing DULT, but rather general attacks. Then we can have the  \ntaxonomy of various attack scenarios. It is not easy reading, and I  \nknow it was not easy to write. I think it very much belongs in this  \ndocument: the stakes are real.  \n\n> Once we have that down, then the motivation and background to  \nunderstand the concerns about tags needing to be easy to locate even  \nafter notification, in a multimodal way, or need for devices  \nimplementing to be able to work stand-alone, are present. This would  \nbe the material in 3 that's dult specific or in depth responses to  \nparticular aspects of the attacks in the taxonomy. My hope is that  \nthis reorganization makes it easier to find what mitigations are  \nrequired where when searching in the doc and makes it easier to read  \nthrough and understand. Conceptually we have threat model, taxonomy of  \nattacks, and then mitigations for things the DULT protocol itself  \ncannot in this new organization. \n\nI'm definitely open to this but I think we can probably make the smaller changes first and see where that leaves us.\n\n",
       "createdAt": "2025-11-04T15:52:02Z",
-      "updatedAt": "2025-12-05T14:49:46Z",
-      "closedAt": null,
+      "updatedAt": "2026-03-30T12:44:37Z",
+      "closedAt": "2026-03-30T12:44:37Z",
       "comments": [
         {
           "author": "maggiedelano",
@@ -2189,16 +2189,24 @@
       "id": "I_kwDOMB0Qas73EazV",
       "title": "Highlighting threats & limitations",
       "url": "https://github.com/ietf-wg-dult/threat-model/issues/177",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "cstapl",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Suggestion to help readers easily navigate key areas of the document (threats and limitations) through retitling sub-headings as so:\n\n3. Threat Matrix\n3.1 Threat: Deploying Multiple Tags (Finding)\n3.2 Threat: Remote Advertisement Monitoring (Accessory, Network)\n3.3 Threat: Physically Modifying Tags (Accessory)\n3.4 ...\nand so on...\n\n4. Design Considerations\n4.1 Limitations of existing approaches\n4.1.1. Limitation: Spotty Implementation\n4.1.2. Limitation: Lack of Customizability\n4.1.3. Limitation: Difficulty Finding and Disabling Tags\n4.1.4 ...\nand so on...\n\n\n\n",
       "createdAt": "2026-03-26T15:41:25Z",
-      "updatedAt": "2026-03-26T15:42:20Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2026-03-30T12:09:24Z",
+      "closedAt": "2026-03-30T12:09:24Z",
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Fixed in #178.",
+          "createdAt": "2026-03-30T12:09:24Z",
+          "updatedAt": "2026-03-30T12:09:24Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -6007,13 +6015,13 @@
       "labels": [],
       "body": "Closes #173.\r\n\r\n@bledvina: what do you think about manual/background? Pairs better than active/passive since both are terms in BTLE scanning as you said. I also considered discussing active/passive scanning, but I think this is fine for the accessory-protocol document and does not need to be prescribed by this one.",
       "createdAt": "2026-02-26T23:08:37Z",
-      "updatedAt": "2026-03-20T14:13:01Z",
+      "updatedAt": "2026-03-30T12:43:32Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
-      "baseRefOid": "4365892b4693ad01fa538750acb3aa29f10844bb",
+      "baseRefOid": "c1930c728971f075e695ca6d2e14094ed4bd310d",
       "headRepository": "ietf-wg-dult/threat-model",
       "headRefName": "delano-fix-scanning-terminology",
-      "headRefOid": "5dced9be1c8e5ac381569f52fac8766108195d4d",
+      "headRefOid": "ba6ace0bf17f3b523dd476cef6f03b46e1fec058",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -6032,6 +6040,13 @@
           "body": "@bledvina Fixed the issue where \"active\" had not been replaced with \"manual.\" I think all instances of this are fixed now. Also clarified what was meant in the spotty implementation section.\r\n\r\n",
           "createdAt": "2026-03-20T14:12:13Z",
           "updatedAt": "2026-03-20T14:12:13Z"
+        },
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "body": "incorporated changes from #178 into this PR",
+          "createdAt": "2026-03-30T12:43:32Z",
+          "updatedAt": "2026-03-30T12:43:32Z"
         }
       ],
       "reviews": [
@@ -6082,26 +6097,42 @@
       "id": "PR_kwDOMB0Qas7NxkIn",
       "title": "Highlighting threats, limitations, design requirements, and prioritie\u2026",
       "url": "https://github.com/ietf-wg-dult/threat-model/pull/178",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "cstapl",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "\u2026s: Update draft-ietf-dult-threat-model.md\r\n\r\nAdded details to sub-headers for easier document navigation",
       "createdAt": "2026-03-26T15:54:29Z",
-      "updatedAt": "2026-03-26T15:54:30Z",
+      "updatedAt": "2026-03-30T12:07:56Z",
       "baseRepository": "ietf-wg-dult/threat-model",
       "baseRefName": "main",
       "baseRefOid": "4365892b4693ad01fa538750acb3aa29f10844bb",
       "headRepository": "cstapl/threat-model",
       "headRefName": "patch-3",
-      "headRefOid": "9c0e333411afb933d6e20f1fdb657be33a72842b",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "cfb6669ef831e57c8e77d340969ac24b3bb2ca3c",
+      "closedAt": "2026-03-30T12:07:55Z",
+      "mergedAt": "2026-03-30T12:07:55Z",
+      "mergedBy": "maggiedelano",
+      "mergeCommit": {
+        "oid": "c1930c728971f075e695ca6d2e14094ed4bd310d"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOMB0Qas7wNmAy",
+          "commit": {
+            "abbreviatedOid": "cfb6669"
+          },
+          "author": "maggiedelano",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-03-30T12:07:47Z",
+          "updatedAt": "2026-03-30T12:07:47Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
