@@ -11,24 +11,25 @@
 <meta content="
        Lightweight location-tracking tags are in wide use to allow users to locate items. These tags function as a component of a crowdsourced network in which devices belonging to other network users (e.g., phones) report which tags they see and their location, thus allowing the owner(s) of the tag to determine where their tag was most recently seen. While there are many legitimate uses of these tags, they are also susceptible to misuse for the purpose of stalking and abuse. A protocol that allows others to detect unwanted tracking must incorporate an understanding of the unwanted tracking landscape today. This document provides a threat analysis for this purpose, including a taxonomy of unwanted tracking and potential attacks against Detection of Unwanted Location Tracking (DULT) protocols. The document defines what is in and out of scope for the unwanted tracking protocols, and provides design requirements, constraints, and considerations for implementation of protocols to detect unwanted tracking. 
     " name="description">
-<meta content="xml2rfc 3.32.0" name="generator">
+<meta content="xml2rfc 3.34.0" name="generator">
 <meta content="Internet-Draft" name="keyword">
 <meta content="detecting unwanted location trackers" name="keyword">
 <meta content="threat model" name="keyword">
 <meta content="draft-ietf-dult-threat-model-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.32.0
-    Python 3.12.12
-    ConfigArgParse 1.7
+  xml2rfc 3.34.0
+    Python 3.14.5
+    ConfigArgParse 1.7.5
     google-i18n-address 3.1.1
     intervaltree 3.2.1
     Jinja2 3.1.6
-    lxml 6.0.2
-    platformdirs 4.9.4
+    lxml 6.1.1
+    natsort 8.4.0
+    platformdirs 4.11.0
     pycountry 24.6.1
     PyYAML 6.0.3
-    requests 2.32.5
-    wcwidth 0.6.0
+    requests 2.33.1
+    wcwidth 0.8.2
 -->
 <link href="draft-ietf-dult-threat-model.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -64,7 +65,6 @@
   src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-latin-ext.woff2') format('woff2');
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
-
 @font-face {
   font-family: 'Lora';
   font-style: italic;
@@ -113,7 +113,6 @@
   src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-latin.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
-
 @font-face {
   font-family: 'Lora';
   font-style: normal;
@@ -178,7 +177,6 @@
   font-display: swap;
   src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
 }
 
 @font-face {
@@ -295,16 +293,19 @@ h1, h2, h3, h4, h5, h6 {
   font-size-adjust: 0.5;
   color: var(--title-color);
 }
-h1#title {
-  font-size: 32px;
-  line-height: 40px;
-  clear: both;
-}
-h1#title, h1#rfcnum {
-  margin: 1.5em 0 0.2em;
-}
-h1#rfcnum + h1#title {
-  margin: 0.2em 0;
+h1 {
+  &#title {
+    font-size: 32px;
+    line-height: 40px;
+    clear: both;
+    margin: 1.5em 0 0.2em;
+  }
+  &#rfcnum {
+    margin: 1.5em 0 0.2em;
+    & + h1#title {
+      margin: 0.2em 0;
+    }
+  }
 }
 
 h1, h2, h3 {
@@ -324,10 +325,10 @@ h4, h5, h6 {
 #abstract+p {
   font-size: 18px;
   line-height: 24px;
-}
-#abstract+p code, #abstract+p samp, #abstract+p tt {
-  font-size: 16px;
-  line-height: 0;
+  & code, & samp, & tt {
+    font-size: 16px;
+    line-height: 0;
+  }
 }
 
 p {
@@ -338,59 +339,59 @@ p {
 div {
   margin: 0;
 }
-.alignRight.art-text {
-  background-color: var(--highlight-color);
-  border: 1px solid var(--line-color);
-  border-radius: 3px;
-  padding: 0.5em 1em 0;
-  margin-bottom: 0.5em;
-}
-.alignRight.art-text pre {
-  padding: 0;
-  width: auto;
-}
 .alignRight {
   margin: 1em 0;
-}
-.alignRight > *:first-child {
-  border: none;
-  margin: 0;
-  float: right;
-  clear: both;
-}
-.alignRight > *:nth-child(2) {
-  clear: both;
-  display: block;
-  border: none;
+  &.art-text {
+    background-color: var(--highlight-color);
+    border: 1px solid var(--line-color);
+    border-radius: 3px;
+    padding: 0.5em 1em 0;
+    margin-bottom: 0.5em;
+    & pre {
+      padding: 0;
+      width: auto;
+    }
+  }
+  & > *:first-child {
+    border: none;
+    margin: 0;
+    float: right;
+    clear: both;
+  }
+  & > *:nth-child(2) {
+    clear: both;
+    display: block;
+    border: none;
+  }
 }
 svg {
   display: block;
-}
-/* font-family isn't space-separated, but =~ will have to do */
-svg[font-family~="monospace" i], svg [font-family~="monospace" i] {
-  font-family: var(--font-mono);
-}
-.alignCenter.art-text {
-  background-color: var(--highlight-color);
-  border: 1px solid var(--line-color);
-  border-radius: 3px;
-  padding: 0.5em 1em 0;
-  margin-bottom: 0.5em;
-}
-.alignCenter.art-text pre {
-  padding: 0;
-  width: auto;
+  /* font-family isn't space-separated, but =~ will have to do */
+  &[font-family~="monospace" i], & [font-family~="monospace" i] {
+    font-family: var(--font-mono);
+  }
 }
 .alignCenter {
   margin: 1em 0;
-}
-.alignCenter > *:first-child {
-  border: none;
-  /* this isn't optimal, but it's an existence proof.  PrinceXML doesn't
-     support flexbox yet.
-  */
-  display: table;
-  margin: 0 auto;
+  &.art-text {
+    background-color: var(--highlight-color);
+    border: 1px solid var(--line-color);
+    border-radius: 3px;
+    padding: 0.5em 1em 0;
+    margin-bottom: 0.5em;
+    & pre {
+      padding: 0;
+      width: auto;
+    }
+  }
+  & > *:first-child {
+    border: none;
+    /* this isn't optimal, but it's an existence proof.  PrinceXML doesn't
+       support flexbox yet.
+    */
+    display: table;
+    margin: 0 auto;
+  }
 }
 
 /* lists */
@@ -428,26 +429,25 @@ dl {
     --indent: 5ch;
     & > dt {
       min-width: calc(var(--indent) - 2ch);
+      float: none;
     }
-  }
-  &.olPercent > dt {
-    float: none;
   }
 
   dl > dd > & {
     margin-top: 0.5em;
     margin-bottom: 0;
   }
-}
-dl:not(.dlNewline) > dt {
-  float: left;
-  margin-right: 2ch;
-  min-width: 8ch;
-}
-dl > dd {
-  margin-bottom: .8em;
-  margin-left: var(--indent) !important; /* stupid element overrides */
-  min-height: 2ex;
+
+  &:not(.dlNewline) > dt {
+    float: left;
+    margin-right: 2ch;
+    min-width: 8ch;
+  }
+  & > dd {
+    margin-bottom: .8em;
+    margin-left: var(--indent) !important; /* stupid element overrides */
+    min-height: 2ex;
+  }
 }
 :is(dl.compact, .dlCompact) > dd {
   margin-bottom: 0;
@@ -463,20 +463,22 @@ dl > dd {
 }
 
 /* links */
-a, a[href].selfRef:hover {
+a {
   text-decoration: none;
+  &[href] {
+    color: var(--link-color);
+    &:hover { text-decoration: underline; }
+    &.selfRef {
+      color: var(--text-color);
+      &:hover {
+        text-decoration: none;
+        background-color: var(--highlight-color);
+      }
+    }
+  }
 }
-a[href] {
-  color: var(--link-color);
-}
-a[href].selfRef, .iref + a[href].internal {
+.iref + a[href].internal {
   color: var(--text-color);
-}
-a[href]:hover {
-  text-decoration: underline;
-}
-a[href].selfRef:hover {
-  background-color: var(--highlight-color);
 }
 a.xref:is(.cite, .auto), :is(#status-of-memo, #copyright) a {
   white-space: nowrap;
@@ -512,9 +514,9 @@ img {
 figure {
   margin: 0.5em 0;
   padding: 0;
-}
-figure blockquote {
-  margin: 0.8em 0.4em 0.4em;
+  & blockquote {
+    margin: 0.8em 0.4em 0.4em;
+  }
 }
 figcaption, caption {
   font-style: italic;
@@ -524,17 +526,19 @@ figcaption, caption {
 }
 @media screen {
   /* Auto-collapse boilerplate. */
-  :is(#status-of-memo, #copyright) p {
-    margin: -2px 0;
-    max-height: 0;
-    transition: max-height 2s ease, margin 0.5s ease 0.5s;
-    overflow: hidden;
-  }
-  :is(#status-of-memo, #copyright):hover p,
-  :is(#status-of-memo, #copyright) h2:target ~ p {
-    margin: 0.5em 0;
-    max-height: 500px;
-    overflow: auto;
+  :is(#status-of-memo, #copyright) {
+    & p {
+      margin: -2px 0;
+      max-height: 0;
+      transition: max-height 2s ease, margin 0.5s ease 0.5s;
+      overflow: hidden;
+    }
+    &:hover p,
+    & h2:target ~ p {
+      margin: 0.5em 0;
+      max-height: 500px;
+      overflow: auto;
+    }
   }
   pre, svg {
     display: inline-block;
@@ -584,25 +588,17 @@ table {
   max-width: 100%;
   margin: 0 0 1em;
   border-collapse: collapse;
-}
-table.right {
-  margin-left: auto;
-}
-table.center {
-  margin-left: auto;
-  margin-right: auto;
-}
-table.left {
-  margin-right: auto;
-}
-table .text-left {
-  text-align: left;
-}
-table .text-center {
-  text-align: center;
-}
-table .text-right {
-  text-align: right;
+  &.right { margin-left: auto; }
+  &.center { margin-left: auto; margin-right: auto; }
+  &.left { margin-right: auto; }
+  & .text-left { text-align: left; }
+  & .text-center { text-align: center; }
+  & .text-right { text-align: right; }
+  & caption {
+    margin: 0;
+    padding: 3px 0 3px 1em;
+  }
+  & p { margin: 0; }
 }
 
 thead, tbody {
@@ -622,13 +618,6 @@ th {
 :is(tr:nth-child(2n+1), thead+tbody > tr:nth-child(2n)) > td {
   background-color: var(--highlight-color);
 }
-table caption {
-  margin: 0;
-  padding: 3px 0 3px 1em;
-}
-table p {
-  margin: 0;
-}
 
 /* pilcrow */
 a.pilcrow {
@@ -639,18 +628,16 @@ a.pilcrow {
     color: var(--pilcrow-weak);
     &:hover { text-decoration: none; }
   }
-}
-@media not print {
-  :hover > a.pilcrow, a.pilcrow:focus {
-    opacity: 1;
+  @media not print {
+    :hover > &, &:focus {
+      opacity: 1;
+    }
+    &[href]:hover {
+      color: var(--pilcrow-strong);
+      background-color: transparent;
+    }
   }
-  a.pilcrow[href]:hover {
-    color: var(--pilcrow-strong);
-    background-color: transparent;
-  }
-}
-@media print {
-  a.pilcrow {
+  @media print {
     display: none;
   }
 }
@@ -709,9 +696,9 @@ sub, sup {
   font-size: 0.9em;
   font-style: italic;
   margin-top: 2em;
-}
-.docInfo .prepared {
-  float: right;
+  & .prepared {
+    float: right;
+  }
 }
 
 /* table of contents */
@@ -801,23 +788,27 @@ hr.addr {
   max-width: calc(100% - 16px);
 }
 @media (min-width: 500px) {
-  #authors-addresses > section {
-    column-count: 2;
-    column-gap: 20px;
-  }
-  #authors-addresses > section > h2 {
-    column-span: all;
-  }
-  /* hack for break-inside: avoid-column */
-  #authors-addresses address {
-    display: inline-block;
-    break-inside: avoid-column;
+  #authors-addresses {
+    & > section {
+      column-count: 2;
+      column-gap: 20px;
+    }
+    & > section > h2 {
+      column-span: all;
+    }
+    /* hack for break-inside: avoid-column */
+    & address {
+      display: inline-block;
+      break-inside: avoid-column;
+    }
   }
 }
 
 /* Comments */
-.rfcEditorRemove p:first-of-type {
-  font-style: italic;
+.rfcEditorRemove {
+  & p:first-of-type {
+    font-style: italic;
+  }
 }
 .cref {
   background-color: rgba(249, 232, 105, 0.3);
@@ -828,19 +819,21 @@ hr.addr {
 }
 
 @media screen {
-  #toc nav {
-    font-family: var(--font-title);
-    font-weight: 360;
-    & > ul { margin-bottom: 2em; }
-    & ul {
-      margin: 0 0 0 4px;
-      & :is(p, li) {
-        margin: 2px 0;
+  #toc {
+    & nav {
+      font-family: var(--font-title);
+      font-weight: 360;
+      & > ul { margin-bottom: 2em; }
+      & ul {
+        margin: 0 0 0 4px;
+        & :is(p, li) {
+          margin: 2px 0;
+        }
       }
     }
-  }
-  #toc a.toplink {
-    float: right;
+    & a.toplink {
+      float: right;
+    }
   }
 }
 @media not screen {
@@ -861,54 +854,54 @@ hr.addr {
     margin: 0;
     border-bottom: 1px solid #ccc;
     opacity: 0.6;
-  }
-  #toc h2 {
-    margin: 0;
-    padding: 2px 0 2px 6px;
-    padding-right: 1em;
-    font-size: 18px;
-    line-height: 24px;
-    min-width: 190px;
-    text-align: right;
-    background-color: #444;
-    color: white;
-    cursor: pointer;
-    &::before { /* css hamburger */
-      float: right;
-      position: relative;
-      width: 1em;
-      height: 1px;
-      left: -164px;
-      margin: 8px 0 0 0;
-      background: white none repeat scroll 0 0;
-      box-shadow: 0 4px 0 0 white, 0 8px 0 0 white;
-      content: "";
+    & h2 {
+      margin: 0;
+      padding: 2px 0 2px 6px;
+      padding-right: 1em;
+      font-size: 18px;
+      line-height: 24px;
+      min-width: 190px;
+      text-align: right;
+      background-color: #444;
+      color: white;
+      cursor: pointer;
+      &::before { /* css hamburger */
+        float: right;
+        position: relative;
+        width: 1em;
+        height: 1px;
+        left: -164px;
+        margin: 8px 0 0 0;
+        background: white none repeat scroll 0 0;
+        box-shadow: 0 4px 0 0 white, 0 8px 0 0 white;
+        content: "";
+      }
     }
-  }
-  #toc nav {
-    display: none;
-    background-color: var(--background-color);
-    padding: 0.5em 1em 1em;
-    overflow: auto;
-    overscroll-behavior: contain;
-    height: calc(100vh - 48px);
-    border-left: 1px solid #ddd;
-  }
-  #toc.active {
-    opacity: 1;
-    & nav { display: block; }
-  }
-  /* Make the collapsed ToC header render white on gray also when it's a link */
-  #toc h2 a,
-  #toc h2 a:is(:link, :focus, :hover),
-  #toc a.toplink,
-  #toc a.toplink:hover {
-    color: white;
-    background-color: #444;
-    text-decoration: none;
-  }
-  #toc a.toplink {
-    margin: 2px 0.5em 0;
+    & nav {
+      display: none;
+      background-color: var(--background-color);
+      padding: 0.5em 1em 1em;
+      overflow: auto;
+      overscroll-behavior: contain;
+      height: calc(100vh - 48px);
+      border-left: 1px solid #ddd;
+    }
+    &.active {
+      opacity: 1;
+      & nav { display: block; }
+    }
+    /* Make the collapsed ToC header render white on gray also when it's a link */
+    & h2 a,
+    & h2 a:is(:link, :focus, :hover),
+    & a.toplink,
+    & a.toplink:hover {
+      color: white;
+      background-color: #444;
+      text-decoration: none;
+    }
+    & a.toplink {
+      margin: 2px 0.5em 0;
+    }
   }
 }
 
@@ -927,26 +920,26 @@ hr.addr {
     margin: 0;
     padding: 0;
     z-index: 1;
-  }
-  #toc h2 {
-    margin: 0;
-    padding: 0.25em 1em 1em 0;
-  }
-  #toc nav {
-    display: block;
-    height: calc(90vh - 84px);
-    bottom: 0;
-    padding: 0.5em 0 2em;
-    overflow: auto;
-    overscroll-behavior: contain;
-    scrollbar-width: thin;
+    & h2 {
+      margin: 0;
+      padding: 0.25em 1em 1em 0;
+    }
+    & nav {
+      display: block;
+      height: calc(90vh - 84px);
+      bottom: 0;
+      padding: 0.5em 0 2em;
+      overflow: auto;
+      overscroll-behavior: contain;
+      scrollbar-width: thin;
+    }
+    & a.toplink {
+      margin: 8px 0.5em 0;
+    }
   }
   img { /* future proofing */
     max-width: 100%;
     height: auto;
-  }
-  #toc a.toplink {
-    margin: 8px 0.5em 0;
   }
 }
 
@@ -962,12 +955,13 @@ hr.addr {
   #n-copyright-notice {
     border-bottom: none;
   }
-  #toc, #n-introduction {
-    page-break-before: always;
-  }
   #toc {
+    page-break-before: always;
     border-top: none;
     padding-top: 0;
+  }
+  #n-introduction {
+    page-break-before: always;
   }
   figure, pre, .vcard {
     page-break-inside: avoid;
@@ -1029,17 +1023,19 @@ hr.addr {
 }
 
 /* SVG Trick: a prefix match works because only black and white are allowed */
-svg :is([stroke="black"], [stroke^="#000"]) {
-  stroke: var(--text-color);
-}
-svg :is([stroke="white"], [stroke^="#fff"]) {
-  stroke: var(--background-color);
-}
-svg :is([fill="black"], [fill^="#000"], :not([fill])) {
-  fill: var(--text-color);
-}
-svg :is([fill="white"], [fill^="#fff"]) {
-  fill: var(--background-color);
+svg {
+  & :is([stroke="black"], [stroke^="#000"]) {
+    stroke: var(--text-color);
+  }
+  & :is([stroke="white"], [stroke^="#fff"]) {
+    stroke: var(--background-color);
+  }
+  & :is([fill="black"], [fill^="#000"], :not([fill])) {
+    fill: var(--text-color);
+  }
+  & :is([fill="white"], [fill^="#fff"]) {
+    fill: var(--background-color);
+  }
 }
 </style>
 
@@ -1049,11 +1045,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">DULT Threat Model</td>
-<td class="right">March 2026</td>
+<td class="right">August 2026</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Delano, et al.</td>
-<td class="center">Expires 1 October 2026</td>
+<td class="center">Expires 7 February 2027</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1066,12 +1062,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-dult-threat-model-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-03-30" class="published">30 March 2026</time>
+<time datetime="2026-08-06" class="published">6 August 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-10-01">1 October 2026</time></dd>
+<dd class="expires"><time datetime="2027-02-07">7 February 2027</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1129,7 +1125,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 1 October 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 7 February 2027.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1435,15 +1431,15 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
 </dd>
           <dd class="break"></dd>
 <dt id="section-2.2-1.3">
-<strong>Active Scanning</strong>:</dt>
+<strong>Attacker</strong>:</dt>
           <dd style="margin-left: 1.5em" id="section-2.2-1.4">
-            <p id="section-2.2-1.4.1">method(s) of Unwanted Tracking detection that involves a user initiated scan for nearby Accessories. Contrast with Passive Scanning.<a href="#section-2.2-1.4.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-1.4.1">any individual, group, or organization that is attempting to engage in Unwanted Tracking and/or circumvention of the DULT Protocol.<a href="#section-2.2-1.4.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-2.2-1.5">
-<strong>Attacker</strong>:</dt>
+<strong>Background Scanning</strong>:</dt>
           <dd style="margin-left: 1.5em" id="section-2.2-1.6">
-            <p id="section-2.2-1.6.1">any individual, group, or organization that is attempting to engage in Unwanted Tracking and/or circumvention of the DULT Protocol.<a href="#section-2.2-1.6.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-1.6.1">method(s) of Unwanted Tracking detection that are running in the background on all Devices and may trigger Unwanted Tracking Alerts. Contrast with Manual Scanning.<a href="#section-2.2-1.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-2.2-1.7">
@@ -1506,33 +1502,33 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
 </dd>
           <dd class="break"></dd>
 <dt id="section-2.2-1.27">
-<strong>Non-Owner Device</strong>:</dt>
+<strong>Manual Scanning</strong>:</dt>
           <dd style="margin-left: 1.5em" id="section-2.2-1.28">
-            <p id="section-2.2-1.28.1">a Device that may connect to an Accessory but is not an Owner Device of that Accessory.<a href="#section-2.2-1.28.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-1.28.1">method(s) of  detection that involve(s) a user initiated scan for nearby Accessories. Contrast with Background Scanning.<a href="#section-2.2-1.28.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-2.2-1.29">
-<strong>Owner</strong>:</dt>
+<strong>Non-Owner Device</strong>:</dt>
           <dd style="margin-left: 1.5em" id="section-2.2-1.30">
-            <p id="section-2.2-1.30.1">an individual that is in active control of and the primary user of an Owner Device. An Owner may be associated with one or more Accessories and/or Devices.<a href="#section-2.2-1.30.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-1.30.1">a Device that may connect to an Accessory but is not an Owner Device of that Accessory.<a href="#section-2.2-1.30.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-2.2-1.31">
-<strong>Owner Device</strong>:</dt>
+<strong>Owner</strong>:</dt>
           <dd style="margin-left: 1.5em" id="section-2.2-1.32">
-            <p id="section-2.2-1.32.1">a Device that is associated with the Accessory and can retrieve the Accessory's location by querying the Crowdsourced Network.<a href="#section-2.2-1.32.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-1.32.1">an individual that is in active control of and the primary user of an Owner Device. An Owner may be associated with one or more Accessories and/or Devices.<a href="#section-2.2-1.32.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-2.2-1.33">
-<strong>(Obfuscated) Owner Information</strong>:</dt>
+<strong>Owner Device</strong>:</dt>
           <dd style="margin-left: 1.5em" id="section-2.2-1.34">
-            <p id="section-2.2-1.34.1">(obfuscated) contact information for an Accessory Owner. When an Accessory is marked as lost, this should include a phone number and/or email address. Otherwise, the information should be obfuscated to ensure privacy of Owners in cases where Accessories are falsely suspected of Unwanted Tracking or an Attacker attempts to determine the Owner of an Accessory. The information should include no more than the last two digits of a phone number and/or an obfuscated email address with the first letter of the username and entity visible, as well as the entire extension (e.g., b<strong>**</strong><strong>@i</strong>***.com).<a href="#section-2.2-1.34.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-1.34.1">a Device that is associated with the Accessory and can retrieve the Accessory's location by querying the Crowdsourced Network.<a href="#section-2.2-1.34.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-2.2-1.35">
-<strong>Passive Scanning</strong>:</dt>
+<strong>(Obfuscated) Owner Information</strong>:</dt>
           <dd style="margin-left: 1.5em" id="section-2.2-1.36">
-            <p id="section-2.2-1.36.1">method(s) of Unwanted Tracking detection that are running in the background on all Devices and may trigger Unwanted Tracking Alerts. Contrast with Active Scanning.<a href="#section-2.2-1.36.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-1.36.1">(obfuscated) contact information for an Accessory Owner. When an Accessory is marked as lost, this should include a phone number and/or email address. Otherwise, the information should be obfuscated to ensure privacy of Owners in cases where Accessories are falsely suspected of Unwanted Tracking or an Attacker attempts to determine the Owner of an Accessory. The information should include no more than the last two digits of a phone number and/or an obfuscated email address with the first letter of the username and entity visible, as well as the entire extension (e.g., b<strong>**</strong><strong>@i</strong>***.com).<a href="#section-2.2-1.36.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-2.2-1.37">
@@ -1613,7 +1609,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
           <h4 id="name-security-against-unwanted-t">
 <a href="#section-3.2.1" class="section-number selfRef">3.2.1. </a><a href="#name-security-against-unwanted-t" class="section-name selfRef">Security against Unwanted Tracking for potential Targets</a>
           </h4>
-<p id="section-3.2.1-1">The DULT Protocol must make it possible for potential Targets to discover Unwanted Tracking across Accessory hardware and Platforms within a reasonable amount of time. It should aid the Target in determining the location and Owner of the Accessory while not providing a full name or contact information on demand (as the Tag may merely have been lost or otherwise coincidentally in proximity, and providing excessive information would violate the privacy of a non-malicious Tag Owner). This could potentially be done with obfuscation, such as showing a partially redacted email address or phone number (see <a href="#active-scanning" class="auto internal xref">Section 4.2.1.1</a>).<a href="#section-3.2.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.1-1">The DULT Protocol must make it possible for potential Targets to discover Unwanted Tracking across Accessory hardware and Platforms within a reasonable amount of time. It should aid the Target in determining the location and Owner of the Accessory while not providing a full name or contact information on demand (as the Tag may merely have been lost or otherwise coincidentally in proximity, and providing excessive information would violate the privacy of a non-malicious Tag Owner). This could potentially be done with obfuscation, such as showing a partially redacted email address or phone number (see <a href="#manual-scanning" class="auto internal xref">Section 4.2.1.1</a>).<a href="#section-3.2.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="privacy-for-potential-targets-against-the-use-of-security-measures-for-further-surveillance">
@@ -1719,13 +1715,13 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
             <p id="section-3.3-5.4.1">Access to technological safeguards<a href="#section-3.3-5.4.1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.3-5.4.2.1">
-                <p id="section-3.3-5.4.2.1.1">High: The Target is able to safely use, and has access to, technological safeguards such as active scanning apps.<a href="#section-3.3-5.4.2.1.1" class="pilcrow">¶</a></p>
+                <p id="section-3.3-5.4.2.1.1">High: The Target is able to safely use, and has access to, technological safeguards such as manual scanning apps.<a href="#section-3.3-5.4.2.1.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-3.3-5.4.2.2">
-                <p id="section-3.3-5.4.2.2.1">Limited: The Target is able to safely use, and has access to, technological safeguards such as active scanning apps, but is unable to use their full capacity.<a href="#section-3.3-5.4.2.2.1" class="pilcrow">¶</a></p>
+                <p id="section-3.3-5.4.2.2.1">Limited: The Target is able to safely use, and has access to, technological safeguards such as manual scanning apps, but is unable to use their full capacity.<a href="#section-3.3-5.4.2.2.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-3.3-5.4.2.3">
-                <p id="section-3.3-5.4.2.3.1">Low: The Target is not able to use technological safeguards such as active scanning apps, due to reasons of safety or access.<a href="#section-3.3-5.4.2.3.1" class="pilcrow">¶</a></p>
+                <p id="section-3.3-5.4.2.3.1">Low: The Target is not able to use technological safeguards such as manual scanning apps, due to reasons of safety or access.<a href="#section-3.3-5.4.2.3.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
@@ -1976,7 +1972,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
               <h6 id="name-analysis-3">
 <a href="#section-3.3.1.3.2" class="section-number selfRef">3.3.1.3.2. </a><a href="#name-analysis-3" class="section-name selfRef">Analysis</a>
               </h6>
-<p id="section-3.3.1.3.2-1">This is a case involving a high-skill Attacker, with a large skill difference between Attacker and Target. This situation often arises in regions with a high concentration of technology industry workers. It also may be more common in ethnic-cultural communities with high representation in the technology industry. In this case the Target is also subject to a very high level of control from the Attacker due to their imbalances in technological skills and societal status, and is heavily constrained in their options as a result. It is unsafe for the Target to engage in active scanning, or to receive alerts on their phone. The Target might benefit from being able to log into an account on another phone or a computer and view logs of any recent alerts collected through passive scanning.<a href="#section-3.3.1.3.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.3.1.3.2-1">This is a case involving a high-skill Attacker, with a large skill difference between Attacker and Target. This situation often arises in regions with a high concentration of technology industry workers. It also may be more common in ethnic-cultural communities with high representation in the technology industry. In this case the Target is also subject to a very high level of control from the Attacker due to their imbalances in technological skills and societal status, and is heavily constrained in their options as a result. It is unsafe for the Target to engage in manual scanning, or to receive alerts on their phone. The Target might benefit from being able to log into an account on another phone or a computer and view logs of any recent alerts collected through background scanning.<a href="#section-3.3.1.3.2-1" class="pilcrow">¶</a></p>
 <table class="center" id="table-7">
                 <caption><a href="#table-7" class="selfRef">Table 7</a></caption>
 <thead>
@@ -2498,7 +2494,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
           <h4 id="name-threat-deploying-multiple-t">
 <a href="#section-3.4.3" class="section-number selfRef">3.4.3. </a><a href="#name-threat-deploying-multiple-t" class="section-name selfRef">Threat: Deploying Multiple Tags (Finding)</a>
           </h4>
-<p id="section-3.4.3-1">When an Attacker deploys Location-tracking Tags to follow a Target, they may deploy more than one Tag. For example, if planting a tracking Tag in a car, the Attacker might place one Tag inside the car, and another affixed on the outside of the car. The DULT Protocol must be robust to this scenario. This means that scans, whether passive or active, need to be able to return more than one result if a Tag is suspected of being used for Unwanted Tracking, and the time to do so must not be significantly impeded by the presence of multiple Tags. This also applies to situations where many Tags are present, even if they are not being used for Unwanted Tracking, such as a busy train station or airport where Tag Owners may or may not be in proximity to their Location-tracking Tags. Instead of distributing multiple Tags in the same location, an Attacker could also distribute multiple Location-tracking Tags across locations frequently visited by a Target (home, workplace, etc.).<a href="#section-3.4.3-1" class="pilcrow">¶</a></p>
+<p id="section-3.4.3-1">When an Attacker deploys Location-tracking Tags to follow a Target, they may deploy more than one Tag. For example, if planting a tracking Tag in a car, the Attacker might place one Tag inside the car, and another affixed on the outside of the car. The DULT Protocol must be robust to this scenario. This means that scans, whether background or manual, need to be able to return more than one result if a Tag is suspected of being used for Unwanted Tracking, and the time to do so must not be significantly impeded by the presence of multiple Tags. This also applies to situations where many Tags are present, even if they are not being used for Unwanted Tracking, such as a busy train station or airport where Tag Owners may or may not be in proximity to their Location-tracking Tags. Instead of distributing multiple Tags in the same location, an Attacker could also distribute multiple Location-tracking Tags across locations frequently visited by a Target (home, workplace, etc.).<a href="#section-3.4.3-1" class="pilcrow">¶</a></p>
 <p id="section-3.4.3-2">The impact of this attack is medium for typical cases involving a small number of Tags, though the impact could escalate if an Attacker deploys dozens of Tags. The likelihood is high, as deploying multiple Tags requires minimal technical effort and can be done using inexpensive, commercially available Tags, making the attack easily repeatable. As a result, the overall risk is high, requiring robust countermeasures. The impact of multiple Tags can be fully mitigated by scanning for multiple Tags, though a sophisticated Attacker might deploy other techniques such as modifying Tag firmware (<a href="#accessory-firmware-modifications-accessory" class="auto internal xref">Section 3.4.6</a>) or periodically disabling a Tag (<a href="#attacker-accessory-disablement-accessory-finding" class="auto internal xref">Section 3.4.7</a>) to evade detection.<a href="#section-3.4.3-2" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -2554,7 +2550,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
           <h4 id="name-threat-disabling-target-tag">
 <a href="#section-3.4.9" class="section-number selfRef">3.4.9. </a><a href="#name-threat-disabling-target-tag" class="section-name selfRef">Threat: Disabling Target Tag Detection (Network)</a>
           </h4>
-<p id="section-3.4.9-1">An Attacker might intentionally disable passive Unwanted Tracking detection on a Target's Device.<a href="#section-3.4.9-1" class="pilcrow">¶</a></p>
+<p id="section-3.4.9-1">An Attacker might intentionally disable background Unwanted Tracking detection on a Target's Device.<a href="#section-3.4.9-1" class="pilcrow">¶</a></p>
 <p id="section-3.4.9-2">The impact of this attack is high as it would prevent the Target from being notified about possible Unwanted Tracking. The likelihood is medium, as executing this attack requires the Attacker to physically or remotely alter settings on the Target’s Device, which involves moderate effort and access. The risk level is medium. This attack can be partially mitigated by notifying Targets of potential location tracking using other means e.g. sounds or haptics on Location-tracking Tags.<a href="#section-3.4.9-2" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -2701,7 +2697,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
 <p id="section-4-1">As discussed in <a href="#security-considerations" class="auto internal xref">Section 3</a>, Unwanted Tracking can involve a variety of Attacker, Target, and Tag profiles. A successful implementation to preventing Unwanted Tracking should:<a href="#section-4-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-4-2.1">
-          <p id="section-4-2.1.1">Include a variety of approaches to address different scenarios, including active and passive scanning and notifications or sounds<a href="#section-4-2.1.1" class="pilcrow">¶</a></p>
+          <p id="section-4-2.1.1">Include a variety of approaches to address different scenarios, including manual and background scanning and notifications or sounds<a href="#section-4-2.1.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-4-2.2">
           <p id="section-4-2.2.1">Account for scenarios in which the Attacker has high expertise, proximity, and/or access to resources within the scope defined in <a href="#what-is-in-scope" class="auto internal xref">Section 3.5</a><a href="#section-4-2.2.1" class="pilcrow">¶</a></p>
@@ -2746,7 +2742,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
           <h4 id="name-limitation-spotty-implement">
 <a href="#section-4.1.1" class="section-number selfRef">4.1.1. </a><a href="#name-limitation-spotty-implement" class="section-name selfRef">Limitation: Spotty Implementation</a>
           </h4>
-<p id="section-4.1.1-1">In current implementations of the DULT protocol, implementations of safeguards against Unwanted Tracking are inconsistent across Platforms and Devices. For example, the types and methods of obtaining Unwanted Tracking Alerts vary. Current Accessory types also vary widely in the amount and type of information they provide to a Target who has detected a possible unwanted tracker. Platforms also differ in their support for Active and Passive Scanning, and which brands of Accessories they can scan for. This creates a situation where a Target’s ability to mitigate threats to their safety depends on consumer choices and access, placing a higher burden on Targets find information specific to products, and creating challenges in creating easily understandable public safety information. These differences can also be exploited by an Attacker familiar with target Platforms. A successful protocol would support both Active and Passive Scanning as this increases options for Targets who may be dealing with highly individualized situations. The information provided in Unwanted Tracking Alerts, and the options for a Target, would also benefit from standardization across Platforms and Devices.<a href="#section-4.1.1-1" class="pilcrow">¶</a></p>
+<p id="section-4.1.1-1">Current implementations of safeguards against Unwanted Tracking are inconsistent across Platforms and Devices. For example, the types and methods of obtaining Unwanted Tracking Alerts vary. Current Accessory types also vary widely in the amount and type of information they provide to a Target who has detected a possible unwanted tracker. Platforms also differ in which brands of Accessories they can scan for and when Manual scanning can be performed. This creates a situation where a Target’s ability to mitigate threats to their safety depends on consumer choices and access, placing a higher burden on Targets to find information specific to products, and creating challenges in creating easily understandable public safety information. These differences can also be exploited by an Attacker familiar with target Platforms. A successful protocol would support both Manual and Background Scanning as this increases options for Targets who may be dealing with highly individualized situations. The information provided in Unwanted Tracking Alerts, and the options for a Target, would also benefit from standardization across Platforms and Devices.<a href="#section-4.1.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="limitation-lack-of-customizability">
@@ -2818,21 +2814,21 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
           <h4 id="name-detecting-unwanted-location">
 <a href="#section-4.2.1" class="section-number selfRef">4.2.1. </a><a href="#name-detecting-unwanted-location" class="section-name selfRef">Detecting Unwanted Location Tracking</a>
           </h4>
-<p id="section-4.2.1-1">There are four ways that the DULT Protocol should assist Targets in detecting potentially Unwanted Tracking: 1) active scanning, 2) passive scanning, 3) tracking Tag alerts, and 4) Crowdsourced Network activities logs.<a href="#section-4.2.1-1" class="pilcrow">¶</a></p>
-<div id="active-scanning">
+<p id="section-4.2.1-1">There are four ways that the DULT Protocol should assist Targets in detecting potentially Unwanted Tracking: 1) manual scanning, 2) background scanning, 3) tracking Tag alerts, and 4) Crowdsourced Network activities logs.<a href="#section-4.2.1-1" class="pilcrow">¶</a></p>
+<div id="manual-scanning">
 <section id="section-4.2.1.1">
-            <h5 id="name-design-requirement-active-s">
-<a href="#section-4.2.1.1" class="section-number selfRef">4.2.1.1. </a><a href="#name-design-requirement-active-s" class="section-name selfRef">Design Requirement: Active Scanning</a>
+            <h5 id="name-design-requirement-manual-s">
+<a href="#section-4.2.1.1" class="section-number selfRef">4.2.1.1. </a><a href="#name-design-requirement-manual-s" class="section-name selfRef">Design Requirement: Manual Scanning</a>
             </h5>
-<p id="section-4.2.1.1-1">There may be scenarios where a Target suspects that they are being tracked without their consent. Active scanning should allow a user to use a native application on their Device to search for Location-tracking Tags that are separated from their Owners. When a Tag has been identified as potentially being used for Unwanted Tracking, the user should be able to view the serial number of the Device along with Obfuscated Owner Information and instructions on how to find and/or disable the Tag (see <a href="#finding-tracking-tags" class="auto internal xref">Section 4.2.2</a> and <a href="#disabling-tracking-tags" class="auto internal xref">Section 4.2.3</a>). Additional information about when that Tag has been previously encountered within a designated time window (e.g. the last 12 hours) should also be included if available (see <a href="#balancing-privacy-and-security" class="auto internal xref">Section 3.2</a>). Allowing users to "snooze" or ignore Tags known to be safe (e.g. Tags from a family member) could also be implemented. Tracking Tags that are near their Owners should not be shared to avoid abuse of the active scanning feature.<a href="#section-4.2.1.1-1" class="pilcrow">¶</a></p>
+<p id="section-4.2.1.1-1">There may be scenarios where a Target suspects that they are being tracked without their consent. Manual scanning should allow a user to use a native application on their Device to search for Location-tracking Tags that are separated from their Owners. When a Tag has been identified as potentially being used for Unwanted Tracking, the user should be able to view the serial number of the Device along with Obfuscated Owner Information and instructions on how to find and/or disable the Tag (see <a href="#finding-tracking-tags" class="auto internal xref">Section 4.2.2</a> and <a href="#disabling-tracking-tags" class="auto internal xref">Section 4.2.3</a>). Additional information about when that Tag has been previously encountered within a designated time window (e.g. the last 12 hours) should also be included if available (see <a href="#balancing-privacy-and-security" class="auto internal xref">Section 3.2</a>). Allowing users to "snooze" or ignore Tags known to be safe (e.g. Tags from a family member) could also be implemented. Tracking Tags that are near their Owners should not be shared to avoid abuse of the manual scanning feature.<a href="#section-4.2.1.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="passive-scanning">
+<div id="background-scanning">
 <section id="section-4.2.1.2">
-            <h5 id="name-design-requirement-passive-">
-<a href="#section-4.2.1.2" class="section-number selfRef">4.2.1.2. </a><a href="#name-design-requirement-passive-" class="section-name selfRef">Design Requirement: Passive Scanning</a>
+            <h5 id="name-design-requirement-backgrou">
+<a href="#section-4.2.1.2" class="section-number selfRef">4.2.1.2. </a><a href="#name-design-requirement-backgrou" class="section-name selfRef">Design Requirement: Background Scanning</a>
             </h5>
-<p id="section-4.2.1.2-1">Platforms should passively scan for Tags suspected of Unwanted Tracking and notify the user. This will involve implementing one or more algorithms to use to flag Tags and determine when to notify the user. (A dedicated DULT WG document will address tracking algorithms, and will be linked when it is available.) The user could be notified through a push notification or through Sounds and Haptics (see <a href="#location-tracking-tag-alerts" class="auto internal xref">Section 4.2.1.3</a>). When a Tag has been identified as potentially being used for Unwanted Tracking, the user should be able to view the serial number of the Tag along with Obfuscated Owner Information for all accounts linked to the Tag and instructions on how to find and/or disable the Tag (see <a href="#finding-tracking-tags" class="auto internal xref">Section 4.2.2</a> and <a href="#disabling-tracking-tags" class="auto internal xref">Section 4.2.3</a>). There will be tradeoffs between detecting potential Unwanted Tracking promptly and alerting the potential Target prematurely. One way to handle these tradeoffs is to allow users to set the sensitivity of these alerts. For example, the <a href="https://github.com/seemoo-lab/AirGuard">AirGuard</a> app includes three different "Security Level" settings that users can customize.<a href="#section-4.2.1.2-1" class="pilcrow">¶</a></p>
+<p id="section-4.2.1.2-1">Platforms should scan in the background for Tags suspected of Unwanted Tracking and notify the user. This will involve implementing one or more algorithms to use to flag Tags and determine when to notify the user. (A dedicated DULT WG document will address tracking algorithms, and will be linked when it is available.) The user could be notified through a push notification or through Sounds and Haptics (see <a href="#location-tracking-tag-alerts" class="auto internal xref">Section 4.2.1.3</a>). When a Tag has been identified as potentially being used for Unwanted Tracking, the user should be able to view the serial number of the Tag along with Obfuscated Owner Information for all accounts linked to the Tag and instructions on how to find and/or disable the Tag (see <a href="#finding-tracking-tags" class="auto internal xref">Section 4.2.2</a> and <a href="#disabling-tracking-tags" class="auto internal xref">Section 4.2.3</a>). There will be tradeoffs between detecting potential Unwanted Tracking promptly and alerting the potential Target prematurely. One way to handle these tradeoffs is to allow users to set the sensitivity of these alerts. For example, the <a href="https://github.com/seemoo-lab/AirGuard">AirGuard</a> app includes three different "Security Level" settings that users can customize.<a href="#section-4.2.1.2-1" class="pilcrow">¶</a></p>
 <p id="section-4.2.1.2-2">To improve the accuracy of Unwanted Tracking detection, a confidence scoring mechanism can be used. Instead of issuing binary alerts for all detected Tags, the system assigns a confidence score based on multiple factors, helping distinguish between genuine tracking threats and benign scenarios. This section outlines potential factors that may contribute to assessing the likelihood of Unwanted Tracking. Each factor can be considered independently to help inform an overall risk assessment. A confidence-based approach offers the following advantages:<a href="#section-4.2.1.2-2" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-4.2.1.2-3.1">
@@ -2918,7 +2914,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
             <h5 id="name-design-requirement-location">
 <a href="#section-4.2.1.3" class="section-number selfRef">4.2.1.3. </a><a href="#name-design-requirement-location" class="section-name selfRef">Design Requirement: Location-tracking Tag Alerts</a>
             </h5>
-<p id="section-4.2.1.3-1">Location-tracking Tags may be difficult to locate, and users may not have a Device that can actively or passively scan for Location-tracking Tags. The DULT Protocol should be built with <a href="https://cdt.org/insights/centering-disability-in-mitigating-harms-of-bluetooth-tracking-technology/">accessibility in mind</a> so that the most people can be protected by the protocol. In addition to push notifications on nearby Devices, Location-tracking Tags themselves should be able to notify end users. This should include periodic sounds when away from all Tag Owners, along with lights and haptics so that people who are Deaf or hard of hearing can still locate them. Tracking Tag Alerts should also educate the user on methods to successfully find and disable Tags (see <a href="#finding-tracking-tags" class="auto internal xref">Section 4.2.2</a> and <a href="#disabling-tracking-tags" class="auto internal xref">Section 4.2.3</a>).<a href="#section-4.2.1.3-1" class="pilcrow">¶</a></p>
+<p id="section-4.2.1.3-1">Location-tracking Tags may be difficult to locate, and users may not have a Device that can scan manually or in the background for Location-tracking Tags. The DULT Protocol should be built with <a href="https://cdt.org/insights/centering-disability-in-mitigating-harms-of-bluetooth-tracking-technology/">accessibility in mind</a> so that the most people can be protected by the protocol. In addition to push notifications on nearby Devices, Location-tracking Tags themselves should be able to notify end users. This should include periodic sounds when away from all Tag Owners, along with lights and haptics so that people who are Deaf or hard of hearing can still locate them. Tracking Tag Alerts should also educate the user on methods to successfully find and disable Tags (see <a href="#finding-tracking-tags" class="auto internal xref">Section 4.2.2</a> and <a href="#disabling-tracking-tags" class="auto internal xref">Section 4.2.3</a>).<a href="#section-4.2.1.3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="design-requirement-crowdsourced-network-activities-logs">
@@ -2937,7 +2933,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
           <h4 id="name-finding-tracking-tags">
 <a href="#section-4.2.2" class="section-number selfRef">4.2.2. </a><a href="#name-finding-tracking-tags" class="section-name selfRef">Finding Tracking Tags</a>
           </h4>
-<p id="section-4.2.2-1">Even after a Tag is detected through passive or active scanning, a user may have difficulty in locating it. For example, a Tag may be buried under a vehicle cushion. Platforms should allow users who have discovered a Tag through passive or active scanning to request that the Tag signal its presence. This assistance should be done in a way that is accessible to users with sensory or other impairments by using multimodal signals as described in <a href="#location-tracking-tag-alerts" class="auto internal xref">Section 4.2.1.3</a>. Manufacturers/Platforms may also implement other methods to assist in locating Tags, such as precision finding using Ultra-wideband.<a href="#section-4.2.2-1" class="pilcrow">¶</a></p>
+<p id="section-4.2.2-1">Even after a Tag is detected through background or manual scanning, a user may have difficulty in locating it. For example, a Tag may be buried under a vehicle cushion. Platforms should allow users who have discovered a Tag through background or manual scanning to request that the Tag signal its presence. This assistance should be done in a way that is accessible to users with sensory or other impairments by using multimodal signals as described in <a href="#location-tracking-tag-alerts" class="auto internal xref">Section 4.2.1.3</a>. Manufacturers/Platforms may also implement other methods to assist in locating Tags, such as precision finding using Ultra-wideband.<a href="#section-4.2.2-1" class="pilcrow">¶</a></p>
 <div id="lost-mode">
 <section id="section-4.2.2.1">
             <h5 id="name-lost-mode">
@@ -2971,9 +2967,9 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
           <h4 id="name-notification-management-for">
 <a href="#section-4.2.4" class="section-number selfRef">4.2.4. </a><a href="#name-notification-management-for" class="section-name selfRef">Notification Management for Trusted Accessories</a>
           </h4>
-<p id="section-4.2.4-1">To reduce alert fatigue and improve user experience, implementations should allow users to snooze passive notifications from Location-tracking Tags that have been explicitly marked as trusted or friendly. This is particularly useful in scenarios where users regularly encounter the same Tag (e.g., a family member's keys or a shared vehicle Tag).<a href="#section-4.2.4-1" class="pilcrow">¶</a></p>
-<p id="section-4.2.4-2">Such snoozed Tags may also be de-prioritized or grouped separately during active scans, helping users focus on unfamiliar or potentially malicious Tags. Platforms should make it easy to manage snoozed Tags and review or revoke trust status as needed. It is also advisable to implement revalidation mechanisms, for example, resuming notifications after a period of time to prevent long-term blind spots.<a href="#section-4.2.4-2" class="pilcrow">¶</a></p>
-<p id="section-4.2.4-3">Some Platforms may wish to implement family sharing or shared Ownership models, where multiple users can be associated with a single Tag. However, this introduces the risk of abuse (e.g., an Attacker adding a Target to the shared list in order to avoid triggering passive notifications), and therefore should be approached with caution and abuse mitigation in mind. These features are optional and may vary by Platform. Whenever shared Ownership is used, information about all Owners should be made available when a Tag is suspected of Unwanted Tracking (see <a href="#passive-scanning" class="auto internal xref">Section 4.2.1.2</a>).<a href="#section-4.2.4-3" class="pilcrow">¶</a></p>
+<p id="section-4.2.4-1">To reduce alert fatigue and improve user experience, implementations should allow users to snooze background notifications from Location-tracking Tags that have been explicitly marked as trusted or friendly. This is particularly useful in scenarios where users regularly encounter the same Tag (e.g., a family member's keys or a shared vehicle Tag).<a href="#section-4.2.4-1" class="pilcrow">¶</a></p>
+<p id="section-4.2.4-2">Such snoozed Tags may also be de-prioritized or grouped separately during manual scans, helping users focus on unfamiliar or potentially malicious Tags. Platforms should make it easy to manage snoozed Tags and review or revoke trust status as needed. It is also advisable to implement revalidation mechanisms, for example, resuming notifications after a period of time to prevent long-term blind spots.<a href="#section-4.2.4-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.4-3">Some Platforms may wish to implement family sharing or shared Ownership models, where multiple users can be associated with a single Tag. However, this introduces the risk of abuse (e.g., an Attacker adding a Target to the shared list in order to avoid triggering background notifications), and therefore should be approached with caution and abuse mitigation in mind. These features are optional and may vary by Platform. Whenever shared Ownership is used, information about all Owners should be made available when a Tag is suspected of Unwanted Tracking (see <a href="#background-scanning" class="auto internal xref">Section 4.2.1.2</a>).<a href="#section-4.2.4-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2989,7 +2985,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
           <h4 id="name-bluetooth-constraints">
 <a href="#section-4.3.1" class="section-number selfRef">4.3.1. </a><a href="#name-bluetooth-constraints" class="section-name selfRef">Bluetooth constraints</a>
           </h4>
-<p id="section-4.3.1-1">Detecting Tags requires analyzing Bluetooth Low Energy (BLE) advertisement packets. Advertisements are publicly transmitted, allowing passive scanning by any nearby receiver. While this enables open detection of unknown Tags, it also raises privacy concerns (see <a href="#introduction" class="auto internal xref">Section 1</a>). Some BLE implementations employ randomized MAC addresses and other privacy-preserving techniques, which could impact persistent tracking detection.<a href="#section-4.3.1-1" class="pilcrow">¶</a></p>
+<p id="section-4.3.1-1">Detecting Tags requires analyzing Bluetooth Low Energy (BLE) advertisement packets. Advertisements are publicly transmitted, allowing background scanning by any nearby receiver. While this enables open detection of unknown Tags, it also raises privacy concerns (see <a href="#introduction" class="auto internal xref">Section 1</a>). Some BLE implementations employ randomized MAC addresses and other privacy-preserving techniques, which could impact persistent tracking detection.<a href="#section-4.3.1-1" class="pilcrow">¶</a></p>
 <p id="section-4.3.1-2">The BLE payload in BLE 4.0 can support advertisement packets of up to 37 bytes. One current adoption of Unwanted Tracking detection requires 12 of these bytes for implementing the basic protocol, with the remaining optional (see <span>[<a href="#I-D.detecting-unwanted-location-trackers" class="cite xref">I-D.detecting-unwanted-location-trackers</a>]</span>). Implementation of the DULT Protocol will need to consider these limitations. For example, in <a href="https://eprint.iacr.org/2023/1332.pdf">Eldridge et al</a>, implementing Multi-Dealer Secret Sharing required using two advertisement packets were needed instead of one due to payload constraints. While BLE 5.0 supports 255+ bytes of data, the protocol is not backwards compatible and thus may not be suitable for the DULT Protocol.<a href="#section-4.3.1-2" class="pilcrow">¶</a></p>
 <p id="section-4.3.1-3">BLE advertisements operate in the 2.4 GHz ISM band, making them susceptible to interference from Wi-Fi, microwave ovens, and other wireless devices. The presence of environmental noise may degrade detection accuracy and introduce variability in scan results.<a href="#section-4.3.1-3" class="pilcrow">¶</a></p>
 <p id="section-4.3.1-4">BLE uses channel hopping for advertising (three advertising channels). Scanners need to cover all these channels to avoid missing advertisements. The BLE protocol also enforces strict power efficiency mechanisms, such as advertising intervals and connection event scheduling, which impact detection frequency. Devices operating in low-power modes or sleep modes may significantly reduce their advertisement frequency to conserve energy, making periodic detection less reliable. Furthermore, Platform-level constraints, such as OS-imposed scanning limits and background activity restrictions, further impact the consistency and responsiveness of tracking detection mechanisms. For further discussion of power constraints, see <a href="#power-constraints" class="auto internal xref">Section 4.3.2</a>.<a href="#section-4.3.1-4" class="pilcrow">¶</a></p>
@@ -3032,15 +3028,15 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
 <p id="section-4.4-1">While all of the above design considerations should be considered, the following topics are considered highest priority for the technical documents of the DULT WG to address:<a href="#section-4.4-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-4.4-2.1">
-            <p id="section-4.4-2.1.1">Priority 1: Active Scanning<a href="#section-4.4-2.1.1" class="pilcrow">¶</a></p>
+            <p id="section-4.4-2.1.1">Priority 1: Manual Scanning<a href="#section-4.4-2.1.1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-4.4-2.1.2.1">
-                <p id="section-4.4-2.1.2.1.1">The documents should ensure platforms implement active scanning for all DULT compliant Accessories.<a href="#section-4.4-2.1.2.1.1" class="pilcrow">¶</a></p>
+                <p id="section-4.4-2.1.2.1.1">The documents should ensure platforms implement manual scanning for all DULT compliant Accessories.<a href="#section-4.4-2.1.2.1.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
           <li class="normal" id="section-4.4-2.2">
-            <p id="section-4.4-2.2.1">Priority 2: Passive Scanning<a href="#section-4.4-2.2.1" class="pilcrow">¶</a></p>
+            <p id="section-4.4-2.2.1">Priority 2: Background Scanning<a href="#section-4.4-2.2.1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-4.4-2.2.2.1">
                 <p id="section-4.4-2.2.2.1.1">The documents should ensure Accessories and Devices implement finding algorithms, issue Unwanted Tracking Alerts and otherwise notify users of Accessories in proximity, and allow users to manage Unwanted Tracking Alerts to improve detection of Unwanted Tracking and/or prevent alarm fatigue<a href="#section-4.4-2.2.2.1.1" class="pilcrow">¶</a></p>
@@ -3104,7 +3100,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
 <dd class="break"></dd>
 <dt id="I-D.draft-ledvina-apple-google-unwanted-trackers">[I-D.draft-ledvina-apple-google-unwanted-trackers]</dt>
       <dd>
-<span class="refAuthor">Ledvina, B.</span>, <span class="refAuthor">Eddinger, Z.</span>, <span class="refAuthor">Detwiler, B.</span>, and <span class="refAuthor">S. P. Polatkan</span>, <span class="refTitle">"Detecting Unwanted Location Trackers"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ledvina-apple-google-unwanted-trackers-02</span>, <time datetime="2026-01-02" class="refDate">2 January 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ledvina-apple-google-unwanted-trackers-02">https://datatracker.ietf.org/doc/html/draft-ledvina-apple-google-unwanted-trackers-02</a>&gt;</span>. </dd>
+<span class="refAuthor">Ledvina, B.</span>, <span class="refAuthor">Eddinger, Z.</span>, <span class="refAuthor">Detwiler, B.</span>, and <span class="refAuthor">S. P. Polatkan</span>, <span class="refTitle">"Detecting Unwanted Location Trackers"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ledvina-apple-google-unwanted-trackers-03</span>, <time datetime="2026-06-24" class="refDate">24 June 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ledvina-apple-google-unwanted-trackers-03">https://datatracker.ietf.org/doc/html/draft-ledvina-apple-google-unwanted-trackers-03</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC2119">[RFC2119]</dt>
       <dd>
