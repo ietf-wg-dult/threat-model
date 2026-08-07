@@ -521,7 +521,7 @@ The impact of this attack is medium. The likelihood is high, as replay attacks r
 
 ### Threat: Heterogeneous Tag Networks (Accessory, Finding, Network)
 
-Attackers may use a mix of Tags from different manufacturers (e.g., Apple AirTags, Tile, Samsung SmartTags) to exploit gaps in vendor-specific tracking protections. Many detection systems are brand-dependent, making them ineffective against mixed Tag deployments. The goal of the DULT Protocol is to enable a cross-vendor framework; however, any slight differences in implementation could be exploited.
+Attackers may use Tags incompatible with a Target's Unwanted Tracking protections and/or use a mix of Tags from different manufacturers (e.g., Apple AirTags, Tile, Samsung SmartTags) to exploit gaps in vendor-specific tracking protections. Many detection systems are brand-dependent, making them ineffective against mixed Tag deployments. The goal of the DULT Protocol is to enable a cross-vendor framework; however, any slight differences in implementation could be exploited.
 
 The impact is high, as it circumvents traditional defenses. The likelihood is medium, as deploying or selecting from multiple brands requires effort and coordination, and may demand deeper knowledge of Platform-specific behaviors and limitations. Overall, this is medium risk attack. This attack can be mitigated by manufacturers adopting the DULT Protocol and ensuring that the DULT Protocol is sufficiently clear to minimize gaps in vendor-specific tracking protections.
 
