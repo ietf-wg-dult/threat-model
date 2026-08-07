@@ -117,7 +117,7 @@ This threat model is also more likely to be applicable in regions where the use 
 : the state an Accessory is in where its location can be remotely viewed by its Owner.
 
 **Location-tracking Accessory**:
-: any Accessory that has location-tracking capabilities, including, but not limited to, crowdsourced location, GPS/GNSS location, WiFi location, cell location, etc., and provides the location information back to an Owner Device via a Crowdsourced Network using the internet, cellular connection, etc. Location-tracking Accessories that are Easily Discoverable MUST adhere to the DULT Protocol. Location-tracking Accessories may also be referred to as Location-tracking Tags.
+: any Accessory that has location-tracking capabilities, including, but not limited to, crowdsourced location, GPS/GNSS location, WiFi location, cell location, etc., and provides the location information back to an Owner Device via a Crowdsourced Network using the internet, cellular connection, etc. Location-tracking Accessories that are not Easily Discoverable MUST adhere to the DULT Protocol. Location-tracking Accessories may also be referred to as Location-tracking Tags.
 
 **Location-tracking Tag**:
 : a term that may be used interchangeably with Location-tracking Accessory.
